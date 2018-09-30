@@ -1,3 +1,3 @@
 # gruppe9
 
-Our version of the World of Zuul game
+Our version of World of Zuul
