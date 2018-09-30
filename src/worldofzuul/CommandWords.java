@@ -34,9 +34,9 @@ public class CommandWords
 
     public void showAll() 
     {
-        for(String command : validCommands.keySet()) {
+        validCommands.keySet().forEach((command) -> {
             System.out.print(command + "  ");
-        }
+        });
         System.out.println();
     }
 }
