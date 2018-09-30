@@ -37,7 +37,6 @@ public class RoomTest {
      */
     @Test
     public void testGetExit() {
-        System.out.println("getExit");
         String direction = "south";
         Room instance = new Room("university");
         Room expResult = new Room("lab");
