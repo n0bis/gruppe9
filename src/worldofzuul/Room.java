@@ -33,12 +33,7 @@ public class Room
 
     private String getExitString()
     {
-        String returnString = "Exits:";
-        Set<String> keys = exits.keySet();
-        for(String exit : keys) {
-            returnString += " " + exit;
-        }
-        return returnString;
+        return exits.keySet().stream().map((exit) -> " " + exit).reduce("Exits:", String::concat);
     }
 
     public Room getExit(String direction) 
