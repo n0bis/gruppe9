@@ -15,28 +15,23 @@ public class Game
 
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
+            northToilets, u45, u55, southMainHall, building38, u140, building22a, building22aNorth, u27a, building22aSouth, u1,
+                building334, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen;
       
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        outsideTek = new Room("outside the tek entrance of the university");
+        tekHall = new Room("inside TEK hall");
+        studyRooms = new Room("upstairs infront of the study rooms - for projects");
+        building44lvl1 = new Room("at level 1 in building 44");
+        building44lvl2 = new Room("at level 2 in building 44");
+        building44lvl3 = new Room("at level 3 in building 44");
         
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-
-        theatre.setExit("west", outside);
-
-        pub.setExit("east", outside);
-
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        outsideTek.setExit("north", tekHall);
+        tekHall.setExit("up", studyRooms);
+        
+        studyRooms.setExit("down", tekHall);
+        
+        currentRoom = outsideTek;
     }
 
     public void play() 
