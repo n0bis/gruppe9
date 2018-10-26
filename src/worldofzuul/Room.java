@@ -9,6 +9,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    public Item item;
 
     public Room(String description) 
     {
@@ -39,6 +40,10 @@ public class Room
     public Room getExit(String direction) 
     {
         return exits.get(direction);
+    }
+    
+    public void setItem (Item item) {
+        this.item = item;
     }
 }
 
