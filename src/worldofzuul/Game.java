@@ -78,6 +78,10 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case SEARCH:
+                break;
+            case DROP:
+                break;
             default:
                 break;
         }
@@ -92,7 +96,7 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
-
+    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
