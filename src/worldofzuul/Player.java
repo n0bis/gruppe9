@@ -14,6 +14,14 @@ public class Player {
         inventory.add(item);
     }
     
-    
-    
+    public void getInventory() {
+        if (inventory.isEmpty()) {
+            System.out.println("Too bad. You got no items hombré!");
+        } else {
+            System.out.println("### You inventory is: ###");
+            for(Item item : inventory) {
+                System.out.println("- " + item.name + " ");
+            }
+        }
+    }
 }
