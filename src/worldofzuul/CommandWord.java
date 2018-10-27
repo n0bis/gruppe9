@@ -2,7 +2,7 @@ package worldofzuul;
 
 public enum CommandWord
 {
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?"), SEARCH("search"), DROP("drop"), INVENTORY("inventory");
+    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
     
     private String commandString;
     
@@ -11,7 +11,6 @@ public enum CommandWord
         this.commandString = commandString;
     }
     
-    @Override
     public String toString()
     {
         return commandString;

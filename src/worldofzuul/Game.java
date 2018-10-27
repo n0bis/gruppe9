@@ -78,12 +78,6 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
-            case SEARCH:
-                break;
-            case DROP:
-                break;
-            case INVENTORY:
-                break;
             default:
                 break;
         }
