@@ -82,6 +82,8 @@ public class Game
                 break;
             case DROP:
                 break;
+            case INVENTORY:
+                break;
             default:
                 break;
         }
