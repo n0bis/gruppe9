@@ -11,11 +11,16 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        player = new Player();
     }
 
 
     private void createRooms()
     {
+        Item studycard, book;
+        studycard = new Item("Studiekort", 1);
+        book = new Item("Bog", 2);
+        
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22aNorth, u27a, building22aSouth, u1,
                 building334, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen;
@@ -29,8 +34,10 @@ public class Game
         
         outsideTek.setExit("north", tekHall);
         tekHall.setExit("up", studyRooms);
-        
         studyRooms.setExit("down", tekHall);
+        
+        outsideTek.setItem(studycard);
+        tekHall.setItem(book);
         
         currentRoom = outsideTek;
     }
@@ -80,6 +87,7 @@ public class Game
                 wantToQuit = quit(command);
                 break;
             case SEARCH:
+                search();
                 break;
             case DROP:
                 break;
@@ -90,7 +98,7 @@ public class Game
         }
         return wantToQuit;
     }
-
+    
     private void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
@@ -98,6 +106,16 @@ public class Game
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+    }
+    
+    private void search() {
+        if(currentRoom.getItem() == null) {
+            System.out.println("There is not items here... Spooky");
+        } else {
+            System.out.println("Amazing you found " + currentRoom.getItem().name);
+            System.out.println(currentRoom.getItem());
+            player.addItem(currentRoom.getItem());
+        }
     }
     
     private void goRoom(Command command) 

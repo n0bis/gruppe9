@@ -4,7 +4,6 @@ import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
 public class Room 
 {
     private String description;
@@ -47,7 +46,7 @@ public class Room
     }
 
     public Item getItem() {
-        return item;
+        return this.item;
     }
     
     
