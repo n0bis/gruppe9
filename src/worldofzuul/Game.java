@@ -4,6 +4,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Player player;
         
 
     public Game() 
@@ -77,6 +78,12 @@ public class Game
                 break;
             case QUIT:
                 wantToQuit = quit(command);
+                break;
+            case SEARCH:
+                break;
+            case DROP:
+                break;
+            case INVENTORY:
                 break;
             default:
                 break;
