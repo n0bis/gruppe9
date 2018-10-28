@@ -34,6 +34,8 @@ public class Game
         currentRoom = outsideTek;
     }
 
+ 
+        
     public void play() 
     {            
         printWelcome();
@@ -54,7 +56,19 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        System.out.println(currentRoom.getLongDescription());
+        TextDelay(currentRoom.getLongDescription());
+    }
+    
+    public void TextDelay(String str) {
+    String text = str;
+        for(int i=0; i<text.length();i++){
+            System.out.print(text.charAt(i));
+            try {
+               Thread.sleep(500); 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private boolean processCommand(Command command) 
