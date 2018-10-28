@@ -62,9 +62,9 @@ public class Game
     public void TextDelay(String str) {
     String text = str;
         for(int i=0; i<text.length();i++){
-            System.out.print(text.charAt(i));
+            System.out.print(text.charAt(i)); // Checks char at position i in the string.
             try {
-               Thread.sleep(500); 
+               Thread.sleep(500); // Defines the delay in ms
             } catch (Exception e) {
                 e.printStackTrace();
             }
