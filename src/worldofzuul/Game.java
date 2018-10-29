@@ -1,5 +1,8 @@
 package worldofzuul;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Game 
 {
     private Parser parser;
@@ -90,8 +93,10 @@ public class Game
                 search();
                 break;
             case DROP:
+                dropItem(command);
                 break;
             case INVENTORY:
+                inventory();
                 break;
             default:
                 break;
@@ -109,13 +114,36 @@ public class Game
     }
     
     private void search() {
+
         if(currentRoom.getItem() == null) {
             System.out.println("There is not items here... Spooky");
         } else {
             System.out.println("Amazing you found " + currentRoom.getItem().name);
-            System.out.println(currentRoom.getItem());
             player.addItem(currentRoom.getItem());
+            currentRoom.setItem(null);
         }
+    }
+    
+        private void dropItem(Command command) {
+        if(!command.hasSecondWord()) return;
+
+        for(int index = 0; index < player.inventory.size(); index++) { 
+            Item item = player.inventory.get(index);
+            
+            if(item.name.equalsIgnoreCase(command.getSecondWord())) {
+                currentRoom.setItem(item);
+                player.inventory.remove(item);
+                System.out.println("You dropped " + item.name);
+                break;
+            } else {
+            System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
+        }
+    }
+
+    }
+        
+    private void inventory() {
+        player.getInventory();
     }
     
     private void goRoom(Command command) 
