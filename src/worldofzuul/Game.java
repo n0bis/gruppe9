@@ -4,17 +4,23 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Player player;
         
 
     public Game() 
     {
         createRooms();
         parser = new Parser();
+        player = new Player();
     }
 
 
     private void createRooms()
     {
+        Item studycard, book;
+        studycard = new Item("Studiekort", 1);
+        book = new Item("Bog", 2);
+        
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22aNorth, u27a, building22aSouth, u1,
                 building334, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen;
@@ -28,8 +34,10 @@ public class Game
         
         outsideTek.setExit("north", tekHall);
         tekHall.setExit("up", studyRooms);
-        
         studyRooms.setExit("down", tekHall);
+        
+        outsideTek.setItem(studycard);
+        tekHall.setItem(book);
         
         currentRoom = outsideTek;
     }
@@ -92,12 +100,21 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            case SEARCH:
+                search();
+                break;
+            case DROP:
+                dropItem(command);
+                break;
+            case INVENTORY:
+                inventory();
+                break;
             default:
                 break;
         }
         return wantToQuit;
     }
-
+    
     private void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
@@ -106,7 +123,41 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
+    
+    private void search() {
 
+        if(currentRoom.getItem() == null) {
+            System.out.println("There is not items here... Spooky");
+        } else {
+            System.out.println("Amazing you found " + currentRoom.getItem().name);
+            player.addItem(currentRoom.getItem());
+            currentRoom.setItem(null);
+        }
+    }
+    
+        private void dropItem(Command command) {
+        if(!command.hasSecondWord()) {
+            System.out.println("You need to specify what item to drop..");
+            return;
+        }
+
+        for(int index = 0; index < player.inventory.size(); index++) { 
+            Item item = player.inventory.get(index);
+            
+            if(item.name.equalsIgnoreCase(command.getSecondWord())) {
+                currentRoom.setItem(item);
+                player.inventory.remove(item);
+                System.out.println("You dropped " + item.name);
+                return;
+            }       
+        }
+        System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
+    }
+        
+    private void inventory() {
+        player.getInventory();
+    }
+    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {

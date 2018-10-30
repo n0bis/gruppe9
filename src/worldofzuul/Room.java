@@ -4,11 +4,11 @@ import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
 public class Room 
 {
     private String description;
     private HashMap<String, Room> exits;
+    public Item item;
 
     public Room(String description) 
     {
@@ -40,5 +40,15 @@ public class Room
     {
         return exits.get(direction);
     }
+    
+    public void setItem (Item item) {
+        this.item = item;
+    }
+
+    public Item getItem() {
+        return this.item;
+    }
+    
+    
 }
 
