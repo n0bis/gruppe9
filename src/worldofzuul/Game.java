@@ -121,10 +121,10 @@ public class Game
     }
     
     private void search() {
-
         if(currentRoom.getItem() == null) {
             System.out.println("There is not items here... Spooky");
         } else {
+            textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
             currentRoom.setItem(null);
