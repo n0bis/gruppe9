@@ -4,6 +4,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Timer timer;
+    
         
 
     public Game() 
@@ -108,6 +110,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
+            timer.startTimer(1200000);
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
