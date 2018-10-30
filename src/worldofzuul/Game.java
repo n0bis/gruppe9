@@ -64,19 +64,18 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
-        TextDelay(currentRoom.getLongDescription());
+        textDelay(currentRoom.getLongDescription());
     }
     
-    public void TextDelay(String str) {
-    String text = str;
-        for(int i=0; i<text.length();i++){
-            System.out.print(text.charAt(i)); // Checks char at position i in the string.
+    public void textDelay(String str) { 
+        for (char ch: str.toCharArray()) {
+            System.out.print(ch);
             try {
-               Thread.sleep(300); // Defines the delay in ms
+                Thread.sleep(300); // Defines the delay in ms
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }   
     }
 
     private boolean processCommand(Command command) 
@@ -174,7 +173,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            textDelay(currentRoom.getLongDescription());
         }
     }
 
