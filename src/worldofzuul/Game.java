@@ -1,5 +1,9 @@
 package worldofzuul;
 
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+import WoZTimer;
+
 public class Game 
 {
     private Parser parser;
@@ -12,6 +16,9 @@ public class Game
         createRooms();
         parser = new Parser();
         player = new Player();
+        Timer timer = new Timer();
+        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        timer.schedule(new TimeRemanining(), TimeUnit.MINUTES.toMillis(10));
     }
 
     private void createRooms()
