@@ -4,8 +4,8 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    private Timer timer;
     private Player player;
-        
 
     public Game() 
     {
@@ -13,7 +13,6 @@ public class Game
         parser = new Parser();
         player = new Player();
     }
-
 
     private void createRooms()
     {
@@ -42,12 +41,9 @@ public class Game
         currentRoom = outsideTek;
     }
 
- 
-        
     public void play() 
     {            
         printWelcome();
-
                 
         boolean finished = false;
         while (! finished) {
