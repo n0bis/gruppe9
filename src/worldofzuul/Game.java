@@ -121,7 +121,6 @@ public class Game
     }
     
     private void search() {
-
         if(currentRoom.getItem() == null) {
             System.out.println("There is not items here... Spooky");
         } else {
