@@ -64,7 +64,7 @@ public class Game
         for(int i=0; i<text.length();i++){
             System.out.print(text.charAt(i)); // Checks char at position i in the string.
             try {
-               Thread.sleep(500); // Defines the delay in ms
+               Thread.sleep(300); // Defines the delay in ms
             } catch (Exception e) {
                 e.printStackTrace();
             }
