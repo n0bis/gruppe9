@@ -125,7 +125,10 @@ public class Game
     }
     
         private void dropItem(Command command) {
-        if(!command.hasSecondWord()) return;
+        if(!command.hasSecondWord()) {
+            System.out.println("You need to specify what item to drop..");
+            return;
+        }
 
         for(int index = 0; index < player.inventory.size(); index++) { 
             Item item = player.inventory.get(index);
@@ -134,12 +137,10 @@ public class Game
                 currentRoom.setItem(item);
                 player.inventory.remove(item);
                 System.out.println("You dropped " + item.name);
-                break;
-            } else {
-            System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
+                return;
+            }       
         }
-    }
-
+        System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
     private void inventory() {
