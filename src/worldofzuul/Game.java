@@ -44,7 +44,6 @@ public class Game
     public void play() 
     {            
         printWelcome();
-
                 
         boolean finished = false;
         while (! finished) {
@@ -170,7 +169,6 @@ public class Game
             System.out.println("There is no door!");
         }
         else {
-            timer.startTimer(1200000);
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
