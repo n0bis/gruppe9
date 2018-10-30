@@ -42,6 +42,8 @@ public class Game
         currentRoom = outsideTek;
     }
 
+ 
+        
     public void play() 
     {            
         printWelcome();
@@ -63,6 +65,18 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+    }
+    
+    public void textDelay(String str) { 
+        for (char ch: str.toCharArray()) {
+            System.out.print(ch);
+            try {
+                Thread.sleep(300); // Defines the delay in ms
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("");
     }
 
     private boolean processCommand(Command command) 
