@@ -51,6 +51,7 @@ public class Game
         currentRoom = outsideTek;
         
         outsideTek.setExit("north", tekHall);
+        tekHall.setExit("west", tekHall);
         tekHall.setExit("up", studyRooms);
         studyRooms.setExit("down", tekHall);
         tekHall.setExit("east",building44lvl1);
@@ -60,7 +61,10 @@ public class Game
         u183.setExit("back", building44lvl3); 
         building44lvl3.setExit("down",building44lvl2);
         building44lvl2.setExit("down",building44lvl1);
+        building44lvl1.setExit("west", tekHall);
+        tekHall.setExit("south", outsideTek);
         building44lvl1.setExit("east",northMainHall);
+        northMainHall.setExit("west",building44lvl1);
         northMainHall.setExit("down",northToilets);
         northToilets.setExit("up",northMainHall);
         northMainHall.setExit("to u45", u45);
@@ -68,6 +72,7 @@ public class Game
         northMainHall.setExit("to u55",u55);
         u55.setExit("back", northMainHall);
         northMainHall.setExit("south",southMainHall);
+        southMainHall.setExit("north",northMainHall);
         southMainHall.setExit("to TheColourKitchen", theColourKitchen);
         theColourKitchen.setExit("to nedenunder",nedenunder);
         nedenunder.setExit("back",theColourKitchen);
@@ -85,7 +90,7 @@ public class Game
         building38.setExit("back",northMainHall);
         northMainHall.setExit("to building22a",building22a);
         building22a.setExit("to building22aSouth",building22aSouth);
-        building22a.setExit("to u1",u1);
+        building22aSouth.setExit("to u1",u1);
         u1.setExit("back",building22aSouth);
         building22aSouth.setExit("back",building22a);
         building22a.setExit("to building22aNorth", building22aNorth);
