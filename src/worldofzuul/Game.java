@@ -141,7 +141,8 @@ public class Game
     }
     
     private void talk() {
-    if(currentRoom.getNPC().questItem == null) {
+    if(currentRoom.hasNPC()) {
+        if(currentRoom.getNPC().questItem == null) {
         if(player.inventory.size() > 0) {
           for(Item item : player.inventory) {
             if(item == currentRoom.getNPC().needItem) {
@@ -166,10 +167,13 @@ public class Game
         } else {
             System.out.println(currentRoom.getNPC().quest);
         }
-    } else {
+        } else {
         System.out.println("You have already helped me");
         }
+    } else {
+        System.out.println("There is no one to talk to... Who you talking to boiii");
     }
+   }
     
     private void search() {
         if(currentRoom.getItem() == null) {
