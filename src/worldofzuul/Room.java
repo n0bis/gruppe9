@@ -9,6 +9,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     public Item item;
+    public NPC npc;
 
     public Room(String description) 
     {
@@ -48,6 +49,20 @@ public class Room
     public Item getItem() {
         return this.item;
     }
+    
+    public void setNPC (NPC npc) {
+        this.npc = npc;
+    }
+
+    public NPC getNPC() {
+        return npc;
+    }
+    
+    public boolean hasNPC() {
+        return (this.npc != null);
+    }
+    
+    
     
     
 }

@@ -1,11 +1,19 @@
 package worldofzuul;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
     private Timer timer;
     private Player player;
+    private NPC npc;
+    Item teeth = new Item("Teeth", 4);
+    Item bone = new Item("Bone", 5);
+    Item studycard = new Item("Studiekort", 1);
+    Item book = new Item("Bog", 2);
 
     public Game() 
     {
@@ -16,14 +24,18 @@ public class Game
 
     private void createRooms()
     {
-        Item studycard, book;
-        studycard = new Item("Studiekort", 1);
-        book = new Item("Bog", 2);
+        
+        // Create NPCs
+        NPC dracula;
+        dracula = new NPC("Dracula", "Uurrrghhhh, I'll kill you boiii", 
+        "Here is a quest for you", "Your quest is done", teeth, bone);
+        
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22aNorth, u27a, building22aSouth, u1,
                 building334, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen;
-      
+        
+        // Create rooms
         outsideTek = new Room("outside the tek entrance of the university");
         tekHall = new Room("inside TEK hall");
         studyRooms = new Room("upstairs infront of the study rooms - for projects");
@@ -31,12 +43,17 @@ public class Game
         building44lvl2 = new Room("at level 2 in building 44");
         building44lvl3 = new Room("at level 3 in building 44");
         
+        // Set exits
         outsideTek.setExit("north", tekHall);
         tekHall.setExit("up", studyRooms);
         studyRooms.setExit("down", tekHall);
         
+        // Set items
         outsideTek.setItem(studycard);
-        tekHall.setItem(book);
+        tekHall.setItem(teeth);
+        
+        // Set NPCs
+        tekHall.setNPC(dracula);
         
         currentRoom = outsideTek;
     }
@@ -105,6 +122,9 @@ public class Game
             case INVENTORY:
                 inventory();
                 break;
+            case TALK:
+                talk();
+                break;
             default:
                 break;
         }
@@ -118,6 +138,37 @@ public class Game
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+    }
+    
+    private void talk() {
+    if(currentRoom.getNPC().questItem == null) {
+        if(player.inventory.size() > 0) {
+          for(Item item : player.inventory) {
+            if(item == currentRoom.getNPC().needItem) {
+                System.out.println(currentRoom.getNPC().questDone);
+                player.inventory.remove(item);
+                currentRoom.getNPC().setQuestItem(item);
+                if(currentRoom.getNPC().giveItem != null) {
+                    player.addItem(currentRoom.getNPC().giveItem);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.out.println("Awesome! " + currentRoom.getNPC().name + " gave you " + currentRoom.getNPC().giveItem);
+                }
+                break;
+            } else {
+                System.out.println(currentRoom.getNPC().quest);
+                break;
+            }
+          }
+        } else {
+            System.out.println(currentRoom.getNPC().quest);
+        }
+    } else {
+        System.out.println("You have already helped me");
+        }
     }
     
     private void search() {
@@ -171,6 +222,9 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            if(currentRoom.hasNPC()) {
+                System.out.println(currentRoom.getNPC().dialogue);
+            }
         }
     }
 
