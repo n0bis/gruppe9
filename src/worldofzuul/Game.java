@@ -1,17 +1,21 @@
 package worldofzuul;
 
+import java.util.ArrayList;
+
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
     private Timer timer;
     private Player player;
-
+    private SpellBook spellBook;
+    
     public Game() 
     {
         createRooms();
         parser = new Parser();
         player = new Player();
+        spellBook = new SpellBook();
     }
 
     private void createRooms()
@@ -19,6 +23,9 @@ public class Game
         Item studycard, book;
         studycard = new Item("Studiekort", 1);
         book = new Item("Bog", 2);
+        
+        Spell fireball;
+        fireball = new Spell("Fireball", 1);
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22aNorth, u27a, building22aSouth, u1,
@@ -37,6 +44,8 @@ public class Game
         
         outsideTek.setItem(studycard);
         tekHall.setItem(book);
+        
+        tekHall.setSpell(fireball);
         
         currentRoom = outsideTek;
     }
@@ -105,10 +114,19 @@ public class Game
             case INVENTORY:
                 inventory();
                 break;
+            case SPELLBOOK:
+                checkSpellBook();
+                break;
             default:
                 break;
         }
         return wantToQuit;
+    }
+    
+
+    private void checkSpellBook() {
+        
+        spellBook.getSpellBook();
     }
     
     private void printHelp() 
@@ -129,6 +147,14 @@ public class Game
             player.addItem(currentRoom.getItem());
             currentRoom.setItem(null);
         }
+        if(currentRoom.getSpell() == null) {
+        } else {
+            System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
+            spellBook.addSpell(currentRoom.getSpell());
+            currentRoom.setSpell(null);
+        }
+        
+        
     }
     
         private void dropItem(Command command) {

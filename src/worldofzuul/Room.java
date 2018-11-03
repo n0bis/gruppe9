@@ -9,6 +9,7 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     public Item item;
+    public Spell spell;
 
     public Room(String description) 
     {
@@ -47,6 +48,14 @@ public class Room
 
     public Item getItem() {
         return this.item;
+    }
+    
+    public void setSpell (Spell spell) {
+        this.spell = spell;      
+    }
+    
+    public Spell getSpell() {
+        return this.spell;
     }
     
     
