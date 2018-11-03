@@ -10,6 +10,7 @@ public class Room
     private HashMap<String, Room> exits;
     public Item item;
     public NPC npc;
+    public Boss boss;
 
     public Room(String description) 
     {
@@ -61,9 +62,18 @@ public class Room
     public boolean hasNPC() {
         return (this.npc != null);
     }
+
+    public void setBoss(Boss boss) {
+        this.boss = boss;
+    }
+
+    public Boss getBoss() {
+        return boss;
+    }
     
-    
-    
+    public boolean hasBoss() {
+        return (this.boss != null);
+    }
     
 }
 
