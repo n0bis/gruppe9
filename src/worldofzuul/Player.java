@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 
 public class Player {
-    public ArrayList<Item> inventory = new ArrayList<Item>();    
+    public ArrayList<Item> inventory = new ArrayList<Item>(); 
+    private String name;
    
     public Player() {
     }
@@ -23,4 +24,13 @@ public class Player {
             }
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
 }
