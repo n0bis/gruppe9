@@ -1,6 +1,7 @@
 package worldofzuul;
 
 import java.io.PrintStream;
+import java.util.Scanner;
 import static worldofzuul.ShowMap.showMap;
 
 public class Game 
@@ -216,11 +217,24 @@ public class Game
             player.addItem(currentRoom.getItem());
             currentRoom.setItem(null);
         }
+        
+        
         if(currentRoom.getSpell() == null) {
         } else {
             System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
             spellBook.addSpell(currentRoom.getSpell());
             currentRoom.setSpell(null);
+        }
+    }
+    
+    private void fillStudyCard() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please fill in your name: ");
+        if (scanner.hasNext()) {
+            player.setName(scanner.next());
+            player.setMajor("Software Engineering");
+            System.out.println("Welcome player " + player.getName() + " with the majoring " + player.getMajor());
+           
         }
     }
     
