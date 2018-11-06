@@ -1,14 +1,13 @@
 package worldofzuul;
 
-import java.util.ArrayList;
-
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer;
     private Player player;
     private SpellBook spellBook;
+    private Item studycard, book;
+
     
     public Game() 
     {
@@ -16,11 +15,11 @@ public class Game
         parser = new Parser();
         player = new Player();
         spellBook = new SpellBook();
+        
     }
 
     private void createRooms()
     {
-        Item studycard, book;
         studycard = new Item("Studiekort", 1);
         book = new Item("Bog", 2);
         
@@ -123,9 +122,11 @@ public class Game
         return wantToQuit;
     }
     
-
     private void checkSpellBook() {
-        
+        if (!player.inventory.contains(book)) {
+            System.out.println("You dont have a spellbook!");
+            return;
+        }
         spellBook.getSpellBook();
     }
     
@@ -153,11 +154,9 @@ public class Game
             spellBook.addSpell(currentRoom.getSpell());
             currentRoom.setSpell(null);
         }
-        
-        
     }
     
-        private void dropItem(Command command) {
+    private void dropItem(Command command) {
         if(!command.hasSecondWord()) {
             System.out.println("You need to specify what item to drop..");
             return;

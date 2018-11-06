@@ -7,13 +7,15 @@ package worldofzuul;
 
 import java.util.*;
 
+
+
 /**
  *
  * @author birke
  */
 public class SpellBook {    
         
-    public final ArrayList<Spell> mySpells = new ArrayList<Spell>();
+    private final ArrayList<Spell> mySpells = new ArrayList<>();
 
     public SpellBook() {
         
@@ -27,10 +29,10 @@ public class SpellBook {
         if (mySpells.isEmpty()) {
             System.out.println("Too bad, you got no spells yet.");
         } else {
-            System.out.println("### You spells are: ###");
+            System.out.println("### Your spells are: ###");
             for(Spell spell : mySpells) {
                 System.out.println("- " + spell.name + " ");
-            }
+            }  
         }
     }
 }
