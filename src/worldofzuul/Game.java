@@ -7,14 +7,32 @@ import java.util.concurrent.TimeUnit;
 
 import static worldofzuul.ShowMap.showMap;
 
-
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
+    private Timer timer;
     private Player player;
-    private Item studyCard, ribeye, pulledPork, pieceOfLamb, coin, bone;
+    private NPC npc;
+    private Boss boss;
+    private Quest quest;
+    Item teeth = new Item("Teeth", 4);
+    Item bone = new Item("Bone", 5);
+    Item bones = new Item("Bones", 22);
+    Item fangs = new Item("Fangs", 21);
+    Item studycard = new Item("Studiekort", 1);
+    Item book = new Item("Bog", 2);
+    Item questItem1 = new Item("Flamethrower", 6);
+    Item questItem2 = new Item("Ironmelter", 7);
+    Room outsideTek = new Room("outside the tek entrance of the university");
+    Room tekHall = new Room("inside the tek building");
+    Room studyRooms = new Room("upstairs infront of the study rooms - for projects");
+    Room building44lvl1 = new Room("at level 1 in building 44");
+    Room building44lvl2 = new Room("at level 2 in building 44");
+    Room building44lvl3 = new Room("at level 3 in building 44");
+    private Item ribeye, pulledPork, pieceOfLamb, coin;
     private SpellBook spellBook;
+
     
     public Game() 
     {
@@ -28,13 +46,23 @@ public class Game
 
     private void createRooms()
     {
-        studyCard = new Item("studycard", 1);
+
+        // Create Quests
+        Quest draculaQuest = new Quest("Quest 1: Find my teeth", "You still havent found my teeth",
+        "Thanks for finding my teeth", false, bones, fangs);
+        
+        // Create NPCs
+        NPC dracula = new NPC("Dracula", "Hello, I'm Dracula.", "Thanks for helping me. I have no more quests for you.");
+        
+        // Create Boss
+        boss = new Boss("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
+            "Wingardiumleviosa");
+
         spellBook = new SpellBook("spellbook",2);
         ribeye = new Item("ribeye",3);
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
         coin = new Item("coin",6);
-        bone = new Item("bone",7);
 
         Spell fireball;
         fireball = new Spell("Fireball", 8);
@@ -75,6 +103,7 @@ public class Game
  
         currentRoom = outsideTek;
         
+        // Set exits
         outsideTek.setExit("north", tekHall);
         tekHall.setExit("west", tekHall);
         tekHall.setExit("up", studyRooms);
@@ -123,8 +152,20 @@ public class Game
         u27a.setExit("back",building22aNorth);
         building22aNorth.setExit("back", building22a);   
         
-        outsideTek.setItem(studyCard);
+
+        // Set items
+        outsideTek.setItem(studycard);
+        tekHall.setItem(fangs);
+   
+        // Set NPCs
+        tekHall.setNPC(dracula);
         
+        // Set NPC quest
+        dracula.addQuest(draculaQuest);
+        
+        // Set Boss
+        studyRooms.setBoss(boss);
+ 
         tekHall.setItem(spellBook);
         tekHall.setSpell(fireball);
         
@@ -195,6 +236,9 @@ public class Game
             case SHOW:
                 show(command);
                 break;
+            case TALK:
+                talk();
+                break;
             default:
                 break;
         }
@@ -217,6 +261,44 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
+    
+    private void talk() {
+        if(!currentRoom.hasNPC()) {
+            System.out.println("Who you talking to?");
+            return;
+        }
+        
+        NPC npc = currentRoom.getNPC();
+        Quest tempQuest;
+        Item tempReward;
+        
+        if(!npc.hasQuest()) {
+            System.out.println(npc.questsDone);    
+            return;
+        }   
+        
+            for(int counter = 0; counter < npc.getQuests().size(); counter ++) {
+                tempQuest = npc.quests.get(counter);
+                tempReward = npc.quests.get(counter).getRewardItem();
+                
+                if(tempQuest.isQuestDone()) {
+                    continue;
+                } else {
+                   if(!player.hasQuest(tempQuest)) {
+                       System.out.println(tempQuest.getQuestDescription());
+                       player.questLog.add(tempQuest);
+                   } else if (player.hasQuest(tempQuest) && player.hasItem(tempQuest.getRequiredItem())) {
+                       tempQuest.setIsQuestDone(true);
+                       player.questLog.remove(tempQuest);
+                       System.out.println(tempQuest.getQuestDone());
+                       player.inventory.add(tempReward);
+                       player.inventory.remove(tempQuest.getRequiredItem());
+                   } else {
+                       System.out.println(tempQuest.getQuestInProgress());
+                   }
+                }                                                                  
+            }  
+        }
     
     private void search() {
         if(currentRoom.getItem() == null) {
@@ -286,6 +368,121 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            if(currentRoom.hasNPC()) {
+                System.out.println(currentRoom.getNPC().dialogue);
+            }
+            
+            // If room has boss:
+            
+            if(currentRoom.hasBoss()){
+                Scanner scanner = new Scanner(System.in);
+                String fightAnswer;
+                Item questItem1 = studycard;
+                Item questItem2 = bone;
+                String spell = "Wingardium leviosa";
+                String spellCast;
+                
+                
+                switch(boss.stage) {
+                    case 1:
+                        System.out.println(currentRoom.getBoss().dialogue);
+                        System.out.println("Do you want to fight me pleb? (Yes or no)");
+                        fightAnswer = scanner.nextLine();
+                        
+                        
+                        if(fightAnswer.equalsIgnoreCase("Yes")) {
+                            for(Item item : player.inventory) {
+                                if(item == questItem1) {
+                                    System.out.println("Argh, you killed my Frosthead with your " + questItem1);
+                                    boss.stage += 1;
+                                }
+                            }     
+                             if(boss.stage == 1) {
+                                    System.out.println("Ha-ha, return to your home, pleb");
+                                    currentRoom = tekHall;
+                        }
+                        
+                        if(boss.stage == 2) {
+                            System.out.println("Ohh, you might have killed my first head, but I still have my metal head. FeelsGoodMan");
+                            
+                            for(Item item : player.inventory) {
+                                if(item == questItem2) {
+                                    System.out.println("Argh, you killed my Metalhead with your " + questItem2);
+                                    boss.stage += 1;
+                                }                   
+                            }
+                            
+                            if(boss.stage == 2) {
+                                    System.out.println("Ha-ha, my Metalhead was too much for you..");
+                                    System.out.println("Cerberus threw you out");
+                                    currentRoom = tekHall;
+                                    System.out.println(currentRoom.getLongDescription());
+                            }           
+                        } 
+                        
+                        if(boss.stage == 3) {
+                            System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
+                            System.out.println("Enter your spell plebby");
+                            spellCast = scanner.nextLine();
+                            
+                            if(spellCast.equalsIgnoreCase(spell)) {
+                                System.out.println("You got meeee");
+                                // Remove boss
+                            } else {
+                                System.out.println("Ha-ha, wrong spell");
+                                    System.out.println("Cerberus threw you out");
+                                    currentRoom = tekHall;
+                                    System.out.println(currentRoom.getLongDescription());
+                            }                          
+                        }
+                                    
+                        } else {
+                            System.out.println("Run away you coward..");
+                            textDelay("Cerberus threw you out");
+                            currentRoom = tekHall;
+                            System.out.println(currentRoom.getLongDescription());
+                        }
+                        break;
+                        
+                    case 2:
+                     System.out.println("Ohh, you might have killed my first head, but I still have my metal head. FeelsGoodMan");
+                            
+                            for(Item item : player.inventory) {
+                                if(item == questItem2) {
+                                    System.out.println("Argh, you killed my Metalhead with your " + questItem2);
+                                    boss.stage += 1;
+                                }                   
+                            }
+                            
+                            if(boss.stage == 2) {
+                                    System.out.println("Ha-ha, my Metalhead was too much for you..");
+                                    System.out.println("Cerberus threw you out");
+                                    currentRoom = tekHall;
+                                    System.out.println(currentRoom.getLongDescription());
+                            }
+                            
+                            if(boss.stage == 3) {
+                            System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
+                            System.out.println("Enter your spell plebby");
+                            spellCast = scanner.nextLine();
+                            
+                            if(spellCast.equalsIgnoreCase(spell)) {
+                                System.out.println("You got meeee");
+                                // Remove boss
+                            } else {
+                                System.out.println("Ha-ha, wrong spell");
+                                    System.out.println("Cerberus threw you out");
+                                    currentRoom = tekHall;
+                                    System.out.println(currentRoom.getLongDescription());
+                            }                          
+                        }
+                        break;
+                        
+                    case 3:
+                        System.out.println("You have killed the doge. Much wow, so sad. RIP in pieces.");
+                        break;
+                }
+            }
         }
     }
 

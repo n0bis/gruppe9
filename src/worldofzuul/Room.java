@@ -9,6 +9,8 @@ public class Room
     private String description;
     private HashMap<String, Room> exits;
     public Item item;
+    public NPC npc;
+    public Boss boss;
     public Spell spell;
 
     public Room(String description) 
@@ -50,6 +52,30 @@ public class Room
         return this.item;
     }
     
+    public void setNPC (NPC npc) {
+        this.npc = npc;
+    }
+
+    public NPC getNPC() {
+        return npc;
+    }
+    
+    public boolean hasNPC() {
+        return (this.npc != null);
+    }
+
+    public void setBoss(Boss boss) {
+        this.boss = boss;
+    }
+
+    public Boss getBoss() {
+        return boss;
+    }
+    
+    public boolean hasBoss() {
+        return (this.boss != null);
+    }
+  
     public void setSpell (Spell spell) {
         this.spell = spell;      
     }
@@ -58,6 +84,7 @@ public class Room
         return this.spell;
     }
     
+
     
 }
 

@@ -1,10 +1,13 @@
 package worldofzuul;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Player {
-    public ArrayList<Item> inventory = new ArrayList<Item>();  
+    private NPC npc;
+    public ArrayList<Item> inventory = new ArrayList<Item>();
+    public List<Quest> questLog = new ArrayList<>();
     private String name;
     private String major;
    
@@ -25,6 +28,14 @@ public class Player {
 
     public void setMajor(String major) {
         this.major = major;
+    }
+    
+    public boolean hasItem(Item item) {
+        return this.inventory.contains(item);
+    }
+    
+    public boolean hasQuest(Quest quest) {
+       return this.questLog.contains(quest);
     }
     
     public void addItem(Item item) {
