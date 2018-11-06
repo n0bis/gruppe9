@@ -184,9 +184,6 @@ public class Game
             case SHOW:
                 show(command);
                 break;
-            case SPELLBOOK:
-                checkSpellBook();
-                break;
             default:
                 break;
         }
@@ -288,6 +285,9 @@ public class Game
                 break;
             case "inventory":
                 player.getInventory();
+                break;
+            case "spellbook":
+                checkSpellBook();
                 break;
         }
     }
