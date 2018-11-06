@@ -20,7 +20,7 @@ public class Game
     Item bone = new Item("Bone", 5);
     Item bones = new Item("Bones", 22);
     Item fangs = new Item("Fangs", 21);
-    Item studycard = new Item("Studiekort", 1);
+    Item studyCard = new Item("studycard", 1);
     Item book = new Item("Bog", 2);
     Item questItem1 = new Item("Flamethrower", 6);
     Item questItem2 = new Item("Ironmelter", 7);
@@ -154,7 +154,7 @@ public class Game
         
 
         // Set items
-        outsideTek.setItem(studycard);
+        outsideTek.setItem(studyCard);
         tekHall.setItem(fangs);
    
         // Set NPCs
@@ -307,7 +307,7 @@ public class Game
             textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
-            if (currentRoom.getItem() == studycard) fillStudyCard();
+            if (currentRoom.getItem() == studyCard) fillStudyCard();
             currentRoom.setItem(null);
         }
 
@@ -377,7 +377,7 @@ public class Game
             if(currentRoom.hasBoss()){
                 Scanner scanner = new Scanner(System.in);
                 String fightAnswer;
-                Item questItem1 = studycard;
+                Item questItem1 = studyCard;
                 Item questItem2 = bone;
                 String spell = "Wingardium leviosa";
                 String spellCast;
