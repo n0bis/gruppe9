@@ -1,31 +1,44 @@
 package worldofzuul;
 
+
 import java.util.Arrays;
+
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+import static worldofzuul.ShowMap.showMap;
+
 
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer;
     private Player player;
-    private Item studyCard, spellBook, ribeye, pulledPork, pieceOfLamb, coin, bone;
+    private Item studyCard, ribeye, pulledPork, pieceOfLamb, coin, bone;
+    private SpellBook spellBook;
     
     public Game() 
     {
         createRooms();
         parser = new Parser();
         player = new Player();
+        Timer timer = new Timer();
+        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
     }
 
     private void createRooms()
     {
         studyCard = new Item("studycard", 1);
-        spellBook = new Item("spellbook", 2);
+        spellBook = new SpellBook("spellbook",2);
         ribeye = new Item("ribeye",3);
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
         coin = new Item("coin",6);
         bone = new Item("bone",7);
+
+        Spell fireball;
+        fireball = new Spell("Fireball", 8);
+
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
@@ -69,7 +82,7 @@ public class Game
         tekHall.setExit("east",building44lvl1);
         building44lvl1.setExit("up",building44lvl2);
         building44lvl2.setExit("up",building44lvl3);
-        building44lvl3.setExit("to u183", u183); 
+        building44lvl3.setExit("u183", u183); 
         u183.setExit("back", building44lvl3); 
         building44lvl3.setExit("down",building44lvl2);
         building44lvl2.setExit("down",building44lvl1);
@@ -79,9 +92,9 @@ public class Game
         northMainHall.setExit("west",building44lvl1);
         northMainHall.setExit("down",northToilets);
         northToilets.setExit("up",northMainHall);
-        northMainHall.setExit("to u45", u45);
+        northMainHall.setExit("u45", u45);
         u45.setExit("back",northMainHall);
-        northMainHall.setExit("to u55",u55);
+        northMainHall.setExit("u55",u55);
         u55.setExit("back", northMainHall);
         northMainHall.setExit("south",southMainHall);
         southMainHall.setExit("north",northMainHall);
@@ -90,28 +103,30 @@ public class Game
         nedenunder.setExit("back",theColourKitchen);
         theColourKitchen.setExit("back", southMainHall);
         southMainHall.setExit("east",building344);
-        building344.setExit("to u133",u133);
+        building344.setExit("u133",u133);
         u133.setExit("back",building344);
         building344.setExit("back",southMainHall);
-        southMainHall.setExit("to library",library);
+        southMainHall.setExit("library",library);
         library.setExit("back", southMainHall);
         southMainHall.setExit("north",northMainHall);
         northMainHall.setExit("west",building38);
-        building38.setExit("to u140", u140);
-        u140.setExit("back", building38);
+        building38.setExit("u140", u140);
+        u140.setExit("back",building38);
         building38.setExit("back",northMainHall);
-        northMainHall.setExit("to building22a",building22a);
+        northMainHall.setExit("building22a",building22a);
         building22a.setExit("to building22aSouth",building22aSouth);
-        building22aSouth.setExit("to u1",u1);
+        building22aSouth.setExit("u1",u1);
         u1.setExit("back",building22aSouth);
         building22aSouth.setExit("back",building22a);
-        building22a.setExit("to building22aNorth", building22aNorth);
+        building22a.setExit("building22aNorth", building22aNorth);
         building22aNorth.setExit("up",u27a);
         u27a.setExit("back",building22aNorth);
         building22aNorth.setExit("back", building22a);   
         
         outsideTek.setItem(studyCard);
+        
         tekHall.setItem(spellBook);
+        tekHall.setSpell(fireball);
         
         currentRoom = outsideTek;
     }
@@ -177,13 +192,21 @@ public class Game
             case DROP:
                 dropItem(command);
                 break;
-            case INVENTORY:
-                inventory();
+            case SHOW:
+                show(command);
                 break;
             default:
                 break;
         }
         return wantToQuit;
+    }
+    
+    private void checkSpellBook() {
+        if (!player.inventory.contains(spellBook)) {
+            System.out.println("You dont have a spellbook!");
+            return;
+        }
+        spellBook.getSpellBook();
     }
     
     private void printHelp() 
@@ -203,6 +226,11 @@ public class Game
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
             currentRoom.setItem(null);
+        }
+        if(currentRoom.getSpell() != null) {
+            System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
+            spellBook.addSpell(currentRoom.getSpell());
+            currentRoom.setSpell(null);
         }
     }
     
@@ -225,10 +253,6 @@ public class Game
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
-    private void inventory() {
-        player.getInventory();
-    }
-    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -262,4 +286,23 @@ public class Game
             return true;
         }
     }
+
+    private void show(Command command) {
+        if (!command.hasSecondWord()){
+            System.out.println("Show inventory or map");
+            return;
+        }
+        switch (command.getSecondWord()) {
+            case "map":
+                showMap();
+                break;
+            case "inventory":
+                player.getInventory();
+                break;
+            case "spellbook":
+                checkSpellBook();
+                break;
+        }
+    }
+    
 }
