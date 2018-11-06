@@ -1,5 +1,8 @@
 package worldofzuul;
 
+import java.io.PrintStream;
+import static worldofzuul.ShowMap.showMap;
+
 public class Game 
 {
     private Parser parser;
@@ -178,8 +181,8 @@ public class Game
             case DROP:
                 dropItem(command);
                 break;
-            case INVENTORY:
-                inventory();
+            case SHOW:
+                show(command);
                 break;
             case SPELLBOOK:
                 checkSpellBook();
@@ -243,10 +246,6 @@ public class Game
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
-    private void inventory() {
-        player.getInventory();
-    }
-    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -277,4 +276,20 @@ public class Game
             return true;
         }
     }
+
+    private void show(Command command) {
+        if (!command.hasSecondWord()){
+            System.out.println("Show inventory or map");
+            return;
+        }
+        switch (command.getSecondWord()) {
+            case "map":
+                showMap();
+                break;
+            case "inventory":
+                player.getInventory();
+                break;
+        }
+    }
+    
 }
