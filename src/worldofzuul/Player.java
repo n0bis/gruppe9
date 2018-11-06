@@ -2,11 +2,11 @@ package worldofzuul;
 
 import java.util.ArrayList;
 
+
 public class Player {
-    public ArrayList<Item> inventory = new ArrayList<Item>();
-    
+    public ArrayList<Item> inventory = new ArrayList<Item>();    
+   
     public Player() {
-        
     }
     
     public void addItem(Item item) {

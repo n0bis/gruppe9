@@ -2,13 +2,17 @@ package worldofzuul;
 
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+import static worldofzuul.ShowMap.showMap;
 
 public class Game 
 {
     private Parser parser;
     private Room currentRoom;
     private Player player;
+    private SpellBook spellBook;
+    private Item studycard, book;
 
+    
     public Game() 
     {
         createRooms();
@@ -17,13 +21,16 @@ public class Game
         Timer timer = new Timer();
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
-    }
+        spellBook = new SpellBook();
+        }
 
     private void createRooms()
     {
-        Item studycard, book;
-        studycard = new Item("Studiekort", 1);
-        book = new Item("Bog", 2);
+        studycard = new Item("Study ID Card", 1);
+        book = new Item("Spellbook", 2);
+        
+        Spell fireball;
+        fireball = new Spell("Fireball", 1);
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
@@ -111,6 +118,8 @@ public class Game
         outsideTek.setItem(studycard);
         tekHall.setItem(book);
         
+        tekHall.setSpell(fireball);
+        
         currentRoom = outsideTek;
     }
     
@@ -175,13 +184,21 @@ public class Game
             case DROP:
                 dropItem(command);
                 break;
-            case INVENTORY:
-                inventory();
+            case SHOW:
+                show(command);
                 break;
             default:
                 break;
         }
         return wantToQuit;
+    }
+    
+    private void checkSpellBook() {
+        if (!player.inventory.contains(book)) {
+            System.out.println("You dont have a spellbook!");
+            return;
+        }
+        spellBook.getSpellBook();
     }
     
     private void printHelp() 
@@ -202,9 +219,15 @@ public class Game
             player.addItem(currentRoom.getItem());
             currentRoom.setItem(null);
         }
+        if(currentRoom.getSpell() == null) {
+        } else {
+            System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
+            spellBook.addSpell(currentRoom.getSpell());
+            currentRoom.setSpell(null);
+        }
     }
     
-        private void dropItem(Command command) {
+    private void dropItem(Command command) {
         if(!command.hasSecondWord()) {
             System.out.println("You need to specify what item to drop..");
             return;
@@ -223,10 +246,6 @@ public class Game
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
-    private void inventory() {
-        player.getInventory();
-    }
-    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -257,4 +276,23 @@ public class Game
             return true;
         }
     }
+
+    private void show(Command command) {
+        if (!command.hasSecondWord()){
+            System.out.println("Show inventory or map");
+            return;
+        }
+        switch (command.getSecondWord()) {
+            case "map":
+                showMap();
+                break;
+            case "inventory":
+                player.getInventory();
+                break;
+            case "spellbook":
+                checkSpellBook();
+                break;
+        }
+    }
+    
 }
