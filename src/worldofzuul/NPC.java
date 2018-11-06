@@ -7,14 +7,15 @@ import java.util.List;
 public class NPC {
     String name;
     String dialogue;
-    String inprogressSpeech;
+    String questsDone;
     List<Quest> quests = new ArrayList<>();
 
-    public NPC(String name, String dialogue, String inprogressSpeech, List<Quest> quests) {
+    // Quest is added to QuestList via method
+
+    public NPC(String name, String dialogue, String questsDone) {
         this.name = name;
         this.dialogue = dialogue;
-        this.inprogressSpeech = inprogressSpeech;
-        this.quests = quests;
+        this.questsDone = questsDone;
     }
 
     public String getName() {
@@ -33,14 +34,6 @@ public class NPC {
         this.dialogue = dialogue;
     }
 
-    public String getInprogressSpeech() {
-        return inprogressSpeech;
-    }
-
-    public void setInprogressSpeech(String inprogressSpeech) {
-        this.inprogressSpeech = inprogressSpeech;
-    }
-
     public List<Quest> getQuests() {
         return quests;
     }
@@ -55,7 +48,7 @@ public class NPC {
     
     public boolean hasQuest() {
         for(Quest quest : this.quests) {
-            if(!quest.isDone()) {
+            if(!quest.isQuestDone()) {
                 return true;
             }
         }
