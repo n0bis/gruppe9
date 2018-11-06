@@ -16,10 +16,10 @@ public class Quest {
     private Item rewardItem;
     private Item requiredItem;
 
-    public Quest(String description, String doneSpeech, boolean done, Item rewardItem, Item requiredItem) {
+    public Quest(String description, String doneSpeech, Item rewardItem, Item requiredItem) {
         this.description = description;
         this.doneSpeech = doneSpeech;
-        this.done = done;
+        this.done = false;
         this.rewardItem = rewardItem;
         this.requiredItem = requiredItem;
     }

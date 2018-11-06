@@ -1,8 +1,7 @@
 package worldofzuul;
 
+import java.util.Arrays;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Game 
 {
@@ -35,11 +34,13 @@ public class Game
 
     private void createRooms()
     {
+        // Create quests
+        Quest getDraculaTeeth = new Quest("Here is a quest for you: Get my teeth", "Thanks, your quest is done",
+                bone, teeth);
         
         // Create NPCs
         NPC dracula;
-        dracula = new NPC("Dracula", "Uurrrghhhh, I'll kill you boiii", 
-        "Here is a quest for you", "Your quest is done", teeth, bone);
+        dracula = new NPC("Dracula", "Hejsa", "Hejsa2", Arrays.asList(getDraculaTeeth)); 
         
         // Create Boss
         boss = new Boss("Cerberus", "Muhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
@@ -149,7 +150,7 @@ public class Game
     }
     
     private void talk() {
-    if(currentRoom.hasNPC()) {
+    /*if(currentRoom.hasNPC()) {
         if(currentRoom.getNPC().questItem == null) {
         if(player.inventory.size() > 0) {
           for(Item item : player.inventory) {
@@ -176,7 +177,7 @@ public class Game
         }
     } else {
         System.out.println("There is no one to talk to... Who you talking to boiii");
-    }
+    }*/
    }
     
     private void search() {
