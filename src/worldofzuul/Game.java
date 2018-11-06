@@ -28,11 +28,11 @@ public class Game
         
       
         outsideTek = new Room("outside the tek entrance of the university");
-        tekHall = new lockedRoom("inside TEK hall", Arrays.asList(studycard));
+        tekHall = new Room("inside TEK hall");
         studyRooms = new Room("upstairs infront of the study rooms - for projects");
         building44lvl1 = new Room("at level 1 in building 44");
         building44lvl2 = new Room("at level 2 in building 44");
-        building44lvl3 = new Room("at level 3 in building 44");
+        building44lvl3 = new lockedRoom("at level 3 in building 44",Arrays.asList(studycard));
         u183 = new Room("in classroom u183 on level 3 in building 44");
         northMainHall = new Room("in the northMainHall");
         northToilets = new Room("in one of the toilets on the northMainHall");
@@ -238,7 +238,7 @@ public class Game
         if (nextRoom == null) {
             System.out.println("There is no door!");
         }
-        else if (!((lockedRoom)nextRoom).canEnter(player.inventory)) {
+        else if (nextRoom instanceof lockedRoom && !((lockedRoom)nextRoom).canEnter(player.inventory)) {
             System.out.println("You cannot enter here you fool");
         }
         else {
