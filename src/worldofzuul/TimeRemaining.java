@@ -5,7 +5,6 @@
  */
 package worldofzuul;
 
-import WoZTimer.*;
 import java.util.TimerTask;
 
 /**
