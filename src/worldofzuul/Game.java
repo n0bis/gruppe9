@@ -206,7 +206,7 @@ public class Game
         }
     }
     
-        private void dropItem(Command command) {
+    private void dropItem(Command command) {
         if(!command.hasSecondWord()) {
             System.out.println("You need to specify what item to drop..");
             return;
