@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import java.io.PrintStream;
+
 public class Game 
 {
     private Parser parser;
@@ -105,6 +107,27 @@ public class Game
             case INVENTORY:
                 inventory();
                 break;
+            case SHOWMAP:
+                showMap();
+                break;
+            case TEKHALL:
+                tekHall();
+                break;
+            case BYG44:
+                Byg44();
+                break;
+            case NORTHMAINHALL:
+                NorthMainHall();
+                break;
+            case B8:
+                b8();
+                break;
+            case SOUTHMAINHALL:
+                SouthMainHall();
+                break;
+            case OUTSIDETEK:
+                outsideTek();
+                break;                
             default:
                 break;
         }
@@ -183,5 +206,47 @@ public class Game
         else {
             return true;
         }
+    }
+    private void showMap(){
+        System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M            MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M   South    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M    Main    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M    Hall    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" + 
+"MMMMMMMMMMM         M            MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMM            M           MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMM            M     B8    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMM            M     U140  MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMM____________M           MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M            MMMMMMMMMMMMMMMMM outside    MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM   22A   M   North    MMMMMMMMMMMMMMMMM    Tek     MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M   Main     MMMMMMMMMMMMMMMMM____________MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M   Hall     MMMMMM          M            MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M            MMNNNN          M    tek     MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMM         M            BBBBBB  byg44   M    Hall    MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMMM           MMMMMM          M            MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMMM           MMMMMM__________M________    MMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+"MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM\n" +
+        "If you are lost u can allways get help, just write the main room you're and you'll get some information");              
+    }
+    private void tekHall(){
+        System.out.println("Tekhall is north of outsideTek, inside tekhall there is studyrooms");
+    }
+    private void Byg44(){
+        System.out.println("Bygning44 is East of Tekhall and Vest of North Main hall. Bygning44 has 3 rooms: LvL2, LvL3 and U183");
+    }
+    private void NorthMainHall(){
+        System.out.println("North Main Hall is East of Bygning 44, Vest of 22A and south of South main Hall - Room:U45-U55-North-T");
+    }
+    private void SouthMainHall(){
+        System.out.println("South Main Hall is a big area! South of North Main Hall. Rooms:U133-");
+    }
+    private void b8(){
+        System.out.println("");
+    }
+    private void outsideTek(){
+        System.out.println("You're in the start area. Go north to start the experience or continue.");
     }
 }
