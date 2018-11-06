@@ -7,7 +7,6 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer;
     private Player player;
 
     public Game() 
