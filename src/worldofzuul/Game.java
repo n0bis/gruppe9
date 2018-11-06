@@ -180,10 +180,10 @@ public class Game
                 } else {
                    if(!player.hasQuest(tempQuest)) {
                        System.out.println(tempQuest.getQuestDescription());
-                       player.playerQuests.add(tempQuest);
+                       player.questLog.add(tempQuest);
                    } else if (player.hasQuest(tempQuest) && player.hasItem(tempQuest.getRequiredItem())) {
                        tempQuest.setIsQuestDone(true);
-                       player.playerQuests.remove(tempQuest);
+                       player.questLog.remove(tempQuest);
                        System.out.println(tempQuest.getQuestDone());
                        player.inventory.add(tempReward);
                        player.inventory.remove(tempQuest.getRequiredItem());

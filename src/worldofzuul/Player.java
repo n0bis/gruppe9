@@ -6,7 +6,7 @@ import java.util.List;
 public class Player {
     private NPC npc;
     public ArrayList<Item> inventory = new ArrayList<Item>();
-    public List<Quest> playerQuests = new ArrayList<>();
+    public List<Quest> questLog = new ArrayList<>();
     
     public Player() {
         
@@ -17,11 +17,7 @@ public class Player {
     }
     
     public boolean hasQuest(Quest quest) {
-       if(!playerQuests.contains(quest)) {
-           return false;
-       } else {
-           return true;
-       }  
+       return this.questLog.contains(quest);
     }
     
     public void addItem(Item item) {
