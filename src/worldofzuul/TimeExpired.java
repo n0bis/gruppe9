@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package WoZTimer;
+package worldofzuul;
 
+import WoZTimer.*;
 import java.util.TimerTask;
 
 /**
  *
  * @author birke
  */
-public class TimeRemaining extends TimerTask  {
+public class TimeExpired extends TimerTask {
     @Override
     public void run() {
-        System.out.println("SMS from hot student nurse!");
-        System.out.println("Hey will you be here in 10 minutes ;)?");
+        System.out.println("Time expired - You lost");
+        System.exit(0);
     }
 }

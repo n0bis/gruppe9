@@ -2,7 +2,6 @@ package worldofzuul;
 
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-import WoZTimer;
 
 public class Game 
 {
@@ -18,7 +17,7 @@ public class Game
         player = new Player();
         Timer timer = new Timer();
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new TimeRemanining(), TimeUnit.MINUTES.toMillis(10));
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
     }
 
     private void createRooms()
