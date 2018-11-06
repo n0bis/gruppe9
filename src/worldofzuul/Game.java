@@ -1,5 +1,7 @@
 package worldofzuul;
 
+import java.util.Arrays;
+
 public class Game 
 {
     private Parser parser;
@@ -25,7 +27,7 @@ public class Game
                 building334, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen;
       
         outsideTek = new Room("outside the tek entrance of the university");
-        tekHall = new Room("inside TEK hall");
+        tekHall = new lockedRoom("inside TEK hall", Arrays.asList(studycard));
         studyRooms = new Room("upstairs infront of the study rooms - for projects");
         building44lvl1 = new Room("at level 1 in building 44");
         building44lvl2 = new Room("at level 2 in building 44");
@@ -167,6 +169,9 @@ public class Game
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
+        }
+        else if (!((lockedRoom)nextRoom).canEnter(player.inventory)) {
+            System.out.println("You cannot enter here you fool");
         }
         else {
             currentRoom = nextRoom;
