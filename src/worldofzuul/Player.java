@@ -1,12 +1,27 @@
 package worldofzuul;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
+    private NPC npc;
     public ArrayList<Item> inventory = new ArrayList<Item>();
+    public List<Quest> playerQuests = new ArrayList<>();
     
     public Player() {
         
+    }
+    
+    public boolean hasItem(Item item) {
+        return this.inventory.contains(item);
+    }
+    
+    public boolean hasQuest(Quest quest) {
+       if(!playerQuests.contains(quest)) {
+           return false;
+       } else {
+           return true;
+       }  
     }
     
     public void addItem(Item item) {

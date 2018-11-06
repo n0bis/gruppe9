@@ -11,8 +11,11 @@ public class Game
     private Player player;
     private NPC npc;
     private Boss boss;
+    private Quest quest;
     Item teeth = new Item("Teeth", 4);
     Item bone = new Item("Bone", 5);
+    Item bones = new Item("Bones", 22);
+    Item fangs = new Item("Fangs", 21);
     Item studycard = new Item("Studiekort", 1);
     Item book = new Item("Bog", 2);
     Item questItem1 = new Item("Flamethrower", 6);
@@ -34,16 +37,15 @@ public class Game
 
     private void createRooms()
     {
-        // Create quests
-        Quest getDraculaTeeth = new Quest("Here is a quest for you: Get my teeth", "Thanks, your quest is done",
-                bone, teeth);
+        // Create Quests
+        Quest draculaQuest = new Quest("Quest 1: Find my teeth", "You still havent found my teeth",
+        "Thanks for finding my teeth", false, bones, fangs);
         
         // Create NPCs
-        NPC dracula;
-        dracula = new NPC("Dracula", "Hejsa", "Hejsa2", Arrays.asList(getDraculaTeeth)); 
+        NPC dracula = new NPC("Dracula", "Hello, I'm Dracula.", "Thanks for helping me. I have no more quests for you.");
         
         // Create Boss
-        boss = new Boss("Cerberus", "Muhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
+        boss = new Boss("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
             "Wingardiumleviosa");
         
         // Create rooms
@@ -56,13 +58,18 @@ public class Game
         
         // Set items
         outsideTek.setItem(studycard);
-        tekHall.setItem(teeth);
+        tekHall.setItem(fangs);
         
         // Set NPCs
         tekHall.setNPC(dracula);
         
+        // Set NPC quest
+        dracula.addQuest(draculaQuest);
+        
         // Set Boss
         studyRooms.setBoss(boss);
+        
+        
         
         currentRoom = outsideTek;
     }
@@ -150,35 +157,42 @@ public class Game
     }
     
     private void talk() {
-    /*if(currentRoom.hasNPC()) {
-        if(currentRoom.getNPC().questItem == null) {
-        if(player.inventory.size() > 0) {
-          for(Item item : player.inventory) {
-            if(item == currentRoom.getNPC().needItem) {
-                System.out.println(currentRoom.getNPC().questDone);
-                player.inventory.remove(item);
-                currentRoom.getNPC().setQuestItem(item);
-                if(currentRoom.getNPC().giveItem != null) {
-                    player.addItem(currentRoom.getNPC().giveItem);
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    System.out.println("Awesome! " + currentRoom.getNPC().name + " gave you " + currentRoom.getNPC().giveItem);
-                }
-            }
-          }
-        } else {
-            System.out.println(currentRoom.getNPC().quest);
+        if(!currentRoom.hasNPC()) {
+            System.out.println("Who you talking to?");
+            return;
         }
-        } else {
-        System.out.println("You have already helped me");
+        
+        NPC npc = currentRoom.getNPC();
+        Quest tempQuest;
+        Item tempReward;
+        
+        if(!npc.hasQuest()) {
+            System.out.println(npc.questsDone);    
+            return;
+        }   
+        
+            for(int counter = 0; counter < npc.getQuests().size(); counter ++) {
+                tempQuest = npc.quests.get(counter);
+                tempReward = npc.quests.get(counter).getRewardItem();
+                
+                if(tempQuest.isQuestDone()) {
+                    continue;
+                } else {
+                   if(!player.hasQuest(tempQuest)) {
+                       System.out.println(tempQuest.getQuestDescription());
+                       player.playerQuests.add(tempQuest);
+                   } else if (player.hasQuest(tempQuest) && player.hasItem(tempQuest.getRequiredItem())) {
+                       tempQuest.setIsQuestDone(true);
+                       player.playerQuests.remove(tempQuest);
+                       System.out.println(tempQuest.getQuestDone());
+                       player.inventory.add(tempReward);
+                       player.inventory.remove(tempQuest.getRequiredItem());
+                   } else {
+                       System.out.println(tempQuest.getQuestInProgress());
+                   }
+                }                                                                  
+            }  
         }
-    } else {
-        System.out.println("There is no one to talk to... Who you talking to boiii");
-    }*/
-   }
     
     private void search() {
         if(currentRoom.getItem() == null) {

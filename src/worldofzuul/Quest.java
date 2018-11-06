@@ -1,67 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package worldofzuul;
 
-/**
- *
- * @author NidaBasaran
- */
 public class Quest {
-    private String description;
-    private String doneSpeech;
-    private boolean done;
+    private String questDescription;
+    private String questInProgress;
+    private String questDone;
+    private boolean isQuestDone;
     private Item rewardItem;
     private Item requiredItem;
 
-    public Quest(String description, String doneSpeech, Item rewardItem, Item requiredItem) {
-        this.description = description;
-        this.doneSpeech = doneSpeech;
-        this.done = false;
+    public Quest(String questDescription, String questInProgress, String questDone, boolean isQuestDone, Item rewardItem, Item requiredItem) {
+        this.questDescription = questDescription;
+        this.questInProgress = questInProgress;
+        this.questDone = questDone;
+        this.isQuestDone = isQuestDone;
         this.rewardItem = rewardItem;
         this.requiredItem = requiredItem;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean isQuestDone() {
+        return isQuestDone;
+    }       
+    
+    // Getters
+
+    public String getQuestDescription() {
+        return questDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getQuestInProgress() {
+        return questInProgress;
     }
 
-    public String getDoneSpeech() {
-        return doneSpeech;
-    }
-
-    public void setDoneSpeech(String doneSpeech) {
-        this.doneSpeech = doneSpeech;
-    }
-
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
+    public String getQuestDone() {
+        return questDone;
     }
 
     public Item getRewardItem() {
         return rewardItem;
     }
 
-    public void setRewardItem(Item rewardItem) {
-        this.rewardItem = rewardItem;
-    }
-
     public Item getRequiredItem() {
         return requiredItem;
     }
 
-    public void setRequiredItem(Item requiredItem) {
-        this.requiredItem = requiredItem;
+    public void setIsQuestDone(boolean isQuestDone) {
+        this.isQuestDone = isQuestDone;
     }
-   
-}
+    
+    
+    
+    
+}   
