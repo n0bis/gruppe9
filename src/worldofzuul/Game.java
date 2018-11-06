@@ -20,8 +20,8 @@ public class Game
 
     private void createRooms()
     {
-        studycard = new Item("Studiekort", 1);
-        book = new Item("Bog", 2);
+        studycard = new Item("Study ID Card", 1);
+        book = new Item("Spellbook", 2);
         
         Spell fireball;
         fireball = new Spell("Fireball", 1);
