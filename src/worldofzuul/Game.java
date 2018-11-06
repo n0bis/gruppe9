@@ -215,6 +215,7 @@ public class Game
             textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
+            if (currentRoom.getItem() == studycard) fillStudyCard();
             currentRoom.setItem(null);
         }
         
