@@ -1,10 +1,10 @@
 package worldofzuul;
 
-
+import java.util.Scanner;
 import java.util.Arrays;
-
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+
 import static worldofzuul.ShowMap.showMap;
 
 
@@ -225,12 +225,25 @@ public class Game
             textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
+            if (currentRoom.getItem() == studycard) fillStudyCard();
             currentRoom.setItem(null);
         }
+
         if(currentRoom.getSpell() != null) {
             System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
             spellBook.addSpell(currentRoom.getSpell());
             currentRoom.setSpell(null);
+        }
+    }
+    
+    private void fillStudyCard() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please fill in your name: ");
+        if (scanner.hasNext()) {
+            player.setName(scanner.next());
+            player.setMajor("Software Engineering");
+            System.out.println("Welcome player " + player.getName() + " with the majoring " + player.getMajor());
+           
         }
     }
     
