@@ -3,13 +3,31 @@ package worldofzuul;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Player {
     private NPC npc;
     public ArrayList<Item> inventory = new ArrayList<Item>();
     public List<Quest> questLog = new ArrayList<>();
-    
+    private String name;
+    private String major;
+   
     public Player() {
-        
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
     }
     
     public boolean hasItem(Item item) {

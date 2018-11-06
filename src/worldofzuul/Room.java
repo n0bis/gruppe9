@@ -11,6 +11,7 @@ public class Room
     public Item item;
     public NPC npc;
     public Boss boss;
+    public Spell spell;
 
     public Room(String description) 
     {
@@ -74,6 +75,16 @@ public class Room
     public boolean hasBoss() {
         return (this.boss != null);
     }
+  
+    public void setSpell (Spell spell) {
+        this.spell = spell;      
+    }
+    
+    public Spell getSpell() {
+        return this.spell;
+    }
+    
+
     
 }
 

@@ -1,12 +1,16 @@
 package worldofzuul;
 
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
+
+import static worldofzuul.ShowMap.showMap;
 
 public class Game 
 {
     private Parser parser;
-    public Room currentRoom;
+    private Room currentRoom;
     private Timer timer;
     private Player player;
     private NPC npc;
@@ -26,17 +30,23 @@ public class Game
     Room building44lvl1 = new Room("at level 1 in building 44");
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
-    
+    private Item ribeye, pulledPork, pieceOfLamb, coin;
+    private SpellBook spellBook;
+
     
     public Game() 
     {
         createRooms();
         parser = new Parser();
         player = new Player();
+        Timer timer = new Timer();
+        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
     }
 
     private void createRooms()
     {
+
         // Create Quests
         Quest draculaQuest = new Quest("Quest 1: Find my teeth", "You still havent found my teeth",
         "Thanks for finding my teeth", false, bones, fangs);
@@ -47,19 +57,106 @@ public class Game
         // Create Boss
         boss = new Boss("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
             "Wingardiumleviosa");
-        
-        // Create rooms
 
+        spellBook = new SpellBook("spellbook",2);
+        ribeye = new Item("ribeye",3);
+        pulledPork = new Item("pulledpork",4);
+        pieceOfLamb = new Item("piece of lamb",5);
+        coin = new Item("coin",6);
+
+        Spell fireball;
+        fireball = new Spell("Fireball", 8);
+
+        
+        Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
+            northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
+                building344, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen, library;
+        
+      
+        outsideTek = new Room("outside the tek entrance of the university");
+        tekHall = new Room("inside TEK hall");
+        studyRooms = new Room("upstairs infront of the study rooms - for projects");
+        building44lvl1 = new Room("at level 1 in building 44");
+        building44lvl2 = new Room("at level 2 in building 44");
+        building44lvl3 = new lockedRoom("at level 3 in building 44",Arrays.asList(studyCard));
+        u183 = new Room("in classroom u183 on level 3 in building 44");
+        northMainHall = new lockedRoom("in the northMainHall",Arrays.asList(spellBook));
+        northToilets = new Room("in one of the toilets on the northMainHall");
+        u45 = new Room("in classroom u45 which is in the northMainHall");
+        southMainHall = new lockedRoom("in the southMainHall",Arrays.asList(ribeye,pulledPork,pieceOfLamb));
+        u55 = new Room("in classroom u55 which is in the southMainhall");
+        building38 = new Room("in building38");
+        u140 = new Room("in classroom u140 which is in building38");
+        building22a = new lockedRoom("in building22a",Arrays.asList(bone));
+        building22alvl1 = new Room("at level 1 in building22a, but in building22a there are 3 levels");
+        building22aNorth = new Room("in building22aNorth");
+        u27a = new Room("in classroom 22a which is in building22asouthlvl1");
+        building22aSouth = new Room("in building22aSouth");
+        u1 = new Room("in classroom u1 which is in building22a");
+        building344 = new Room("in building344");
+        u133 = new Room("in classroom u133 which is in building344");
+        outsideMainHall = new Room("outside of the main hall");
+        nedenunder = new Room("in fredagsbaren where the halloween party is being held");
+        theColourKitchen = new lockedRoom("in the biggest cafeteria of the southern university",Arrays.asList(coin));
+        underTheColourKitchen = new Room("under the biggest cafeteria of the southern university");
+        library = new Room("the library of the university");
+ 
+        currentRoom = outsideTek;
         
         // Set exits
         outsideTek.setExit("north", tekHall);
+        tekHall.setExit("west", tekHall);
         tekHall.setExit("up", studyRooms);
         studyRooms.setExit("down", tekHall);
+        tekHall.setExit("east",building44lvl1);
+        building44lvl1.setExit("up",building44lvl2);
+        building44lvl2.setExit("up",building44lvl3);
+        building44lvl3.setExit("u183", u183); 
+        u183.setExit("back", building44lvl3); 
+        building44lvl3.setExit("down",building44lvl2);
+        building44lvl2.setExit("down",building44lvl1);
+        building44lvl1.setExit("west", tekHall);
+        tekHall.setExit("south", outsideTek);
+        building44lvl1.setExit("east",northMainHall);
+        northMainHall.setExit("west",building44lvl1);
+        northMainHall.setExit("down",northToilets);
+        northToilets.setExit("up",northMainHall);
+        northMainHall.setExit("u45", u45);
+        u45.setExit("back",northMainHall);
+        northMainHall.setExit("u55",u55);
+        u55.setExit("back", northMainHall);
+        northMainHall.setExit("south",southMainHall);
+        southMainHall.setExit("north",northMainHall);
+        southMainHall.setExit("to TheColourKitchen", theColourKitchen);
+        theColourKitchen.setExit("to nedenunder",nedenunder);
+        nedenunder.setExit("back",theColourKitchen);
+        theColourKitchen.setExit("back", southMainHall);
+        southMainHall.setExit("east",building344);
+        building344.setExit("u133",u133);
+        u133.setExit("back",building344);
+        building344.setExit("back",southMainHall);
+        southMainHall.setExit("library",library);
+        library.setExit("back", southMainHall);
+        southMainHall.setExit("north",northMainHall);
+        northMainHall.setExit("west",building38);
+        building38.setExit("u140", u140);
+        u140.setExit("back",building38);
+        building38.setExit("back",northMainHall);
+        northMainHall.setExit("building22a",building22a);
+        building22a.setExit("to building22aSouth",building22aSouth);
+        building22aSouth.setExit("u1",u1);
+        u1.setExit("back",building22aSouth);
+        building22aSouth.setExit("back",building22a);
+        building22a.setExit("building22aNorth", building22aNorth);
+        building22aNorth.setExit("up",u27a);
+        u27a.setExit("back",building22aNorth);
+        building22aNorth.setExit("back", building22a);   
         
+
         // Set items
         outsideTek.setItem(studycard);
         tekHall.setItem(fangs);
-        
+   
         // Set NPCs
         tekHall.setNPC(dracula);
         
@@ -68,12 +165,13 @@ public class Game
         
         // Set Boss
         studyRooms.setBoss(boss);
-        
-        
+ 
+        tekHall.setItem(spellBook);
+        tekHall.setSpell(fireball);
         
         currentRoom = outsideTek;
     }
-
+    
     public void play() 
     {            
         printWelcome();
@@ -135,8 +233,8 @@ public class Game
             case DROP:
                 dropItem(command);
                 break;
-            case INVENTORY:
-                inventory();
+            case SHOW:
+                show(command);
                 break;
             case TALK:
                 talk();
@@ -145,6 +243,14 @@ public class Game
                 break;
         }
         return wantToQuit;
+    }
+    
+    private void checkSpellBook() {
+        if (!player.inventory.contains(spellBook)) {
+            System.out.println("You dont have a spellbook!");
+            return;
+        }
+        spellBook.getSpellBook();
     }
     
     private void printHelp() 
@@ -201,11 +307,29 @@ public class Game
             textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().name);
             player.addItem(currentRoom.getItem());
+            if (currentRoom.getItem() == studycard) fillStudyCard();
             currentRoom.setItem(null);
+        }
+
+        if(currentRoom.getSpell() != null) {
+            System.out.println("You have learned a new spell! You can now do a: " + currentRoom.getSpell().name);
+            spellBook.addSpell(currentRoom.getSpell());
+            currentRoom.setSpell(null);
         }
     }
     
-        private void dropItem(Command command) {
+    private void fillStudyCard() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please fill in your name: ");
+        if (scanner.hasNext()) {
+            player.setName(scanner.next());
+            player.setMajor("Software Engineering");
+            System.out.println("Welcome player " + player.getName() + " with the majoring " + player.getMajor());
+           
+        }
+    }
+    
+    private void dropItem(Command command) {
         if(!command.hasSecondWord()) {
             System.out.println("You need to specify what item to drop..");
             return;
@@ -224,10 +348,6 @@ public class Game
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
-    private void inventory() {
-        player.getInventory();
-    }
-    
     private void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
@@ -241,6 +361,9 @@ public class Game
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
+        }
+        else if (nextRoom instanceof lockedRoom && !((lockedRoom)nextRoom).canEnter(player.inventory)) {
+            System.out.println("You cannot enter this room because it is locked. You need to find the needed item");
         }
         else {
             currentRoom = nextRoom;
@@ -373,4 +496,23 @@ public class Game
             return true;
         }
     }
+
+    private void show(Command command) {
+        if (!command.hasSecondWord()){
+            System.out.println("Show inventory or map");
+            return;
+        }
+        switch (command.getSecondWord()) {
+            case "map":
+                showMap();
+                break;
+            case "inventory":
+                player.getInventory();
+                break;
+            case "spellbook":
+                checkSpellBook();
+                break;
+        }
+    }
+    
 }
