@@ -138,7 +138,7 @@ public class Game
         southMainHall.setExit("library",library);
         library.setExit("back", southMainHall);
         southMainHall.setExit("north",northMainHall);
-        northMainHall.setExit("west",building38);
+        northMainHall.setExit("building38",building38);
         building38.setExit("u140", u140);
         u140.setExit("back",building38);
         building38.setExit("back",northMainHall);
