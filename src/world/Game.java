@@ -23,7 +23,7 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer;
+    private Timer timer = new Timer();
     private Player player;
     private NPC npc;
     private FinalBoss boss;
@@ -55,7 +55,6 @@ public class Game
         player = new Player();
         createRooms();
         parser = new Parser();
-        Timer timer = new Timer();
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
     }
@@ -200,12 +199,15 @@ public class Game
         printWelcome();
                 
         boolean finished = false;
+        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timerScore = new TimerScore();
         timerScore.startTimer();
         while (! finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
+        timer.cancel();
         System.out.println("Thank you for playing.  Good bye.");
     }
 
