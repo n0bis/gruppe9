@@ -396,13 +396,17 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            if (!currentRoom.hasBoss()) {
+                System.out.println(currentRoom.getLongDescription());
+            }
+
             if(currentRoom.hasNPC()) {
                 System.out.println(currentRoom.getNPC().getDialogue());
             }
             
             // If room has boss start encounter
             if(currentRoom.hasBoss()){
+                System.out.println("You are " + currentRoom.getShortDescription());
                 bossEncounter();
             }
         }
