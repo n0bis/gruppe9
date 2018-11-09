@@ -36,8 +36,8 @@ public class Game
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
     Item book = new Item("Bog", 2);
-    Item questItem1 = new Item("Flamethrower", 6);
-    Item questItem2 = new Item("Ironmelter", 7);
+    Item stage1RequiredItem = new Item("Flamethrower", 6);
+    Item stage2RequiredItem = new Item("Ironmelter", 7);
     Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");
     Room tekHall = new Room("inside the tek building");
     Room studyRooms = new Room("upstairs infront of the study rooms - for projects");
@@ -69,7 +69,7 @@ public class Game
         NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
         
         // Create boss
-        boss = new FinalBoss(questItem1, questItem2);
+        boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem);
 
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
@@ -176,8 +176,8 @@ public class Game
         studyRooms.setItem(fangs);
         tekHall.setItem(spellBook);
         tekHall.setSpell(fireball);
-        northMainHall.setItem(questItem1);
-        southMainHall.setItem(questItem2);
+        northMainHall.setItem(stage1RequiredItem);
+        southMainHall.setItem(stage2RequiredItem);
         
         // Set NPCs
         tekHall.setNPC(dracula);

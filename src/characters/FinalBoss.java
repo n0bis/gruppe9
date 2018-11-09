@@ -14,8 +14,8 @@ import java.util.Scanner;
  */
 public class FinalBoss extends Boss {
     
-    public FinalBoss(Item questItem1, Item questItem2) {
-        super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
+    public FinalBoss(Item stage1RequiredItem, Item stage2RequiredItem) {
+        super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", stage1RequiredItem, stage2RequiredItem,
             "Wingardium Leviosa");
     }
     
@@ -25,7 +25,7 @@ public class FinalBoss extends Boss {
         String fightAnswer = scanner.nextLine();
 
         if(fightAnswer.equalsIgnoreCase("Yes")) {
-            return player.inventory.contains(this.getQuestItem1());
+            return player.inventory.contains(this.getStage1RequiredItem());
         }
         return false;
     }
@@ -33,7 +33,7 @@ public class FinalBoss extends Boss {
     public boolean wonStage2(Player player) {
         System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
         
-        return player.inventory.contains(this.getQuestItem2());
+        return player.inventory.contains(this.getStage2RequiredItem());
     }
     
     public boolean wonStage3(Scanner scanner, Player player) {

@@ -13,17 +13,17 @@ public class Boss {
     */
     private String name;
     private String dialogue;
-    private Item questItem1;
-    private Item questItem2;
+    private Item stage1RequiredItem;
+    private Item stage2RequiredItem;
     private String questSpell;
     private int stage;
     
-    public Boss(String name, String dialogue, Item questItem1, Item questItem2,
+    public Boss(String name, String dialogue, Item stage1RequiredItem, Item stage2RequiredItem,
             String questSpell) {
         this.name = name;
         this.dialogue = dialogue;
-        this.questItem1 = questItem1;
-        this.questItem2 = questItem2;
+        this.stage1RequiredItem = stage1RequiredItem;
+        this.stage2RequiredItem = stage2RequiredItem;
         this.questSpell = questSpell;
         this.stage = 1; 
     }
@@ -44,20 +44,20 @@ public class Boss {
         this.dialogue = dialogue;
     }
 
-    public Item getQuestItem1() {
-        return questItem1;
+    public Item getStage1RequiredItem() {
+        return stage1RequiredItem;
     }
 
-    public void setQuestItem1(Item questItem1) {
-        this.questItem1 = questItem1;
+    public void setStage1RequiredItem(Item stage1RequiredItem) {
+        this.stage1RequiredItem = stage1RequiredItem;
     }
 
-    public Item getQuestItem2() {
-        return questItem2;
+    public Item getStage2RequiredItem() {
+        return stage2RequiredItem;
     }
 
-    public void setQuestItem2(Item questItem2) {
-        this.questItem2 = questItem2;
+    public void setStage2RequiredItem(Item stage2RequiredItem) {
+        this.stage2RequiredItem = stage2RequiredItem;
     }
 
     public String getQuestSpell() {
