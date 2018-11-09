@@ -1,5 +1,6 @@
 package world;
 
+import characters.FinalBoss;
 import items.SpellBook;
 import items.Spell;
 import command.Parser;
@@ -7,7 +8,6 @@ import command.CommandWord;
 import command.Command;
 import utils.TimeRemaining;
 import utils.TimeExpired;
-import characters.Boss;
 import characters.Player;
 import characters.NPC;
 import items.Item;
@@ -16,8 +16,8 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import missions.Quest;
-
 import static utils.ShowMap.showMap;
+import utils.TimerScore;
 
 public class Game 
 {
@@ -26,8 +26,9 @@ public class Game
     private Timer timer;
     private Player player;
     private NPC npc;
-    private Boss boss;
+    private FinalBoss boss;
     private Quest quest;
+    private TimerScore timerScore;
     Item teeth = new Item("Teeth", 4);
     Item bone = new Item("Bone", 5);
     Item bones = new Item("Bones", 22);
@@ -35,8 +36,8 @@ public class Game
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
     Item book = new Item("Bog", 2);
-    Item questItem1 = new Item("Flamethrower", 6);
-    Item questItem2 = new Item("Ironmelter", 7);
+    Item stage1RequiredItem = new Item("Flamethrower", 6);
+    Item stage2RequiredItem = new Item("Ironmelter", 7);
     Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");
     Room tekHall = new Room("inside the tek building");
     Room studyRooms = new Room("upstairs infront of the study rooms - for projects");
@@ -44,15 +45,16 @@ public class Game
     Room theColourKitchen = new Room("in the biggest cafeteria of the southern university");
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
+    Room nedenunder; 
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
     private SpellBook spellBook;
 
     
     public Game() 
     {
+        player = new Player();
         createRooms();
         parser = new Parser();
-        player = new Player();
         Timer timer = new Timer();
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
@@ -67,13 +69,12 @@ public class Game
         NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
         
         // Create boss
-        boss = new Boss("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
-            "Wingardium Leviosa");
+        boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem);
 
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
-                building344, u133, outsideMainHall, nedenunder, underTheColourKitchen, library;
+                building344, u133, outsideMainHall, underTheColourKitchen, library;
         
         // Key items
         spellBook = new SpellBook("spellbook",2);
@@ -86,9 +87,9 @@ public class Game
         // Create Quests
         Quest draculaQuest = new Quest("I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
                 + " lost them when I was studying... Please help me find them.",
-                "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", false, bones, fangs);
+                "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", bones, fangs);
         Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
-        "Thanks for helping me!", false, key, toiletpaper);
+        "Thanks for helping me!", key, toiletpaper);
 
         Spell fireball;
         fireball = new Spell("Fireball", 8);
@@ -119,8 +120,6 @@ public class Game
         nedenunder = new Room("in fredagsbaren where the halloween party is being held");
         underTheColourKitchen = new Room("under the biggest cafeteria of the southern university");
         library = new Room("the library of the university");
- 
-        currentRoom = outsideTek;
         
         // Set exits
         outsideTek.setExit("north", tekHall);
@@ -178,8 +177,8 @@ public class Game
         studyRooms.setItem(fangs);
         tekHall.setItem(spellBook);
         tekHall.setSpell(fireball);
-        northMainHall.setItem(questItem1);
-        southMainHall.setItem(questItem2);
+        northMainHall.setItem(stage1RequiredItem);
+        southMainHall.setItem(stage2RequiredItem);
         
         // Set NPCs
         tekHall.setNPC(dracula);
@@ -201,6 +200,8 @@ public class Game
         printWelcome();
                 
         boolean finished = false;
+        timerScore = new TimerScore();
+        timerScore.startTimer();
         while (! finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
@@ -389,15 +390,24 @@ public class Game
         else if (nextRoom instanceof lockedRoom && !((lockedRoom)nextRoom).canEnter(player.inventory)) {
             System.out.println("You cannot enter this room because it is locked. There's an item you need to find first..");
         }
+        else if (nextRoom.equals(nedenunder)) {
+            System.out.println("You are " + nedenunder.getShortDescription() + " and you met a hot nurse");
+            System.out.println("Thank you for playing SCORE: " + (System.currentTimeMillis() - timerScore.getTime()) / 1000L);
+            System.exit(0);
+        }
         else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            if (!currentRoom.hasBoss()) {
+                System.out.println(currentRoom.getLongDescription());
+            }
+
             if(currentRoom.hasNPC()) {
                 System.out.println(currentRoom.getNPC().getDialogue());
             }
             
             // If room has boss start encounter
             if(currentRoom.hasBoss()){
+                System.out.println("You are " + currentRoom.getShortDescription());
                 bossEncounter();
             }
         }
@@ -405,75 +415,37 @@ public class Game
     
     public void bossEncounter() {
         Scanner scanner = new Scanner(System.in);
-        String fightAnswer;
-        Item questItem1 = this.questItem1;
-        Item questItem2 = this.questItem2;
-        String spell = "Fireball";
-        String spellCast;
-
         switch(boss.getStage()) {
             case 1:
-                System.out.println(currentRoom.getBoss().getDialogue());
-                System.out.println("Do you want to fight me pleb? (Yes or no)");
-                fightAnswer = scanner.nextLine();
-
-                if(fightAnswer.equalsIgnoreCase("Yes")) {
-                    for(Item item : player.inventory) {
-                        if(item == questItem1) {
-                            System.out.println("Argh, you killed my Frosthead with your " + questItem1);
-                            boss.incrementStage();
-                            bossEncounter();
-                        }
-                    }     
-                    System.out.println("Ha-ha, return to your home, pleb");
-                    System.out.println("Cerberus threw you out");
-                    currentRoom = theColourKitchen;
-                    System.out.println(currentRoom.getLongDescription());
-                } else {
-                    System.out.println("Run away you coward..");
-                    textDelay("Cerberus threw you out");
-                    currentRoom = theColourKitchen;
-                    System.out.println(currentRoom.getLongDescription());
-                }
-                break;
-
-            case 2:
-                System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
-                for(Item item : player.inventory) {
-                    if(item == questItem2) {
-                        System.out.println("Argh, you killed my Metalhead with your " + questItem2);
-                        boss.incrementStage();
-                        bossEncounter();
-                    }                   
-                }
-
-                System.out.println("Ha-ha, my Metalhead was too much for you..");
-                System.out.println("Cerberus threw you out");
-                currentRoom = theColourKitchen;
-                System.out.println(currentRoom.getLongDescription());
-                
-                break;
-            case 3:
-                System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
-                System.out.println("Enter your spell:");
-                spellCast = scanner.nextLine();
-
-                if(spellCast.equalsIgnoreCase(spell)) {
-                    System.out.println("You got meeee...");
-                    // Remove boss
+                if (boss.wonStage1(scanner, player)) {
                     boss.incrementStage();
                     bossEncounter();
                 } else {
-                    System.out.println("Ha-ha, wrong spell");
-                        System.out.println("Cerberus threw you out");
-                        currentRoom = theColourKitchen;
-                        System.out.println(currentRoom.getLongDescription());
+                    throwOut();
                 }
                 break;
-            case 4:
-                System.out.println("You have killed the doge. Much wow, so sad. RIP in pieces.");
+            case 2:
+                if (boss.wonStage2(player)) {
+                    boss.incrementStage();
+                    bossEncounter();
+                } else {
+                    throwOut();
+                }
                 break;
-        }
+            case 3:
+                if(boss.wonStage3(scanner, player)) {
+                    boss.incrementStage();
+                    bossEncounter();
+                } else {
+                    throwOut();
+                }
+            }
+    }
+    
+    private void throwOut() {
+        System.out.println("Cerberus threw you out");
+        currentRoom = theColourKitchen;
+        System.out.println(currentRoom.getLongDescription());
     }
 
     private boolean quit(Command command) 
