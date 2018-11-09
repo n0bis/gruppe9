@@ -1,17 +1,20 @@
-package worldofzuul;
+package items;
 
-public class Item {
-    
+public class Spell {
     String name;
     int id;
     
-    public Item(String name, int id) {
+    public Spell(String name, int id) {
         this.name = name;
         this.id = id;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
     
     @Override

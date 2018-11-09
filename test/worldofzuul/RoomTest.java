@@ -5,6 +5,7 @@
  */
 package worldofzuul;
 
+import world.Room;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

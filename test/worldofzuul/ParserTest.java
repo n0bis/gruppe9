@@ -5,6 +5,9 @@
  */
 package worldofzuul;
 
+import command.Command;
+import command.Parser;
+import command.CommandWord;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

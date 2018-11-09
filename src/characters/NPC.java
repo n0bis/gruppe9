@@ -1,14 +1,15 @@
 
-package worldofzuul;
+package characters;
 
 import java.util.ArrayList;
 import java.util.List;
+import missions.Quest;
 
 public class NPC {
-    String name;
-    String dialogue;
-    String questsDone;
-    List<Quest> quests = new ArrayList<>();
+    private String name;
+    private String dialogue;
+    private String questsDone;
+    private List<Quest> quests = new ArrayList<>();
 
     public NPC(String name, String dialogue, String questsDone) {
         this.name = name;
@@ -43,6 +44,14 @@ public class NPC {
     public void addQuest(Quest quest) {
         this.quests.add(quest);
     } 
+
+    public String getQuestsDone() {
+        return questsDone;
+    }
+
+    public void setQuestsDone(String questsDone) {
+        this.questsDone = questsDone;
+    }
     
     public boolean hasQuest() {
         for(Quest quest : this.quests) {
