@@ -16,9 +16,7 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import missions.Quest;
-
 import static utils.ShowMap.showMap;
-
 import utils.TimerScore;
 
 public class Game 
@@ -398,17 +396,13 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
-            if (!currentRoom.hasBoss()) {
-                System.out.println(currentRoom.getLongDescription());
-            }
-            
+            System.out.println(currentRoom.getLongDescription());
             if(currentRoom.hasNPC()) {
                 System.out.println(currentRoom.getNPC().getDialogue());
             }
             
             // If room has boss start encounter
             if(currentRoom.hasBoss()){
-                System.out.println("You are " + currentRoom.getShortDescription());
                 bossEncounter();
             }
         }
