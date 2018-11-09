@@ -1,5 +1,9 @@
-package worldofzuul;
+package world;
 
+import items.Spell;
+import characters.Boss;
+import characters.NPC;
+import items.Item;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
