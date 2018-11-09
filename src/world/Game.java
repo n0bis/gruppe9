@@ -395,120 +395,83 @@ public class Game
                 System.out.println(currentRoom.getNPC().getDialogue());
             }
             
-            // If room has boss:
-            
+            // If room has boss start encounter
             if(currentRoom.hasBoss()){
-                Scanner scanner = new Scanner(System.in);
-                String fightAnswer;
-                Item questItem1 = this.questItem1;
-                Item questItem2 = this.questItem2;
-                String spell = "Fireball";
-                String spellCast;
-                
-                
-                switch(boss.getStage()) {
-                    case 1:
-                        System.out.println(currentRoom.getBoss().getDialogue());
-                        System.out.println("Do you want to fight me pleb? (Yes or no)");
-                        fightAnswer = scanner.nextLine();
-                        
-                        
-                        if(fightAnswer.equalsIgnoreCase("Yes")) {
-                            for(Item item : player.inventory) {
-                                if(item == questItem1) {
-                                    System.out.println("Argh, you killed my Frosthead with your " + questItem1);
-                                    boss.incrementStage();
-                                }
-                            }     
-                             if(boss.getStage() == 1) {
-                                    System.out.println("Ha-ha, return to your home, pleb");
-                                    System.out.println("Cerberus threw you out");
-                                    currentRoom = theColourKitchen;
-                                    System.out.println(currentRoom.getLongDescription());
-                        }
-                        
-                        if(boss.getStage() == 2) {
-                            System.out.println("Ohh, you might have killed my first head, but I still have my metal head. FeelsGoodMan");
-                            
-                            for(Item item : player.inventory) {
-                                if(item == questItem2) {
-                                    System.out.println("Argh, you killed my Metalhead with your " + questItem2);
-                                    boss.incrementStage();
-                                }                   
-                            }
-                            
-                            if(boss.getStage() == 2) {
-                                    System.out.println("Ha-ha, my Metalhead was too much for you..");
-                                    System.out.println("Cerberus threw you out");
-                                    currentRoom = theColourKitchen;
-                                    System.out.println(currentRoom.getLongDescription());
-                            }           
-                        } 
-                        
-                        if(boss.getStage() == 3) {
-                            System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
-                            System.out.println("Enter your spell plebby");
-                            spellCast = scanner.nextLine();
-                            
-                            if(spellCast.equalsIgnoreCase(spell)) {
-                                System.out.println("You got me. #RIP.");
-                                textDelay("Now go across to party!");
-                                // Remove boss
-                            } else {
-                                System.out.println("Ha-ha, wrong spell");
-                                    System.out.println("Cerberus threw you out");
-                                    currentRoom = theColourKitchen;
-                                    System.out.println(currentRoom.getLongDescription());
-                            }                          
-                        }
-                                    
-                        } else {
-                            System.out.println("Run away you coward..");
-                            textDelay("Cerberus threw you out");
-                            currentRoom = theColourKitchen;
-                            System.out.println(currentRoom.getLongDescription());
-                        }
-                        break;
-                        
-                    case 2:
-                     System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
-                            
-                            for(Item item : player.inventory) {
-                                if(item == questItem2) {
-                                    System.out.println("Argh, you killed my Metalhead with your " + questItem2);
-                                    boss.incrementStage();
-                                }                   
-                            }
-                            
-                            if(boss.getStage() == 2) {
-                                    System.out.println("Ha-ha, my Metalhead was too much for you..");
-                                    System.out.println("Cerberus threw you out");
-                                    currentRoom = theColourKitchen;
-                                    System.out.println(currentRoom.getLongDescription());
-                            }
-                            
-                            if(boss.getStage() == 3) {
-                            System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
-                            System.out.println("Enter your spell:");
-                            spellCast = scanner.nextLine();
-                            
-                            if(spellCast.equalsIgnoreCase(spell)) {
-                                System.out.println("You got meeee...");
-                                // Remove boss
-                            } else {
-                                System.out.println("Ha-ha, wrong spell");
-                                    System.out.println("Cerberus threw you out");
-                                    currentRoom = theColourKitchen;
-                                    System.out.println(currentRoom.getLongDescription());
-                            }                          
-                        }
-                        break;
-                        
-                    case 3:
-                        System.out.println("You have killed the doge. Much wow, so sad. RIP in pieces.");
-                        break;
-                }
+                bossEncounter();
             }
+        }
+    }
+    
+    public void bossEncounter() {
+        Scanner scanner = new Scanner(System.in);
+        String fightAnswer;
+        Item questItem1 = this.questItem1;
+        Item questItem2 = this.questItem2;
+        String spell = "Fireball";
+        String spellCast;
+
+        switch(boss.getStage()) {
+            case 1:
+                System.out.println(currentRoom.getBoss().getDialogue());
+                System.out.println("Do you want to fight me pleb? (Yes or no)");
+                fightAnswer = scanner.nextLine();
+
+                if(fightAnswer.equalsIgnoreCase("Yes")) {
+                    for(Item item : player.inventory) {
+                        if(item == questItem1) {
+                            System.out.println("Argh, you killed my Frosthead with your " + questItem1);
+                            boss.incrementStage();
+                            bossEncounter();
+                        }
+                    }     
+                    System.out.println("Ha-ha, return to your home, pleb");
+                    System.out.println("Cerberus threw you out");
+                    currentRoom = theColourKitchen;
+                    System.out.println(currentRoom.getLongDescription());
+                } else {
+                    System.out.println("Run away you coward..");
+                    textDelay("Cerberus threw you out");
+                    currentRoom = theColourKitchen;
+                    System.out.println(currentRoom.getLongDescription());
+                }
+                break;
+
+            case 2:
+                System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
+                for(Item item : player.inventory) {
+                    if(item == questItem2) {
+                        System.out.println("Argh, you killed my Metalhead with your " + questItem2);
+                        boss.incrementStage();
+                        bossEncounter();
+                    }                   
+                }
+
+                System.out.println("Ha-ha, my Metalhead was too much for you..");
+                System.out.println("Cerberus threw you out");
+                currentRoom = theColourKitchen;
+                System.out.println(currentRoom.getLongDescription());
+                
+                break;
+            case 3:
+                System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
+                System.out.println("Enter your spell:");
+                spellCast = scanner.nextLine();
+
+                if(spellCast.equalsIgnoreCase(spell)) {
+                    System.out.println("You got meeee...");
+                    // Remove boss
+                    boss.incrementStage();
+                    bossEncounter();
+                } else {
+                    System.out.println("Ha-ha, wrong spell");
+                        System.out.println("Cerberus threw you out");
+                        currentRoom = theColourKitchen;
+                        System.out.println(currentRoom.getLongDescription());
+                }
+                break;
+            case 4:
+                System.out.println("You have killed the doge. Much wow, so sad. RIP in pieces.");
+                break;
         }
     }
 
