@@ -20,17 +20,19 @@ public class Game
     Item bone = new Item("Bone", 5);
     Item bones = new Item("Bones", 22);
     Item fangs = new Item("Fangs", 21);
+    Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
     Item book = new Item("Bog", 2);
     Item questItem1 = new Item("Flamethrower", 6);
     Item questItem2 = new Item("Ironmelter", 7);
-    Room outsideTek = new Room("outside the tek entrance of the university");
+    Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");
     Room tekHall = new Room("inside the tek building");
     Room studyRooms = new Room("upstairs infront of the study rooms - for projects");
     Room building44lvl1 = new Room("at level 1 in building 44");
+    Room theColourKitchen = new Room("in the biggest cafeteria of the southern university");
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
-    private Item ribeye, pulledPork, pieceOfLamb, coin;
+    private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
     private SpellBook spellBook;
 
     
@@ -46,48 +48,54 @@ public class Game
 
     private void createRooms()
     {
-
-        // Create Quests
-        Quest draculaQuest = new Quest("Quest 1: Find my teeth", "You still havent found my teeth",
-        "Thanks for finding my teeth", false, bones, fangs);
         
         // Create NPCs
-        NPC dracula = new NPC("Dracula", "Hello, I'm Dracula.", "Thanks for helping me. I have no more quests for you.");
+        NPC dracula = new NPC("Dracula", "Dracula: Hello, I'm Dracula.", "Thanks for helping me. I have no more quests for you.");
+        NPC mummy = new NPC("Mummy", "Mummy: Hello buddy", "Move along, you've already helped me");
+        NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
         
-        // Create Boss
+        // Create boss
         boss = new Boss("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone", questItem1, questItem2,
-            "Wingardiumleviosa");
+            "Wingardium Leviosa");
 
+        
+        Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
+            northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
+                building344, u133, outsideMainHall, nedenunder, underTheColourKitchen, library;
+        
+        // Key items
         spellBook = new SpellBook("spellbook",2);
         ribeye = new Item("ribeye",3);
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
         coin = new Item("coin",6);
+        toiletpaper = new Item("Toiletpaper", 7);
+        
+        // Create Quests
+        Quest draculaQuest = new Quest("I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
+                + " lost them when I was studying... Please help me find them.",
+                "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", false, bones, fangs);
+        Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
+        "Thanks for helping me!", false, key, toiletpaper);
 
         Spell fireball;
         fireball = new Spell("Fireball", 8);
-
         
-        Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
-            northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
-                building344, u133, outsideMainHall, nedenunder, theColourKitchen, underTheColourKitchen, library;
-        
-      
-        outsideTek = new Room("outside the tek entrance of the university");
-        tekHall = new Room("inside TEK hall");
-        studyRooms = new Room("upstairs infront of the study rooms - for projects");
-        building44lvl1 = new Room("at level 1 in building 44");
-        building44lvl2 = new Room("at level 2 in building 44");
-        building44lvl3 = new lockedRoom("at level 3 in building 44",Arrays.asList(studyCard));
+        outsideTek = new Room("outside the TEK entrance. The building pretty much looks like a giant piece of cheese with windows.");
+        tekHall = new lockedRoom("inside the TEK building. There is a really big copper staircase.", Arrays.asList(studyCard));
+        studyRooms = new Room("upstairs infront of the study rooms - There are many small rooms with glass walls.");
+        building44lvl1 = new Room("at level 1 in building 44. There's a lot of class rooms and some stairs in the middel of the building.");
+        building44lvl2 = new Room("at level 2 in building 44. Looks pretty much like level 1 except theres a indoor pathway to the rest of the University.");
+        building44lvl3 = new Room("at level 3 in building 44. Same as the other levels, but no pathway..");
         u183 = new Room("in classroom u183 on level 3 in building 44");
-        northMainHall = new lockedRoom("in the northMainHall",Arrays.asList(spellBook));
+        northMainHall = new lockedRoom("in the northMainHall", Arrays.asList(spellBook));
         northToilets = new Room("in one of the toilets on the northMainHall");
         u45 = new Room("in classroom u45 which is in the northMainHall");
-        southMainHall = new lockedRoom("in the southMainHall",Arrays.asList(ribeye,pulledPork,pieceOfLamb));
+        southMainHall = new Room("in the southMainHall");
         u55 = new Room("in classroom u55 which is in the southMainhall");
         building38 = new Room("in building38");
         u140 = new Room("in classroom u140 which is in building38");
-        building22a = new lockedRoom("in building22a",Arrays.asList(bone));
+        building22a = new Room("in building22a");
         building22alvl1 = new Room("at level 1 in building22a, but in building22a there are 3 levels");
         building22aNorth = new Room("in building22aNorth");
         u27a = new Room("in classroom 22a which is in building22asouthlvl1");
@@ -97,7 +105,6 @@ public class Game
         u133 = new Room("in classroom u133 which is in building344");
         outsideMainHall = new Room("outside of the main hall");
         nedenunder = new Room("in fredagsbaren where the halloween party is being held");
-        theColourKitchen = new lockedRoom("in the biggest cafeteria of the southern university",Arrays.asList(coin));
         underTheColourKitchen = new Room("under the biggest cafeteria of the southern university");
         library = new Room("the library of the university");
  
@@ -105,7 +112,6 @@ public class Game
         
         // Set exits
         outsideTek.setExit("north", tekHall);
-        tekHall.setExit("west", tekHall);
         tekHall.setExit("up", studyRooms);
         studyRooms.setExit("down", tekHall);
         tekHall.setExit("east",building44lvl1);
@@ -121,14 +127,15 @@ public class Game
         northMainHall.setExit("west",building44lvl1);
         northMainHall.setExit("down",northToilets);
         northToilets.setExit("up",northMainHall);
+        underTheColourKitchen.setExit("across", nedenunder);
         northMainHall.setExit("u45", u45);
         u45.setExit("back",northMainHall);
         northMainHall.setExit("u55",u55);
         u55.setExit("back", northMainHall);
         northMainHall.setExit("south",southMainHall);
         southMainHall.setExit("north",northMainHall);
-        southMainHall.setExit("to TheColourKitchen", theColourKitchen);
-        theColourKitchen.setExit("to nedenunder",nedenunder);
+        southMainHall.setExit("TheColourKitchen", theColourKitchen);
+        theColourKitchen.setExit("down",underTheColourKitchen);
         nedenunder.setExit("back",theColourKitchen);
         theColourKitchen.setExit("back", southMainHall);
         southMainHall.setExit("east",building344);
@@ -138,7 +145,6 @@ public class Game
         southMainHall.setExit("library",library);
         library.setExit("back", southMainHall);
         southMainHall.setExit("north",northMainHall);
-        northMainHall.setExit("west",building38);
         building38.setExit("u140", u140);
         u140.setExit("back",building38);
         building38.setExit("back",northMainHall);
@@ -151,23 +157,28 @@ public class Game
         building22aNorth.setExit("up",u27a);
         u27a.setExit("back",building22aNorth);
         building22aNorth.setExit("back", building22a);   
+       
         
-
         // Set items
         outsideTek.setItem(studyCard);
-        tekHall.setItem(fangs);
-   
+        northToilets.setItem(toiletpaper);
+        studyRooms.setItem(fangs);
+        tekHall.setItem(spellBook);
+        tekHall.setSpell(fireball);
+        northMainHall.setItem(questItem1);
+        southMainHall.setItem(questItem2);
+        
         // Set NPCs
         tekHall.setNPC(dracula);
+        u183.setNPC(mummy);
+        building44lvl1.setNPC(mage);
         
         // Set NPC quest
         dracula.addQuest(draculaQuest);
+        mummy.addQuest(mummyQuest);
         
         // Set Boss
-        studyRooms.setBoss(boss);
- 
-        tekHall.setItem(spellBook);
-        tekHall.setSpell(fireball);
+        underTheColourKitchen.setBoss(boss);
         
         currentRoom = outsideTek;
     }
@@ -324,7 +335,7 @@ public class Game
         if (scanner.hasNext()) {
             player.setName(scanner.next());
             player.setMajor("Software Engineering");
-            System.out.println("Welcome player " + player.getName() + " with the majoring " + player.getMajor());
+            System.out.println("Welcome " + player.getName() + " with the major in " + player.getMajor());
            
         }
     }
@@ -363,7 +374,7 @@ public class Game
             System.out.println("There is no door!");
         }
         else if (nextRoom instanceof lockedRoom && !((lockedRoom)nextRoom).canEnter(player.inventory)) {
-            System.out.println("You cannot enter this room because it is locked. You need to find the needed item");
+            System.out.println("You cannot enter this room because it is locked. There's an item you need to find first..");
         }
         else {
             currentRoom = nextRoom;
@@ -377,9 +388,9 @@ public class Game
             if(currentRoom.hasBoss()){
                 Scanner scanner = new Scanner(System.in);
                 String fightAnswer;
-                Item questItem1 = studyCard;
-                Item questItem2 = bone;
-                String spell = "Wingardium leviosa";
+                Item questItem1 = this.questItem1;
+                Item questItem2 = this.questItem2;
+                String spell = "Fireball";
                 String spellCast;
                 
                 
@@ -399,7 +410,9 @@ public class Game
                             }     
                              if(boss.stage == 1) {
                                     System.out.println("Ha-ha, return to your home, pleb");
-                                    currentRoom = tekHall;
+                                    System.out.println("Cerberus threw you out");
+                                    currentRoom = theColourKitchen;
+                                    System.out.println(currentRoom.getLongDescription());
                         }
                         
                         if(boss.stage == 2) {
@@ -415,7 +428,7 @@ public class Game
                             if(boss.stage == 2) {
                                     System.out.println("Ha-ha, my Metalhead was too much for you..");
                                     System.out.println("Cerberus threw you out");
-                                    currentRoom = tekHall;
+                                    currentRoom = theColourKitchen;
                                     System.out.println(currentRoom.getLongDescription());
                             }           
                         } 
@@ -426,12 +439,13 @@ public class Game
                             spellCast = scanner.nextLine();
                             
                             if(spellCast.equalsIgnoreCase(spell)) {
-                                System.out.println("You got meeee");
+                                System.out.println("You got me. #RIP.");
+                                textDelay("Now go across to party!");
                                 // Remove boss
                             } else {
                                 System.out.println("Ha-ha, wrong spell");
                                     System.out.println("Cerberus threw you out");
-                                    currentRoom = tekHall;
+                                    currentRoom = theColourKitchen;
                                     System.out.println(currentRoom.getLongDescription());
                             }                          
                         }
@@ -439,13 +453,13 @@ public class Game
                         } else {
                             System.out.println("Run away you coward..");
                             textDelay("Cerberus threw you out");
-                            currentRoom = tekHall;
+                            currentRoom = theColourKitchen;
                             System.out.println(currentRoom.getLongDescription());
                         }
                         break;
                         
                     case 2:
-                     System.out.println("Ohh, you might have killed my first head, but I still have my metal head. FeelsGoodMan");
+                     System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
                             
                             for(Item item : player.inventory) {
                                 if(item == questItem2) {
@@ -457,22 +471,22 @@ public class Game
                             if(boss.stage == 2) {
                                     System.out.println("Ha-ha, my Metalhead was too much for you..");
                                     System.out.println("Cerberus threw you out");
-                                    currentRoom = tekHall;
+                                    currentRoom = theColourKitchen;
                                     System.out.println(currentRoom.getLongDescription());
                             }
                             
                             if(boss.stage == 3) {
                             System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
-                            System.out.println("Enter your spell plebby");
+                            System.out.println("Enter your spell:");
                             spellCast = scanner.nextLine();
                             
                             if(spellCast.equalsIgnoreCase(spell)) {
-                                System.out.println("You got meeee");
+                                System.out.println("You got meeee...");
                                 // Remove boss
                             } else {
                                 System.out.println("Ha-ha, wrong spell");
                                     System.out.println("Cerberus threw you out");
-                                    currentRoom = tekHall;
+                                    currentRoom = theColourKitchen;
                                     System.out.println(currentRoom.getLongDescription());
                             }                          
                         }
