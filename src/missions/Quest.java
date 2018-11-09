@@ -1,4 +1,6 @@
-package worldofzuul;
+package missions;
+
+import items.Item;
 
 public class Quest {
     private String questDescription;

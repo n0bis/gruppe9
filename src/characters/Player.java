@@ -1,7 +1,9 @@
-package worldofzuul;
+package characters;
 
+import items.Item;
 import java.util.ArrayList;
 import java.util.List;
+import missions.Quest;
 
 
 public class Player {
@@ -48,7 +50,7 @@ public class Player {
         } else {
             System.out.println("### You inventory is: ###");
             for(Item item : inventory) {
-                System.out.println("- " + item.name + " ");
+                System.out.println("- " + item.getName() + " ");
             }
         }
     }

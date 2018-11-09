@@ -1,7 +1,6 @@
 package characters;
 
 import items.Item;
-import java.util.Scanner;
 import world.Game;
 
 
@@ -27,8 +26,8 @@ public class Boss {
         this.questItem1 = questItem1;
         this.questItem2 = questItem2;
         this.questSpell = questSpell;
-        this.stage = 1;
-    }    
+        this.stage = 1;        
+    }
 
     public String getName() {
         return name;
@@ -80,5 +79,5 @@ public class Boss {
     
     public void incrementStage() {
         this.stage += 1;
-    }    
+    }
 }

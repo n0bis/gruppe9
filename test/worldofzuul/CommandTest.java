@@ -5,6 +5,8 @@
  */
 package worldofzuul;
 
+import command.Command;
+import command.CommandWord;
 import java.util.Arrays;
 import java.util.Collection;
 import org.junit.Test;
