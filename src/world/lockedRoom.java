@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package worldofzuul;
+package world;
 
+import items.Item;
 import java.util.ArrayList;
 import java.util.List;
 
