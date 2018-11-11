@@ -6,7 +6,7 @@ Our version of World of Zuul
 Du er blevet inviteret til den store Halloween fest på dit universitet SDU. Du skal mødes med den frække sygeplejeske, du mødte til intro fest ugen, som du har haft noget kørende med siden. Du vil blive udfordret i hvordan du skal sno dig igennem gangene, find alternative ruter, hjælpe ting du møder på din vej, inden din frække date bliver sur over at i ikke når at deltage i årets par kostumer. Kan du klare mosten og nå ned i nendenunder hvor festen bliver holdt.
 
 ## How to play
-Du skal nå igennem gangene på SDU på bare 20 minutter, ellers vil du gå glip af din date. Du navigere rundt på universitet med følgene kommandoer:
+Du skal nå igennem gangene på SDU på bare 20 minutter, ellers vil du gå glip af din date. Du navigerer rundt på universitet med følgene kommandoer:
 ```java
 GO - "go"
 QUIT - "quit"
