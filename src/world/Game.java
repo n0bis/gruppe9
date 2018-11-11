@@ -303,30 +303,27 @@ public class Game
         if(!npc.hasQuest()) {
             System.out.println(npc.getQuestsDone());    
             return;
-        }   
-        
-            for(int counter = 0; counter < npc.getQuests().size(); counter ++) {
-                tempQuest = npc.getQuests().get(counter);
-                tempReward = npc.getQuests().get(counter).getRewardItem();
-                
-                if(tempQuest.isQuestDone()) {
-                    continue;
-                } else {
-                   if(!player.hasQuest(tempQuest)) {
-                       System.out.println(tempQuest.getQuestDescription());
-                       player.questLog.add(tempQuest);
-                   } else if (player.hasQuest(tempQuest) && player.hasItem(tempQuest.getRequiredItem())) {
-                       tempQuest.setIsQuestDone(true);
-                       player.questLog.remove(tempQuest);
-                       System.out.println(tempQuest.getQuestDone());
-                       player.inventory.add(tempReward);
-                       player.inventory.remove(tempQuest.getRequiredItem());
-                   } else {
-                       System.out.println(tempQuest.getQuestInProgress());
-                   }
-                }                                                                  
-            }  
         }
+        
+        for (Quest quest : npc.getQuests()) {
+            if (quest.isQuestDone()) {
+                continue;
+            }
+            
+            if(!player.hasQuest(quest)) {
+                System.out.println(quest.getQuestDescription());
+                player.questLog.add(quest);
+            } else if (player.hasQuest(quest) && player.hasItem(quest.getRequiredItem())) {
+                quest.setIsQuestDone(true);
+                player.questLog.remove(quest);
+                System.out.println(quest.getQuestDone());
+                player.inventory.add(quest.getRewardItem());
+                player.inventory.remove(quest.getRequiredItem());
+            } else {
+                System.out.println(quest.getQuestInProgress());
+            }
+        }
+    }
     
     private void search() {
         if(currentRoom.getItem() == null) {
