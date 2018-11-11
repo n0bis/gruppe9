@@ -359,16 +359,14 @@ public class Game
             System.out.println("You need to specify what item to drop..");
             return;
         }
-
-        for(int index = 0; index < player.inventory.size(); index++) { 
-            Item item = player.inventory.get(index);
-            
-            if(item.getName().equalsIgnoreCase(command.getSecondWord())) {
+        
+        for (Item item : player.inventory) {
+            if (item.getName().equalsIgnoreCase(command.getSecondWord())) {
                 currentRoom.setItem(item);
                 player.inventory.remove(item);
                 System.out.println("You dropped " + item.getName());
                 return;
-            }       
+            }
         }
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
