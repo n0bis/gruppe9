@@ -36,11 +36,11 @@ I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE``
 - ```test```: et par basale unit-tests
 
 ## Overview
-<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
+<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design"><br />
 **Figur 1: Et diagram over arkitekturdesignet for World-of-Zuul.**
 <br />
 Ud fra figur 1 kan man se at diagrammet over arkitekturdesignet for World-of-Zuul er et pakkediagram, som består af en tolags lagdeling. Det første lag i diagrammet, som er navngivet ”textUI” er det man kalder GUI, hvilket er en forkortelse for ”Graphical User Interface”. GUI er alt det man kan se i et program. Forestil dig at du er inde på din Facebook forside, alt det du ser på forsiden, er GUI, mens alle de aktiviteter du kan udføre på Facebook, går ind under business/domain logikken. Business/domain logikken er i figur 1’s tilfælde lag to i diagrammet, som er navngivet ”domain”, hvor man ligesom kan se klasserne i World-of-Zuul og de forskellige commands i spillet.
-
+<br />
 ![Detaljeret design](https://github.com/n0bis/gruppe9/blob/master/wiki-img/detaljeret-design.png)
 **Figur 2: Et diagram over et detaljeret design for World-ofZuul.**
 <br />
