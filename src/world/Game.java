@@ -160,7 +160,8 @@ public class Game
         u140.setExit("back",building38);
         building38.setExit("back",northMainHall);
         northMainHall.setExit("building22a",building22a);
-        building22a.setExit("to building22aSouth",building22aSouth);
+        building22a.setExit("back", northMainHall);
+        building22a.setExit("building22aSouth",building22aSouth);
         building22aSouth.setExit("u1",u1);
         u1.setExit("back",building22aSouth);
         building22aSouth.setExit("back",building22a);
