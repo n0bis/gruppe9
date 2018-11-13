@@ -46,8 +46,9 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
+    Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
-    private SpellBook spellBook;
+    private SpellBook spellBook = new SpellBook("spellbook",2);;
 
     
     public Game() 
@@ -68,7 +69,7 @@ public class Game
         NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
         
         // Create boss
-        boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem);
+        boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
 
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
@@ -76,7 +77,6 @@ public class Game
                 building344, u133, outsideMainHall, underTheColourKitchen, library;
         
         // Key items
-        spellBook = new SpellBook("spellbook",2);
         ribeye = new Item("ribeye",3);
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
@@ -89,9 +89,6 @@ public class Game
                 "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", bones, fangs);
         Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
         "Thanks for helping me!", key, toiletpaper);
-
-        Spell fireball;
-        fireball = new Spell("Fireball", 8);
         
         outsideTek = new Room("outside the TEK entrance. The building pretty much looks like a giant piece of cheese with windows.");
         tekHall = new lockedRoom("inside the TEK building. There is a really big copper staircase.", Arrays.asList(studyCard));
@@ -217,7 +214,7 @@ public class Game
         System.out.println();
             System.out.println("-------------- Welcome to SDU Maze! ----------------");
         System.out.println("You have been invited to the Halloween Party at SDU. You have a date with that pretty nurse you met last week at the Intro Party!");
-        System.out.println("Find your way around SDU and get down to 'Nederunder' before your date leaves. You got 20 minutes!");
+        System.out.println("Find your way around SDU and get down to 'Nedenunder' before your date leaves. You got 20 minutes!");
         System.out.println("");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
