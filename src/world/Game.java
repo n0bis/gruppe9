@@ -214,7 +214,7 @@ public class Game
         System.out.println();
             System.out.println("-------------- Welcome to SDU Maze! ----------------");
         System.out.println("You have been invited to the Halloween Party at SDU. You have a date with that pretty nurse you met last week at the Intro Party!");
-        System.out.println("Find your way around SDU and get down to 'Nederunder' before your date leaves. You got 20 minutes!");
+        System.out.println("Find your way around SDU and get down to 'Nedenunder' before your date leaves. You got 20 minutes!");
         System.out.println("");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
