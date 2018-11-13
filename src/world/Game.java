@@ -326,10 +326,10 @@ public class Game
     }
     
     private void search() {
+        textDelay("Searching...");
         if(currentRoom.getItem() == null) {
             System.out.println("There is not items here... Spooky");
         } else {
-            textDelay("Searching...");
             System.out.println("Amazing you found " + currentRoom.getItem().getName());
             player.addItem(currentRoom.getItem());
             if (currentRoom.getItem() == studyCard) fillStudyCard();
