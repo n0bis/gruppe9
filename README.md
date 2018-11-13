@@ -33,7 +33,7 @@ I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE``
     - ```utils```: hjælpe funktioner som oftes laves som static metoder
     - ```world```: indkapsler vores verden, står for opsætning og afvikling af verdenen
     - ```worldofzuul```: sørger for at eksekvere spillet
-- ```test```: et par basale unit-tests
+- ```test```: unit-tests
 
 ## Overview
 <img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design"><br />
