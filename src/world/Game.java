@@ -220,8 +220,6 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
-        
-        System.out.println(System.currentTimeMillis());
     }
     
     public void textDelay(String str) { 
