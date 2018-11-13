@@ -26,6 +26,10 @@ public class SpellBook extends Item {
         mySpells.add(newSpell);
     }
     
+    public boolean hasSpell(Spell spell) {
+        return this.mySpells.contains(spell);
+    } 
+    
     public void getSpellBook() {
         if (mySpells.isEmpty()) {
             System.out.println("Too bad, you got no spells yet.");
