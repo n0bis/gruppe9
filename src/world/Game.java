@@ -96,7 +96,7 @@ public class Game
         outsideTek = new Room("outside the TEK entrance. The building pretty much looks like a giant piece of cheese with windows.");
         tekHall = new lockedRoom("inside the TEK building. There is a really big copper staircase.", Arrays.asList(studyCard));
         studyRooms = new Room("upstairs infront of the study rooms - There are many small rooms with glass walls.");
-        building44lvl1 = new Room("at level 1 in building 44. There's a lot of class rooms and some stairs in the middel of the building.");
+        building44lvl1 = new Room("at level 1 in building 44. There's a lot of classrooms and some stairs in the middle of the building.");
         building44lvl2 = new Room("at level 2 in building 44. Looks pretty much like level 1 except theres a indoor pathway to the rest of the University.");
         building44lvl3 = new Room("at level 3 in building 44. Same as the other levels, but no pathway..");
         u183 = new Room("in classroom u183 on level 3 in building 44");
@@ -220,6 +220,8 @@ public class Game
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
+        
+        System.out.println(System.currentTimeMillis());
     }
     
     public void textDelay(String str) { 
