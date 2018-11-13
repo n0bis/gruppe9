@@ -215,8 +215,10 @@ public class Game
     private void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+            System.out.println("-------------- Welcome to SDU Maze! ----------------");
+        System.out.println("You have been invited to the Halloween Party at SDU. You have a date with that pretty nurse you met last week at the Intro Party!");
+        System.out.println("Find your way around SDU and get down to 'Nederunder' before your date leaves. You got 20 minutes!");
+        System.out.println("");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
