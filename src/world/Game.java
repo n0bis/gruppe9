@@ -221,7 +221,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
     
-    public void textDelay(String str) { 
+    private void textDelay(String str) { 
         for (char ch: str.toCharArray()) {
             System.out.print(ch);
             try {
@@ -296,8 +296,6 @@ public class Game
         }
         
         NPC npc = currentRoom.getNPC();
-        Quest tempQuest;
-        Item tempReward;
         
         if(!npc.hasQuest()) {
             System.out.println(npc.getQuestsDone());    
@@ -410,7 +408,7 @@ public class Game
         }
     }
     
-    public void bossEncounter() {
+    private void bossEncounter() {
         Scanner scanner = new Scanner(System.in);
         switch(boss.getStage()) {
             case 1:
