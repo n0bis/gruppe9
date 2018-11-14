@@ -15,7 +15,13 @@ import java.util.Scanner;
  * @author madsfalken
  */
 public class FinalBoss extends Boss {
+    /* Boss concept:
+    - Boss has 3 quests that needs to be completed in order to kill him
+    - If you do not complete the 3 things, you will be thrown back
+    - One command will be a spell
     
+    Problem: go commands will still show?
+    */
     private Item stage1RequiredItem;
     private Item stage2RequiredItem;
     private Item stage3RequiredItem;
