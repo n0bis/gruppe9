@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="700" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WorldOfZuulGUIController">
+   <children>
+      <ImageView fx:id="room1" fitHeight="100.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true">
+       </ImageView>
+      <ImageView id="book" fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" onMouseClicked="#bookMouseClicked" pickOnBounds="true">
+         </ImageView>
+      <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" onMouseClicked="#arrowMouseClicked" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="monsterId" fitHeight="150.0" fitWidth="200.0" layoutX="316.0" layoutY="275.0" onMouseClicked="#talkMonster" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/sackmonster.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
