@@ -53,11 +53,8 @@ public class Game
     
     public Game() 
     {
-        player = new Player();
         createRooms();
-        parser = new Parser();
-        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
+        
     }
 
     private void createRooms()
@@ -197,8 +194,6 @@ public class Game
         printWelcome();
                 
         boolean finished = false;
-        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timerScore = new TimerScore();
         timerScore.startTimer();
         while (! finished) {
