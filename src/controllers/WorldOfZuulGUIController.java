@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static world.Game.Bookie;
 import static world.Game.player;
+import static world.Game.spellBook;
 
 /**
  *
@@ -57,7 +58,9 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void talkMonster(MouseEvent event) {
-        menuController.SpeechText("I'll grant you 3 wishes");
+        menuController.SpeechText("granted you " + spellBook);
+        player.addItem(spellBook);
+        menuController.unlockSpellBook();
     }
     
 }

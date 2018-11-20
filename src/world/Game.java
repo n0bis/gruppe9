@@ -48,7 +48,7 @@ public class Game
     Room nedenunder; 
     Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
-    private SpellBook spellBook = new SpellBook("spellbook",2);;
+    public static SpellBook spellBook = new SpellBook("spellbook",2);;
 
     
     public Game() 

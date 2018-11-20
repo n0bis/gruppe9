@@ -9,11 +9,7 @@
 
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
    <children>
-      <ImageView fx:id="phoneId" fitHeight="94.0" fitWidth="126.0" layoutX="480.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/phone.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="spellBookId" fitHeight="94.0" fitWidth="126.0" layoutX="480.0" layoutY="3.0" onMouseClicked="#spellBookClicked" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="bagId" fitHeight="94.0" fitWidth="141.0" layoutX="389.0" layoutY="6.0" onMouseClicked="#bagClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bag.png" />
