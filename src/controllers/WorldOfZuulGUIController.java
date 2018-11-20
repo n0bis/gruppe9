@@ -32,8 +32,6 @@ public class WorldOfZuulGUIController extends UpperClass {
     
     public void initialize() {
         anchorId.setOpacity(1);
-        //book.setOnMouseEntered((value) -> book.setEffect(new DropShadow(20, Color.FIREBRICK)));
-        //book.setOnMouseExited((value) -> book.setEffect(null));
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
@@ -50,7 +48,11 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "Hall");
+        if (player.hasItem(Bookie)) {
+            FadeAnimation.fadeOutTransition(anchorId, "Hall");
+        } else {
+            menuController.SpeechText("Ohh need to find an item to continue");
+        }
     }
 
     @FXML
