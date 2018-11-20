@@ -368,7 +368,7 @@ public class Game
         System.out.println("You do not have an item named " + "\"" + command.getSecondWord() + "\"");
     }
         
-    private void goRoom(Command command) 
+    public void goRoom(Command command) 
     {
         if(!command.hasSecondWord()) {
             System.out.println("Go where?");

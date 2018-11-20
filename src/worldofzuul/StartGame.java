@@ -13,12 +13,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import world.Game;
 
 /**
  *
  * @author madsfalken
  */
 public class StartGame extends Application {
+    
+    public static Game game = new Game();
     
     @Override
     public void start(Stage primaryStage) {
