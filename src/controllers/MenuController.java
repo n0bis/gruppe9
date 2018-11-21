@@ -79,6 +79,10 @@ public class MenuController implements Initializable {
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(new Image(getClass().getResourceAsStream("/images/fireball.jpg")));
+            fireBallIcon.setOnMouseClicked((value) -> {
+                System.out.println("imma firin mah lazer");
+                dialog.close();
+            });
         }
         dialogVbox.getChildren().add(root);
         Scene dialogSence = new Scene(dialogVbox);
