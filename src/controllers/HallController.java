@@ -7,7 +7,6 @@ package controllers;
 
 import command.Command;
 import command.CommandWords;
-import static controllers.FadeAnimation.fadeInTransition;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;

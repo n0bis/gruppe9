@@ -46,7 +46,7 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
-    Spell fireball = new Spell("Fireball", 8);
+    public static Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
     public static SpellBook spellBook = new SpellBook("spellbook",2);;
 

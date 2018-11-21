@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static world.Game.Bookie;
+import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
 
@@ -45,6 +46,7 @@ public class WorldOfZuulGUIController extends UpperClass {
         book.setImage(null);
         //Add item to inventory
         player.addItem(Bookie);
+        player.addItem(fireball);
     }
 
     @FXML
