@@ -12,6 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static world.Game.Bookie;
 import static world.Game.player;
+import static world.Game.sackQuest;
+import static world.Game.sackmonster;
+import static world.Game.teeth;
 
 /**
  *
@@ -29,6 +32,7 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
+    
     
     public void initialize() {
         anchorId.setOpacity(1);
@@ -48,7 +52,7 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
-        if (player.hasItem(Bookie)) {
+        if (player.hasItem(teeth)) {
             FadeAnimation.fadeOutTransition(anchorId, "Hall");
         } else {
             menuController.SpeechText("Ohh need to find an item to continue");
@@ -57,7 +61,19 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void talkMonster(MouseEvent event) {
-        menuController.SpeechText("I'll grant you 3 wishes");
+        if(sackQuest.isQuestDone()) {
+            menuController.SpeechText(sackQuest.getQuestDone());
+        } else if (player.hasQuest(sackQuest) && !player.hasItem(Bookie)) {
+            menuController.SpeechText(sackQuest.getQuestInProgress());
+        } else if (player.hasQuest(sackQuest) && player.hasItem(Bookie)) {
+            menuController.SpeechText(sackQuest.getQuestDone());
+            sackQuest.setIsQuestDone(true);
+            player.removeQuest(sackQuest);
+            player.addItem(teeth);
+        } else if (!player.hasQuest(sackQuest) && !sackQuest.isQuestDone()) {
+            menuController.SpeechText(sackQuest.getQuestDescription());
+            player.addQuest(sackQuest);
+        }
     }
     
 }

@@ -21,7 +21,7 @@ import world.Game;
  */
 public class StartGame extends Application {
     
-    public static Game game = new Game();
+    // public static Game game = new Game();
     
     @Override
     public void start(Stage primaryStage) {
