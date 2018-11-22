@@ -35,6 +35,7 @@ public class WorldOfZuulGUIController extends UpperClass {
     
     
     public void initialize() {
+        System.out.println("hej");
         anchorId.setOpacity(1);
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
