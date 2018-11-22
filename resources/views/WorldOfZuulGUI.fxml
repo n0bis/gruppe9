@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -12,6 +13,16 @@
    <children>
       <ImageView fx:id="room1" fitHeight="100.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true">
        </ImageView>
+      <FlowPane layoutX="466.0" layoutY="175.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="nodeLPane" lineSpacing="2.0" text="Label" textFill="RED">
+               <font>
+                  <Font size="70.0" />
+               </font>
+            </Label>
+            <Button fx:id="paneButton" mnemonicParsing="false" onMouseClicked="#paneButtonClicked" text="Test knap" />
+         </children>
+      </FlowPane>
       <ImageView id="book" fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" onMouseClicked="#bookMouseClicked" pickOnBounds="true">
          </ImageView>
       <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" onMouseClicked="#arrowMouseClicked" pickOnBounds="true" preserveRatio="true" />

@@ -6,15 +6,24 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
+import static javafx.scene.paint.Color.color;
 import static world.Game.Bookie;
 import static world.Game.player;
 import static world.Game.sackQuest;
 import static world.Game.sackmonster;
 import static world.Game.teeth;
+import world.Room;
 
 /**
  *
@@ -32,9 +41,18 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
+    @FXML
+    private Label nodeLPane;
+    @FXML
+    private Button paneButton;
     
+    Room firstRoom = new Room("First room");
     
     public void initialize() {
+        if(!firstRoom.returnChecked()) {
+            nodeLPane.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        }   
+        
         System.out.println("hej");
         anchorId.setOpacity(1);
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
@@ -75,6 +93,14 @@ public class WorldOfZuulGUIController extends UpperClass {
             menuController.SpeechText(sackQuest.getQuestDescription());
             player.addQuest(sackQuest);
         }
+    }
+
+    @FXML
+    private void paneButtonClicked(MouseEvent event) {
+        nodeLPane.setOpacity(0);
+        paneButton.setOpacity(0);
+        firstRoom.setIsChecked(true);
+        System.out.println(firstRoom.returnChecked());
     }
     
 }
