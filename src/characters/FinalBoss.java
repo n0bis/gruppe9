@@ -5,10 +5,18 @@
  */
 package characters;
 
+import controllers.FadeAnimation;
+import controllers.SceneManager;
 import items.Item;
 import items.Spell;
 import items.SpellBook;
 import java.util.Scanner;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  *
@@ -28,6 +36,8 @@ public class FinalBoss extends Boss {
     private Spell questSpell;
     private int stage;
     
+    public boolean hasItem;
+    
     public FinalBoss(Item stage1RequiredItem, Item stage2RequiredItem, Item stage3RequiredItem, Spell questSpell) {
         super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone");
         this.stage1RequiredItem = stage1RequiredItem;
@@ -37,15 +47,29 @@ public class FinalBoss extends Boss {
         this.stage = 1; 
     }
     
-    public boolean wonStage1(Scanner scanner, Player player) {
-        System.out.println(this.getDialogue());
-        System.out.println("Do you want to fight me pleb? (Yes or no)");
-        String fightAnswer = scanner.nextLine();
-
-        if(fightAnswer.equalsIgnoreCase("Yes")) {
-            return player.inventory.contains(this.getStage1RequiredItem());
-        }
-        return false;
+    public boolean wonStage1(Player player) {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        VBox dialogVbox = new VBox(20);
+        Text fightText = new Text("Do you want to fight me pleb? (Yes or no)");
+        Button okButton = new Button("YES");
+        Button noButton = new Button("NO");
+        dialogVbox.getChildren().addAll(fightText, okButton, noButton);
+        Scene dialogSence = new Scene(dialogVbox);
+        dialog.setScene(dialogSence);
+        dialog.setAlwaysOnTop(true);
+        dialog.setResizable(false);
+        okButton.setOnAction((value) -> {
+            dialog.close();
+            hasItem = player.hasItem(this.getStage1RequiredItem());
+        });
+        noButton.setOnAction((value) -> {
+            dialog.close();
+            SceneManager.activate("Hall");
+        });
+        dialog.showAndWait();
+        
+        return hasItem;
     }
     
     public boolean wonStage2(Player player) {
@@ -54,14 +78,14 @@ public class FinalBoss extends Boss {
         return player.inventory.contains(this.getStage2RequiredItem());
     }
     
-    public boolean wonStage3(Scanner scanner, Player player) {
+    public boolean wonStage3(String input, Player player) {
         if (!player.inventory.contains(this.stage3RequiredItem) || !((SpellBook)this.stage3RequiredItem).hasSpell(questSpell)) {
             return false;
         }
        
         System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
         System.out.println("Enter your spell:");
-        String spellCast = scanner.nextLine();
+        String spellCast = input;
 
         if(spellCast.equalsIgnoreCase(this.questSpell.toString())) {
             System.out.println("You got me. #RIP.");

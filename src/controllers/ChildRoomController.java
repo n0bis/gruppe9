@@ -11,21 +11,29 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import static world.Game.boss;
+import static world.Game.player;
+import static world.Game.stage1RequiredItem;
 
 /**
  * FXML Controller class
  *
  * @author madsfalken
  */
-public class ChildRoomController implements Initializable {
+public class ChildRoomController extends UpperClass implements Initializable {
 
+    private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
+    
     @FXML
     private ImageView book;
     @FXML
     private ImageView arrow;
     @FXML
     private GridPane rootPane;
+    @FXML
+    private ImageView bossId;
 
     /**
      * Initializes the controller class.
@@ -33,7 +41,45 @@ public class ChildRoomController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
-        arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-right.png")));
+        player.addItem(stage1RequiredItem);
     }    
+
+    @FXML
+    private void bossEncounter(MouseEvent event) {
+        switch(boss.getStage()) {
+            case 1:
+                menuController.SpeechText(boss.getDialogue());
+                if (boss.wonStage1(player)) {
+                    boss.incrementStage();
+                    bossEncounter(event);
+                } else {
+                    menuController.SpeechText("Hahaha you don't have what it takes to fight me");
+                    throwOut();
+                }
+                break;
+            case 2:
+                menuController.SpeechText("Welcome to stage 2 of my face");
+                bossId.setImage(stage2Boss);
+                /*if (boss.wonStage2(player)) {
+                    boss.incrementStage();
+                    bossEncounter(event);
+                } else {
+                    throwOut();
+                }*/
+                break;
+            case 3:
+                if(boss.wonStage3("fireball", player)) {
+                    boss.incrementStage();
+                    bossEncounter(event);
+                } else {
+                    throwOut();
+                }
+            }
+    }
+    
+    private void throwOut() {
+        menuController.SpeechAppend("\nCerberus threw you out");
+        FadeAnimation.fadeOutTransition(rootPane, "Hall");
+    }
     
 }

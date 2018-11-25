@@ -43,7 +43,7 @@ public class StartGame extends Application {
         
         SceneManager sceneManager = new SceneManager(borderPane);
         sceneManager.addScene("WorldOfZuulGUI", menuController);
-        sceneManager.addScene("ChildRoom");
+        sceneManager.addScene("ChildRoom", menuController);
         sceneManager.addScene("Hall", menuController);
         
         SceneManager.activate("WorldOfZuulGUI");

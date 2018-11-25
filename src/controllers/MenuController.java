@@ -48,6 +48,10 @@ public class MenuController implements Initializable {
     public void SpeechText(String speech) {
         SpeechId.setText(speech);
     }
+    
+    public void SpeechAppend(String speech) {
+        SpeechId.appendText(speech);
+    }
 
     @FXML
     private void bagClicked(MouseEvent event) {

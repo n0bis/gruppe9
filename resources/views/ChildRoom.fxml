@@ -11,6 +11,11 @@
     <children>
         <ImageView id="book" fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="bossId" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#bossEncounter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/sackmonster.png" />
+         </image>
+      </ImageView>
     </children>
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="70.0" prefWidth="100.0" />
