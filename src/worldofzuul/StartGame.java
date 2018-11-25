@@ -50,6 +50,7 @@ public class StartGame extends Application {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+        primaryStage.setOnCloseRequest((value -> System.exit(0)));
     }
 
     /**

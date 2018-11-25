@@ -30,9 +30,10 @@ public class HallController extends UpperClass implements Initializable {
     private ImageView arrowRightId;
     @FXML
     private AnchorPane rootId;
-    private ImageView arrowLeft;
     @FXML
     private ImageView arrowLeftId;
+    @FXML
+    private ImageView skeletonId;
     
     /**
      * Initializes the controller class.
