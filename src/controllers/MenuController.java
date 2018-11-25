@@ -108,19 +108,23 @@ public class MenuController implements Initializable {
                     1, 1,
                     97, 85
                 );
+                imageViewFire.setScaleX(2.0);
+                imageViewFire.setScaleY(4.0);
                 fireballAnimation.setCycleCount(Animation.INDEFINITE);
                 fireballAnimation.play();
                 
                 TranslateTransition transition = new TranslateTransition();
-                transition.setDuration(Duration.seconds(2));
+                transition.setDuration(Duration.seconds(1.2));
                 transition.setToY(-(main.getBoundsInLocal().getMaxY() / 2));
                 transition.setNode(imageViewFire);
                 transition.play();
                 transition.setOnFinished((val) -> {
                     ImageView imageViewExplosion = new ImageView(explosionImage);
+                    imageViewExplosion.setScaleX(2.0);
+                    imageViewExplosion.setScaleY(2.0);
                     imageViewExplosion.setViewport(new Rectangle2D(2, 1, 97, 150));
-                    imageViewExplosion.setLayoutX(main.getBoundsInLocal().getMaxX() / 2);
-                    imageViewExplosion.setLayoutY((main.getBoundsInLocal().getMaxY() / 2));
+                    imageViewExplosion.setLayoutX((main.getBoundsInLocal().getMaxX() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxX() / 2));
+                    imageViewExplosion.setLayoutY((main.getBoundsInLocal().getMaxY() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxY() / 2));
                     main.getChildren().remove(imageViewFire);
                     Animation explosionAnimation = new SpriteAnimation(
                         imageViewExplosion,
