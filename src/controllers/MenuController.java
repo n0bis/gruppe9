@@ -26,7 +26,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import static utils.ShowMap.showMap;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
@@ -64,8 +63,18 @@ public class MenuController implements Initializable {
     }    
 
     @FXML
-    private void mapClicked(MouseEvent event) {
-        showMap();
+    private void mapClicked(MouseEvent event) throws IOException {
+        Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/Map.fxml")
+        );
+        Parent root = loader.load();
+        Scene dialogScene = new Scene(root);
+        dialog.setScene(dialogScene);
+        dialog.setAlwaysOnTop(true);
+        dialog.setResizable(false);
+        dialog.show();
     }
     
     public void SpeechText(String speech) {
