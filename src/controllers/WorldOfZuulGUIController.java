@@ -46,14 +46,10 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
-    private Label nodeLPane;
-    private Button paneButton;
     
     Room firstRoom = new Room("First room");    
     @FXML
     private FlowPane flowPane;
-    @FXML
-    private Label labelTitle;
     @FXML
     private TextArea smsTextbox;
     @FXML
@@ -65,9 +61,7 @@ public class WorldOfZuulGUIController extends UpperClass {
     
     public void initialize() {
         if(!firstRoom.returnChecked()) {
-        flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-        // nodeLPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-
+          flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         }   
         
         anchorId.setOpacity(1);
@@ -111,13 +105,6 @@ public class WorldOfZuulGUIController extends UpperClass {
         }
     }
 
-    private void paneButtonClicked(MouseEvent event) {
-        nodeLPane.setOpacity(0);
-        paneButton.setOpacity(0);
-        firstRoom.setIsChecked(true);
-        System.out.println(firstRoom.returnChecked());
-    }
-
     @FXML
     private void leftAnswerClicked(MouseEvent event) {
         smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
@@ -125,8 +112,7 @@ public class WorldOfZuulGUIController extends UpperClass {
         rightAnswer.setOpacity(0);
         leftAnswer.setOpacity(0);
         closeButton.setOpacity(1);
-        firstRoom.setIsChecked(true);
-       
+        firstRoom.setIsChecked(true);  
     }
 
     @FXML
@@ -141,8 +127,10 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void closeButtonClicked(MouseEvent event) {
-        flowPane.setOpacity(0);
-        
+        if(closeButton.getOpacity() == 0.0) {
+            return;
+        }        
+        anchorId.getChildren().remove(flowPane);        
     }
     
 }
