@@ -120,13 +120,7 @@ public class MenuController implements Initializable {
         Scene dialogSence = new Scene(root);
         dialog.setScene(dialogSence);
 
-    private void mapClicked(MouseEvent event) throws IOException {
-        Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/views/Map.fxml")
-        );
-        Parent root = loader.load();
+  
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
 
@@ -156,23 +150,20 @@ public class MenuController implements Initializable {
         dialog.setResizable(false);
         dialog.show();
 
-    private void bagClicked(MouseEvent event) {
+   {
         player.getInventory();
        
-    }
+   }
 
-    @FXML
-    private void spellBookClicked(MouseEvent event) throws IOException {
+   
+     {
         if (!player.hasItem(spellBook)) {
             return;
         }
-        final Stage dialog = new Stage();
+        
         dialog.initModality(Modality.APPLICATION_MODAL);
         VBox dialogVbox = new VBox(20);
-        FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/views/Spellbook.fxml")
-        );
-        Parent root = loader.load();
+    
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
@@ -234,8 +225,14 @@ public class MenuController implements Initializable {
         dialog.show();
     }
     
-    public void unlockSpellBook() {
+   {
         spellBookId.setImage(spellBookImage);
 
     }
 }
+
+    void unlockSpellBook() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
+
