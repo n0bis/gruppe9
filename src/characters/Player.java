@@ -3,6 +3,7 @@ package characters;
 import items.Item;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.image.ImageView;
 import missions.Quest;
 
 
@@ -38,6 +39,12 @@ public class Player {
     
     public boolean hasQuest(Quest quest) {
        return this.questLog.contains(quest);
+    }
+    public void removeQuest(Quest quest) {
+        questLog.remove(quest);
+    }
+    public void addQuest(Quest quest) {
+        questLog.add(quest);
     }
     
     public void addItem(Item item) {

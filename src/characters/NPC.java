@@ -5,12 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 import missions.Quest;
 
+
 public class NPC {
     private String name;
     private String dialogue;
     private String questsDone;
-    private List<Quest> quests = new ArrayList<>();
-
+    public static List<Quest> quests = new ArrayList<>(); 
+    
+    
+    public NPC() {
+        
+    }
+    
     public NPC(String name, String dialogue, String questsDone) {
         this.name = name;
         this.dialogue = dialogue;

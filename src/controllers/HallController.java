@@ -7,7 +7,6 @@ package controllers;
 
 import command.Command;
 import command.CommandWords;
-import static controllers.FadeAnimation.fadeInTransition;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -16,7 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import static worldofzuul.StartGame.game;
+// import static worldofzuul.StartGame.game;
 
 /**
  * FXML Controller class
@@ -31,9 +30,10 @@ public class HallController extends UpperClass implements Initializable {
     private ImageView arrowRightId;
     @FXML
     private AnchorPane rootId;
-    private ImageView arrowLeft;
     @FXML
     private ImageView arrowLeftId;
+    @FXML
+    private ImageView skeletonId;
     
     /**
      * Initializes the controller class.
@@ -49,9 +49,7 @@ public class HallController extends UpperClass implements Initializable {
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
-        Command command = new Command(new CommandWords().getCommandWord("go"), "north");
-        //FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
-        game.goRoom(command);
+        FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
     }
 
     @FXML

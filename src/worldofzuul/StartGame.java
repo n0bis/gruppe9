@@ -8,11 +8,19 @@ package worldofzuul;
 import controllers.MenuController;
 import controllers.SceneManager;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import utils.TimeExpired;
+import utils.TimeRemaining;
+import utils.TimerScore;
 import world.Game;
 
 /**
@@ -46,10 +54,16 @@ public class StartGame extends Application {
         sceneManager.addScene("ChildRoom");
         sceneManager.addScene("Hall", menuController);
         
+        Timer timer = new Timer();
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
+        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        TimerScore.startTimer();
+        
         SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
+        primaryStage.setOnCloseRequest((value) -> timer.cancel());
     }
 
     /**
