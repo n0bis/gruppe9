@@ -57,5 +57,9 @@ public final class SceneManager {
         node.setOpacity(1);
         main.setCenter(node);
     }
+    
+    public static BorderPane getMain() {
+        return main;
+    }
 
 }

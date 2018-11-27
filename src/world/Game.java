@@ -13,7 +13,6 @@ import characters.NPC;
 import items.Item;
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import missions.Quest;
 import static utils.ShowMap.showMap;
@@ -23,13 +22,12 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer = new Timer();
     public static Player player = new Player();
     private NPC npc;
     private FinalBoss boss;
     private Quest quest;
     private TimerScore timerScore;
-    Item teeth = new Item("Teeth", 4);
+    public static Item teeth = new Item("Teeth", 4);
     Item bone = new Item("Bone", 5);
     Item bones = new Item("Bones", 22);
     Item fangs = new Item("Fangs", 21);
@@ -46,15 +44,20 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
-    Spell fireball = new Spell("Fireball", 8);
+    public static Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
-    private SpellBook spellBook = new SpellBook("spellbook",2);;
-
+    public static SpellBook spellBook = new SpellBook("spellbook",2);
+    
+    // Static NPC
+    public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
+    
+    // Static quests:
+    public static Quest sackQuest = new Quest("This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
+            + "done", teeth, Bookie);
     
     public Game() 
     {
         createRooms();
-        
     }
 
     private void createRooms()
@@ -65,9 +68,10 @@ public class Game
         NPC mummy = new NPC("Mummy", "Mummy: Hello buddy", "Move along, you've already helped me");
         NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
         
+        
         // Create boss
         boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
-
+        
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
             northToilets, u45, u55, southMainHall, building38, u140, building22a, building22alvl1, building22aNorth, u27a, building22aSouth, u1,
@@ -86,6 +90,7 @@ public class Game
                 "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", bones, fangs);
         Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
         "Thanks for helping me!", key, toiletpaper);
+        
         
         outsideTek = new Room("outside the TEK entrance. The building pretty much looks like a giant piece of cheese with windows.");
         tekHall = new lockedRoom("inside the TEK building. There is a really big copper staircase.", Arrays.asList(studyCard));
@@ -179,9 +184,11 @@ public class Game
         u183.setNPC(mummy);
         building44lvl1.setNPC(mage);
         
+        
         // Set NPC quest
         dracula.addQuest(draculaQuest);
         mummy.addQuest(mummyQuest);
+        sackmonster.addQuest(sackQuest);
         
         // Set Boss
         underTheColourKitchen.setBoss(boss);
@@ -200,7 +207,6 @@ public class Game
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        timer.cancel();
         System.out.println("Thank you for playing.  Good bye.");
     }
 
@@ -284,6 +290,10 @@ public class Game
         parser.showCommands();
     }
     
+    public void setTek() {
+    currentRoom = theColourKitchen;
+    }
+
     private void talk() {
         if(!currentRoom.hasNPC()) {
             System.out.println("Who you talking to?");
