@@ -5,9 +5,14 @@
  */
 package views;
 
+import controllers.FadeAnimation;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -15,13 +20,20 @@ import javafx.fxml.Initializable;
  * @author NidaBasaran
  */
 public class BagController implements Initializable {
-
+    @FXML
+    private ImageView bagId;
+    @FXML
+    private AnchorPane rootId;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-}
+        bagId.setImage(new Image(getClass().getResourceAsStream("/images/burlap.jpg")));
+        bagId.fitHeightProperty().bind(rootId.heightProperty());
+        
+    } 
+ 
+   }
+
