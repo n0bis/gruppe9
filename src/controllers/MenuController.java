@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import items.Item;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -52,6 +53,8 @@ public class MenuController implements Initializable {
     @FXML
     private void bagClicked(MouseEvent event) {
         player.getInventory();
+       
     }
+  
     
 }

@@ -13,6 +13,8 @@ import javafx.scene.layout.AnchorPane;
 import static world.Game.Bookie;
 import static world.Game.player;
 
+
+
 /**
  *
  * @author ubuntu
@@ -29,6 +31,11 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
+    @FXML
+    private ImageView fangs;
+    @FXML
+    private ImageView toiletpaper;
+    
     
     public void initialize() {
         anchorId.setOpacity(1);
@@ -37,6 +44,10 @@ public class WorldOfZuulGUIController extends UpperClass {
         room1.fitWidthProperty().bind(anchorId.widthProperty());
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        fangs.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
+        toiletpaper.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
+
+        
     }
 
     @FXML
@@ -45,7 +56,18 @@ public class WorldOfZuulGUIController extends UpperClass {
         //Add item to inventory
         player.addItem(Bookie);
     }
-
+    @FXML
+    private void fangsMouseClicked(MouseEvent event) {
+        fangs.setImage(null);
+        player.addItem(fangs);
+     
+    }
+    @FXML
+    private void toiletpaperMouseClicked(MouseEvent event) {
+        toiletpaper.setImage(null);
+        player.addItem(toiletpaper);
+    }
+    
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
         if (player.hasItem(Bookie)) {
@@ -54,10 +76,12 @@ public class WorldOfZuulGUIController extends UpperClass {
             menuController.SpeechText("Ohh need to find an item to continue");
         }
     }
+    
 
     @FXML
     private void talkMonster(MouseEvent event) {
         menuController.SpeechText("I'll grant you 3 wishes");
     }
+
     
 }
