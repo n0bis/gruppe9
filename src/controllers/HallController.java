@@ -6,8 +6,6 @@
 package controllers;
 
 import utils.FadeAnimation;
-import command.Command;
-import command.CommandWords;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -16,7 +14,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-// import static worldofzuul.StartGame.game;
 
 /**
  * FXML Controller class

@@ -6,7 +6,6 @@
 package controllers;
 
 import utils.SpriteAnimation;
-import items.Item;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
