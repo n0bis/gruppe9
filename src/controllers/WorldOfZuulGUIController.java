@@ -6,9 +6,7 @@
 package controllers;
 
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,14 +17,12 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.paint.Color;
-import static javafx.scene.paint.Color.color;
 import static world.Game.Bookie;
+import static world.Game.fireball;
 import static world.Game.player;
+import static world.Game.spellBook;
 import static world.Game.sackQuest;
-import static world.Game.sackmonster;
 import static world.Game.teeth;
 import world.Room;
 
@@ -77,6 +73,7 @@ public class WorldOfZuulGUIController extends UpperClass {
         book.setImage(null);
         //Add item to inventory
         player.addItem(Bookie);
+        player.addItem(fireball);
     }
 
     @FXML
@@ -90,6 +87,9 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void talkMonster(MouseEvent event) {
+        menuController.SpeechText("granted you " + spellBook);
+        player.addItem(spellBook);
+        menuController.unlockSpellBook();
         if(sackQuest.isQuestDone()) {
             menuController.SpeechText(sackQuest.getQuestDone());
         } else if (player.hasQuest(sackQuest) && !player.hasItem(Bookie)) {
@@ -130,7 +130,7 @@ public class WorldOfZuulGUIController extends UpperClass {
         if(closeButton.getOpacity() == 0.0) {
             return;
         }        
-        anchorId.getChildren().remove(flowPane);        
+        anchorId.getChildren().remove(flowPane);
     }
     
 }

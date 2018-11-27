@@ -7,7 +7,6 @@ package controllers;
 
 import command.Command;
 import command.CommandWords;
-import static controllers.FadeAnimation.fadeInTransition;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -31,9 +30,10 @@ public class HallController extends UpperClass implements Initializable {
     private ImageView arrowRightId;
     @FXML
     private AnchorPane rootId;
-    private ImageView arrowLeft;
     @FXML
     private ImageView arrowLeftId;
+    @FXML
+    private ImageView skeletonId;
     
     /**
      * Initializes the controller class.

@@ -44,9 +44,9 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
-    Spell fireball = new Spell("Fireball", 8);
+    public static Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
-    private SpellBook spellBook = new SpellBook("spellbook",2);;
+    public static SpellBook spellBook = new SpellBook("spellbook",2);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
@@ -54,8 +54,6 @@ public class Game
     // Static quests:
     public static Quest sackQuest = new Quest("This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
             + "done", teeth, Bookie);
-    
-            
     
     public Game() 
     {

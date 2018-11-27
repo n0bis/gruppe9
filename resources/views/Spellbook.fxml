@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ImageView fx:id="spellbookId" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/spellBookOpen.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fireBallId" fitHeight="68.0" fitWidth="94.0" layoutX="67.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
