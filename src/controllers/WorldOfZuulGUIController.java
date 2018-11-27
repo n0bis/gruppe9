@@ -6,12 +6,29 @@
 package controllers;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.paint.Color;
+import static javafx.scene.paint.Color.color;
 import static world.Game.Bookie;
 import static world.Game.player;
+import static world.Game.sackQuest;
+import static world.Game.sackmonster;
+import static world.Game.teeth;
+import world.Room;
 
 /**
  *
@@ -30,7 +47,23 @@ public class WorldOfZuulGUIController extends UpperClass {
     @FXML
     private ImageView monsterId;
     
+    Room firstRoom = new Room("First room");    
+    @FXML
+    private FlowPane flowPane;
+    @FXML
+    private TextArea smsTextbox;
+    @FXML
+    private Button leftAnswer;
+    @FXML
+    private Button rightAnswer;
+    @FXML
+    private Button closeButton;
+    
     public void initialize() {
+        if(!firstRoom.returnChecked()) {
+          flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        }   
+        
         anchorId.setOpacity(1);
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
@@ -48,7 +81,7 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
-        if (player.hasItem(Bookie)) {
+        if (player.hasItem(teeth)) {
             FadeAnimation.fadeOutTransition(anchorId, "Hall");
         } else {
             menuController.SpeechText("Ohh need to find an item to continue");
@@ -57,7 +90,47 @@ public class WorldOfZuulGUIController extends UpperClass {
 
     @FXML
     private void talkMonster(MouseEvent event) {
-        menuController.SpeechText("I'll grant you 3 wishes");
+        if(sackQuest.isQuestDone()) {
+            menuController.SpeechText(sackQuest.getQuestDone());
+        } else if (player.hasQuest(sackQuest) && !player.hasItem(Bookie)) {
+            menuController.SpeechText(sackQuest.getQuestInProgress());
+        } else if (player.hasQuest(sackQuest) && player.hasItem(Bookie)) {
+            menuController.SpeechText(sackQuest.getQuestDone());
+            sackQuest.setIsQuestDone(true);
+            player.removeQuest(sackQuest);
+            player.addItem(teeth);
+        } else if (!player.hasQuest(sackQuest) && !sackQuest.isQuestDone()) {
+            menuController.SpeechText(sackQuest.getQuestDescription());
+            player.addQuest(sackQuest);
+        }
+    }
+
+    @FXML
+    private void leftAnswerClicked(MouseEvent event) {
+        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
+                "Nå, det var forkert venni. Thanks for nothing.");
+        rightAnswer.setOpacity(0);
+        leftAnswer.setOpacity(0);
+        closeButton.setOpacity(1);
+        firstRoom.setIsChecked(true);  
+    }
+
+    @FXML
+    private void rightAnswerClicked(MouseEvent event) {
+        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
+                "Det var rigtigt!");
+        rightAnswer.setOpacity(0);
+        leftAnswer.setOpacity(0);
+        closeButton.setOpacity(1);
+        firstRoom.setIsChecked(true);
+    }
+
+    @FXML
+    private void closeButtonClicked(MouseEvent event) {
+        if(closeButton.getOpacity() == 0.0) {
+            return;
+        }        
+        anchorId.getChildren().remove(flowPane);        
     }
     
 }

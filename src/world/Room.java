@@ -16,11 +16,20 @@ public class Room
     public NPC npc;
     public Boss boss;
     public Spell spell;
+    public static boolean isChecked = false;
 
     public Room(String description) 
     {
         this.description = description;
         exits = new HashMap<String, Room>();
+    }
+    
+    public void setIsChecked(boolean bool) {
+        isChecked = true;
+    }
+    
+    public boolean returnChecked() {
+        return isChecked;
     }
 
     public void setExit(String direction, Room neighbor) 
