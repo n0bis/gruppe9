@@ -13,7 +13,6 @@ import characters.NPC;
 import items.Item;
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import missions.Quest;
 import static utils.ShowMap.showMap;
@@ -23,7 +22,6 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
-    private Timer timer = new Timer();
     public static Player player = new Player();
     private NPC npc;
     private FinalBoss boss;
@@ -53,11 +51,7 @@ public class Game
     
     public Game() 
     {
-        player = new Player();
         createRooms();
-        parser = new Parser();
-        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
     }
 
     private void createRooms()
@@ -197,15 +191,12 @@ public class Game
         printWelcome();
                 
         boolean finished = false;
-        timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timerScore = new TimerScore();
         timerScore.startTimer();
         while (! finished) {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        timer.cancel();
         System.out.println("Thank you for playing.  Good bye.");
     }
 
