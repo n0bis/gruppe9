@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.BagController">
+   <children>
+      <DialogPane layoutX="7.0" layoutY="6.0" prefHeight="83.0" prefWidth="589.0">
+         <header>
+            <TextField alignment="CENTER" editable="false" text="Items">
+               <font>
+                  <Font name="Big Caslon Medium" size="35.0" />
+               </font>
+            </TextField>
+         </header>
+      </DialogPane>
+      <ImageView fitHeight="117.0" fitWidth="165.0" layoutX="14.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/bookimg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="117.0" fitWidth="165.0" layoutX="218.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="117.0" fitWidth="165.0" layoutX="421.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

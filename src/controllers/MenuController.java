@@ -82,6 +82,7 @@ public class MenuController implements Initializable {
         beat.setCycleCount(1);
         beat.play();
         
+        
         Scene dialogSence = new Scene(root);
         dialog.setScene(dialogSence);
         dialog.setAlwaysOnTop(true);
@@ -94,8 +95,19 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void bagClicked(MouseEvent event) {
-        player.getInventory();
+    private void bagClicked(MouseEvent event) throws IOException {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        
+        FXMLLoader loader = new FXMLLoader(
+           getClass().getResource("/views/Bag.FXML")
+        );
+        Parent root = loader.load();
+        
+        Scene dialogScene = new Scene(root);
+        dialog.setScene(dialogScene);
+        dialog.setAlwaysOnTop(true);
+        dialog.setResizable(false);
+        dialog.show();
     }
-    
 }
