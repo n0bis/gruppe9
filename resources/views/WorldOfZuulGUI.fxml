@@ -25,8 +25,8 @@
             <Image url="@../images/sackmonster.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="fangs" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
-      <ImageView fx:id="toiletpaper" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="380.0" onMouseClicked="#toiletpaperMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
+      <ImageView fx:id="fangsId" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
+      <ImageView fx:id="toiletpaperId" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="380.0" onMouseClicked="#toiletpaperMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <FlowPane fx:id="flowPane" layoutX="469.0" layoutY="75.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>
             <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">

@@ -7,6 +7,7 @@ package controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,11 +20,13 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
 import static world.Game.Bookie;
+import static world.Game.fangs;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.sackQuest;
 import static world.Game.teeth;
+import static world.Game.toiletpaper;
 import world.Room;
 
 
@@ -34,6 +37,8 @@ import world.Room;
  */
 public class WorldOfZuulGUIController extends UpperClass {
     
+    Room firstRoom = new Room("First room"); 
+    
     @FXML
     private ImageView room1;
     @FXML
@@ -43,14 +48,7 @@ public class WorldOfZuulGUIController extends UpperClass {
     @FXML
     private ImageView arrow;
     @FXML
-    private ImageView monsterId;
-    @FXML
-    private ImageView fangs;
-    @FXML
-    private ImageView toiletpaper;
-    
-    
-    Room firstRoom = new Room("First room");    
+    private ImageView monsterId;   
     @FXML
     private FlowPane flowPane;
     @FXML
@@ -61,6 +59,12 @@ public class WorldOfZuulGUIController extends UpperClass {
     private Button rightAnswer;
     @FXML
     private Button closeButton;
+    @FXML
+    private ImageView fangsId;
+    @FXML
+    private ImageView toiletpaperId;
+    @FXML
+    private Label labelTitle;
     
     public void initialize() {
         if(!firstRoom.returnChecked()) {
@@ -73,8 +77,8 @@ public class WorldOfZuulGUIController extends UpperClass {
         room1.fitWidthProperty().bind(anchorId.widthProperty());
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
-        fangs.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
-        toiletpaper.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
+        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
 
         
     }
@@ -88,13 +92,13 @@ public class WorldOfZuulGUIController extends UpperClass {
     }
     @FXML
     private void fangsMouseClicked(MouseEvent event) {
-        fangs.setImage(null);
+        fangsId.setImage(null);
         player.addItem(fangs);
      
     }
     @FXML
     private void toiletpaperMouseClicked(MouseEvent event) {
-        toiletpaper.setImage(null);
+        toiletpaperId.setImage(null);
         player.addItem(toiletpaper);
     }
     
