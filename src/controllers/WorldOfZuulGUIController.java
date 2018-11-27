@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import utils.FadeAnimation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,7 +36,7 @@ import world.Room;
  *
  * @author ubuntu
  */
-public class WorldOfZuulGUIController extends UpperClass {
+public class WorldOfZuulGUIController extends MenuControllerInjection {
     
     Room firstRoom = new Room("First room"); 
     
@@ -71,7 +72,6 @@ public class WorldOfZuulGUIController extends UpperClass {
           flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         }   
         
-        anchorId.setOpacity(1);
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
@@ -79,8 +79,6 @@ public class WorldOfZuulGUIController extends UpperClass {
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
-
-        
     }
 
     @FXML

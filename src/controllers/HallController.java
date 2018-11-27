@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import utils.FadeAnimation;
 import command.Command;
 import command.CommandWords;
 import java.net.URL;
@@ -22,7 +23,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author madsfalken
  */
-public class HallController extends UpperClass implements Initializable {
+public class HallController extends MenuControllerInjection implements Initializable {
 
     @FXML
     private ImageView hallId;

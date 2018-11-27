@@ -9,7 +9,7 @@ package controllers;
  *
  * @author madsfalken
  */
-public class UpperClass {
+public class MenuControllerInjection {
     public MenuController menuController;
     
     public void init(MenuController menuController) {

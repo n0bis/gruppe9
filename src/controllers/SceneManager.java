@@ -28,8 +28,8 @@ public final class SceneManager {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource( "/views/" + name + ".fxml" )));
             Pane pane = loader.load();
-            if (loader.getController() instanceof UpperClass) {
-                UpperClass controller = loader.<UpperClass>getController();
+            if (loader.getController() instanceof MenuControllerInjection) {
+                MenuControllerInjection controller = loader.<MenuControllerInjection>getController();
                 controller.init(menuController);
             }
             sceneMap.put(name, pane);
