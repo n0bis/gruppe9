@@ -9,13 +9,18 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import static javafx.scene.paint.Color.color;
 import static world.Game.Bookie;
@@ -41,19 +46,30 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
-    @FXML
     private Label nodeLPane;
-    @FXML
     private Button paneButton;
     
-    Room firstRoom = new Room("First room");
+    Room firstRoom = new Room("First room");    
+    @FXML
+    private FlowPane flowPane;
+    @FXML
+    private Label labelTitle;
+    @FXML
+    private TextArea smsTextbox;
+    @FXML
+    private Button leftAnswer;
+    @FXML
+    private Button rightAnswer;
+    @FXML
+    private Button closeButton;
     
     public void initialize() {
         if(!firstRoom.returnChecked()) {
-            nodeLPane.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        // nodeLPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+
         }   
         
-        System.out.println("hej");
         anchorId.setOpacity(1);
         room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
@@ -95,12 +111,38 @@ public class WorldOfZuulGUIController extends UpperClass {
         }
     }
 
-    @FXML
     private void paneButtonClicked(MouseEvent event) {
         nodeLPane.setOpacity(0);
         paneButton.setOpacity(0);
         firstRoom.setIsChecked(true);
         System.out.println(firstRoom.returnChecked());
+    }
+
+    @FXML
+    private void leftAnswerClicked(MouseEvent event) {
+        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
+                "Nå, det var forkert venni. Thanks for nothing.");
+        rightAnswer.setOpacity(0);
+        leftAnswer.setOpacity(0);
+        closeButton.setOpacity(1);
+        firstRoom.setIsChecked(true);
+       
+    }
+
+    @FXML
+    private void rightAnswerClicked(MouseEvent event) {
+        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
+                "Det var rigtigt!");
+        rightAnswer.setOpacity(0);
+        leftAnswer.setOpacity(0);
+        closeButton.setOpacity(1);
+        firstRoom.setIsChecked(true);
+    }
+
+    @FXML
+    private void closeButtonClicked(MouseEvent event) {
+        flowPane.setOpacity(0);
+        
     }
     
 }

@@ -49,7 +49,7 @@ public class HallController extends UpperClass implements Initializable {
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "WordOfZuulGUI");
+        FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
         //FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
         // game.goRoom(command);
     }
