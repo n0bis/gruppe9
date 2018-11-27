@@ -10,7 +10,7 @@ public class Quest {
     private Item rewardItem;
     private Item requiredItem;
 
-        public Quest(String questDescription, String questInProgress, String questDone, Item rewardItem, Item requiredItem) {
+    public Quest(String questDescription, String questInProgress, String questDone, Item rewardItem, Item requiredItem) {
         this.questDescription = questDescription;
         this.questInProgress = questInProgress;
         this.questDone = questDone;
