@@ -30,7 +30,7 @@ public class Game
     public static Item teeth = new Item("Teeth", 4);
     Item bone = new Item("Bone", 5);
     Item bones = new Item("Bones", 22);
-    Item fangs = new Item("Fangs", 21);
+    public static Item fangs = new Item("Fangs", 21);
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
     public static Item Bookie = new Item("Bog", 2);
@@ -44,8 +44,9 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
+    public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Spell fireball = new Spell("Fireball", 8);
-    private Item ribeye, pulledPork, pieceOfLamb, coin, toiletpaper;
+    private Item ribeye, pulledPork, pieceOfLamb, coin;
     public static SpellBook spellBook = new SpellBook("spellbook",2);
     
     // Static NPC
@@ -82,7 +83,6 @@ public class Game
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
         coin = new Item("coin",6);
-        toiletpaper = new Item("Toiletpaper", 7);
         
         // Create Quests
         Quest draculaQuest = new Quest("I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
