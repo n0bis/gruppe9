@@ -23,4 +23,6 @@ public class Item {
         return this.name;
     }
     
+    public static Item bok = new Item("Bog navn", 1);
+    
 }

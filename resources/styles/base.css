@@ -17,9 +17,13 @@ and open the template in the editor.
     resize:inherit;
 }
 
+#fireball {
+}
+
 #root {
     -fx-background-image: url("../images/imgscare.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;
+    
 }
