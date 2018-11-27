@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -14,7 +17,7 @@
    <children>
       <ImageView fx:id="room1" fitHeight="100.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true">
        </ImageView>
-      <ImageView id="book" fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" onMouseClicked="#bookMouseClicked" pickOnBounds="true">
+      <ImageView fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" onMouseClicked="#bookMouseClicked" pickOnBounds="true" styleClass="items">
          </ImageView>
       <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" onMouseClicked="#arrowMouseClicked" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="monsterId" fitHeight="150.0" fitWidth="200.0" layoutX="316.0" layoutY="275.0" onMouseClicked="#talkMonster" pickOnBounds="true" preserveRatio="true">
@@ -22,6 +25,8 @@
             <Image url="@../images/sackmonster.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="fangs" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
+      <ImageView fx:id="toiletpaper" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="380.0" onMouseClicked="#toiletpaperMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <FlowPane fx:id="flowPane" layoutX="469.0" layoutY="75.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>
             <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">

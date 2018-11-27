@@ -26,6 +26,8 @@ import static world.Game.sackQuest;
 import static world.Game.teeth;
 import world.Room;
 
+
+
 /**
  *
  * @author ubuntu
@@ -42,6 +44,11 @@ public class WorldOfZuulGUIController extends UpperClass {
     private ImageView arrow;
     @FXML
     private ImageView monsterId;
+    @FXML
+    private ImageView fangs;
+    @FXML
+    private ImageView toiletpaper;
+    
     
     Room firstRoom = new Room("First room");    
     @FXML
@@ -66,6 +73,10 @@ public class WorldOfZuulGUIController extends UpperClass {
         room1.fitWidthProperty().bind(anchorId.widthProperty());
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        fangs.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
+        toiletpaper.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
+
+        
     }
 
     @FXML
@@ -75,7 +86,18 @@ public class WorldOfZuulGUIController extends UpperClass {
         player.addItem(Bookie);
         player.addItem(fireball);
     }
-
+    @FXML
+    private void fangsMouseClicked(MouseEvent event) {
+        fangs.setImage(null);
+        player.addItem(fangs);
+     
+    }
+    @FXML
+    private void toiletpaperMouseClicked(MouseEvent event) {
+        toiletpaper.setImage(null);
+        player.addItem(toiletpaper);
+    }
+    
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
         if (player.hasItem(teeth)) {
@@ -84,6 +106,7 @@ public class WorldOfZuulGUIController extends UpperClass {
             menuController.SpeechText("Ohh need to find an item to continue");
         }
     }
+    
 
     @FXML
     private void talkMonster(MouseEvent event) {
@@ -132,5 +155,6 @@ public class WorldOfZuulGUIController extends UpperClass {
         }        
         anchorId.getChildren().remove(flowPane);
     }
+
     
 }
