@@ -104,7 +104,6 @@ public class MenuController implements Initializable {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
             fireBallIcon.setOnMouseClicked((value) -> {
-                System.out.println("imma firin mah lazer");
                 dialog.close();
                 
                 BorderPane main = SceneManager.getMain();
