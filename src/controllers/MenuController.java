@@ -6,21 +6,12 @@
 package controllers;
 
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.util.concurrent.ThreadLocalRandom;
-import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-import items.Item;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,13 +30,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-import javafx.scene.shape.Rectangle;
+
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import static utils.ShowMap.showMap;
+
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
