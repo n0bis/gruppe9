@@ -8,7 +8,9 @@ package controllers;
 import items.Item;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -24,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -71,6 +74,14 @@ public class MenuController implements Initializable {
                 getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
+        root.getChildrenUnmodifiable().forEach(node -> {
+            if (node instanceof Rectangle) {
+                node.setOpacity(0);
+            }
+        });
+        String toShow = SceneManager.getController().getClass().getPackageName().split(Pattern.quote("."))[1];
+        Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
+        rect.setOpacity(1);
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
         dialog.setAlwaysOnTop(true);

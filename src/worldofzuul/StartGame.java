@@ -42,7 +42,6 @@ public class StartGame extends Application {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
         MenuController menuController = loader.<MenuController>getController();
         
         Scene scene = new Scene(borderPane);

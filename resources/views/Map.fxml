@@ -16,7 +16,7 @@
             <Image url="@../images/MapTilProjekt.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="insideTek" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="103.0" layoutX="394.0" layoutY="369.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
+      <Rectangle fx:id="TEK" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="103.0" layoutX="394.0" layoutY="369.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
       <Rectangle fx:id="outsideTek" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="49.0" layoutX="394.0" layoutY="320.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
       <Rectangle fx:id="building44" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="83.0" layoutX="352.0" layoutY="362.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="36.0" />
    </children>
