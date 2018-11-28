@@ -5,14 +5,6 @@
  */
 package controllers;
 
-
-
-import java.util.concurrent.ThreadLocalRandom;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.scene.control.Button;
-
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,25 +16,17 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
-
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
-
-
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import static world.Game.fireball;
-
 import static world.Game.player;
 import static world.Game.spellBook;
 
@@ -88,31 +72,8 @@ public class MenuController implements Initializable {
             getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
-        WebView browser = (WebView)loader.getNamespace().get("webViewId");
-        final WebEngine webEngine = browser.getEngine();
-        webEngine.load("https://clients.mapsindoors.com/sdu/573f26e4bc1f571b08094312");
-        webEngine.setJavaScriptEnabled(true);
-        
-        AnchorPane notRespondingNode = (AnchorPane)loader.getNamespace().get("notRespondingNode");
-        Button okButton = (Button)loader.getNamespace().get("okButtonId");
-        okButton.setOnAction((ActionEvent) -> dialog.close());
-        Button waitButton = (Button)loader.getNamespace().get("waitButtonId");
-        waitButton.setOnAction((ActionEvent) -> dialog.close());
-        
-        Timeline beat = new Timeline(
-            new KeyFrame(Duration.seconds(ThreadLocalRandom.current().nextDouble(5.0, 10.0)), keyEvent -> notRespondingNode.setOpacity(1.0))
-        );
-        beat.setCycleCount(1);
-        beat.play();
-        
-        
-        Scene dialogSence = new Scene(root);
-        dialog.setScene(dialogSence);
-
-  
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
-
         dialog.setAlwaysOnTop(true);
         dialog.setResizable(false);
         dialog.show();
@@ -123,7 +84,6 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-
     private void bagClicked(MouseEvent event) throws IOException {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -138,21 +98,20 @@ public class MenuController implements Initializable {
         dialog.setAlwaysOnTop(true);
         dialog.setResizable(false);
         dialog.show();
-
-   {
-        player.getInventory();
-       
-   }
-
-   
-     {
+    }
+    
+    @FXML
+    private void spellBookClicked(MouseEvent event) throws IOException {
         if (!player.hasItem(spellBook)) {
             return;
         }
-        
+        final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         VBox dialogVbox = new VBox(20);
-    
+        FXMLLoader loader = new FXMLLoader(
+            getClass().getResource("/views/Spellbook.fxml")
+        );
+        Parent root = loader.load();
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
@@ -213,15 +172,9 @@ public class MenuController implements Initializable {
         dialog.setResizable(false);
         dialog.show();
     }
-    
-   {
+
+    public void unlockSpellBook() {
         spellBookId.setImage(spellBookImage);
-
-    }
-}
-
-    void unlockSpellBook() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

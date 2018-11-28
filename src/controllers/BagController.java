@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package views;
+package controllers;
 
 import controllers.FadeAnimation;
 import java.net.URL;
@@ -33,7 +33,7 @@ public class BagController implements Initializable {
         bagId.setImage(new Image(getClass().getResourceAsStream("/images/burlap.jpg")));
         bagId.fitHeightProperty().bind(rootId.heightProperty());
         
-    } 
+    }
  
    }
 
