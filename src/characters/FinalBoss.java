@@ -88,6 +88,7 @@ public class FinalBoss extends Boss {
         String spellCast = input;
 
         if(spellCast.equalsIgnoreCase(this.questSpell.toString())) {
+            
             System.out.println("You got me. #RIP.");
             System.out.println("Now go across to party!");
             return true;

@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import static world.Game.boss;
 import static world.Game.player;
 import static world.Game.stage1RequiredItem;
+import static world.Game.stage2RequiredItem;
 
 /**
  * FXML Controller class
@@ -25,6 +26,8 @@ import static world.Game.stage1RequiredItem;
 public class ChildRoomController extends UpperClass implements Initializable {
 
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
+    private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
+    private final Image dead = new Image(getClass().getResourceAsStream("/images/dead.png"));
     
     @FXML
     private ImageView book;
@@ -42,6 +45,7 @@ public class ChildRoomController extends UpperClass implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         player.addItem(stage1RequiredItem);
+        player.addItem(stage2RequiredItem);
     }    
 
     @FXML
@@ -60,17 +64,21 @@ public class ChildRoomController extends UpperClass implements Initializable {
             case 2:
                 menuController.SpeechText("Welcome to stage 2 of my face");
                 bossId.setImage(stage2Boss);
-                /*if (boss.wonStage2(player)) {
+                if (boss.wonStage2(player)) {
                     boss.incrementStage();
                     bossEncounter(event);
                 } else {
                     throwOut();
-                }*/
+                }
+
                 break;
             case 3:
+                bossId.setImage(stage3Boss);
+
                 if(boss.wonStage3("fireball", player)) {
                     boss.incrementStage();
                     bossEncounter(event);
+                    bossId.setImage(dead);
                 } else {
                     throwOut();
                 }
