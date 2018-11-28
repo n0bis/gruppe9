@@ -6,6 +6,7 @@
 package worldofzuul;
 
 import controllers.MenuController;
+import controllers.QuizController;
 import controllers.SceneManager;
 import java.io.IOException;
 import java.util.Timer;
@@ -54,6 +55,7 @@ public class StartGame extends Application {
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
         SceneManager.activate("WorldOfZuulGUI");
