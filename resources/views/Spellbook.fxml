@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,8 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="spellbookId" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,5 +16,12 @@
          </image>
       </ImageView>
       <ImageView fx:id="fireBallId" fitHeight="68.0" fitWidth="94.0" layoutX="67.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+      <Group fx:id="crossId" layoutX="67.0" layoutY="7.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="27.0" layoutX="470.0" layoutY="1.0" stroke="TRANSPARENT" strokeType="INSIDE" width="28.0" />
+            <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="45.0" startX="-100.0" strokeWidth="2.0" />
+            <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
+         </children>
+      </Group>
    </children>
 </AnchorPane>

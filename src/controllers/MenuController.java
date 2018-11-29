@@ -92,19 +92,18 @@ public class MenuController implements Initializable {
         if (!player.hasItem(spellBook)) {
             return;
         }
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        VBox dialogVbox = new VBox(20);
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Spellbook.fxml")
         );
         Parent root = loader.load();
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        SceneManager.getMain().getChildren().add(root);
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
             fireBallIcon.setOnMouseClicked((value) -> {
-                System.out.println("imma firin mah lazer");
-                dialog.close();
+                SceneManager.getMain().getChildren().remove(root);
                 
                 BorderPane main = SceneManager.getMain();
                 
@@ -152,12 +151,6 @@ public class MenuController implements Initializable {
                 main.getChildren().add(imageViewFire);
             });
         }
-        dialogVbox.getChildren().add(root);
-        Scene dialogSence = new Scene(dialogVbox);
-        dialog.setScene(dialogSence);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
     }
     
     public void unlockSpellBook() {
