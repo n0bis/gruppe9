@@ -26,6 +26,7 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
+import static world.Game.player;
 import world.Room;
 
 /**
@@ -58,11 +59,13 @@ public class QuizController extends TimerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        String text = smsTextbox.getText().replaceFirst("Player", player.getName());
+        smsTextbox.setText(text);
     }    
 
     @FXML
     private void leftAnswerClicked(MouseEvent event) {
-        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
+        smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
                 "Nå, det var forkert venni. Thanks for nothing.");
         rightAnswer.setOpacity(0);
         leftAnswer.setOpacity(0);
@@ -72,7 +75,7 @@ public class QuizController extends TimerTask implements Initializable {
 
     @FXML
     private void rightAnswerClicked(MouseEvent event) {
-        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U45." + "\n\n" +
+        smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U45." + "\n\n" +
                 "Det var rigtigt!");
         rightAnswer.setOpacity(0);
         leftAnswer.setOpacity(0);

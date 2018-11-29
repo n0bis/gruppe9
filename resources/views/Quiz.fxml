@@ -9,7 +9,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane fx:id="rootId" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuizController">
    <children>
       <FlowPane fx:id="flowPane" columnHalignment="CENTER" maxWidth="250.0" minHeight="480.0" minWidth="150.0">

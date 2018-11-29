@@ -20,6 +20,7 @@ import utils.TimeExpired;
 import utils.TimeRemaining;
 import utils.TimerScore;
 import world.Game;
+import static world.Game.player;
 
 /**
  *
@@ -57,6 +58,8 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
+        
+        player.setName("Mads");
         
         SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
