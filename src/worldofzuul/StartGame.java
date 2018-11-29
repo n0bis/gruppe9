@@ -53,6 +53,9 @@ public class StartGame extends Application {
         sceneManager.addScene("WorldOfZuulGUI", menuController);
         sceneManager.addScene("ChildRoom");
         sceneManager.addScene("Hall", menuController);
+        sceneManager.addScene("outsideTekFar", menuController);
+        sceneManager.addScene("tekHall", menuController);
+        
         
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));

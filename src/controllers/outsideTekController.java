@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author madsfalken
  */
-public class HallController extends UpperClass implements Initializable {
+public class outsideTekController extends UpperClass implements Initializable {
 
     @FXML
     private ImageView hallId;
@@ -40,26 +40,13 @@ public class HallController extends UpperClass implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        hallId.setImage(new Image(getClass().getResourceAsStream("/images/hall.jpg")));
+        hallId.setImage(new Image(getClass().getResourceAsStream("/images/outsideTek - Far.jpg")));
         hallId.fitHeightProperty().bind(rootId.heightProperty());
         hallId.fitWidthProperty().bind(rootId.widthProperty());
-        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-right.png")));
-        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
-    }    
-
-    @FXML
-    private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
     }
-
-    @FXML
-    private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "outsideTekFar");
-    }
-
     @FXML
     private void helloBClicked(MouseEvent event) {
-        menuController.SpeechText("Hello again!");
+        FadeAnimation.fadeOutTransition(rootId, "tekHall");
     }
     
 }
