@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -65,17 +66,15 @@ public class MenuController implements Initializable {
 
     @FXML
     private void mapClicked(MouseEvent event) throws IOException {
-        Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
-        Scene dialogScene = new Scene(root);
-        dialog.setScene(dialogScene);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        root.setLayoutX(300);
+        root.setLayoutY(60);
+        SceneManager.getMain().getChildren().add(root);
     }
     
     public void SpeechText(String speech) {
