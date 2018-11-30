@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.OutsideTekCloseController">
+   <children>
+      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/outsideTek%20-%20close.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowUp" fitHeight="150.0" fitWidth="200.0" layoutX="484.0" layoutY="429.0" onMouseClicked="#ArrowUpClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -50,12 +50,11 @@ public class StartGame extends Application {
         scene.getStylesheets().add("/styles/base.css");
         
         SceneManager sceneManager = new SceneManager(borderPane);
-        sceneManager.addScene("WorldOfZuulGUI", menuController);
-        sceneManager.addScene("ChildRoom");
-        sceneManager.addScene("Hall", menuController);
         sceneManager.addScene("outsideTekFar", menuController);
+        sceneManager.addScene("outsideTekClose", menuController);
         sceneManager.addScene("tekHall", menuController);
         sceneManager.addScene("tekHallStairs", menuController);
+        sceneManager.addScene("entranceToStudyRooms", menuController);
         
         
         Timer timer = new Timer();

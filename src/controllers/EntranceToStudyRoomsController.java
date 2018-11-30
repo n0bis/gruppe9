@@ -18,14 +18,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class OutsideTekFarController extends UpperClass implements Initializable {
+public class EntranceToStudyRoomsController implements Initializable {
 
+    @FXML
+    private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
     private ImageView arrowUpId;
     @FXML
-    private AnchorPane anchorId;
+    private ImageView arrowRightId;
 
     /**
      * Initializes the controller class.
@@ -39,6 +41,12 @@ public class OutsideTekFarController extends UpperClass implements Initializable
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-    FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        FadeAnimation.fadeOutTransition(anchorId, "studyRooms");
     }
+
+    @FXML
+    private void arrowRightClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "tekHallStairs");
+    }
+    
 }

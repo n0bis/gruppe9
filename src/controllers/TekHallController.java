@@ -11,30 +11,35 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class TekHallController implements Initializable {
+public class TekHallController extends UpperClass implements Initializable {
 
     @FXML
     private ImageView backgroundId;
     @FXML
     private ImageView rightArrowId;
+    @FXML
+    private AnchorPane anchorId;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
+        backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
     }    
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(backgroundId, "tekHallStairs");
+        FadeAnimation.fadeOutTransition(anchorId, "tekHallStairs");
     }
     
 }

@@ -38,8 +38,4 @@ public class FadeAnimation {
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
     }
-
-    static void fadeInTransition(ImageView arrowUpId, String tekHall) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
