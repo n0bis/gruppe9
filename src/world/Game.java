@@ -53,7 +53,7 @@ public class Game
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
     
     // Static quests:
-    public static Quest sackQuest = new Quest("This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
+    public static Quest sackQuest = new Quest("Find my book", "This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
             + "done", teeth, Bookie);
     
     public Game() 
@@ -85,10 +85,10 @@ public class Game
         coin = new Item("coin",6);
         
         // Create Quests
-        Quest draculaQuest = new Quest("I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
+        Quest draculaQuest = new Quest("Get my teeth", "I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
                 + " lost them when I was studying... Please help me find them.",
                 "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", bones, fangs);
-        Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
+        Quest mummyQuest = new Quest("Toiletpaper", "Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
         "Thanks for helping me!", key, toiletpaper);
         
         

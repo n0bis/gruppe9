@@ -3,6 +3,7 @@ package missions;
 import items.Item;
 
 public class Quest {
+    private String name;
     private String questDescription;
     private String questInProgress;
     private String questDone;
@@ -10,7 +11,8 @@ public class Quest {
     private Item rewardItem;
     private Item requiredItem;
 
-    public Quest(String questDescription, String questInProgress, String questDone, Item rewardItem, Item requiredItem) {
+    public Quest(String name, String questDescription, String questInProgress, String questDone, Item rewardItem, Item requiredItem) {
+        this.name = name;
         this.questDescription = questDescription;
         this.questInProgress = questInProgress;
         this.questDone = questDone;
@@ -49,7 +51,9 @@ public class Quest {
         this.isQuestDone = isQuestDone;
     }
     
-    
+    public String toString() {
+        return this.name;
+    }
     
     
 }   
