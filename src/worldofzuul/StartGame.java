@@ -53,13 +53,14 @@ public class StartGame extends Application {
         sceneManager.addScene("WorldOfZuulGUI", menuController);
         sceneManager.addScene("ChildRoom");
         sceneManager.addScene("Hall", menuController);
+        sceneManager.addScene("Start", menuController);
         
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("WorldOfZuulGUI");
+        SceneManager.activate("Start");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
