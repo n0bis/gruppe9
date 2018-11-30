@@ -55,6 +55,7 @@ public class StartGame extends Application {
         sceneManager.addScene("Hall", menuController);
         sceneManager.addScene("outsideTekFar", menuController);
         sceneManager.addScene("tekHall", menuController);
+        sceneManager.addScene("tekHallStairs", menuController);
         
         
         Timer timer = new Timer();
@@ -62,7 +63,7 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("WorldOfZuulGUI");
+        SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

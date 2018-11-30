@@ -7,6 +7,7 @@ package controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 /**
@@ -36,5 +37,9 @@ public class FadeAnimation {
         fadeTransition.setToValue(1);
         fadeTransition.setAutoReverse(true);
         fadeTransition.play();
+    }
+
+    static void fadeInTransition(ImageView arrowUpId, String tekHall) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
