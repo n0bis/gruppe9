@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class TowardsByg441Controller extends UpperClass implements Initializable {
+public class Bygning44Controller implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -27,7 +27,7 @@ public class TowardsByg441Controller extends UpperClass implements Initializable
     @FXML
     private ImageView arrowUpId;
     @FXML
-    private ImageView arrowDown;
+    private ImageView arrowUpId1;
 
     /**
      * Initializes the controller class.
@@ -41,12 +41,12 @@ public class TowardsByg441Controller extends UpperClass implements Initializable
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsByg442");
+        FadeAnimation.fadeOutTransition(anchorId, "goingTo");
     }
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "studRooms");
+    private void arrowUpClicked2(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "goingTo");
     }
     
 }

@@ -4,15 +4,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controllers.TowardsByg441Controller">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TowardsByg441Controller">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/towards-Bygning44.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="495.0" layoutY="403.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="37.2">
+      <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="546.0" layoutY="348.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="37.2">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowDown" fitHeight="100.0" fitWidth="160.0" layoutX="394.0" layoutY="482.0" onMouseClicked="#arrowDownClicked" pickOnBounds="true" preserveRatio="true" rotate="-146.9">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>

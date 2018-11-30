@@ -57,6 +57,7 @@ public class StartGame extends Application {
         sceneManager.addScene("entranceToStudyRooms", menuController);
         sceneManager.addScene("studRooms", menuController);
         sceneManager.addScene("towardsByg441", menuController);
+        sceneManager.addScene("towardsByg442", menuController);
         
         
         
