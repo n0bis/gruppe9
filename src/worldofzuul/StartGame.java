@@ -58,7 +58,9 @@ public class StartGame extends Application {
         sceneManager.addScene("studRooms", menuController);
         sceneManager.addScene("towardsByg441", menuController);
         sceneManager.addScene("towardsByg442", menuController);
-        
+        sceneManager.addScene("bygning44", menuController);
+        sceneManager.addScene("bygning44Lvl3", menuController);
+        sceneManager.addScene("towardsU183", menuController);
         
         
         Timer timer = new Timer();

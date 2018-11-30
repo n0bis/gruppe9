@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class Bygning44Controller extends UpperClass implements Initializable {
+public class Bygning44Lvl3Controller implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -26,8 +26,6 @@ public class Bygning44Controller extends UpperClass implements Initializable {
     private ImageView backgroundId;
     @FXML
     private ImageView arrowUpId;
-    @FXML
-    private ImageView arrowUpId1;
 
     /**
      * Initializes the controller class.
@@ -41,11 +39,6 @@ public class Bygning44Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
-    }
-
-    @FXML
-    private void arrowUpClicked2(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "goingTo");
     }
     
