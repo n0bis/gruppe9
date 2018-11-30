@@ -5,16 +5,28 @@
  */
 package utils;
 
+import controllers.SceneManager;
+import java.io.IOException;
 import java.util.TimerTask;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import static world.Game.player;
 
 /**
  *
@@ -24,21 +36,22 @@ public class TimeExpired extends TimerTask {
     @Override
     public void run() {
         Platform.runLater(() -> {
-            final Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            VBox dialogVbox = new VBox(20);
-            Button okButton = new Button("Close");
-            okButton.setOnAction((value) -> System.exit(0));
-            Text loserText = new Text("You lost the game, you'll forever be lost in the SDU Maze and you'll never get to met the hot nurse");
-            Text score = new Text("Thank you for playing SCORE: " + (System.currentTimeMillis() - TimerScore.getTime()) / 1000L);
-            dialogVbox.getChildren().addAll(loserText, score);
-            Scene dialogSence = new Scene(dialogVbox);
-            dialog.setScene(dialogSence);
-            dialog.setAlwaysOnTop(true);
-            dialog.setResizable(false);
-            dialog.show();
-            dialog.setOnCloseRequest((value) -> System.exit(0));
-            dialog.setOnHiding((value) -> System.exit(0));
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/YouLost.fxml")
+                );
+                Parent root = loader.load();
+                Button closeButton = (Button)loader.getNamespace().get("exitId");
+                closeButton.setOnMouseClicked((mouseEvent) -> System.exit(0));
+                Label scoreText = (Label)loader.getNamespace().get("scoreId");
+                double score = (System.currentTimeMillis() - TimerScore.getTime()) / 1000L;
+                String text = scoreText.getText().replaceFirst("0", "" + score);
+                scoreText.setText(text);
+                SceneManager.getMain().setCenter(root);
+                SceneManager.getMain().setBottom(null);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
     }
 }
