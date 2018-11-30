@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class StudRoomsController extends UpperClass implements Initializable {
+public class TowardsByg441Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -39,7 +39,7 @@ public class StudRoomsController extends UpperClass implements Initializable {
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsByg441");
+        FadeAnimation.fadeOutTransition(anchorId, "goingTo");
     }
     
 }

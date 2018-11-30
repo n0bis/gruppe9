@@ -55,6 +55,9 @@ public class StartGame extends Application {
         sceneManager.addScene("tekHall", menuController);
         sceneManager.addScene("tekHallStairs", menuController);
         sceneManager.addScene("entranceToStudyRooms", menuController);
+        sceneManager.addScene("studRooms", menuController);
+        sceneManager.addScene("towardsByg441", menuController);
+        
         
         
         Timer timer = new Timer();

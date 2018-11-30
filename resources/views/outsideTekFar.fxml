@@ -8,7 +8,7 @@
    <children>
       <ImageView fx:id="backgroundId" fitHeight="610.0" fitWidth="1067.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/outsideTek%20-%20Far.jpg" />
+            <Image url="@../images/outsideTek-Far.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="469.0" layoutY="402.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true">
