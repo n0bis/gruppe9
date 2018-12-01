@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import items.SpellBook;
 import utils.SpriteAnimation;
 import java.io.IOException;
 import java.net.URL;
@@ -45,10 +46,7 @@ import static world.Game.spellBook;
  */
 public class MenuController implements Initializable {
     
-    private final Image fireballIcon = new Image(getClass().getResourceAsStream("/images/fireball.jpg"));
-    private final Image fireballImage = new Image(getClass().getResourceAsStream("/images/fireballz.png"));
-    private final Image explosionImage = new Image(getClass().getResourceAsStream("/images/explosion.png"));
-    private final Image spellBookImage = new Image(getClass().getResourceAsStream("/images/spellbook.png"));
+    private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/spellbook.png"));
 
     @FXML
     private ImageView bagId;
@@ -89,103 +87,13 @@ public class MenuController implements Initializable {
 
     @FXML
     private void bagClicked(MouseEvent event) {
-        player.getInventory();
-       
+        player.getInventory();  
     }
-    
-    private final ObservableList<Quest> questLog = FXCollections.observableArrayList();
 
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
-        if (!player.hasItem(spellBook)) {
-            return;
-        }
-        FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/views/Spellbook.fxml")
-        );
-        Parent root = loader.load();
-        Group closeButton = (Group)loader.getNamespace().get("crossId");
-        Group spellPage = (Group)loader.getNamespace().get("spellPage");
-        Group questPage = (Group)loader.getNamespace().get("questPage");
-        ListView quests = (ListView)loader.getNamespace().get("logId");
-        //quests.setBackground(Background.EMPTY);
-        quests.setItems(FXCollections.observableArrayList(player.questLog));        
-        TextArea description = (TextArea)loader.getNamespace().get("descriptionId");
-        //description.setBackground(Background.EMPTY);
-        quests.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            description.setText(((Quest)newValue).getQuestDescription());
-        });
-        Rectangle rightSide = (Rectangle)loader.getNamespace().get("rightSide");
-        rightSide.setOnMouseClicked((mouseEvent) -> {
-            questPage.setVisible(true);
-            questPage.setMouseTransparent(false);
-            spellPage.setVisible(false);
-            spellPage.setMouseTransparent(true);
-        });
-        Rectangle leftSide = (Rectangle)loader.getNamespace().get("leftSide");
-        leftSide.setOnMouseClicked((mouseEvent) -> {
-            questPage.setVisible(false);
-            questPage.setMouseTransparent(true);
-            spellPage.setVisible(true);
-            spellPage.setMouseTransparent(false);
-        });
-        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
-        SceneManager.getMain().getChildren().add(root);
-        
-        
-        
-        if (player.hasItem(fireball)) {
-            ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
-            fireBallIcon.setImage(fireballIcon);
-            fireBallIcon.setOnMouseClicked((value) -> {
-                SceneManager.getMain().getChildren().remove(root);
-                
-                BorderPane main = SceneManager.getMain();
-                
-                ImageView imageViewFire = new ImageView(fireballImage);
-                imageViewFire.setLayoutX(main.getBoundsInLocal().getMaxX() / 2);
-                imageViewFire.setLayoutY(800);
-                Animation fireballAnimation = new SpriteAnimation(
-                    imageViewFire,
-                    Duration.millis(1000), 
-                    14, 14,
-                    1, 1,
-                    97, 85
-                );
-                imageViewFire.setScaleX(2.0);
-                imageViewFire.setScaleY(4.0);
-                fireballAnimation.setCycleCount(Animation.INDEFINITE);
-                fireballAnimation.play();
-                
-                TranslateTransition transition = new TranslateTransition();
-                transition.setDuration(Duration.seconds(1.2));
-                transition.setToY(-(main.getBoundsInLocal().getMaxY() / 2));
-                transition.setNode(imageViewFire);
-                transition.play();
-                transition.setOnFinished((val) -> {
-                    ImageView imageViewExplosion = new ImageView(explosionImage);
-                    imageViewExplosion.setScaleX(2.0);
-                    imageViewExplosion.setScaleY(2.0);
-                    imageViewExplosion.setViewport(new Rectangle2D(2, 1, 97, 150));
-                    imageViewExplosion.setLayoutX((main.getBoundsInLocal().getMaxX() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxX() / 2));
-                    imageViewExplosion.setLayoutY((main.getBoundsInLocal().getMaxY() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxY() / 2));
-                    main.getChildren().remove(imageViewFire);
-                    Animation explosionAnimation = new SpriteAnimation(
-                        imageViewExplosion,
-                        Duration.millis(1000),
-                        15, 15,
-                        2, 1,
-                        97, 150
-                    );
-                    explosionAnimation.setCycleCount(1);
-                    explosionAnimation.play();
-                    explosionAnimation.setOnFinished((h) ->
-                        main.getChildren().remove(imageViewExplosion));
-                    main.getChildren().add(imageViewExplosion);
-                });
-                main.getChildren().add(imageViewFire);
-            });
-        }
+        SpellBook.openSpellBook();
+        SpellBook.castFireball();
     }
     
     public void unlockSpellBook() {

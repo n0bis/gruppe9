@@ -50,11 +50,11 @@ and open the template in the editor.
 }
 
 .list-view .list-cell:even {
--fx-background-color: blue;
+-fx-background-color: transparent;
 -fx-text-fill: black;
 }
 
 .list-view .list-cell:odd {
--fx-background-color: white;
+-fx-background-color: transparent;
 -fx-text-fill: black;
 }
