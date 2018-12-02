@@ -43,14 +43,17 @@ public class TowardsU45Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowDownClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
     }
 
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "U45");
     }
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "stairsToToilets");
     }
     
 }

@@ -18,22 +18,19 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class MainhallRightOrLeftController extends UpperClass implements Initializable {
+public class U45Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView leftArrowId;
-    @FXML
-    private ImageView arrowRightId;
-    @FXML
-    private ImageView arrowDownId;
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
@@ -42,19 +39,8 @@ public class MainhallRightOrLeftController extends UpperClass implements Initial
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU45");
-    }
-
-    @FXML
-    private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
-        
-    }
-
-    @FXML
-    private void arrowDownClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
     }
     
 }

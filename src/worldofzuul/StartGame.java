@@ -71,6 +71,13 @@ public class StartGame extends Application {
         sceneManager.addScene("towardsU45", menuController);
         sceneManager.addScene("mainhall1", menuController);
         sceneManager.addScene("mainhall2", menuController);
+        sceneManager.addScene("mainhall3", menuController);
+        sceneManager.addScene("mainhall4", menuController);
+        sceneManager.addScene("mainhall5", menuController);
+        sceneManager.addScene("U45", menuController);
+        sceneManager.addScene("towardsToilets", menuController);
+        sceneManager.addScene("toilets", menuController);
+        
                 
                 
         Timer timer = new Timer();
