@@ -5,46 +5,45 @@
  */
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Application.Parameters;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
  *
  * @author ubuntu
  */
-public class StartController implements Initializable {
+public class StartGameFXMLController implements Initializable {
 
-     @FXML
-    private ImageView hallId;
-    private ImageView arrowRightId;
     @FXML
-    private AnchorPane rootId;
-    private ImageView arrowLeftId;
+    private AnchorPane startAnchorPane;
     @FXML
-    private Button startGame;
-    
+    private Button startGameButton;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        hallId.setImage(new Image(getClass().getResourceAsStream("/images/press.gif")));
-        hallId.fitHeightProperty().bind(rootId.heightProperty());
-        hallId.fitWidthProperty().bind(rootId.widthProperty());
+        // TODO
     }    
 
     @FXML
-    private void startGameClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(hallId, "WorldOfZuulGUI");
+    private void startGameClicked(MouseEvent event) throws IOException {
+        StartGame game = new StartGame();
+        game.buttonStart();
+        
+        
+        
     }
     
 }
-
