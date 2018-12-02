@@ -35,6 +35,7 @@ public class StartGame extends Application {
     public static Game game = new Game();
     public static Stage primaryStage = new Stage();
     public static String imageSelector;
+    public static String playerName;
     
     @Override
     public void start(Stage startStage) throws IOException {
@@ -47,6 +48,14 @@ public class StartGame extends Application {
     
     }      
 
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        StartGame.playerName = playerName;
+    }
+    
     public String getImageSelector() {
         return imageSelector;
     }

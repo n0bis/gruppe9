@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -44,6 +45,8 @@ public class StartGameFXMLController implements Initializable {
     private RadioButton thronesRadioButton;
     @FXML
     private Label labelMessage;
+    @FXML
+    private TextField enterNameTextField;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -52,7 +55,8 @@ public class StartGameFXMLController implements Initializable {
 
     @FXML
     private void startGameClicked(MouseEvent event) throws IOException {
-        if(startGame.getImageSelector() != null) {
+        if(startGame.getImageSelector() != null && !enterNameTextField.getText().equals("")) {
+            startGame.setPlayerName(enterNameTextField.getText());
             startGame.primaryStage.close();
             startGame.second();
         } else {

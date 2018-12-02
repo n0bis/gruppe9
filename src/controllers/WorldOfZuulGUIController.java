@@ -81,7 +81,7 @@ public class WorldOfZuulGUIController extends UpperClass {
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
- 
+        
     }
 
     @FXML

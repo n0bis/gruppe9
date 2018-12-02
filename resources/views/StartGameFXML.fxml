@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="startAnchorPane" maxHeight="550" maxWidth="1200" minHeight="550.0" minWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StartGameFXMLController">
    <children>
-      <Button fx:id="startGameButton" layoutX="520.0" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#startGameClicked" text="Start game">
+      <Button fx:id="startGameButton" layoutX="517.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#startGameClicked" text="Start game">
          <font>
             <Font size="24.0" />
          </font></Button>
@@ -19,10 +19,11 @@
          </toggleGroup></RadioButton>
       <RadioButton fx:id="ringenesRadioButton" layoutX="548.0" layoutY="233.0" mnemonicParsing="false" onAction="#ringenesAction" text="Ringenes Herre" toggleGroup="$startToggleGroup" />
       <RadioButton fx:id="thronesRadioButton" layoutX="722.0" layoutY="233.0" mnemonicParsing="false" onAction="#thronesAction" text="Game of Thrones" toggleGroup="$startToggleGroup" />
-      <Label fx:id="labelMessage" layoutX="472.0" layoutY="292.0" opacity="0.0" text="You have to choose a hat first!" textFill="#d31212">
+      <Label fx:id="labelMessage" layoutX="380.0" layoutY="349.0" opacity="0.0" text="You need to choose a hat and a character name!" textFill="#d31212">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="enterNameTextField" layoutX="515.0" layoutY="298.0" promptText="Enter character name" />
    </children>
 </AnchorPane>
