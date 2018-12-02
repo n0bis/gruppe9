@@ -61,8 +61,18 @@ public class StartGame extends Application {
         sceneManager.addScene("bygning44", menuController);
         sceneManager.addScene("bygning44Lvl3", menuController);
         sceneManager.addScene("towardsU183", menuController);
-        
-        
+        sceneManager.addScene("U183", menuController);
+        sceneManager.addScene("bygning44TowardsLvl1", menuController);
+        sceneManager.addScene("bygning44Lvl1", menuController);
+        sceneManager.addScene("towardsMainhall1", menuController);
+        sceneManager.addScene("towardsMainhall2", menuController);
+        sceneManager.addScene("towardsMainhall3", menuController);
+        sceneManager.addScene("mainhallRightOrLeft", menuController);
+        sceneManager.addScene("towardsU45", menuController);
+        sceneManager.addScene("mainhall1", menuController);
+        sceneManager.addScene("mainhall2", menuController);
+                
+                
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));

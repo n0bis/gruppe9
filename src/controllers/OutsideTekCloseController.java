@@ -26,6 +26,8 @@ public class OutsideTekCloseController extends UpperClass implements Initializab
     private ImageView backgroundId;
     @FXML
     private ImageView arrowUp;
+    @FXML
+    private ImageView arrowUp1;
 
     /**
      * Initializes the controller class.
@@ -40,6 +42,11 @@ public class OutsideTekCloseController extends UpperClass implements Initializab
     @FXML
     private void ArrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar");
     }
     
 }

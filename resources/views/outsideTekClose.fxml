@@ -11,7 +11,12 @@
             <Image url="@../images/outsideTek-close.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUp" fitHeight="150.0" fitWidth="200.0" layoutX="484.0" layoutY="429.0" onMouseClicked="#ArrowUpClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrowUp" fitHeight="100.0" fitWidth="160.0" layoutX="501.0" layoutY="422.0" onMouseClicked="#ArrowUpClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowUp1" fitHeight="100.0" fitWidth="160.0" layoutX="45.0" layoutY="465.0" onMouseClicked="#arrowBackClicked" pickOnBounds="true" preserveRatio="true" rotate="-175.8">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>

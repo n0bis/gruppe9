@@ -26,6 +26,8 @@ public class TekHallStairsController extends UpperClass implements Initializable
     private ImageView backgroundId;
     @FXML
     private ImageView arrowLeftId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -40,6 +42,11 @@ public class TekHallStairsController extends UpperClass implements Initializable
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "entranceToStudyRooms");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "tekHall");
     }
     
 }

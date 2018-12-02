@@ -18,16 +18,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class StudRoomsController extends UpperClass implements Initializable {
+public class Mainhall2Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowUpId;
+    private ImageView arrowDownId;
     @FXML
-    private ImageView arrowBackId;
+    private ImageView arrowForwardId;
 
     /**
      * Initializes the controller class.
@@ -40,13 +40,13 @@ public class StudRoomsController extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsByg441");
+    private void arrowDownClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceToStudyRooms");
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall3");
     }
     
 }

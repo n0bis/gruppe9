@@ -26,6 +26,8 @@ public class TowardsByg442Controller extends UpperClass implements Initializable
     private ImageView backgroundId;
     @FXML
     private ImageView arrowUpId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -40,6 +42,11 @@ public class TowardsByg442Controller extends UpperClass implements Initializable
     @FXML
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "towardsByg441");
     }
     
 }

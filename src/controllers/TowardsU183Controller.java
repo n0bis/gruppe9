@@ -26,6 +26,8 @@ public class TowardsU183Controller extends UpperClass implements Initializable {
     private ImageView backgroundId;
     @FXML
     private ImageView arrowLeftId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -39,7 +41,12 @@ public class TowardsU183Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "goingTo");
+        FadeAnimation.fadeOutTransition(anchorId, "U183");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
     }
     
 }

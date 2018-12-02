@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -18,14 +18,14 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class StudRoomsController extends UpperClass implements Initializable {
+public class TowardsMainhall3Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowUpId;
+    private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
 
@@ -40,13 +40,13 @@ public class StudRoomsController extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsByg441");
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceToStudyRooms");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
     }
     
 }
