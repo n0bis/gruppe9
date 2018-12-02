@@ -34,17 +34,20 @@ public class StartGame extends Application {
     
     public static Game game = new Game();
     public static Stage primaryStage = new Stage();
-    public static String[] argsHolder;
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
-        Scene scene = new Scene(root);
-        primaryStage.setTitle("SDU Maze");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage startStage) throws IOException {
+    this.primaryStage = startStage;
+    Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
+    Scene scene = new Scene(root);
+    primaryStage.setTitle("SDU Maze");
+    primaryStage.setScene(scene);
+    primaryStage.show();
+    
+    }      
+    
+    public void second() {
         
-       */
         BorderPane borderPane = new BorderPane();
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Menu.fxml")
@@ -73,34 +76,14 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("Start");
+        SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
         primaryStage.setOnCloseRequest((value) -> timer.cancel());
-    }      
+    }
      
     public static void main(String[] args) throws IOException {
-        argsHolder = args;
-        Platform.runLater(new Runnable() {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));    
-            @Override
-        public void run() {
-        Stage startStage = primaryStage;
-        startStage.setTitle("Test 1");
-        Scene scene = new Scene(root);
-        startStage.setScene(scene);
-        startStage.show();
-            }
-        
-            
-        });
-      
+        launch(args);
     }
-    
-    public void buttonStart() {
-        primaryStage.close();
-        launch(argsHolder);
-    }
-    
 }

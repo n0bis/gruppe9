@@ -40,8 +40,8 @@ public class StartGameFXMLController implements Initializable {
     @FXML
     private void startGameClicked(MouseEvent event) throws IOException {
         StartGame game = new StartGame();
-        game.buttonStart();
-        
+        game.primaryStage.close();
+        game.second();
         
         
     }
