@@ -28,6 +28,7 @@ import static world.Game.sackQuest;
 import static world.Game.teeth;
 import static world.Game.toiletpaper;
 import world.Room;
+import worldofzuul.StartGame;
 
 
 
@@ -38,6 +39,7 @@ import world.Room;
 public class WorldOfZuulGUIController extends UpperClass {
     
     Room firstRoom = new Room("First room"); 
+    StartGame startGame = new StartGame();
     
     @FXML
     private ImageView room1;
@@ -78,9 +80,8 @@ public class WorldOfZuulGUIController extends UpperClass {
         book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
-        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
-
-        
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
+ 
     }
 
     @FXML

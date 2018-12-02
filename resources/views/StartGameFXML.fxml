@@ -11,7 +11,18 @@
    <children>
       <Button fx:id="startGameButton" layoutX="520.0" layoutY="369.0" mnemonicParsing="false" onMouseClicked="#startGameClicked" text="Start game">
          <font>
-            <Font size="23.0" />
+            <Font size="24.0" />
          </font></Button>
+      <RadioButton fx:id="harryRadioButton" layoutX="380.0" layoutY="233.0" mnemonicParsing="false" onAction="#harryAction" text="Harry Potter">
+         <toggleGroup>
+            <ToggleGroup fx:id="startToggleGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="ringenesRadioButton" layoutX="548.0" layoutY="233.0" mnemonicParsing="false" onAction="#ringenesAction" text="Ringenes Herre" toggleGroup="$startToggleGroup" />
+      <RadioButton fx:id="thronesRadioButton" layoutX="722.0" layoutY="233.0" mnemonicParsing="false" onAction="#thronesAction" text="Game of Thrones" toggleGroup="$startToggleGroup" />
+      <Label fx:id="labelMessage" layoutX="472.0" layoutY="292.0" opacity="0.0" text="You have to choose a hat first!" textFill="#d31212">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

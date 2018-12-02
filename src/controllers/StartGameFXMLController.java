@@ -9,10 +9,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application.Parameters;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import worldofzuul.StartGame;
@@ -23,15 +27,24 @@ import worldofzuul.StartGame;
  * @author ubuntu
  */
 public class StartGameFXMLController implements Initializable {
-
+    
+    StartGame startGame = new StartGame();
+    
     @FXML
     private AnchorPane startAnchorPane;
     @FXML
     private Button startGameButton;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private RadioButton harryRadioButton;
+    @FXML
+    private RadioButton ringenesRadioButton;
+    @FXML
+    private ToggleGroup startToggleGroup;
+    @FXML
+    private RadioButton thronesRadioButton;
+    @FXML
+    private Label labelMessage;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -39,11 +52,27 @@ public class StartGameFXMLController implements Initializable {
 
     @FXML
     private void startGameClicked(MouseEvent event) throws IOException {
-        StartGame game = new StartGame();
-        game.primaryStage.close();
-        game.second();
-        
-        
+        if(startGame.getImageSelector() != null) {
+            startGame.primaryStage.close();
+            startGame.second();
+        } else {
+            labelMessage.setOpacity(1);
+        }  
+    }
+
+    @FXML
+    private void harryAction(ActionEvent event) {
+        startGame.setImageSelector("harry");
+    }
+
+    @FXML
+    private void ringenesAction(ActionEvent event) {
+        startGame.setImageSelector("ringenes");
+    }
+
+    @FXML
+    private void thronesAction(ActionEvent event) {
+        startGame.setImageSelector("thrones");
     }
     
 }
