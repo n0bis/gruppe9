@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -63,7 +64,7 @@ public class SpellBook extends Item {
         } else {
             System.out.println("### Your spells are: ###");
             for(Spell spell : mySpells) {
-                System.out.println("- " + spell.name + " ");
+                System.out.println("- " + spell.getName() + " ");
             }  
         }
     }
@@ -99,8 +100,16 @@ public class SpellBook extends Item {
         });
         quests.setItems(FXCollections.observableArrayList(player.getQuestLog()));        
         TextArea description = (TextArea)loader.getNamespace().get("descriptionId");
+        ImageView requiredItem = (ImageView)loader.getNamespace().get("requiredItem");
+        ImageView rewardItem = (ImageView)loader.getNamespace().get("rewardItem");
+        Label requiredItemLabel = (Label)loader.getNamespace().get("requiredItemLabel");
+        Label rewardItemLabel = (Label)loader.getNamespace().get("rewardItemLabel");
         quests.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             description.setText(((Quest)newValue).getQuestDescription());
+            requiredItem.setImage(((Quest)newValue).getRequiredItem().getImage());
+            rewardItem.setImage(((Quest)newValue).getRewardItem().getImage());
+            rewardItemLabel.setVisible(true);
+            requiredItemLabel.setVisible(true);
         });
         Rectangle rightSide = (Rectangle)loader.getNamespace().get("rightSide");
         rightSide.setOnMouseClicked((mouseEvent) -> {
