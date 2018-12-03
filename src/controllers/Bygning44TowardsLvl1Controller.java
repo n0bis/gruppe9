@@ -28,6 +28,8 @@ public class Bygning44TowardsLvl1Controller extends UpperClass implements Initia
     private ImageView arrowLeftId;
     @FXML
     private ImageView arrowUpId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -46,7 +48,12 @@ public class Bygning44TowardsLvl1Controller extends UpperClass implements Initia
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "TowardsMainHall1");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall1");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "bygning44");
     }
     
 }

@@ -48,7 +48,7 @@ public class Bygning44Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowUpClicked2(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall1");
+        FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
     }
 
     @FXML

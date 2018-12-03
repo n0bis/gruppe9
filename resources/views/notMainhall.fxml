@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="controllers.NotMainhallController">
+   <children>
+      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Notmainhall.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowRightId" fitHeight="100.0" fitWidth="160.0" layoutX="699.0" layoutY="188.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowLeftId" fitHeight="100.0" fitWidth="160.0" layoutX="292.0" layoutY="207.0" onMouseClicked="#arrowLeftClicked" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="790.0" layoutY="481.0" onMouseClicked="#arrowBackClicked" pickOnBounds="true" preserveRatio="true" rotate="170.0">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

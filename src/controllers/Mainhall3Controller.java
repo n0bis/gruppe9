@@ -41,6 +41,7 @@ public class Mainhall3Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId,"mainhall4");
     }
 
     @FXML

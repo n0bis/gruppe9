@@ -71,12 +71,28 @@ public class StartGame extends Application {
         sceneManager.addScene("towardsU45", menuController);
         sceneManager.addScene("mainhall1", menuController);
         sceneManager.addScene("mainhall2", menuController);
+        sceneManager.addScene("mainhall", menuController);
         sceneManager.addScene("mainhall3", menuController);
         sceneManager.addScene("mainhall4", menuController);
         sceneManager.addScene("mainhall5", menuController);
         sceneManager.addScene("U45", menuController);
         sceneManager.addScene("towardsToilets", menuController);
         sceneManager.addScene("toilets", menuController);
+        sceneManager.addScene("entranceToTorvet", menuController);
+        sceneManager.addScene("torvet", menuController);
+        sceneManager.addScene("modU140", menuController);
+        sceneManager.addScene("communityAreaU140", menuController);
+        sceneManager.addScene("entranceU140", menuController);
+        sceneManager.addScene("towardsU1", menuController);
+        sceneManager.addScene("notMainhall", menuController);
+        sceneManager.addScene("notMainhall2", menuController);
+        sceneManager.addScene("notMainhall3", menuController);
+        sceneManager.addScene("entranceU27a", menuController);
+        sceneManager.addScene("entranceU1", menuController);
+        sceneManager.addScene("stairsTowardsNedenUnder", menuController);
+        sceneManager.addScene("nedenUnder", menuController);
+        sceneManager.addScene("nedenUnderToilets", menuController);
+        
         
                 
                 
@@ -85,7 +101,7 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("outsideTekFar");
+        SceneManager.activate("notMainhall");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

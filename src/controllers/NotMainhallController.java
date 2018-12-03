@@ -18,16 +18,18 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class Mainhall5Controller extends UpperClass implements Initializable {
+public class NotMainhallController extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView backgroundId;
+    private ImageView arrowRightId;
     @FXML
-    private ImageView arrowForwardId;
+    private ImageView arrowLeftId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView backgroundId;
 
     /**
      * Initializes the controller class.
@@ -40,13 +42,18 @@ public class Mainhall5Controller extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceToTorvet");
+    private void arrowRightClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "entranceU1");
+    }
+
+    @FXML
+    private void arrowLeftClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall4");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
     }
     
 }
