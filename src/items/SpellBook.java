@@ -11,17 +11,23 @@ import java.io.IOException;
 import java.util.*;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.css.PseudoClass;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Callback;
 import javafx.util.Duration;
 import missions.Quest;
 import utils.SpriteAnimation;
@@ -78,8 +84,23 @@ public class SpellBook extends Item {
         Group closeButton = (Group)loader.getNamespace().get("crossId");
         Group spellPage = (Group)loader.getNamespace().get("spellPage");
         Group questPage = (Group)loader.getNamespace().get("questPage");
-        ListView quests = (ListView)loader.getNamespace().get("logId");
-        quests.setItems(FXCollections.observableArrayList(player.questLog));        
+        ListView<Quest> quests = (ListView)loader.getNamespace().get("logId");
+        quests.setCellFactory((ListView<Quest> param) -> {
+            ListCell<Quest> cell = new ListCell<Quest>() {
+                @Override
+                protected void updateItem(Quest item, boolean empty) {
+                    super.updateItem(item, empty);
+                    if (item != null) {
+                        setText(item.getName());
+                        this.pseudoClassStateChanged(PseudoClass.getPseudoClass("completed"), item.isQuestDone());
+                    } else {
+                        setText("");
+                    }
+                }
+            };
+            return cell;
+        });
+        quests.setItems(FXCollections.observableArrayList(player.getQuestLog()));        
         TextArea description = (TextArea)loader.getNamespace().get("descriptionId");
         quests.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
             description.setText(((Quest)newValue).getQuestDescription());
