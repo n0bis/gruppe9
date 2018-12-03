@@ -76,6 +76,8 @@ public class SpellBook extends Item {
             SpellBook.class.getResource("/views/Spellbook.fxml")
         );
         root = loader.load();
+        root.setLayoutX(300);
+        root.setLayoutY(160);
         Group closeButton = (Group)loader.getNamespace().get("crossId");
         Group spellPage = (Group)loader.getNamespace().get("spellPage");
         Group questPage = (Group)loader.getNamespace().get("questPage");
