@@ -6,15 +6,11 @@
 package items;
 
 import controllers.SceneManager;
-import items.Item;
 import java.io.IOException;
 import java.util.*;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -27,7 +23,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Callback;
 import javafx.util.Duration;
 import missions.Quest;
 import utils.SpriteAnimation;
@@ -43,9 +38,9 @@ import static world.Game.spellBook;
  */
 public class SpellBook extends Item {    
     
-    private static final Image fireballIcon = new Image(SpellBook.class.getResourceAsStream("/images/fireball.jpg"));
-    private static final Image fireballImage = new Image(SpellBook.class.getResourceAsStream("/images/fireballz.png"));
-    private static final Image explosionImage = new Image(SpellBook.class.getResourceAsStream("/images/explosion.png"));
+    private static final Image fireballIcon = new Image(SpellBook.class.getResourceAsStream("/images/menu/fireball.jpg"));
+    private static final Image fireballImage = new Image(SpellBook.class.getResourceAsStream("/images/items/fireballz.png"));
+    private static final Image explosionImage = new Image(SpellBook.class.getResourceAsStream("/images/items/explosion.png"));
     private final ArrayList<Spell> mySpells = new ArrayList<>();
     private static FXMLLoader loader;
     private static Parent root;

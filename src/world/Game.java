@@ -15,6 +15,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import missions.Quest;
+import static missions.QuestList.sackQuest;
 import static utils.ShowMap.showMap;
 import utils.TimerScore;
 
@@ -53,8 +54,7 @@ public class Game
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
     
     // Static quests:
-    public static Quest sackQuest = new Quest("Find my book", "This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
-            + "done", teeth, Bookie);
+    
     
     public Game() 
     {
@@ -264,9 +264,6 @@ public class Game
             case SHOW:
                 show(command);
                 break;
-            case TALK:
-                talk();
-                break;
             default:
                 break;
         }
@@ -292,39 +289,6 @@ public class Game
     
     public void setTek() {
     currentRoom = theColourKitchen;
-    }
-
-    private void talk() {
-        if(!currentRoom.hasNPC()) {
-            System.out.println("Who you talking to?");
-            return;
-        }
-        
-        NPC npc = currentRoom.getNPC();
-        
-        if(!npc.hasQuest()) {
-            System.out.println(npc.getQuestsDone());    
-            return;
-        }
-        
-        for (Quest quest : npc.getQuests()) {
-            if (quest.isQuestDone()) {
-                continue;
-            }
-            
-            if(!player.hasQuest(quest)) {
-                System.out.println(quest.getQuestDescription());
-                player.questLog.add(quest);
-            } else if (player.hasQuest(quest) && player.hasItem(quest.getRequiredItem())) {
-                quest.setIsQuestDone(true);
-                player.questLog.remove(quest);
-                System.out.println(quest.getQuestDone());
-                player.inventory.add(quest.getRewardItem());
-                player.inventory.remove(quest.getRequiredItem());
-            } else {
-                System.out.println(quest.getQuestInProgress());
-            }
-        }
     }
     
     private void search() {

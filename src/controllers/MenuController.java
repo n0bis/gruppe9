@@ -28,7 +28,7 @@ import static world.Game.player;
  */
 public class MenuController implements Initializable {
     
-    private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/spellbook.png"));
+    private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/menu/spellbook.png"));
 
     @FXML
     private ImageView bagId;

@@ -12,12 +12,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.sackQuest;
 import static world.Game.Bookie;
 import static world.Game.fangs;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
-import static world.Game.sackQuest;
 import static world.Game.teeth;
 import static world.Game.toiletpaper;
 
@@ -45,13 +45,13 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
     private ImageView toiletpaperId;
     
     public void initialize() {
-        room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
+        room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
-        book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
-        arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
-        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
-        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/toiletpaper.png")));
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/bookimg.png")));
+        arrow.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
+        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/items/toiletpaper.png")));
         isQuizTime();
     }
 

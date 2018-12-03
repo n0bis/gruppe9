@@ -38,11 +38,11 @@ public class HallController extends MenuControllerInjection implements Initializ
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        hallId.setImage(new Image(getClass().getResourceAsStream("/images/hall.jpg")));
+        hallId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/hall.jpg")));
         hallId.fitHeightProperty().bind(rootId.heightProperty());
         hallId.fitWidthProperty().bind(rootId.widthProperty());
-        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-right.png")));
-        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-right.png")));
+        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
     }    
 
     @FXML

@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="586.0" fitWidth="506.0" pickOnBounds="true">
          <image>
-            <Image url="@../images/MapTilProjekt.png" />
+            <Image url="@../images/menu/MapTilProjekt.png" />
          </image>
       </ImageView>
       <Group fx:id="crossId">

@@ -22,7 +22,7 @@
       <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" onMouseClicked="#arrowMouseClicked" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="monsterId" fitHeight="150.0" fitWidth="200.0" layoutX="316.0" layoutY="275.0" onMouseClicked="#talkMonster" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/sackmonster.png" />
+            <Image url="@../images/NPC/sackmonster.png" />
          </image>
       </ImageView>
       <ImageView fx:id="fangsId" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />

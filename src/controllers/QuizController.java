@@ -58,7 +58,7 @@ public class QuizController extends TimerTask implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+        flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/menu/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
         String text = smsTextbox.getText().replaceFirst("Player", player.getName());
         smsTextbox.setText(text);
     }    
