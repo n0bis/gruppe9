@@ -51,6 +51,10 @@ public class Quest {
         this.isQuestDone = isQuestDone;
     }
     
+    public String getName() {
+        return this.name;
+    }
+    
     public String toString() {
         return this.name;
     }
