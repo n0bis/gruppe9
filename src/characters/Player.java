@@ -10,7 +10,7 @@ import missions.Quest;
 public class Player {
     private NPC npc;
     public ArrayList<Item> inventory = new ArrayList<Item>();
-    public List<Quest> questLog = new ArrayList<>();
+    private List<Quest> questLog = new ArrayList<>();
     private String name;
     private String major;
    
@@ -60,5 +60,9 @@ public class Player {
                 System.out.println("- " + item.getName() + " ");
             }
         }
+    }
+    
+    public List<Quest> getQuestLog() {
+        return this.questLog;
     }
 }
