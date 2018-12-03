@@ -48,7 +48,7 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
-        book.setImage(new Image(getClass().getResourceAsStream("/images/items/bookimg.png")));
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/items/toiletpaper.png")));

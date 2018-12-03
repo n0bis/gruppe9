@@ -32,7 +32,7 @@ public class ChildRoomController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        book.setImage(new Image(getClass().getResourceAsStream("/images/items/bookimg.png")));
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-right.png")));
     }    
     
