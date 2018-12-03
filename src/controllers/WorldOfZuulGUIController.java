@@ -96,7 +96,6 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         } else if (player.hasQuest(sackQuest) && player.hasItem(Bookie)) {
             menuController.SpeechText(sackQuest.getQuestDone());
             sackQuest.setIsQuestDone(true);
-            player.removeQuest(sackQuest);
             player.addItem(teeth);
         } else if (!player.hasQuest(sackQuest) && !sackQuest.isQuestDone()) {
             menuController.SpeechText(sackQuest.getQuestDescription());
