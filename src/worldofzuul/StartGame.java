@@ -80,6 +80,8 @@ public class StartGame extends Application {
         sceneManager.addScene("toilets", menuController);
         sceneManager.addScene("entranceToTorvet", menuController);
         sceneManager.addScene("torvet", menuController);
+        sceneManager.addScene("torvet2", menuController);
+        sceneManager.addScene("coffee", menuController);
         sceneManager.addScene("modU140", menuController);
         sceneManager.addScene("communityAreaU140", menuController);
         sceneManager.addScene("entranceU140", menuController);
@@ -101,7 +103,7 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("outsideTekFar");
+        SceneManager.activate("torvet");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

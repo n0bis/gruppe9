@@ -18,14 +18,12 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class TowardsU45Controller extends UpperClass implements Initializable {
+public class CoffeeController extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
-    @FXML
-    private ImageView arrowDownId;
     @FXML
     private ImageView arrowLeftId;
     @FXML
@@ -42,18 +40,13 @@ public class TowardsU45Controller extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
-    }
-
-    @FXML
     private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "U45");
+        FadeAnimation.fadeOutTransition(anchorId, "torvet2");
     }
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsToilets");
+        FadeAnimation.fadeOutTransition(anchorId, "torvet");
     }
     
 }
