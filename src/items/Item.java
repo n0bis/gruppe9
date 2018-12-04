@@ -10,6 +10,10 @@ public class Item {
         this.id = id;
     }
 
+    public Item(String coin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }
