@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WorldOfZuulGUIController">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WorldOfZuulGUIController">
    <children>
       <ImageView fx:id="room1" fitHeight="100.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true">
        </ImageView>
@@ -27,6 +25,7 @@
       </ImageView>
       <ImageView fx:id="fangsId" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <ImageView fx:id="toiletpaperId" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="380.0" onMouseClicked="#toiletpaperMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
+      <ImageView fx:id="coinId" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#coinMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <FlowPane fx:id="flowPane" layoutX="469.0" layoutY="75.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>
             <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">
