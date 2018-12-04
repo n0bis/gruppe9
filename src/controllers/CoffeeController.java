@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -28,6 +30,8 @@ public class CoffeeController extends UpperClass implements Initializable {
     private ImageView arrowLeftId;
     @FXML
     private ImageView arrowRightId;
+    @FXML
+    private Rectangle coffeeId;
 
     /**
      * Initializes the controller class.
@@ -48,5 +52,11 @@ public class CoffeeController extends UpperClass implements Initializable {
     private void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "torvet");
     }
+
+    @FXML
+    private void coffeeClicked(MouseEvent event) {
+    }
+    
     
 }
+   

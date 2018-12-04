@@ -186,5 +186,8 @@ public class MenuController implements Initializable {
     public void unlockSpellBook() {
         spellBookId.setImage(spellBookImage);
     }
+    private void coffeeClicked(MouseEvent event)throws IOException {
+        
+    }
 }
 
