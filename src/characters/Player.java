@@ -3,14 +3,13 @@ package characters;
 import items.Item;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.image.ImageView;
 import missions.Quest;
 
 
 public class Player {
     private NPC npc;
-    public ArrayList<Item> inventory = new ArrayList<Item>();
-    private List<Quest> questLog = new ArrayList<>();
+    public List<Item> inventory = new ArrayList<>();
+    public List<Quest> questLog = new ArrayList<>();
     private String name;
     private String major;
    
@@ -50,16 +49,8 @@ public class Player {
     public void addItem(Item item) {
         inventory.add(item);
     }
-    
-    public void getInventory() {
-        if (inventory.isEmpty()) {
-            System.out.println("Too bad. You got no items hombré!");
-        } else {
-            System.out.println("### You inventory is: ###");
-            for(Item item : inventory) {
-                System.out.println("- " + item.getName() + " ");
-            }
-        }
+    public List<Item> getInventory() {
+        return this.inventory;
     }
     
     public List<Quest> getQuestLog() {
