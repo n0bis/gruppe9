@@ -93,12 +93,18 @@ public class MenuController implements Initializable {
         );
         Parent root = loader.load();
         
+        player.getInventory().forEach((item) -> {
+            ImageView itemImg = (ImageView)loader.getNamespace().get(item.getName().toLowerCase() + "Id");
+            if (itemImg == null) return;
+            itemImg.setEffect(null);
+        });
+        
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
         dialog.setAlwaysOnTop(true);
         dialog.setResizable(false);
         dialog.show();
-    }
+    } 
     
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
