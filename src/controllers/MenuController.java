@@ -84,9 +84,16 @@ public class MenuController implements Initializable {
                 node.setOpacity(0);
             }
         });
-        String toShow = SceneManager.getController().getClass().getPackageName().split(Pattern.quote("."))[1];
-        Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
-        rect.setOpacity(1);
+        String packageName = SceneManager.getController().getClass().getPackageName();
+        String[] splitPackageNames = packageName.split(Pattern.quote("."));
+        System.out.println(splitPackageNames.length);
+        if (splitPackageNames.length > 1) {
+            String toShow = splitPackageNames[1];
+            Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
+            rect.setOpacity(1);
+        } else {
+            System.out.println(SceneManager.getController().toString());
+        }
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
         dialog.setAlwaysOnTop(true);
