@@ -94,16 +94,16 @@ public class StartGame extends Application {
         sceneManager.addScene("stairsTowardsNedenUnder", menuController);
         sceneManager.addScene("nedenUnder", menuController);
         sceneManager.addScene("nedenUnderToilets", menuController);
-        
-        
-                
+        sceneManager.addScene("outsideU133", menuController);
+        sceneManager.addScene("U133", menuController);
+        sceneManager.addScene("U55", menuController);     
                 
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("torvet");
+        SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

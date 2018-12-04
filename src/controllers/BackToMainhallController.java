@@ -18,14 +18,14 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class TowardsMainhall1Controller extends UpperClass implements Initializable {
+public class BackToMainhallController implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowFowardId;
+    private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
 
@@ -36,17 +36,18 @@ public class TowardsMainhall1Controller extends UpperClass implements Initializa
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        
         // TODO
     }    
 
     @FXML
-    private void arrowFowardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "outsideU133");
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "torvet2");
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
     }
     
 }
