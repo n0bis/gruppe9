@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class ModU140Controller implements Initializable {
+public class ModU140Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -35,7 +35,7 @@ public class ModU140Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
-        backgroundId.fitHeightProperty().bind(anchorId.widthProperty());
+        backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
     }    
 

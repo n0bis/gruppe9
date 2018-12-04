@@ -23,11 +23,11 @@ public class StairsTowardsNedenUnderController extends UpperClass implements Ini
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView arrowForwardId;
-    @FXML
     private ImageView arrowBackId;
     @FXML
     private ImageView backgroundId;
+    @FXML
+    private ImageView arrowForwardId;
 
     /**
      * Initializes the controller class.
@@ -41,7 +41,7 @@ public class StairsTowardsNedenUnderController extends UpperClass implements Ini
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "NedenUnder");
+        FadeAnimation.fadeOutTransition(anchorId, "nedenUnder");
     }
 
     @FXML

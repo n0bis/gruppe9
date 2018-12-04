@@ -39,7 +39,7 @@ public class NedenUnderToiletsController extends UpperClass implements Initializ
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "stairsToNedenUnder");
+        FadeAnimation.fadeOutTransition(anchorId, "stairsTowardsNedenUnder");
     }
     
 }

@@ -101,7 +101,7 @@ public class StartGame extends Application {
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("notMainhall");
+        SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
