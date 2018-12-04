@@ -41,7 +41,8 @@ public class MenuController implements Initializable {
     private final Image fireballImage = new Image(getClass().getResourceAsStream("/images/fireballz.png"));
     private final Image explosionImage = new Image(getClass().getResourceAsStream("/images/explosion.png"));
     private final Image spellBookImage = new Image(getClass().getResourceAsStream("/images/spellbook.png"));
-
+    public static boolean fireballActive = false;
+    
     @FXML
     private ImageView bagId;
     @FXML
@@ -127,6 +128,7 @@ public class MenuController implements Initializable {
             fireBallIcon.setImage(fireballIcon);
             fireBallIcon.setOnMouseClicked((value) -> {
                 System.out.println("imma firin mah lazer");
+                this.fireballActive = true;
                 dialog.close();
                 
                 BorderPane main = SceneManager.getMain();

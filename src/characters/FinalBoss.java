@@ -6,6 +6,7 @@
 package characters;
 
 import controllers.FadeAnimation;
+import controllers.MenuController;
 import controllers.SceneManager;
 import items.Item;
 import items.Spell;
@@ -17,6 +18,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import static world.Game.fireball;
+import static world.Game.spellBook;
+
 
 /**
  *
@@ -76,22 +80,15 @@ public class FinalBoss extends Boss {
         return player.inventory.contains(this.getStage2RequiredItem());
     }
     
-    public boolean wonStage3(String input, Player player) {
+    public boolean wonStage3(Item Spell, Player player) {
         if (!player.inventory.contains(this.stage3RequiredItem) || !((SpellBook)this.stage3RequiredItem).hasSpell(questSpell)) {
             return false;
         }
-       
-        System.out.println("You have killed 2 of my heads, but this last one, only a spell can kill.");
-        System.out.println("Enter your spell:");
-        String spellCast = input;
 
-        if(spellCast.equalsIgnoreCase(this.questSpell.toString())) {
-            
-            System.out.println("You got me. #RIP.");
-            System.out.println("Now go across to party!");
-            return true;
-        } else {
-            System.out.println("Ha-ha, wrong spell");
+        if (spellBook.hasSpell(questSpell)) {
+            if (MenuController.fireballActive == true) {
+                return true;
+            }
         }
         return false;
     }

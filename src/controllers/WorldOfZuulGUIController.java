@@ -90,7 +90,8 @@ public class WorldOfZuulGUIController extends UpperClass {
         //Add item to inventory
         player.addItem(Bookie);
         player.addItem(spellBook);
-        spellBook.addSpell(fireball);        
+        spellBook.addSpell(fireball);
+        player.addItem(fireball);
     }
     @FXML
     private void fangsMouseClicked(MouseEvent event) {

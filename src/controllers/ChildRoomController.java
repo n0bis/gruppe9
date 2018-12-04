@@ -14,7 +14,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import static world.Game.boss;
+import static world.Game.fireball;
 import static world.Game.player;
+import static world.Game.spellBook;
 import static world.Game.stage1RequiredItem;
 import static world.Game.stage2RequiredItem;
 
@@ -73,15 +75,18 @@ public class ChildRoomController extends UpperClass implements Initializable {
 
                 break;
             case 3:
+                if (!spellBook.hasSpell(fireball)) {
+                    menuController.SpeechText("You dont have the spell to defeat me!");
+                    throwOut();
+                } 
+                
                 menuController.SpeechText("Only a spell can kill my last head!");
                 bossId.setImage(stage3Boss);
-                if(boss.wonStage3("fireball", player)) {
+                if(boss.wonStage3(fireball ,player)) {
                     boss.incrementStage();
                     bossEncounter(event);
                     menuController.SpeechText("You've killed my last head! *super dead*");
                     bossId.setImage(dead);
-                } else {
-                    throwOut();
                 }
             }
     }
