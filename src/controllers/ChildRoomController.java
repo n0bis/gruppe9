@@ -73,11 +73,12 @@ public class ChildRoomController extends UpperClass implements Initializable {
 
                 break;
             case 3:
-                menuController.SpeechText("You've killed my last head! *super dead*");
+                menuController.SpeechText("Only a spell can kill my last head!");
                 bossId.setImage(stage3Boss);
                 if(boss.wonStage3("fireball", player)) {
                     boss.incrementStage();
                     bossEncounter(event);
+                    menuController.SpeechText("You've killed my last head! *super dead*");
                     bossId.setImage(dead);
                 } else {
                     throwOut();
