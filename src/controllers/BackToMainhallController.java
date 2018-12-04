@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class BackToMainhallController implements Initializable {
+public class BackToMainhallController extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -42,7 +42,7 @@ public class BackToMainhallController implements Initializable {
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
+        FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
     }
 
     @FXML
