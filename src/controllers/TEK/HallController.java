@@ -56,12 +56,7 @@ public class HallController extends UpperClass implements Initializable {
 
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "ChildRoom");
-    }
-
-    @FXML
-    private void helloBlicked(MouseEvent event) {
-        menuController.SpeechText("Hello again!");
+        FadeAnimation.fadeOutTransition(rootId, "outsideTekFar");
     }
     
 }

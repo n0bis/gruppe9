@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.MainhallRightOrLeftController">
+   <children>
+      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Mainhall%20-%20pick%20left%20or%20right.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="leftArrowId" fitHeight="100.0" fitWidth="160.0" layoutX="147.0" layoutY="300.0" onMouseClicked="#arrowLeftClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrow-left.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowRightId" fitHeight="100.0" fitWidth="160.0" layoutX="716.0" layoutY="300.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrow-right.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowDownId" fitHeight="100.0" fitWidth="160.0" layoutX="468.0" layoutY="465.0" onMouseClicked="#arrowDownClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/arrowDown.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

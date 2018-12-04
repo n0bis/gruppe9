@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TowardsMainhall1Controller">
+   <children>
+      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Towards%20Mainhall.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowFowardId" fitHeight="100.0" fitWidth="160.0" layoutX="568.0" layoutY="210.0" onMouseClicked="#arrowFowardClicked" pickOnBounds="true" preserveRatio="true" rotate="13.6">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="290.0" layoutY="478.0" onMouseClicked="#arrowBackClicked" pickOnBounds="true" preserveRatio="true" rotate="-160.0">
+         <image>
+            <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

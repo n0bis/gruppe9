@@ -5,7 +5,6 @@
  */
 package controllers;
 
-import items.Item;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -33,6 +32,7 @@ import javafx.util.Duration;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
@@ -40,6 +40,8 @@ import static world.Game.spellBook;
  * @author madsfalken
  */
 public class MenuController implements Initializable {
+    
+    StartGame startGame = new StartGame();
     
     private final Image fireballIcon = new Image(getClass().getResourceAsStream("/images/fireball.jpg"));
     private final Image fireballImage = new Image(getClass().getResourceAsStream("/images/fireballz.png"));
@@ -64,14 +66,17 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         SpeechId.setEditable(false);
         SpeechId.setWrapText(true);
+        SpeechId.setText("Welcome to SDU Maze, " + startGame.getPlayerName() + "!");
     }    
 
     @FXML
-    private void mapClicked(MouseEvent event) throws IOException {
-        Stage dialog = new Stage();
+
+    private void mapClicked(MouseEvent event) throws IOException, InterruptedException {
+        final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
+        
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/views/Map.fxml")
+            getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
         root.getChildrenUnmodifiable().forEach(node -> {
@@ -94,11 +99,28 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void bagClicked(MouseEvent event) {
-        player.getInventory();
-       
-    }
-
+    private void bagClicked(MouseEvent event) throws IOException {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        
+        FXMLLoader loader = new FXMLLoader(
+           getClass().getResource("/views/Bag.FXML")
+        );
+        Parent root = loader.load();
+        
+        player.getInventory().forEach((item) -> {
+            ImageView itemImg = (ImageView)loader.getNamespace().get(item.getName().toLowerCase() + "Id");
+            if (itemImg == null) return;
+            itemImg.setEffect(null);
+        });
+        
+        Scene dialogScene = new Scene(root);
+        dialog.setScene(dialogScene);
+        dialog.setAlwaysOnTop(true);
+        dialog.setResizable(false);
+        dialog.show();
+    } 
+    
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
         if (!player.hasItem(spellBook)) {
@@ -170,9 +192,9 @@ public class MenuController implements Initializable {
         dialog.setResizable(false);
         dialog.show();
     }
-    
+
     public void unlockSpellBook() {
         spellBookId.setImage(spellBookImage);
     }
-    
 }
+
