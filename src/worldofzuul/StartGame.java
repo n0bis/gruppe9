@@ -81,7 +81,7 @@ public class StartGame extends Application {
         sceneManager.addScene("entranceToTorvet", menuController);
         sceneManager.addScene("torvet", menuController);
         sceneManager.addScene("torvet2", menuController);
-        sceneManager.addScene("Coffee", menuController);
+        sceneManager.addScene("coffee", menuController);
         sceneManager.addScene("modU140", menuController);
         sceneManager.addScene("communityAreaU140", menuController);
         sceneManager.addScene("entranceU140", menuController);
