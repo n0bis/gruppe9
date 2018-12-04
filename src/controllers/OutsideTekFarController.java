@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import utils.FadeAnimation;
 
 /**
  * FXML Controller class
@@ -39,6 +40,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-    FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
     }
 }
