@@ -48,7 +48,7 @@ public class TorvetController extends UpperClass implements Initializable {
 
     @FXML
     private void arrowGetCoffeeClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "coffee");
+        FadeAnimation.fadeOutTransition(anchorId, "Coffee");
     }
 
     @FXML
