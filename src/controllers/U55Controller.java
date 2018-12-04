@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers.Knoldene;
+package controllers;
 
-import controllers.FadeAnimation;
-import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -20,14 +18,12 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class TowardsMainhall2Controller extends UpperClass implements Initializable {
+public class U55Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
-    @FXML
-    private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
 
@@ -42,13 +38,8 @@ public class TowardsMainhall2Controller extends UpperClass implements Initializa
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
-    }
-
-    @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall2");
     }
     
 }

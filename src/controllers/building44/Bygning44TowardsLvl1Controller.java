@@ -50,7 +50,7 @@ public class Bygning44TowardsLvl1Controller extends UpperClass implements Initia
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall1");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
     }
 
     @FXML

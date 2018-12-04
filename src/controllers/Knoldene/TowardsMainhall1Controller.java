@@ -43,12 +43,12 @@ public class TowardsMainhall1Controller extends UpperClass implements Initializa
 
     @FXML
     private void arrowFowardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
+        FadeAnimation.fadeOutTransition(anchorId, "outsideU133");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
+        FadeAnimation.fadeOutTransition(anchorId, "torvet2");
     }
     
 }

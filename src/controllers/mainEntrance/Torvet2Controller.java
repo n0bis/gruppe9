@@ -43,7 +43,7 @@ public class Torvet2Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "goingTo");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall1");
     }
 
     @FXML
