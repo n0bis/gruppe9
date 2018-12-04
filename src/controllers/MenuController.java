@@ -55,9 +55,6 @@ public class MenuController implements Initializable {
 
     @FXML
     private void mapClicked(MouseEvent event) throws IOException, InterruptedException {
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Map.fxml")
         );
@@ -75,9 +72,6 @@ public class MenuController implements Initializable {
 
     @FXML
     private void bagClicked(MouseEvent event) throws IOException {
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        
         FXMLLoader loader = new FXMLLoader(
            getClass().getResource("/views/Bag.FXML")
         );
@@ -88,12 +82,11 @@ public class MenuController implements Initializable {
             if (itemImg == null) return;
             itemImg.setEffect(null);
         });
-        
-        Scene dialogScene = new Scene(root);
-        dialog.setScene(dialogScene);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        root.setLayoutX(200);
+        root.setLayoutY(60);
+        SceneManager.getMain().getChildren().add(root);
     } 
     
     @FXML

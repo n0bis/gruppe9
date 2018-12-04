@@ -9,8 +9,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -23,6 +25,14 @@ public class BagController implements Initializable {
     private ImageView bagId;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private ImageView bogId;
+    @FXML
+    private ImageView fangsId;
+    @FXML
+    private ImageView toiletpaperId;
+    @FXML
+    private Group crossId;
     
     /**
      * Initializes the controller class.
@@ -31,7 +41,6 @@ public class BagController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         bagId.setImage(new Image(getClass().getResourceAsStream("/images/burlap.jpg")));
         bagId.fitHeightProperty().bind(rootId.heightProperty());
-        
     }
  
    }
