@@ -62,7 +62,7 @@ public class ChildRoomController extends UpperClass implements Initializable {
                 }
                 break;
             case 2:
-                menuController.SpeechText("Welcome to stage 2 of my face");
+                menuController.SpeechText("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
                 bossId.setImage(stage2Boss);
                 if (boss.wonStage2(player)) {
                     boss.incrementStage();
@@ -73,8 +73,8 @@ public class ChildRoomController extends UpperClass implements Initializable {
 
                 break;
             case 3:
+                menuController.SpeechText("You've killed my last head! *super dead*");
                 bossId.setImage(stage3Boss);
-
                 if(boss.wonStage3("fireball", player)) {
                     boss.incrementStage();
                     bossEncounter(event);

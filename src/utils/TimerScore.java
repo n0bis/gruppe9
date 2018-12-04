@@ -9,20 +9,13 @@ package utils;
  */
 public class TimerScore {
     
-    private long time;
+    private static long time;
     
-    public TimerScore() {
-    }
-    
-    public void startTimer() {
-        this.time = System.currentTimeMillis();
-    }
-    
-    public boolean checkTimer() {
-        return (time <= System.currentTimeMillis());
+    public static void startTimer() {
+        time = System.currentTimeMillis();
     }
 
-    public long getTime() {
+    public static long getTime() {
         return time;
     }
     

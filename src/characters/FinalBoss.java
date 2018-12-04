@@ -72,9 +72,7 @@ public class FinalBoss extends Boss {
         return hasItem;
     }
     
-    public boolean wonStage2(Player player) {
-        System.out.println("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
-        
+    public boolean wonStage2(Player player) {        
         return player.inventory.contains(this.getStage2RequiredItem());
     }
     

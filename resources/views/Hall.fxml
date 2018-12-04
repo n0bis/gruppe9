@@ -13,5 +13,6 @@
       <ImageView fx:id="arrowRightId" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="133.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="arrowLeftId" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="133.0" onMouseClicked="#arrowLeftClicked" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="241.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#helloBlicked" text="Button" />
+      <ImageView fx:id="skeletonId" fitHeight="150.0" fitWidth="200.0" layoutX="171.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

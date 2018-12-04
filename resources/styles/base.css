@@ -7,7 +7,7 @@ and open the template in the editor.
     Created on : 15 Nov 2018, 10.28.22
     Author     : madsfalken
 */
-#book:hover {
+.items:hover {
     -fx-scale-x: 1.25;
     -fx-scale-y: 1.25;
     -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
@@ -17,9 +17,13 @@ and open the template in the editor.
     resize:inherit;
 }
 
+#fireball {
+}
+
 #root {
     -fx-background-image: url("../images/imgscare.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;
+    
 }
