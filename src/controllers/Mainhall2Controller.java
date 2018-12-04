@@ -28,6 +28,8 @@ public class Mainhall2Controller extends UpperClass implements Initializable {
     private ImageView arrowDownId;
     @FXML
     private ImageView arrowForwardId;
+    @FXML
+    private ImageView arrowRightId;
 
     /**
      * Initializes the controller class.
@@ -47,6 +49,11 @@ public class Mainhall2Controller extends UpperClass implements Initializable {
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall");
+    }
+
+    @FXML
+    private void arrowRightClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "U55");
     }
     
 }

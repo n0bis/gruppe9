@@ -28,6 +28,8 @@ public class NotMainhall3Controller extends UpperClass implements Initializable 
     private ImageView arrowUpId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView arrowForwardId;
 
     /**
      * Initializes the controller class.
@@ -36,7 +38,6 @@ public class NotMainhall3Controller extends UpperClass implements Initializable 
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
-        
         // TODO
     }    
 
@@ -48,6 +49,11 @@ public class NotMainhall3Controller extends UpperClass implements Initializable 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
+    }
+
+    @FXML
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
     }
     
 }

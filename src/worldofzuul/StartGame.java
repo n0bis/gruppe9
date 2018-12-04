@@ -126,6 +126,10 @@ public class StartGame extends Application {
         sceneManager.addScene("stairsTowardsNedenUnder", menuController);
         sceneManager.addScene("nedenUnder", menuController);
         sceneManager.addScene("nedenUnderToilets", menuController);
+        sceneManager.addScene("outsideU133", menuController);
+        sceneManager.addScene("U133", menuController);
+        sceneManager.addScene("U55", menuController);
+        sceneManager.addScene("backToMainhall", menuController);
                 
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
