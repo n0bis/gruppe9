@@ -39,13 +39,12 @@ public class StartGame extends Application {
     
     @Override
     public void start(Stage startStage) throws IOException {
-    this.primaryStage = startStage;
-    Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
-    Scene scene = new Scene(root);
-    primaryStage.setTitle("SDU Maze");
-    primaryStage.setScene(scene);
-    primaryStage.show();
-    
+        this.primaryStage = startStage;
+        Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setTitle("SDU Maze");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }      
 
     public String getPlayerName() {
@@ -66,7 +65,6 @@ public class StartGame extends Application {
     
     
     public void second() {
-        
         BorderPane borderPane = new BorderPane();
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Menu.fxml")
@@ -84,18 +82,57 @@ public class StartGame extends Application {
         scene.getStylesheets().add("/styles/base.css");
         
         SceneManager sceneManager = new SceneManager(borderPane);
-        sceneManager.addScene("WorldOfZuulGUI", menuController);
-        sceneManager.addScene("ChildRoom");
-        sceneManager.addScene("Hall", menuController);
-        sceneManager.addScene("Start");
-        sceneManager.addScene("StartGameFXML", menuController);
-        
+        sceneManager.addScene("outsideTekFar", menuController);
+        sceneManager.addScene("outsideTekClose", menuController);
+        sceneManager.addScene("tekHall", menuController);
+        sceneManager.addScene("tekHallStairs", menuController);
+        sceneManager.addScene("entranceToStudyRooms", menuController);
+        sceneManager.addScene("studRooms", menuController);
+        sceneManager.addScene("towardsByg441", menuController);
+        sceneManager.addScene("towardsByg442", menuController);
+        sceneManager.addScene("bygning44", menuController);
+        sceneManager.addScene("bygning44Lvl3", menuController);
+        sceneManager.addScene("towardsU183", menuController);
+        sceneManager.addScene("U183", menuController);
+        sceneManager.addScene("bygning44TowardsLvl1", menuController);
+        sceneManager.addScene("bygning44Lvl1", menuController);
+        sceneManager.addScene("towardsMainhall1", menuController);
+        sceneManager.addScene("towardsMainhall2", menuController);
+        sceneManager.addScene("towardsMainhall3", menuController);
+        sceneManager.addScene("mainhallRightOrLeft", menuController);
+        sceneManager.addScene("towardsU45", menuController);
+        sceneManager.addScene("mainhall1", menuController);
+        sceneManager.addScene("mainhall2", menuController);
+        sceneManager.addScene("mainhall", menuController);
+        sceneManager.addScene("mainhall3", menuController);
+        sceneManager.addScene("mainhall4", menuController);
+        sceneManager.addScene("mainhall5", menuController);
+        sceneManager.addScene("U45", menuController);
+        sceneManager.addScene("towardsToilets", menuController);
+        sceneManager.addScene("toilets", menuController);
+        sceneManager.addScene("entranceToTorvet", menuController);
+        sceneManager.addScene("torvet", menuController);
+        sceneManager.addScene("torvet2", menuController);
+        sceneManager.addScene("Coffee", menuController);
+        sceneManager.addScene("modU140", menuController);
+        sceneManager.addScene("communityAreaU140", menuController);
+        sceneManager.addScene("entranceU140", menuController);
+        sceneManager.addScene("towardsU1", menuController);
+        sceneManager.addScene("notMainhall", menuController);
+        sceneManager.addScene("notMainhall2", menuController);
+        sceneManager.addScene("notMainhall3", menuController);
+        sceneManager.addScene("entranceU27a", menuController);
+        sceneManager.addScene("entranceU1", menuController);
+        sceneManager.addScene("stairsTowardsNedenUnder", menuController);
+        sceneManager.addScene("nedenUnder", menuController);
+        sceneManager.addScene("nedenUnderToilets", menuController);
+                
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         TimerScore.startTimer();
         
-        SceneManager.activate("WorldOfZuulGUI");
+        SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
