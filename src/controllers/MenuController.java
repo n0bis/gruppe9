@@ -29,6 +29,7 @@ import javafx.util.Duration;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
@@ -36,6 +37,8 @@ import static world.Game.spellBook;
  * @author madsfalken
  */
 public class MenuController implements Initializable {
+    
+    StartGame startGame = new StartGame();
     
     private final Image fireballIcon = new Image(getClass().getResourceAsStream("/images/fireball.jpg"));
     private final Image fireballImage = new Image(getClass().getResourceAsStream("/images/fireballz.png"));
@@ -60,6 +63,7 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         SpeechId.setEditable(false);
         SpeechId.setWrapText(true);
+        SpeechId.setText("Welcome to SDU Maze, " + startGame.getPlayerName() + "!");
     }    
 
     @FXML
