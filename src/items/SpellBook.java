@@ -136,7 +136,7 @@ public class SpellBook extends Item {
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
-            fireBallIcon.setOnMouseClicked((value) -> {
+            fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
                 
                 BorderPane main = SceneManager.getMain();
@@ -161,7 +161,7 @@ public class SpellBook extends Item {
                 transition.setToY(-(main.getBoundsInLocal().getMaxY() / 2));
                 transition.setNode(imageViewFire);
                 transition.play();
-                transition.setOnFinished((val) -> {
+                transition.setOnFinished((actionEvent) -> {
                     ImageView imageViewExplosion = new ImageView(explosionImage);
                     imageViewExplosion.setScaleX(2.0);
                     imageViewExplosion.setScaleY(2.0);
@@ -178,7 +178,7 @@ public class SpellBook extends Item {
                     );
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
-                    explosionAnimation.setOnFinished((h) ->
+                    explosionAnimation.setOnFinished((actionEvt) ->
                         main.getChildren().remove(imageViewExplosion));
                     main.getChildren().add(imageViewExplosion);
                 });
