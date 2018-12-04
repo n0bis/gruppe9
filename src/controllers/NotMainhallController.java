@@ -5,12 +5,10 @@
  */
 package controllers;
 
-import utils.FadeAnimation;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -18,41 +16,44 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author madsfalken
+ * @author morte
  */
-public class HallController extends MenuControllerInjection implements Initializable {
+public class NotMainhallController extends MenuControllerInjection implements Initializable {
 
     @FXML
-    private ImageView hallId;
+    private AnchorPane anchorId;
     @FXML
     private ImageView arrowRightId;
     @FXML
-    private AnchorPane rootId;
-    @FXML
     private ImageView arrowLeftId;
     @FXML
-    private ImageView skeletonId;
-    
+    private ImageView arrowBackId;
+    @FXML
+    private ImageView backgroundId;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        hallId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/hall.jpg")));
-        hallId.fitHeightProperty().bind(rootId.heightProperty());
-        hallId.fitWidthProperty().bind(rootId.widthProperty());
-        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-right.png")));
-        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
+        backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
+        backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        // TODO
     }    
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "WorldOfZuulGUI");
+        FadeAnimation.fadeOutTransition(anchorId, "entranceU1");
     }
 
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "outsideTekFar");
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
     }
     
 }

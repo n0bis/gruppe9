@@ -14,5 +14,5 @@ public class MenuControllerInjection {
     
     public void init(MenuController menuController) {
         this.menuController = menuController;
-    }
+    }      
 }

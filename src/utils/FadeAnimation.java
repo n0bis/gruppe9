@@ -8,6 +8,7 @@ package utils;
 import controllers.SceneManager;
 import javafx.animation.FadeTransition;
 import javafx.scene.Node;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 /**
