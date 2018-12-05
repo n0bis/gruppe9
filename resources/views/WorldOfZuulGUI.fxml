@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorId" minHeight="550.0" minWidth="1200.0" maxHeight="550" maxWidth="1200" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.WorldOfZuulGUIController">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.outsideTek.WorldOfZuulGUIController">
    <children>
       <ImageView fx:id="room1" fitHeight="100.0" fitWidth="150.0" nodeOrientation="INHERIT" pickOnBounds="true">
        </ImageView>

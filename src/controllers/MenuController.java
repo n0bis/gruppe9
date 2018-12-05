@@ -7,7 +7,9 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -23,6 +25,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -76,6 +79,20 @@ public class MenuController implements Initializable {
             getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
+        root.getChildrenUnmodifiable().forEach(node -> {
+            if (node instanceof Rectangle) {
+                node.setOpacity(0);
+            }
+        });
+        String packageName = SceneManager.getController().getClass().getPackageName();
+        String[] splitPackageNames = packageName.split(Pattern.quote("."));
+        if (splitPackageNames.length > 1) {
+            String toShow = splitPackageNames[1];
+            Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
+            if (rect != null ) rect.setOpacity(1);
+        } else {
+            System.out.println(SceneManager.getController().toString());
+        }
         Scene dialogScene = new Scene(root);
         dialog.setScene(dialogScene);
         dialog.setAlwaysOnTop(true);
@@ -126,7 +143,6 @@ public class MenuController implements Initializable {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
             fireBallIcon.setOnMouseClicked((value) -> {
-                System.out.println("imma firin mah lazer");
                 dialog.close();
                 
                 BorderPane main = SceneManager.getMain();
