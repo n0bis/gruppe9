@@ -54,10 +54,10 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
 
-        book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
         arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
-        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
-        coinId.setImage(new Image(getClass().getResourceAsStream("/images/Coin.png")));
+        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
+        coinId.setImage(new Image(getClass().getResourceAsStream("/images/items/Coin.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
         isQuizTime();
     }

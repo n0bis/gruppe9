@@ -30,7 +30,7 @@
             <Font name="Savoye LET Plain:1.0" size="82.0" />
          </font>
       </Text>
-      <ImageView fx:id="bogId" fitHeight="117.0" fitWidth="165.0" layoutX="45.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bookId" fitHeight="117.0" fitWidth="165.0" layoutX="45.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/book.png" />
          </image>

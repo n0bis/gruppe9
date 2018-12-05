@@ -128,6 +128,7 @@ public class StartGame extends Application {
         sceneManager.addScene("U133", menuController);
         sceneManager.addScene("U55", menuController);
         sceneManager.addScene("backToMainhall", menuController);
+        //sceneManager.addScene("WorldOfZuulGUI", menuController);
                 
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
@@ -135,6 +136,7 @@ public class StartGame extends Application {
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
+        //SceneManager.activate("WorldOfZuulGUI");
         SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
