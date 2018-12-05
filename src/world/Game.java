@@ -6,15 +6,13 @@ import items.Spell;
 import command.Parser;
 import command.CommandWord;
 import command.Command;
-import utils.TimeRemaining;
-import utils.TimeExpired;
 import characters.Player;
 import characters.NPC;
 import items.Item;
 import java.util.Scanner;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 import missions.Quest;
+import static missions.QuestList.sackQuest;
 import static utils.ShowMap.showMap;
 import utils.TimerScore;
 
@@ -33,7 +31,7 @@ public class Game
     public static Item fangs = new Item("Fangs", 21);
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
-    public static Item Bookie = new Item("Bog", 2);
+    public static Item Bookie = new Item("Book", 2);
     Item stage1RequiredItem = new Item("Flamethrower", 6);
     Item stage2RequiredItem = new Item("Ironmelter", 7);
     Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");
@@ -54,8 +52,7 @@ public class Game
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
     
     // Static quests:
-    public static Quest sackQuest = new Quest("This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
-            + "done", teeth, Bookie);
+    
     
     public Game() 
     {
@@ -86,10 +83,10 @@ public class Game
         
         
         // Create Quests
-        Quest draculaQuest = new Quest("I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
+        Quest draculaQuest = new Quest("Get my teeth", "I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"
                 + " lost them when I was studying... Please help me find them.",
                 "You still havent found my teeth..", "Thanks for finding my teeth friend. Now I can be scary again! Here take some bones as a reward!", bones, fangs);
-        Quest mummyQuest = new Quest("Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
+        Quest mummyQuest = new Quest("Toiletpaper", "Well, this is awkward. I'm half naked. Could you help me find some toiletpaper?", "Still kinda naked here.. Find the toiletpaper..",
         "Thanks for helping me!", key, toiletpaper);
         
         
@@ -265,9 +262,6 @@ public class Game
             case SHOW:
                 show(command);
                 break;
-            case TALK:
-                talk();
-                break;
             default:
                 break;
         }
@@ -293,39 +287,6 @@ public class Game
     
     public void setTek() {
     currentRoom = theColourKitchen;
-    }
-
-    private void talk() {
-        if(!currentRoom.hasNPC()) {
-            System.out.println("Who you talking to?");
-            return;
-        }
-        
-        NPC npc = currentRoom.getNPC();
-        
-        if(!npc.hasQuest()) {
-            System.out.println(npc.getQuestsDone());    
-            return;
-        }
-        
-        for (Quest quest : npc.getQuests()) {
-            if (quest.isQuestDone()) {
-                continue;
-            }
-            
-            if(!player.hasQuest(quest)) {
-                System.out.println(quest.getQuestDescription());
-                player.questLog.add(quest);
-            } else if (player.hasQuest(quest) && player.hasItem(quest.getRequiredItem())) {
-                quest.setIsQuestDone(true);
-                player.questLog.remove(quest);
-                System.out.println(quest.getQuestDone());
-                player.inventory.add(quest.getRewardItem());
-                player.inventory.remove(quest.getRequiredItem());
-            } else {
-                System.out.println(quest.getQuestInProgress());
-            }
-        }
     }
     
     private void search() {

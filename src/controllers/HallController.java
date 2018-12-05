@@ -5,10 +5,7 @@
  */
 package controllers;
 
-import command.Command;
-import command.CommandWords;
-import controllers.FadeAnimation;
-import controllers.UpperClass;
+import utils.FadeAnimation;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -17,14 +14,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-// import static worldofzuul.StartGame.game;
 
 /**
  * FXML Controller class
  *
  * @author madsfalken
  */
-public class HallController extends UpperClass implements Initializable {
+public class HallController extends MenuControllerInjection implements Initializable {
 
     @FXML
     private ImageView hallId;
@@ -42,11 +38,11 @@ public class HallController extends UpperClass implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        hallId.setImage(new Image(getClass().getResourceAsStream("/images/hall.jpg")));
+        hallId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/hall.jpg")));
         hallId.fitHeightProperty().bind(rootId.heightProperty());
         hallId.fitWidthProperty().bind(rootId.widthProperty());
-        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-right.png")));
-        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        arrowRightId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-right.png")));
+        arrowLeftId.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
     }    
 
     @FXML

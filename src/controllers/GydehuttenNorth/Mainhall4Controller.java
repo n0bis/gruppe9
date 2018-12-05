@@ -5,8 +5,7 @@
  */
 package controllers.GydehuttenNorth;
 
-import controllers.FadeAnimation;
-import controllers.UpperClass;
+import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -14,13 +13,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import utils.FadeAnimation;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class Mainhall4Controller extends UpperClass implements Initializable {
+public class Mainhall4Controller extends MenuControllerInjection implements Initializable {
 
     @FXML
     private AnchorPane anchorId;

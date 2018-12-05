@@ -5,7 +5,7 @@
  */
 package controllers.building44;
 
-import controllers.FadeAnimation;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import utils.FadeAnimation;
 
 /**
  * FXML Controller class
