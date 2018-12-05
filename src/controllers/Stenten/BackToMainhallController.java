@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Stenten;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,14 +20,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class NedenUnderController extends UpperClass implements Initializable {
+public class BackToMainhallController extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowLeftId;
+    private ImageView arrowForwardId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -34,12 +38,18 @@ public class NedenUnderController extends UpperClass implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        
         // TODO
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "nedenUnderToilets");
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
     }
     
 }

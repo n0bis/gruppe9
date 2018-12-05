@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Stenten;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,16 +20,18 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class CommunityAreaU140Controller extends UpperClass implements Initializable {
+public class NotMainhallController extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView backgroundId;
+    private ImageView arrowRightId;
     @FXML
-    private ImageView arrowForwardId;
+    private ImageView arrowLeftId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView backgroundId;
 
     /**
      * Initializes the controller class.
@@ -40,13 +44,18 @@ public class CommunityAreaU140Controller extends UpperClass implements Initializ
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceU140");
+    private void arrowRightClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "entranceU1");
+    }
+
+    @FXML
+    private void arrowLeftClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "modU140");
+        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
     }
     
 }

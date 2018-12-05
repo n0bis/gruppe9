@@ -89,7 +89,7 @@ public class MenuController implements Initializable {
         if (splitPackageNames.length > 1) {
             String toShow = splitPackageNames[1];
             Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
-            rect.setOpacity(1);
+            if (rect != null ) rect.setOpacity(1);
         } else {
             System.out.println(SceneManager.getController().toString());
         }

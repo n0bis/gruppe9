@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Krogene;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,7 +20,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class ModU140Controller extends UpperClass implements Initializable {
+public class CommunityAreaU140Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -41,12 +43,12 @@ public class ModU140Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "communityAreaU140");
+        FadeAnimation.fadeOutTransition(anchorId, "entranceU140");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall");
+        FadeAnimation.fadeOutTransition(anchorId, "modU140");
     }
     
 }

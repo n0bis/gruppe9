@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Vangene;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,18 +20,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class NotMainhallController extends UpperClass implements Initializable {
+public class TowardsMainhall1Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView arrowRightId;
+    private ImageView backgroundId;
     @FXML
-    private ImageView arrowLeftId;
+    private ImageView arrowFowardId;
     @FXML
     private ImageView arrowBackId;
-    @FXML
-    private ImageView backgroundId;
 
     /**
      * Initializes the controller class.
@@ -42,18 +42,13 @@ public class NotMainhallController extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceU1");
-    }
-
-    @FXML
-    private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
+    private void arrowFowardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "outsideU133");
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
+        FadeAnimation.fadeOutTransition(anchorId, "torvet2");
     }
     
 }

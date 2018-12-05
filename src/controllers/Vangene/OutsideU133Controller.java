@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Vangene;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,16 +20,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class StairsTowardsNedenUnderController extends UpperClass implements Initializable {
+public class OutsideU133Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView arrowBackId;
-    @FXML
-    private ImageView backgroundId;
+    private ImageView arrowLeftId;
     @FXML
     private ImageView arrowForwardId;
+    @FXML
+    private ImageView backgroundId;
 
     /**
      * Initializes the controller class.
@@ -40,13 +42,13 @@ public class StairsTowardsNedenUnderController extends UpperClass implements Ini
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "nedenUnder");
+    private void arrowLeftClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall1");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
+    private void arrowForwardClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "U133");
     }
     
 }

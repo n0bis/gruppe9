@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Krogene;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,18 +20,16 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class EntranceU1Controller extends UpperClass implements Initializable {
+public class ModU140Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowBackId;
-    @FXML
-    private ImageView arrowBackId2;
-    @FXML
     private ImageView arrowForwardId;
+    @FXML
+    private ImageView arrowBackId;
 
     /**
      * Initializes the controller class.
@@ -42,18 +42,13 @@ public class EntranceU1Controller extends UpperClass implements Initializable {
     }    
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
-    }
-
-    @FXML
-    private void arrowBack2Clicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "notMainhall");
-    }
-
-    @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "U1");
+        FadeAnimation.fadeOutTransition(anchorId, "communityAreaU140");
+    }
+
+    @FXML
+    private void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall");
     }
     
 }

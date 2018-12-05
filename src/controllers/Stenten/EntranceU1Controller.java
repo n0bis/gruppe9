@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Stenten;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,7 +20,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class EntranceU140Controller implements Initializable {
+public class EntranceU1Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
@@ -26,6 +28,8 @@ public class EntranceU140Controller implements Initializable {
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView arrowBackId2;
     @FXML
     private ImageView arrowForwardId;
 
@@ -41,12 +45,17 @@ public class EntranceU140Controller implements Initializable {
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "communityAreaU140");
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
+    }
+
+    @FXML
+    private void arrowBack2Clicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "notMainhall");
     }
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "u140");
+        FadeAnimation.fadeOutTransition(anchorId, "U1");
     }
     
 }

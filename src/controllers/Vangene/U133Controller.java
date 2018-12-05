@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers;
+package controllers.Vangene;
 
+import controllers.FadeAnimation;
+import controllers.UpperClass;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,18 +20,14 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author morte
  */
-public class NotMainhall3Controller extends UpperClass implements Initializable {
+public class U133Controller extends UpperClass implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowUpId;
-    @FXML
     private ImageView arrowBackId;
-    @FXML
-    private ImageView arrowForwardId;
 
     /**
      * Initializes the controller class.
@@ -37,23 +35,13 @@ public class NotMainhall3Controller extends UpperClass implements Initializable 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
-        backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        backgroundId.fitHeightProperty().bind(anchorId.widthProperty());
         // TODO
     }    
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceU27a");
-    }
-
-    @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
-    }
-
-    @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
+        FadeAnimation.fadeOutTransition(anchorId, "outsideU133");
     }
     
 }
