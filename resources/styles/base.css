@@ -24,6 +24,10 @@ and open the template in the editor.
 #fireball {
 }
 
+#itemStudentId:hover {
+    -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
+}
+
 #startscreenLabel {
     -fx-effect: dropshadow(three-pass-box, #8B4513, 15, 0, 0, 0);
 }
