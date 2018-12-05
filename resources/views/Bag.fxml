@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,13 +17,19 @@
 
 <AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
    <children>
-      <ImageView fx:id="bagId" fitHeight="434.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fill="WHITE" layoutX="213.0" layoutY="87.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
+      <ImageView fx:id="bagId" fitHeight="831.0" fitWidth="1136.0" layoutX="-22.0" layoutY="-325.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../images/burlap.jpg" />
+         </image></ImageView>
+      <Text fill="WHITE" layoutX="403.0" layoutY="92.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
          <font>
-            <Font name="Brush Script MT Italic" size="82.0" />
+            <Font name="Savoye LET Plain:1.0" size="82.0" />
          </font>
       </Text>
-      <ImageView fx:id="bogId" fitHeight="117.0" fitWidth="165.0" layoutX="21.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bogId" fitHeight="117.0" fitWidth="165.0" layoutX="86.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/bookimg.png" />
          </image>
@@ -30,14 +37,14 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="fangsId" fitHeight="117.0" fitWidth="165.0" layoutX="234.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fangsId" fitHeight="117.0" fitWidth="165.0" layoutX="336.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/teeth.png" />
          </image>
          <effect>
             <ColorAdjust contrast="-1.0" />
          </effect></ImageView>
-      <ImageView fx:id="toiletpaperId" fitHeight="117.0" fitWidth="165.0" layoutX="427.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="toiletpaperId" fitHeight="117.0" fitWidth="165.0" layoutX="585.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/toiletpaper.png" />
          </image>
@@ -51,5 +58,13 @@
             <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
+      <ImageView fx:id="coinId" fitHeight="150.0" fitWidth="200.0" layoutX="872.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Coin.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>

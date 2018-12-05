@@ -8,18 +8,21 @@ package controllers;
 import static controllers.QuizController.isQuizTime;
 import utils.FadeAnimation;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.sackQuest;
 import static world.Game.Bookie;
+import static world.Game.coin;
 import static world.Game.fangs;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.teeth;
 import static world.Game.toiletpaper;
+import worldofzuul.StartGame;
 
 /**
  *
@@ -27,7 +30,7 @@ import static world.Game.toiletpaper;
  */
 public class WorldOfZuulGUIController extends MenuControllerInjection {
     
-    
+    StartGame startGame = new StartGame();
     
     @FXML
     private ImageView room1;
@@ -43,15 +46,21 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
     private ImageView fangsId;
     @FXML
     private ImageView toiletpaperId;
+    @FXML 
+    private ImageView coinId;
+    @FXML
+    private Label labelTitle;
     
     public void initialize() {
         room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
-        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
-        arrow.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-left.png")));
-        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
-        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/items/toiletpaper.png")));
+
+        book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
+        arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
+        coinId.setImage(new Image(getClass().getResourceAsStream("/images/Coin.png")));
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
         isQuizTime();
     }
 
@@ -74,6 +83,11 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         toiletpaperId.setImage(null);
         player.addItem(toiletpaper);
     }
+    @FXML
+    private void coinMouseClicked(MouseEvent event) {
+        coinId.setImage(null);
+        player.addItem(coin);
+    }
     
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
@@ -84,7 +98,6 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         }
     }
     
-
     @FXML
     private void talkMonster(MouseEvent event) {
         menuController.SpeechText("granted you " + spellBook);

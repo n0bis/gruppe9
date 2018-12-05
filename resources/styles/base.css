@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : 15 Nov 2018, 10.28.22
     Author     : madsfalken
 */
+/*
+    # - id - only once
+    . - class - multiple
+*/
 .items:hover {
     -fx-scale-x: 1.25;
     -fx-scale-y: 1.25;

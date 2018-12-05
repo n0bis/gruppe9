@@ -44,8 +44,9 @@ public class Game
     Room nedenunder; 
     public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Spell fireball = new Spell("Fireball", 8);
-    private Item ribeye, pulledPork, pieceOfLamb, coin;
+    private Item ribeye, pulledPork, pieceOfLamb;
     public static SpellBook spellBook = new SpellBook("spellbook",2);
+    public static Item coin = new Item("Coin",6);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
@@ -79,7 +80,7 @@ public class Game
         ribeye = new Item("ribeye",3);
         pulledPork = new Item("pulledpork",4);
         pieceOfLamb = new Item("piece of lamb",5);
-        coin = new Item("coin",6);
+        
         
         // Create Quests
         Quest draculaQuest = new Quest("Get my teeth", "I got a quest for you. See, I lost my teeth and now I'm not scary anymore.. I might have"

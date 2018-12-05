@@ -9,20 +9,20 @@ import items.SpellBook;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.shape.Rectangle;
 import static world.Game.player;
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
@@ -30,7 +30,7 @@ import static world.Game.player;
  * @author madsfalken
  */
 public class MenuController implements Initializable {
-    
+    StartGame startGame = new StartGame();
     private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/menu/spellbook.png"));
 
     @FXML
@@ -51,6 +51,7 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         SpeechId.setEditable(false);
         SpeechId.setWrapText(true);
+        SpeechId.setText("Welcome to SDU Maze, " + startGame.getPlayerName() + "!");
     }    
 
     @FXML
@@ -59,10 +60,23 @@ public class MenuController implements Initializable {
             getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
+
         Group closeButton = (Group)loader.getNamespace().get("crossId");
         closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
         root.setLayoutX(300);
         root.setLayoutY(60);
+        root.getChildrenUnmodifiable().forEach(node -> {
+            if (node instanceof Rectangle) {
+                node.setOpacity(0);
+            }
+        });
+        String packageName = SceneManager.getController().getClass().getPackageName();
+        String[] splitPackageNames = packageName.split(Pattern.quote("."));
+        if (splitPackageNames.length > 1) {
+            String toShow = splitPackageNames[1];
+            Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
+            if (rect != null ) rect.setOpacity(1);
+        }
         SceneManager.getMain().getChildren().add(root);
     }
     
