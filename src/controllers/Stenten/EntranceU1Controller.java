@@ -55,7 +55,7 @@ public class EntranceU1Controller extends UpperClass implements Initializable {
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "U1");
+        menuController.SpeechText("Hahaa cannot entere here, you fool");
     }
     
 }
