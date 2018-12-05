@@ -44,6 +44,8 @@ public class MenuController implements Initializable {
     private ImageView spellBookId;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private ImageView menubarBackground;
 
     /**
      * Initializes the controller class.
