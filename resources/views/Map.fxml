@@ -17,8 +17,14 @@
          </image>
       </ImageView>
       <Rectangle fx:id="TEK" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="103.0" layoutX="394.0" layoutY="369.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
-      <Rectangle fx:id="outsideTek" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="49.0" layoutX="394.0" layoutY="320.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
+      <Rectangle fx:id="outsideTek" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="49.0" layoutX="394.0" layoutY="323.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="77.0" />
       <Rectangle fx:id="building44" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="83.0" layoutX="352.0" layoutY="362.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="36.0" />
-      <Rectangle fx:id="Knoldene" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="32.0" layoutX="275.0" layoutY="391.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="70.0" />
+      <Rectangle fx:id="Knoldene" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="32.0" layoutX="275.0" layoutY="391.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="80.0" />
+      <Rectangle fx:id="GydehuttenSouth" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="164.0" layoutX="222.0" layoutY="288.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="57.0" />
+      <Rectangle fx:id="GydehuttenNorth" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="155.0" layoutX="222.0" layoutY="136.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="57.0" />
+      <Rectangle fx:id="mainEntrance" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="81.0" layoutX="224.0" layoutY="59.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="54.0" />
+      <Rectangle fx:id="Vangene" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="62.0" layoutX="177.0" layoutY="78.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="52.0" />
+      <Rectangle fx:id="Krogene" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="52.0" layoutX="275.0" layoutY="295.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="81.0" />
+      <Rectangle fx:id="Stenten" arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="164.0" layoutX="180.0" layoutY="289.0" stroke="#c95252" strokeType="INSIDE" strokeWidth="4.0" width="46.0" />
    </children>
 </AnchorPane>

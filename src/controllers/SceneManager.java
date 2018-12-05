@@ -8,8 +8,6 @@ package controllers;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
