@@ -8,7 +8,6 @@ package controllers;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -17,8 +16,9 @@ import javafx.scene.layout.Pane;
  * @author madsfalken
  */
 public final class SceneManager {
-    private static HashMap<String, Pane> sceneMap = new HashMap<>();
+    private static HashMap<String, SceneMapper> sceneMap = new HashMap<>();
     private static BorderPane main;
+    private static String currentScene;
     
     public SceneManager(BorderPane main) {
         this.main = main;
@@ -28,11 +28,11 @@ public final class SceneManager {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource( "/views/" + name + ".fxml" )));
             Pane pane = loader.load();
-            if (loader.getController() instanceof UpperClass) {
-                UpperClass controller = loader.<UpperClass>getController();
+            if (loader.getController() instanceof MenuControllerInjection) {
+                MenuControllerInjection controller = loader.<MenuControllerInjection>getController();
                 controller.init(menuController);
             }
-            sceneMap.put(name, pane);
+            sceneMap.put(name, new SceneMapper(loader.getController(), pane));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -40,8 +40,9 @@ public final class SceneManager {
     
     public void addScene(String name) {
         try {
-            Pane pane = FXMLLoader.load(getClass().getResource( "/views/" + name + ".fxml" ));
-            sceneMap.put(name, pane);
+            FXMLLoader loader = new FXMLLoader((getClass().getResource( "/views/" + name + ".fxml" )));
+            Pane pane = loader.load();
+            sceneMap.put(name, new SceneMapper(loader.getController(), pane));
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -52,7 +53,8 @@ public final class SceneManager {
     }
     
     public static void activate(String name) {
-        Pane node = sceneMap.get(name);
+        currentScene = name;
+        Pane node = sceneMap.get(name).getPane();
         // Epic hack for resetting transition animation
         node.setOpacity(1);
         main.setCenter(node);
@@ -60,6 +62,10 @@ public final class SceneManager {
     
     public static BorderPane getMain() {
         return main;
+    }
+    
+    public static <T> T getController() {
+        return (T) sceneMap.get(currentScene).getController();
     }
 
 }

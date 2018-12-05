@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.*?>
 
-<GridPane id="root" fx:id="rootPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ChildRoomController">
+<GridPane id="root" fx:id="rootPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.building44.ChildRoomController">
     <children>
         <ImageView id="book" fx:id="book" fitHeight="80.0" fitWidth="100.0" layoutX="710.0" layoutY="350.0" pickOnBounds="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <ImageView fx:id="arrow" fitHeight="150.0" fitWidth="200.0" layoutX="35.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true" />

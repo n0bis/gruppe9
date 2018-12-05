@@ -2,15 +2,13 @@ package characters;
 
 import items.Item;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
-import javafx.scene.image.ImageView;
 import missions.Quest;
 
 
 public class Player {
     private NPC npc;
-    public List<Item> inventory = new ArrayList<Item>();
+    public List<Item> inventory = new ArrayList<>();
     public List<Quest> questLog = new ArrayList<>();
     private String name;
     private String major;
@@ -53,7 +51,9 @@ public class Player {
     }
     public List<Item> getInventory() {
         return this.inventory;
-        
-            }
-        }
-
+    }
+    
+    public List<Quest> getQuestLog() {
+        return this.questLog;
+    }
+}

@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import utils.FadeAnimation;
 import static world.Game.boss;
 import static world.Game.fireball;
 import static world.Game.player;
@@ -25,7 +26,7 @@ import static world.Game.stage2RequiredItem;
  *
  * @author madsfalken
  */
-public class ChildRoomController extends UpperClass implements Initializable {
+public class ChildRoomController extends MenuControllerInjection implements Initializable {
 
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
@@ -45,9 +46,11 @@ public class ChildRoomController extends UpperClass implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
+       book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
+        arrow.setImage(new Image(getClass().getResourceAsStream("/images/rooms/arrow-right.png")));
     }    
 
     @FXML
@@ -92,7 +95,7 @@ public class ChildRoomController extends UpperClass implements Initializable {
     }
     
     private void throwOut() {
-        menuController.SpeechAppend("\nCerberus threw you out");
+        menuController.SpeechText("\nCerberus threw you out");
         FadeAnimation.fadeOutTransition(rootPane, "Hall");
     }
     

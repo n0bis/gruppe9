@@ -5,7 +5,6 @@
  */
 package characters;
 
-import controllers.FadeAnimation;
 import controllers.MenuController;
 import controllers.SceneManager;
 import items.Item;
@@ -86,9 +85,7 @@ public class FinalBoss extends Boss {
         }
 
         if (spellBook.hasSpell(questSpell)) {
-            if (MenuController.fireballActive == true) {
-                return true;
-            }
+
         }
         return false;
     }
