@@ -71,7 +71,7 @@ public class MenuController implements Initializable {
                 node.setOpacity(0);
             }
         });
-        String packageName = SceneManager.getController().getClass().getPackageName();
+        String packageName = SceneManager.getController().getClass().getPackage().getName();
         String[] splitPackageNames = packageName.split(Pattern.quote("."));
         if (splitPackageNames.length > 1) {
             String toShow = splitPackageNames[1];
