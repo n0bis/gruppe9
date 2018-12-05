@@ -86,7 +86,6 @@ public class MenuController implements Initializable {
         });
         String packageName = SceneManager.getController().getClass().getPackageName();
         String[] splitPackageNames = packageName.split(Pattern.quote("."));
-        System.out.println(splitPackageNames.length);
         if (splitPackageNames.length > 1) {
             String toShow = splitPackageNames[1];
             Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
