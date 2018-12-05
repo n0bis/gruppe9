@@ -24,6 +24,18 @@ and open the template in the editor.
 #fireball {
 }
 
+#themeIconView {
+    -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
+}
+
+#menuSack:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
+#menuMap:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
 #root {
     -fx-background-image: url("../images/rooms/imgscare.jpg");
     -fx-background-repeat: no-repeat;

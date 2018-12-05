@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,5 +19,6 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
+      <ImageView id="themeIconView" fx:id="themeIconView" fitHeight="100.0" fitWidth="100.0" layoutX="323.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
