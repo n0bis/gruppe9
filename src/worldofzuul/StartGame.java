@@ -75,7 +75,7 @@ public class StartGame extends Application {
         }
         MenuController menuController = loader.<MenuController>getController();
         
-        Scene scene = new Scene(borderPane);
+        Scene scene = new Scene(borderPane, 890, 700);
     
         scene.getStylesheets().add("/styles/base.css");
         
