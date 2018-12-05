@@ -40,7 +40,7 @@ public class BagController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bagId.setImage(new Image(getClass().getResourceAsStream("/images/burlap.jpg")));
-        bagId.fitHeightProperty().bind(rootId.heightProperty());
+        //bagId.fitHeightProperty().bind(rootId.heightProperty());
     }
  
    }
