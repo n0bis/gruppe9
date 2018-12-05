@@ -26,42 +26,5 @@
       <ImageView fx:id="fangsId" fitHeight="150.0" fitWidth="200.0" layoutX="338.0" layoutY="417.0" onMouseClicked="#fangsMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <ImageView fx:id="toiletpaperId" fitHeight="150.0" fitWidth="200.0" layoutX="43.0" layoutY="380.0" onMouseClicked="#toiletpaperMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
       <ImageView fx:id="coinId" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#coinMouseClicked" pickOnBounds="true" preserveRatio="true" styleClass="items" />
-      <FlowPane fx:id="flowPane" layoutX="469.0" layoutY="75.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
-         <children>
-            <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <FlowPane.margin>
-                  <Insets bottom="10.0" left="10.0" top="40.0" />
-               </FlowPane.margin>
-               <effect>
-                  <Glow />
-               </effect>
-            </Label>
-            <TextArea fx:id="smsTextbox" editable="false" prefHeight="231.0" prefWidth="228.0" text="Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" wrapText="true">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <FlowPane.margin>
-                  <Insets left="10.0" />
-               </FlowPane.margin>
-            </TextArea>
-            <Button fx:id="leftAnswer" mnemonicParsing="false" onMouseClicked="#leftAnswerClicked" text="U55">
-               <FlowPane.margin>
-                  <Insets left="15.0" top="5.0" />
-               </FlowPane.margin></Button>
-            <Button fx:id="rightAnswer" mnemonicParsing="false" onMouseClicked="#rightAnswerClicked" text="U45">
-               <FlowPane.margin>
-                  <Insets left="15.0" top="5.0" />
-               </FlowPane.margin>
-            </Button>
-            <Button fx:id="closeButton" mnemonicParsing="false" onMouseClicked="#closeButtonClicked" opacity="0.0" text="Luk besked">
-               <FlowPane.margin>
-                  <Insets left="15.0" top="5.0" />
-               </FlowPane.margin>
-            </Button>
-         </children>
-      </FlowPane>
    </children>
 </AnchorPane>

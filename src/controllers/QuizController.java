@@ -28,6 +28,7 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
 import static world.Game.player;
 import world.Room;
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
@@ -36,6 +37,7 @@ import world.Room;
  */
 public class QuizController extends TimerTask implements Initializable {
     
+    StartGame startGame = new StartGame();
     private Room firstRoom = new Room("First room"); 
     
     @FXML
@@ -59,7 +61,7 @@ public class QuizController extends TimerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/menu/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-        String text = smsTextbox.getText().replaceFirst("Player", player.getName());
+        String text = smsTextbox.getText().replaceFirst("Player", startGame.getPlayerName());
         smsTextbox.setText(text);
     }    
 

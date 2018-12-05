@@ -48,8 +48,6 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
     private ImageView toiletpaperId;
     @FXML 
     private ImageView coinId;
-    @FXML
-    private Label labelTitle;
     
     public void initialize() {
         room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));

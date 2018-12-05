@@ -30,6 +30,7 @@ import worldofzuul.StartGame;
  * @author madsfalken
  */
 public class MenuController implements Initializable {
+    
     StartGame startGame = new StartGame();
     private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/menu/spellbook.png"));
 
