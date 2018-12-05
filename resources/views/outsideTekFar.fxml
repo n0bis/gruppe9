@@ -4,7 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.outsideTek.OutsideTekFarController">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.outsideTek.OutsideTekFarController">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="610.0" fitWidth="1067.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -14,6 +14,16 @@
       <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="469.0" layoutY="402.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bossId" fitHeight="200.0" fitWidth="200.0" layoutX="139.0" layoutY="30.0" onMouseClicked="#bossEncounter">
+         <image>
+            <Image url="@../images/NPC/sackmonster.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="book" fitHeight="135.0" fitWidth="200.0" layoutX="445.0" layoutY="213.0" onMouseClicked="#pickupBook">
+         <image>
+            <Image url="@../images/items/book.png" />
          </image>
       </ImageView>
    </children>

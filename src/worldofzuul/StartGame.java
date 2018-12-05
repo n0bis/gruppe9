@@ -80,9 +80,6 @@ public class StartGame extends Application {
         scene.getStylesheets().add("/styles/base.css");
         
         SceneManager sceneManager = new SceneManager(borderPane);
-        sceneManager.addScene("WorldOfZuulGUI", menuController);
-        sceneManager.addScene("ChildRoom", menuController);
-        sceneManager.addScene("Hall", menuController);
         sceneManager.addScene("outsideTekFar", menuController);
         sceneManager.addScene("outsideTekClose", menuController);
         sceneManager.addScene("tekHall", menuController);
@@ -140,7 +137,7 @@ public class StartGame extends Application {
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
-        SceneManager.activate("Hall");
+        SceneManager.activate("outsideTekFar");
         //SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

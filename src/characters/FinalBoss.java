@@ -7,6 +7,7 @@ package characters;
 
 import controllers.MenuController;
 import controllers.SceneManager;
+import controllers.outsideTek.OutsideTekFarController;
 import items.Item;
 import items.Spell;
 import items.SpellBook;
@@ -80,12 +81,14 @@ public class FinalBoss extends Boss {
     }
     
     public boolean wonStage3(Item Spell, Player player) {
-        if (!player.inventory.contains(this.stage3RequiredItem) || !((SpellBook)this.stage3RequiredItem).hasSpell(questSpell)) {
+        if (!spellBook.hasSpell(fireball)) {
             return false;
         }
 
         if (spellBook.hasSpell(questSpell)) {
-
+            if (spellBook.getFireballState() == true) {
+                return true;
+            }
         }
         return false;
     }
@@ -123,7 +126,7 @@ public class FinalBoss extends Boss {
     }
 
     public int getStage() {
-        return stage;
+        return this.stage;
     }
 
     public void setStage(int stage) {

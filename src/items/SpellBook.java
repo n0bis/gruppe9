@@ -27,6 +27,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import missions.Quest;
 import utils.SpriteAnimation;
+import static world.Game.boss;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
@@ -45,6 +46,7 @@ public class SpellBook extends Item {
     private final ArrayList<Spell> mySpells = new ArrayList<>();
     private static FXMLLoader loader;
     private static Parent root;
+    private static boolean fireballActivate = false;
 
     public SpellBook(String name, int id) {
         super(name,id);
@@ -79,6 +81,7 @@ public class SpellBook extends Item {
         root = loader.load();
         root.setLayoutX(300);
         root.setLayoutY(160);
+        
         Group closeButton = (Group)loader.getNamespace().get("crossId");
         Group spellPage = (Group)loader.getNamespace().get("spellPage");
         Group questPage = (Group)loader.getNamespace().get("questPage");
@@ -136,8 +139,12 @@ public class SpellBook extends Item {
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
+            
             fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
+                if (boss.getStage() >= 3) {
+                    fireballActivate = true;
+                }
                 
                 BorderPane main = SceneManager.getMain();
                 
@@ -185,6 +192,10 @@ public class SpellBook extends Item {
                 main.getChildren().add(imageViewFire);
             });
         }
+    }
+    
+    public boolean getFireballState() {
+        return this.fireballActivate;
     }
 }
 
