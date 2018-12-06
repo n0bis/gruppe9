@@ -22,10 +22,6 @@
    <children>
       <ImageView fx:id="bagId" fitHeight="823.0" fitWidth="1137.0" layoutX="-1.0" layoutY="-241.0" pickOnBounds="true" preserveRatio="true">
 
-<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
-   <children>
-      <ImageView fx:id="bagId" fitHeight="484.0" fitWidth="737.0" pickOnBounds="true" preserveRatio="true">
-
          <viewport>
             <Rectangle2D />
          </viewport>
