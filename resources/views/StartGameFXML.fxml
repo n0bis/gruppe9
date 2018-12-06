@@ -15,12 +15,12 @@
             <Image url="@../images/startscreen/background.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowLeft" fitHeight="150.0" fitWidth="200.0" layoutX="290.0" layoutY="177.0" onMouseClicked="#leftArrowClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="startscreenLeftArrow" fx:id="arrowLeft" fitHeight="150.0" fitWidth="200.0" layoutX="290.0" layoutY="177.0" onMouseClicked="#leftArrowClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/startscreen/arrowLeft.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowRight" fitHeight="150.0" fitWidth="200.0" layoutX="754.0" layoutY="177.0" onMouseClicked="#rightArrowClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="startscreenRightArrow" fx:id="arrowRight" fitHeight="150.0" fitWidth="200.0" layoutX="754.0" layoutY="177.0" onMouseClicked="#rightArrowClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/startscreen/arrowRight.png" />
          </image>
