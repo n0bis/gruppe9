@@ -15,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import utils.FadeAnimation;
 import static world.Game.Bookie;
 import static world.Game.boss;
@@ -45,12 +47,14 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private AnchorPane anchorId;
     @FXML
-    private ImageView bossId;
+    public ImageView bossId;
     @FXML
     private ImageView book;
     
     @FXML
     private ImageView themeIconView;
+    @FXML
+    public Line bossHitbox;
 
     /**
      * Initializes the controller class.

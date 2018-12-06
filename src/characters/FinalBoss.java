@@ -69,7 +69,7 @@ public class FinalBoss extends Boss {
         });
         noButton.setOnAction((value) -> {
             dialog.close();
-            SceneManager.activate("Hall");
+            SceneManager.activate("outsideTekClose");
         });
         dialog.showAndWait();
         

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -35,5 +36,6 @@
             <Image url="@../images/items/studentid.png" />
          </image>
       </ImageView>
+      <Line fx:id="bossHitbox" endX="250.0" endY="154.0" mouseTransparent="true" startX="445.0" startY="600.0" stroke="TRANSPARENT" />
    </children>
 </AnchorPane>
