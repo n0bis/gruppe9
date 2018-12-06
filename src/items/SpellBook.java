@@ -143,7 +143,7 @@ public class SpellBook extends Item {
             
             fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
-                if (boss.getStage() == 3) {
+                if (boss.getStage() == 3 && SceneManager.getController() instanceof OutsideTekFarController) {
                     fireballActivate = true;
                 }
                 
@@ -187,7 +187,7 @@ public class SpellBook extends Item {
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
                     explosionAnimation.setOnFinished((actionEvt) -> {
-                        if (fireballActivate) {
+                        if (fireballActivate && SceneManager.getController() instanceof OutsideTekFarController) {
                             OutsideTekFarController c = SceneManager.getController();
                             c.bossEncounter();
                         }
