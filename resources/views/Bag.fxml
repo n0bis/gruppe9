@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
+<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
    <children>
-      <ImageView fx:id="bagId" fitHeight="831.0" fitWidth="1136.0" layoutX="-22.0" layoutY="-325.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bagId" fitHeight="823.0" fitWidth="1137.0" layoutX="-1.0" layoutY="-241.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
             <Rectangle2D />
          </viewport>
@@ -47,6 +47,14 @@
       <ImageView fx:id="coinId" fitHeight="150.0" fitWidth="200.0" layoutX="872.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/Coin.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="coffeeU140Id" fitHeight="150.0" fitWidth="200.0" layoutX="80.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" styleClass="items">
+         <image>
+            <Image url="@../images/coffeeU140.jpg" />
          </image>
          <effect>
             <ColorAdjust contrast="-1.0" />

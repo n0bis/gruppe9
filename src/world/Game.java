@@ -49,6 +49,7 @@ public class Game
     private Item ribeye, pulledPork, pieceOfLamb;
     public static SpellBook spellBook = new SpellBook("spellbook",2);
     public static Item coin = new Item("Coin",6);
+    public static Item coffeeU140 = new Item("Coffee",23);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");

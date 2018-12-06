@@ -20,6 +20,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
 import static world.Game.Bookie;
+import static world.Game.coffeeU140;
 import static world.Game.coin;
 import static world.Game.fangs;
 import static world.Game.fireball;
@@ -69,6 +70,8 @@ public class WorldOfZuulGUIController extends UpperClass {
     @FXML 
     private ImageView coinId;
     @FXML
+    private ImageView coffeeU140Id;
+    @FXML
     private Label labelTitle;
     
     public void initialize() {
@@ -85,7 +88,8 @@ public class WorldOfZuulGUIController extends UpperClass {
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
         coinId.setImage(new Image(getClass().getResourceAsStream("/images/Coin.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
-
+        coffeeU140Id.setImage(new Image(getClass().getResourceAsStream("/images/coffeeU140.jpg")));
+        
         
     }
 
@@ -113,6 +117,11 @@ public class WorldOfZuulGUIController extends UpperClass {
         coinId.setImage(null);
         player.addItem(coin);
         
+    }
+    @FXML 
+    private void coffeeU140MouseClicked(MouseEvent event) {
+        coffeeU140Id.setImage(null);
+        player.addItem(coffeeU140);
     }
     
     @FXML

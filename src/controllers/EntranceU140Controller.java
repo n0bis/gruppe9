@@ -48,5 +48,8 @@ public class EntranceU140Controller implements Initializable {
     private void arrowForwardClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "u140");
     }
-    
+    @FXML
+    private void doorU140Clicked(MouseEvent event) {
+        
+    }
 }

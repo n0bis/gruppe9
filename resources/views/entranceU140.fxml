@@ -3,9 +3,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.EntranceU140Controller">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EntranceU140Controller">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,5 +24,15 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
+      <Rectangle id="doorU140Id" fx:id="doorU140" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="54.0" layoutX="490.0" layoutY="225.0" strokeType="INSIDE" styleClass="items" width="65.0">
+         <stroke>
+            <LinearGradient endX="0.0023980815347721673">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#ffffff00" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
    </children>
 </AnchorPane>

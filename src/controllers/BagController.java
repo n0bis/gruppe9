@@ -24,6 +24,16 @@ public class BagController implements Initializable {
     private ImageView bagId;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private ImageView bogId;
+    @FXML
+    private ImageView fangsId;
+    @FXML
+    private ImageView toiletpaperId;
+    @FXML
+    private ImageView coinId;
+    @FXML
+    private ImageView coffeeU140Id;
     
     /**
      * Initializes the controller class.
@@ -31,7 +41,8 @@ public class BagController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bagId.setImage(new Image(getClass().getResourceAsStream("/images/burlap.jpg")));
-        bagId.fitHeightProperty().bind(rootId.heightProperty());
+        bagId.fitHeightProperty().bind(rootId.maxHeightProperty());
+        
         
     }
  
