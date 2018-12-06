@@ -23,7 +23,7 @@ import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.stage1RequiredItem;
 import static world.Game.stage2RequiredItem;
-
+import worldofzuul.StartGame;
 
 /**
  * FXML Controller class
@@ -31,9 +31,12 @@ import static world.Game.stage2RequiredItem;
  * @author morte
  */
 public class OutsideTekFarController extends MenuControllerInjection implements Initializable {
+
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
     private final Image dead = new Image(getClass().getResourceAsStream("/images/dead.png"));
+
+    StartGame startGame = new StartGame();
     
     @FXML
     private ImageView backgroundId;
@@ -46,6 +49,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private ImageView book;
     
+    @FXML
+    private ImageView themeIconView;
 
     /**
      * Initializes the controller class.
@@ -54,6 +59,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         // TODO
         
         player.addItem(stage1RequiredItem);
@@ -106,6 +112,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         menuController.SpeechText("\nCerberus threw you out");
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
     }    
+    
     @FXML
     private void pickupBook(MouseEvent event) {
         book.setImage(null);
