@@ -1,9 +1,12 @@
 package items;
 
+import javafx.scene.image.Image;
+
 public class Item {
     
-    String name;
-    int id;
+    private String name;
+    private int id;
+    private Image image;
     
     public Item(String name, int id) {
         this.name = name;
@@ -22,11 +25,17 @@ public class Item {
         return this.name;
     }
     
+    public Image getImage() {
+        try {
+            return new Image(getClass().getResourceAsStream("/images/items/" + this.name.toLowerCase() + ".png"));
+        } catch (NullPointerException ex) {
+            return null;
+        }
+    }
+    
     @Override
     public String toString() {
         return this.name;
     }
-    
-    public static Item bok = new Item("Bog navn", 1);
     
 }

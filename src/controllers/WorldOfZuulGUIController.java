@@ -5,41 +5,31 @@
  */
 package controllers;
 
+import static controllers.QuizController.isQuizTime;
+import utils.FadeAnimation;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.FlowPane;
+import static missions.QuestList.sackQuest;
 import static world.Game.Bookie;
 import static world.Game.coin;
 import static world.Game.fangs;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
-import static world.Game.sackQuest;
 import static world.Game.teeth;
 import static world.Game.toiletpaper;
-import world.Room;
 import worldofzuul.StartGame;
-
-
 
 /**
  *
  * @author ubuntu
  */
-public class WorldOfZuulGUIController extends UpperClass {
+public class WorldOfZuulGUIController extends MenuControllerInjection {
     
-    Room firstRoom = new Room("First room"); 
     StartGame startGame = new StartGame();
     
     @FXML
@@ -53,40 +43,23 @@ public class WorldOfZuulGUIController extends UpperClass {
     @FXML
     private ImageView monsterId;   
     @FXML
-    private FlowPane flowPane;
-    @FXML
-    private TextArea smsTextbox;
-    @FXML
-    private Button leftAnswer;
-    @FXML
-    private Button rightAnswer;
-    @FXML
-    private Button closeButton;
-    @FXML
     private ImageView fangsId;
     @FXML
     private ImageView toiletpaperId;
     @FXML 
     private ImageView coinId;
-    @FXML
-    private Label labelTitle;
     
     public void initialize() {
-        if(!firstRoom.returnChecked()) {
-          flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-        }   
-        
-        anchorId.setOpacity(1);
-        room1.setImage(new Image(getClass().getResourceAsStream("/images/imgscare.jpg")));
+        room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));
         room1.fitHeightProperty().bind(anchorId.heightProperty());
         room1.fitWidthProperty().bind(anchorId.widthProperty());
-        book.setImage(new Image(getClass().getResourceAsStream("/images/bookimg.png")));
-        arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
-        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/teeth.png")));
-        coinId.setImage(new Image(getClass().getResourceAsStream("/images/Coin.png")));
-        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
 
-        
+        book.setImage(new Image(getClass().getResourceAsStream("/images/items/book.png")));
+        arrow.setImage(new Image(getClass().getResourceAsStream("/images/arrow-left.png")));
+        fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
+        coinId.setImage(new Image(getClass().getResourceAsStream("/images/items/Coin.png")));
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
+        isQuizTime();
     }
 
     @FXML
@@ -112,7 +85,6 @@ public class WorldOfZuulGUIController extends UpperClass {
     private void coinMouseClicked(MouseEvent event) {
         coinId.setImage(null);
         player.addItem(coin);
-        
     }
     
     @FXML
@@ -124,7 +96,6 @@ public class WorldOfZuulGUIController extends UpperClass {
         }
     }
     
-
     @FXML
     private void talkMonster(MouseEvent event) {
         menuController.SpeechText("granted you " + spellBook);
@@ -137,42 +108,10 @@ public class WorldOfZuulGUIController extends UpperClass {
         } else if (player.hasQuest(sackQuest) && player.hasItem(Bookie)) {
             menuController.SpeechText(sackQuest.getQuestDone());
             sackQuest.setIsQuestDone(true);
-            player.removeQuest(sackQuest);
             player.addItem(teeth);
         } else if (!player.hasQuest(sackQuest) && !sackQuest.isQuestDone()) {
             menuController.SpeechText(sackQuest.getQuestDescription());
             player.addQuest(sackQuest);
         }
     }
-
-    @FXML
-    private void leftAnswerClicked(MouseEvent event) {
-        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
-                "Nå, det var forkert venni. Thanks for nothing.");
-        rightAnswer.setOpacity(0);
-        leftAnswer.setOpacity(0);
-        closeButton.setOpacity(1);
-        firstRoom.setIsChecked(true);  
-    }
-
-    @FXML
-    private void rightAnswerClicked(MouseEvent event) {
-        smsTextbox.setText("Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" + "\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
-                "Det var rigtigt!");
-        rightAnswer.setOpacity(0);
-        leftAnswer.setOpacity(0);
-        closeButton.setOpacity(1);
-        firstRoom.setIsChecked(true);
-    }
-
-    @FXML
-    private void closeButtonClicked(MouseEvent event) {
-        if(closeButton.getOpacity() == 0.0) {
-            return;
-        }        
-        anchorId.getChildren().remove(flowPane);
-    }
-
-
-    
 }

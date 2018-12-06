@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : 15 Nov 2018, 10.28.22
     Author     : madsfalken
 */
+/*
+    # - id - only once
+    . - class - multiple
+*/
 .items:hover {
     -fx-scale-x: 1.25;
     -fx-scale-y: 1.25;
@@ -26,10 +30,57 @@ arrows:hover {
 #fireball {
 }
 
+#themeIconView {
+    -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
+}
+
+#menuSack:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
+#menuMap:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
 #root {
-    -fx-background-image: url("../images/imgscare.jpg");
+    -fx-background-image: url("../images/rooms/imgscare.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;
     
+}
+
+.text-area {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+.list-view {
+    -fx-background-color: transparent;
+}
+
+.list-view .list-cell:even {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
+
+.list-view .list-cell:odd {
+-fx-background-color: transparent;
+-fx-text-fill: black;
+}
+
+.list-cell:completed .text {
+    -fx-strikethrough: true;
 }
