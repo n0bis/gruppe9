@@ -142,7 +142,7 @@ public class SpellBook extends Item {
             
             fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
-                if (boss.getStage() >= 3) {
+                if (boss.getStage() == 3) {
                     fireballActivate = true;
                 }
                 
