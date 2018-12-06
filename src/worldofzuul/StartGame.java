@@ -6,14 +6,12 @@
 package worldofzuul;
 
 import controllers.MenuController;
+import controllers.QuizController;
 import controllers.SceneManager;
 import java.io.IOException;
 import java.util.Timer;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +23,7 @@ import utils.TimeExpired;
 import utils.TimeRemaining;
 import utils.TimerScore;
 import world.Game;
+import static world.Game.player;
 
 /**
  *
@@ -42,6 +41,7 @@ public class StartGame extends Application {
         this.primaryStage = startStage;
         Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/base.css");
         primaryStage.setTitle("SDU Maze");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -74,10 +74,9 @@ public class StartGame extends Application {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
         MenuController menuController = loader.<MenuController>getController();
         
-        Scene scene = new Scene(borderPane);
+        Scene scene = new Scene(borderPane, 890, 700);
     
         scene.getStylesheets().add("/styles/base.css");
         
@@ -130,12 +129,15 @@ public class StartGame extends Application {
         sceneManager.addScene("U133", menuController);
         sceneManager.addScene("U55", menuController);
         sceneManager.addScene("backToMainhall", menuController);
+        //sceneManager.addScene("WorldOfZuulGUI", menuController);
                 
         Timer timer = new Timer();
         timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(10));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
+        //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
+        //SceneManager.activate("WorldOfZuulGUI");
         SceneManager.activate("outsideTekFar");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);

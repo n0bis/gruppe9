@@ -5,30 +5,23 @@
  */
 package controllers;
 
+import items.SpellBook;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.Animation;
-import javafx.animation.TranslateTransition;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
+import javafx.scene.Group;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-import static world.Game.fireball;
+import javafx.scene.shape.Rectangle;
 import static world.Game.player;
-import static world.Game.spellBook;
 import worldofzuul.StartGame;
 
 /**
@@ -39,11 +32,7 @@ import worldofzuul.StartGame;
 public class MenuController implements Initializable {
     
     StartGame startGame = new StartGame();
-    
-    private final Image fireballIcon = new Image(getClass().getResourceAsStream("/images/fireball.jpg"));
-    private final Image fireballImage = new Image(getClass().getResourceAsStream("/images/fireballz.png"));
-    private final Image explosionImage = new Image(getClass().getResourceAsStream("/images/explosion.png"));
-    private final Image spellBookImage = new Image(getClass().getResourceAsStream("/images/spellbook.png"));
+    private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/menu/spellbook.png"));
 
     @FXML
     private ImageView bagId;
@@ -55,6 +44,8 @@ public class MenuController implements Initializable {
     private ImageView spellBookId;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private ImageView menubarBackground;
 
     /**
      * Initializes the controller class.
@@ -67,20 +58,29 @@ public class MenuController implements Initializable {
     }    
 
     @FXML
-
     private void mapClicked(MouseEvent event) throws IOException, InterruptedException {
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Map.fxml")
         );
         Parent root = loader.load();
-        Scene dialogScene = new Scene(root);
-        dialog.setScene(dialogScene);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
+
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        root.setLayoutX(300);
+        root.setLayoutY(60);
+        root.getChildrenUnmodifiable().forEach(node -> {
+            if (node instanceof Rectangle) {
+                node.setOpacity(0);
+            }
+        });
+        String packageName = SceneManager.getController().getClass().getPackage().getName();
+        String[] splitPackageNames = packageName.split(Pattern.quote("."));
+        if (splitPackageNames.length > 1) {
+            String toShow = splitPackageNames[1];
+            Rectangle rect = (Rectangle)loader.getNamespace().get(toShow);
+            if (rect != null ) rect.setOpacity(1);
+        }
+        SceneManager.getMain().getChildren().add(root);
     }
     
     public void SpeechText(String speech) {
@@ -89,9 +89,6 @@ public class MenuController implements Initializable {
 
     @FXML
     private void bagClicked(MouseEvent event) throws IOException {
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        
         FXMLLoader loader = new FXMLLoader(
            getClass().getResource("/views/Bag.FXML")
         );
@@ -102,85 +99,17 @@ public class MenuController implements Initializable {
             if (itemImg == null) return;
             itemImg.setEffect(null);
         });
-        
-        Scene dialogScene = new Scene(root);
-        dialog.setScene(dialogScene);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        root.setLayoutX(200);
+        root.setLayoutY(60);
+        SceneManager.getMain().getChildren().add(root);
     } 
     
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
-        if (!player.hasItem(spellBook)) {
-            return;
-        }
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        VBox dialogVbox = new VBox(20);
-        FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/views/Spellbook.fxml")
-        );
-        Parent root = loader.load();
-        if (player.hasItem(fireball)) {
-            ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
-            fireBallIcon.setImage(fireballIcon);
-            fireBallIcon.setOnMouseClicked((value) -> {
-                System.out.println("imma firin mah lazer");
-                dialog.close();
-                
-                BorderPane main = SceneManager.getMain();
-                
-                ImageView imageViewFire = new ImageView(fireballImage);
-                imageViewFire.setLayoutX(main.getBoundsInLocal().getMaxX() / 2);
-                imageViewFire.setLayoutY(800);
-                Animation fireballAnimation = new SpriteAnimation(
-                    imageViewFire,
-                    Duration.millis(1000), 
-                    14, 14,
-                    1, 1,
-                    97, 85
-                );
-                imageViewFire.setScaleX(2.0);
-                imageViewFire.setScaleY(4.0);
-                fireballAnimation.setCycleCount(Animation.INDEFINITE);
-                fireballAnimation.play();
-                
-                TranslateTransition transition = new TranslateTransition();
-                transition.setDuration(Duration.seconds(1.2));
-                transition.setToY(-(main.getBoundsInLocal().getMaxY() / 2));
-                transition.setNode(imageViewFire);
-                transition.play();
-                transition.setOnFinished((val) -> {
-                    ImageView imageViewExplosion = new ImageView(explosionImage);
-                    imageViewExplosion.setScaleX(2.0);
-                    imageViewExplosion.setScaleY(2.0);
-                    imageViewExplosion.setViewport(new Rectangle2D(2, 1, 97, 150));
-                    imageViewExplosion.setLayoutX((main.getBoundsInLocal().getMaxX() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxX() / 2));
-                    imageViewExplosion.setLayoutY((main.getBoundsInLocal().getMaxY() / 2) - (imageViewExplosion.getBoundsInLocal().getMaxY() / 2));
-                    main.getChildren().remove(imageViewFire);
-                    Animation explosionAnimation = new SpriteAnimation(
-                        imageViewExplosion,
-                        Duration.millis(1000),
-                        15, 15,
-                        2, 1,
-                        97, 150
-                    );
-                    explosionAnimation.setCycleCount(1);
-                    explosionAnimation.play();
-                    explosionAnimation.setOnFinished((h) ->
-                        main.getChildren().remove(imageViewExplosion));
-                    main.getChildren().add(imageViewExplosion);
-                });
-                main.getChildren().add(imageViewFire);
-            });
-        }
-        dialogVbox.getChildren().add(root);
-        Scene dialogSence = new Scene(dialogVbox);
-        dialog.setScene(dialogSence);
-        dialog.setAlwaysOnTop(true);
-        dialog.setResizable(false);
-        dialog.show();
+        SpellBook.openSpellBook();
+        SpellBook.castFireball();
     }
 
     public void unlockSpellBook() {

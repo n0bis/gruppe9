@@ -6,15 +6,21 @@
 package utils;
 
 import controllers.SceneManager;
+import java.io.IOException;
 import java.util.TimerTask;
 import javafx.application.Platform;
-import javafx.scene.Scene;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.FlowPane;
+import static world.Game.player;
 
 /**
  *
@@ -25,18 +31,24 @@ public class TimeRemaining extends TimerTask  {
     @Override
     public void run() {
         Platform.runLater(() -> {
-            final Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            VBox dialogVbox = new VBox(20);
-            Button okButton = new Button("Close");
-            okButton.setOnAction((value) -> dialog.close());
-            ImageView smsImage = new ImageView(new Image(getClass().getResourceAsStream("/images/sms.png")));
-            dialogVbox.getChildren().addAll(smsImage);
-            Scene dialogSence = new Scene(dialogVbox);
-            dialog.setScene(dialogSence);
-            dialog.setAlwaysOnTop(true);
-            dialog.setResizable(false);
-            dialog.show();
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/views/TimeRemaining.fxml")
+                );
+                Parent root = loader.load();
+                Button closeButton = (Button)loader.getNamespace().get("closeButton");
+                closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+                FlowPane flowPane = (FlowPane)loader.getNamespace().get("flowPane");
+                flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+                TextArea smsTextbox = (TextArea)loader.getNamespace().get("smsTextbox");
+                String text = smsTextbox.getText().replaceFirst("Player", player.getName());
+                smsTextbox.setText(text);
+                root.setLayoutX(300);
+                root.setLayoutY(60);
+                SceneManager.getMain().getChildren().add(root);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
     }
 }

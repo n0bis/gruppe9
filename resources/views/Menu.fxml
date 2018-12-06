@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,17 +12,21 @@
 <AnchorPane id="AnchorPane" fx:id="rootId" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuController">
 
    <children>
-      <ImageView fx:id="spellBookId" fitHeight="94.0" fitWidth="126.0" layoutX="480.0" layoutY="3.0" onMouseClicked="#spellBookClicked" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="bagId" fitHeight="94.0" fitWidth="141.0" layoutX="389.0" layoutY="6.0" onMouseClicked="#bagClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="menubarBackground" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/bag.png" />
+            <Image url="@../images/testMenubarBG.png" />
+         </image></ImageView>
+      <ImageView fx:id="spellBookId" fitHeight="94.0" fitWidth="126.0" layoutX="226.0" layoutY="7.0" onMouseClicked="#spellBookClicked" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="menuSack" fx:id="bagId" fitHeight="94.0" fitWidth="75.0" layoutX="113.0" layoutY="7.0" onMouseClicked="#bagClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/menu/newBag.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="mapId" fitHeight="83.0" fitWidth="131.0" layoutX="14.0" layoutY="9.0" onMouseClicked="#mapClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="menuMap" fx:id="mapId" fitHeight="83.0" fitWidth="131.0" layoutX="22.0" layoutY="11.0" onMouseClicked="#mapClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/map.png" />
+            <Image url="@../images/menu/map.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="SpeechId" editable="false" layoutX="144.0" layoutY="1.0" prefHeight="105.0" prefWidth="225.0" />
+      <TextArea fx:id="SpeechId" editable="false" layoutX="375.0" layoutY="9.0" prefHeight="87.0" prefWidth="497.0" />
    </children>
 </AnchorPane>
