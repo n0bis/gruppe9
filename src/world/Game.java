@@ -30,7 +30,7 @@ public class Game
     public static Item fangs = new Item("Fangs", 21);
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
-    public static Item Bookie = new Item("Bog", 2);
+    public static Item Bookie = new Item("Book", 2);
     public static Item stage1RequiredItem = new Item("Flamethrower", 6);
     public static Item stage2RequiredItem = new Item("Ironmelter", 7);
     Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");

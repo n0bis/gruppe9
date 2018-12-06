@@ -119,6 +119,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         //Add item to inventory
         player.addItem(Bookie);
         player.addItem(fireball);
+        player.addItem(spellBook);
+        menuController.unlockSpellBook();
     }
 
     @FXML
