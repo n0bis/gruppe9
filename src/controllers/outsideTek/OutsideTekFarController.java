@@ -62,14 +62,13 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         spellBook.addSpell(fireball);
     }    
     
-    @FXML
-    private void bossEncounter(MouseEvent event) {
+    public void bossEncounter() {
         switch(boss.getStage()) {
         case 1:
             menuController.SpeechText(boss.getDialogue());
             if (boss.wonStage1(player)) {
                 boss.incrementStage();
-                bossEncounter(event);
+                bossEncounter();
             } else {
                 menuController.SpeechText("Hahaha you don't have what it takes to fight me");
                 throwOut();
@@ -80,7 +79,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
             bossId.setImage(stage2Boss);
             if (boss.wonStage2(player)) {
                 boss.incrementStage();
-                bossEncounter(event);
+                bossEncounter();
             } else {
                 throwOut();
             }
@@ -96,7 +95,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
             bossId.setImage(stage3Boss);
             if(boss.wonStage3(fireball ,player)) {
                 boss.incrementStage();
-                bossEncounter(event);
+                bossEncounter();
                 menuController.SpeechText("You've killed my last head! *super dead*");
                 bossId.setImage(dead);
             }
@@ -118,5 +117,10 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+    }
+
+    @FXML
+    private void bossClicked(MouseEvent event) {
+        bossEncounter();
     }
 }
