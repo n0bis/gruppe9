@@ -6,6 +6,7 @@
 package items;
 
 import controllers.SceneManager;
+import controllers.outsideTek.OutsideTekFarController;
 import java.io.IOException;
 import java.util.*;
 import javafx.animation.Animation;
@@ -185,8 +186,13 @@ public class SpellBook extends Item {
                     );
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
-                    explosionAnimation.setOnFinished((actionEvt) ->
-                        main.getChildren().remove(imageViewExplosion));
+                    explosionAnimation.setOnFinished((actionEvt) -> {
+                        if (fireballActivate) {
+                            OutsideTekFarController c = SceneManager.getController();
+                            c.bossEncounter();
+                        }
+                        main.getChildren().remove(imageViewExplosion);
+                    });
                     main.getChildren().add(imageViewExplosion);
                 });
                 main.getChildren().add(imageViewFire);
