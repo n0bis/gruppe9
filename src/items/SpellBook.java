@@ -163,6 +163,7 @@ public class SpellBook extends Item {
                     1, 1,
                     97, 85
                 );
+                imageViewFire.setViewport(new Rectangle2D(1, 1, 97, 85));
                 imageViewFire.setScaleX(2.0);
                 imageViewFire.setScaleY(4.0);
                 fireballAnimation.setCycleCount(Animation.INDEFINITE);
