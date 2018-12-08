@@ -15,11 +15,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.sackQuest;
 import static world.Game.Bookie;
+import static world.Game.coffeeDrink;
 import static world.Game.coin;
 import static world.Game.fangs;
 import static world.Game.fireball;
 import static world.Game.player;
 import static world.Game.spellBook;
+import static world.Game.studyCard;
 import static world.Game.teeth;
 import static world.Game.toiletpaper;
 import worldofzuul.StartGame;
@@ -48,6 +50,11 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
     private ImageView toiletpaperId;
     @FXML 
     private ImageView coinId;
+    @FXML 
+    private ImageView coffeeDrinkId;
+    @FXML
+    private ImageView studyCardId;
+    
     
     public void initialize() {
         room1.setImage(new Image(getClass().getResourceAsStream("/images/rooms/imgscare.jpg")));
@@ -60,6 +67,8 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         coinId.setImage(new Image(getClass().getResourceAsStream("/images/items/Coin.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
         isQuizTime();
+        coffeeDrinkId.setImage(new Image(getClass().getResourceAsStream("/images/items/CoffeeDrink.png")));
+        studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
     }
 
     @FXML
@@ -86,7 +95,16 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         coinId.setImage(null);
         player.addItem(coin);
     }
-    
+    @FXML
+    private void coffeeDrinkMouseClicked(MouseEvent event) {
+        coffeeDrinkId.setImage(null);
+        player.addItem(coffeeDrink);
+    }
+    @FXML
+    private void studyCardMouseClicked(MouseEvent event) {
+        studyCardId.setImage(null);
+        player.addItem(studyCard);
+} 
     @FXML
     private void arrowMouseClicked(MouseEvent event) {
         if (player.hasItem(teeth)) {

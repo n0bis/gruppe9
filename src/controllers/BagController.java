@@ -32,6 +32,10 @@ public class BagController implements Initializable {
     @FXML
     private ImageView toiletpaperId;
     @FXML
+    private ImageView coinId;
+    @FXML
+    private ImageView coffeeDrink;
+    @FXML
     private Group crossId;
     
     /**
