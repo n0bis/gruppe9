@@ -11,12 +11,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 
 import utils.FadeAnimation;
+import static world.Game.coffeeDrink;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -34,7 +37,7 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     @FXML
     private ImageView arrowRightId;
     @FXML
-    private Rectangle coffeeId;
+    private ImageView coffeeDrinkId;
 
     /**
      * Initializes the controller class.
@@ -45,6 +48,7 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        coffeeDrinkId.setImage(new Image(getClass().getResourceAsStream("/images/items/CoffeeDrink.png")));
         // TODO
     }    
 
@@ -59,7 +63,9 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     }
 
     @FXML
-    private void coffeeClicked(MouseEvent event) {
+    private void coffeeDrinkClicked(MouseEvent event) {
+        coffeeDrinkId.setImage(null);
+        player.addItem(coffeeDrink);
     }
     
     

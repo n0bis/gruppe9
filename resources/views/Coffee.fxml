@@ -3,16 +3,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CoffeeController">
-
-      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true" styleClass="item">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.mainEntrance.CoffeeController">
+   <children>
+      <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Coffee.jpg" />
+            <Image url="@../images/items/Coffee.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="arrowLeftId" fitHeight="100.0" fitWidth="160.0" layoutX="60.0" layoutY="387.0" onMouseClicked="#arrowLeftClicked" pickOnBounds="true" preserveRatio="true" rotate="-107.5">
@@ -20,20 +16,15 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView id="arrows" fx:id="arrowRightId" fitHeight="100.0" fitWidth="160.0" layoutX="755.0" layoutY="433.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true" rotate="115.1">
+      <ImageView fx:id="arrowRightId" fitHeight="100.0" fitWidth="160.0" layoutX="755.0" layoutY="433.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true" rotate="115.1">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <Rectangle id="coffeeId" fx:id="coffeeId" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="40.0" layoutX="642.0" layoutY="181.0" onMouseClicked="#coffeeClicked" strokeType="INSIDE" styleClass="items" width="30.0">
-         <stroke>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </stroke>
-      </Rectangle>
+      <ImageView fx:id="coffeeDrinkId" fitHeight="48.0" fitWidth="66.0" layoutX="519.0" layoutY="343.0" onMouseClicked="#coffeeDrinkClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
+         <image>
+            <Image url="@../images/items/CoffeeDrink.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
