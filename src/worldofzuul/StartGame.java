@@ -41,6 +41,7 @@ public class StartGame extends Application {
         this.primaryStage = startStage;
         Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/base.css");
         primaryStage.setTitle("SDU Maze");
         primaryStage.setScene(scene);
         primaryStage.show();
