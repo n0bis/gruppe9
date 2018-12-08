@@ -116,4 +116,3 @@ public class MenuController implements Initializable {
         spellBookId.setImage(spellBookImage);
     }
 }
-
