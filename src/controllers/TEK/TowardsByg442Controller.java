@@ -6,6 +6,7 @@
 package controllers.TEK;
 
 
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class TowardsByg442Controller extends MenuControllerInjection implements Initializable {
+public class TowardsByg442Controller extends MenuControllerInjection implements Initializable, IPlaySound {
 
     @FXML
     private AnchorPane anchorId;
@@ -50,6 +52,11 @@ public class TowardsByg442Controller extends MenuControllerInjection implements 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsByg441");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper(0.1, "/sounds/hallnoise.mp3");
     }
     
 }

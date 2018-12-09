@@ -111,7 +111,7 @@ public class MenuController implements Initializable {
     
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
-        SpellBook.openSpellBook();
+        SpellBook.openSpellBook(this);
         SpellBook.castFireball(this);
     }
 

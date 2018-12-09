@@ -74,7 +74,7 @@ public class SpellBook extends Item {
         }
     }
     
-    public static void openSpellBook() throws IOException {
+    public static void openSpellBook(MenuController menuController) throws IOException {
         if (!player.hasItem(spellBook)) {
             return;
         }
@@ -121,6 +121,7 @@ public class SpellBook extends Item {
         });
         Rectangle rightSide = (Rectangle)loader.getNamespace().get("rightSide");
         rightSide.setOnMouseClicked((mouseEvent) -> {
+            menuController.playSound("/sounds/turn_page.wav");
             questPage.setVisible(true);
             questPage.setMouseTransparent(false);
             spellPage.setVisible(false);
@@ -128,6 +129,7 @@ public class SpellBook extends Item {
         });
         Rectangle leftSide = (Rectangle)loader.getNamespace().get("leftSide");
         leftSide.setOnMouseClicked((mouseEvent) -> {
+            menuController.playSound("/sounds/turn_page.wav");
             questPage.setVisible(false);
             questPage.setMouseTransparent(true);
             spellPage.setVisible(true);
