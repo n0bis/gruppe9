@@ -52,7 +52,7 @@ public class HallController extends MenuControllerInjection implements Initializ
 
     @FXML
     private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(rootId, "outsideTekFar");
+        FadeAnimation.fadeOutTransition(rootId, "ChildRoom");
     }
     
 }

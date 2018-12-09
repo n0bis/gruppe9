@@ -22,7 +22,6 @@ public class Game
     private Room currentRoom;
     public static Player player = new Player();
     private NPC npc;
-    private FinalBoss boss;
     private Quest quest;
     private TimerScore timerScore;
     public static Item teeth = new Item("Teeth", 4);
@@ -32,8 +31,8 @@ public class Game
     Item key = new Item("Key", 23);
     Item studyCard = new Item("studycard", 1);
     public static Item Bookie = new Item("Book", 2);
-    Item stage1RequiredItem = new Item("Flamethrower", 6);
-    Item stage2RequiredItem = new Item("Ironmelter", 7);
+    public static Item stage1RequiredItem = new Item("Flamethrower", 6);
+    public static Item stage2RequiredItem = new Item("Ironmelter", 7);
     Room outsideTek = new Room("outside the entrance of the Tek building. The pretty much looks like a giant cheese with windows.");
     Room tekHall = new Room("inside the tek building");
     Room studyRooms = new Room("upstairs infront of the study rooms - for projects");
@@ -42,10 +41,11 @@ public class Game
     Room building44lvl2 = new Room("at level 2 in building 44");
     Room building44lvl3 = new Room("at level 3 in building 44");
     Room nedenunder; 
-    public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Spell fireball = new Spell("Fireball", 8);
     private Item ribeye, pulledPork, pieceOfLamb;
     public static SpellBook spellBook = new SpellBook("spellbook",2);
+    public static FinalBoss boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
+    public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Item coin = new Item("Coin",6);
     public static Item coffeeU140 = new Item("Coffee",23);
     
@@ -67,10 +67,6 @@ public class Game
         NPC dracula = new NPC("Dracula", "Dracula: Hello, I'm Dracula.", "Thanks for helping me. I have no more quests for you.");
         NPC mummy = new NPC("Mummy", "Mummy: Hello buddy", "Move along, you've already helped me");
         NPC mage = new NPC("Mage", "Mage: You shall not pass! Just kiddin' ma' man.", "Wanna know a spell? How about Wingardium Leviosa. Amazing.");
-        
-        
-        // Create boss
-        boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
         
         
         Room outsideTek, tekHall, studyRooms, building44lvl1, building44lvl2, building44lvl3, u183, northMainHall,
@@ -367,50 +363,9 @@ public class Game
             if(currentRoom.hasNPC()) {
                 System.out.println(currentRoom.getNPC().getDialogue());
             }
-            
-            // If room has boss start encounter
-            if(currentRoom.hasBoss()){
-                System.out.println("You are " + currentRoom.getShortDescription());
-                bossEncounter();
-            }
         }
     }
     
-    private void bossEncounter() {
-        Scanner scanner = new Scanner(System.in);
-        switch(boss.getStage()) {
-            case 1:
-                if (boss.wonStage1(scanner, player)) {
-                    boss.incrementStage();
-                    bossEncounter();
-                } else {
-                    throwOut();
-                }
-                break;
-            case 2:
-                if (boss.wonStage2(player)) {
-                    boss.incrementStage();
-                    bossEncounter();
-                } else {
-                    throwOut();
-                }
-                break;
-            case 3:
-                if(boss.wonStage3(scanner, player)) {
-                    boss.incrementStage();
-                    bossEncounter();
-                } else {
-                    throwOut();
-                }
-            }
-    }
-    
-    private void throwOut() {
-        System.out.println("Cerberus threw you out");
-        currentRoom = theColourKitchen;
-        System.out.println(currentRoom.getLongDescription());
-    }
-
     private boolean quit(Command command) 
     {
         if(command.hasSecondWord()) {
