@@ -10,6 +10,7 @@ import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import utils.SoundMapper;
 
 /**
  *
@@ -58,7 +59,10 @@ public final class SceneManager {
         // Epic hack for resetting transition animation
         node.setOpacity(1);
         if (IPlaySound.class.isAssignableFrom(getController().getClass())) {
-            ((IPlaySound)getController()).playSound();
+            SoundMapper source = ((IPlaySound)getController()).mapSound();
+            ((MenuControllerInjection)getController()).playSound(source);
+        } else {
+            ((MenuControllerInjection)getController()).destroyPlayer();
         }
         main.setCenter(node);
     }

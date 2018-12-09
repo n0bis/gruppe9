@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import worldofzuul.StartGame;
 
 /**
@@ -54,5 +55,10 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
     }
-    
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/wind.mp3");
+    }
+
 }
