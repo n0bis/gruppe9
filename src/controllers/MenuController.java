@@ -20,6 +20,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 import static world.Game.player;
 import worldofzuul.StartGame;
@@ -32,6 +34,7 @@ import worldofzuul.StartGame;
 public class MenuController implements Initializable {
     
     StartGame startGame = new StartGame();
+    private MediaPlayer mediaPlayer;
     private final Image spellBookImage = new Image(SpellBook.class.getResourceAsStream("/images/menu/spellbook.png"));
 
     @FXML
@@ -109,11 +112,16 @@ public class MenuController implements Initializable {
     @FXML
     private void spellBookClicked(MouseEvent event) throws IOException {
         SpellBook.openSpellBook();
-        SpellBook.castFireball();
+        SpellBook.castFireball(this);
     }
 
     public void unlockSpellBook() {
         spellBookId.setImage(spellBookImage);
     }
+    
+    public void playSound(String source) {
+        mediaPlayer = new MediaPlayer(new Media(getClass().getResource(source).toExternalForm()));
+        mediaPlayer.setVolume(1);
+        mediaPlayer.play();
+    }
 }
-

@@ -24,6 +24,22 @@ and open the template in the editor.
 #fireball {
 }
 
+#itemStudentId:hover {
+    -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
+}
+
+#startscreenLabel {
+    -fx-effect: dropshadow(three-pass-box, #8B4513, 15, 0, 0, 0);
+}
+
+#startscreenRightArrow:hover {
+    -fx-effect: dropshadow(three-pass-box, #8B4513, 10, 0, 0, 0);
+}
+
+#startscreenLeftArrow:hover {
+    -fx-effect: dropshadow(three-pass-box, #8B4513, 10, 0, 0, 0);
+}
+
 #themeIconView {
     -fx-effect: dropshadow(three-pass-box, #f9d77e, 10, 0, 0, 0);
 }
@@ -33,6 +49,10 @@ and open the template in the editor.
 }
 
 #menuMap:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
+#menuSpellbook:hover {
     -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
 }
 

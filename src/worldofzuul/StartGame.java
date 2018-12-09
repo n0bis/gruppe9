@@ -41,6 +41,7 @@ public class StartGame extends Application {
         this.primaryStage = startStage;
         Parent root = FXMLLoader.load(getClass().getResource("/views/StartGameFXML.fxml"));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/base.css");
         primaryStage.setTitle("SDU Maze");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -123,6 +124,7 @@ public class StartGame extends Application {
         sceneManager.addScene("entranceU1", menuController);
         sceneManager.addScene("stairsTowardsNedenUnder", menuController);
         sceneManager.addScene("nedenUnder", menuController);
+        sceneManager.addScene("nedenUnderToilets", menuController);                    
         sceneManager.addScene("nedenUnderToilets", menuController);
         sceneManager.addScene("outsideU133", menuController);
         sceneManager.addScene("U133", menuController);
@@ -136,8 +138,8 @@ public class StartGame extends Application {
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
-        //SceneManager.activate("WorldOfZuulGUI");
         SceneManager.activate("outsideTekFar");
+        //SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
