@@ -52,7 +52,7 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     @FXML
     private void ArrowUpClicked(MouseEvent event) {
          if(isDoorLocked) {
-            menuController.SpeechText("The door is locked. Have you scanned your student ID?");
+            menuController.SpeechText("The door to the University Of Southern is locked. Have you scanned your student ID?");
         } else {
             FadeAnimation.fadeOutTransition(anchorId, "tekHall");
         }
@@ -66,10 +66,10 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     @FXML
     private void studentIdScannerClicked(MouseEvent event) {
          if(!player.hasItem(studentID)) {
-            menuController.SpeechText("You need a student ID to get in the the University");
+            menuController.SpeechText("You need a student ID to get in to the University Of Southern");
         } else {
             isDoorLocked = false; 
-            menuController.SpeechText("The door is unlocked, you may enter now.");
+            menuController.SpeechText("The door is unlocked, you may can now enter the University Of Southern.");
         }
     }
     
