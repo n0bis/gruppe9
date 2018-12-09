@@ -6,6 +6,7 @@
 package controllers.building44;
 
 
+import controllers.IPlaySound;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -14,13 +15,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class Bygning44Lvl1Controller implements Initializable {
+public class Bygning44Lvl1Controller implements Initializable, IPlaySound {
 
     @FXML
     private AnchorPane anchorId;
@@ -42,6 +44,11 @@ public class Bygning44Lvl1Controller implements Initializable {
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper(0.2, "/sounds/hallnoise.mp3");
     }
     
 }
