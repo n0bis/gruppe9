@@ -61,13 +61,12 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     private void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "torvet");
     }
-    int i = 20;
     @FXML
     private void coffeeDrinkClicked(MouseEvent event) {  
         coffeeDrinkId.setImage(null);
         player.addItem(coffeeDrink);
     }
-        
+    int i = 20;
     @FXML
     private void MouseClicked(MouseEvent event) {  
         if (player.hasItem(coffeeDrink)) { 
