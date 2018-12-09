@@ -69,14 +69,14 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         
         if (player.hasItem(coffeeDrink)) { 
             System.out.println("You've had too much to drink, so now it's time to find a toilet");
-            if (i>= 20) i--;{
+            if (i>= 20) {
                  System.out.println("you lost");
             }
-            {
+            else {
                 System.out.println("Congrats you found the toilet in under 20 mouse clicks so now you can pee in peace");
         }
             System.out.println(i);
-           
+        i--;
     }
             }
     }  

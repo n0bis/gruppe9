@@ -16,7 +16,7 @@
          <image>
             <Image url="@../images/testMenubarBG.png" />
          </image></ImageView>
-      <ImageView fx:id="spellBookId" fitHeight="94.0" fitWidth="126.0" layoutX="226.0" layoutY="7.0" onMouseClicked="#spellBookClicked" pickOnBounds="true" preserveRatio="true" />
+      <ImageView id="menuSpellbook" fx:id="spellBookId" fitHeight="94.0" fitWidth="126.0" layoutX="226.0" layoutY="7.0" onMouseClicked="#spellBookClicked" pickOnBounds="true" preserveRatio="true" />
       <ImageView id="menuSack" fx:id="bagId" fitHeight="94.0" fitWidth="75.0" layoutX="113.0" layoutY="7.0" onMouseClicked="#bagClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/menu/newBag.png" />

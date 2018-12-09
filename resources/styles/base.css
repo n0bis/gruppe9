@@ -58,6 +58,10 @@ arrows:hover {
     -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
 }
 
+#menuSpellbook:hover {
+    -fx-effect: dropshadow(three-pass-box, #6E5B2F, 10, 0, 0, 0);
+}
+
 #root {
     -fx-background-image: url("../images/rooms/imgscare.jpg");
     -fx-background-repeat: no-repeat;
