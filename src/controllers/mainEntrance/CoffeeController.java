@@ -66,22 +66,6 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         coffeeDrinkId.setImage(null);
         player.addItem(coffeeDrink);
     }
-    int i = 20;
-    @FXML
-    private void MouseClicked(MouseEvent event) {  
-        if (player.hasItem(coffeeDrink)) { 
-            menuController.SpeechText("You've had too much to drink, so now it's time to find a toilet");
-            if (i>= 20) {
-                 menuController.SpeechText("you lost");
-            }
-            else {
-                menuController.SpeechText("Congrats you found the toilet in under 20 mouse clicks so now you can pee in peace");
-        }
-        i = i -1;
-        menuController.SpeechText(" You now have " + i + " clicks to find the toilet. " + " If you can't find the toilet before all \n of your clicks are done you'll lose ");
     }
-            }
-    }  
-    
       
 
