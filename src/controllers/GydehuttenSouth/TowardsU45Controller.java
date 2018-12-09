@@ -6,6 +6,7 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +16,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class TowardsU45Controller extends MenuControllerInjection implements Initializable {
+public class TowardsU45Controller extends MenuControllerInjection implements Initializable, IPlaySound {
 
     @FXML
     private AnchorPane anchorId;
@@ -57,6 +59,11 @@ public class TowardsU45Controller extends MenuControllerInjection implements Ini
     @FXML
     private void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsToilets");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/hallnoise.mp3");
     }
     
 }

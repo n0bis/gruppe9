@@ -56,7 +56,7 @@ public class TekHallStairsController extends MenuControllerInjection implements 
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper(0.1, "/sounds/hallnoise.mp3");
+        return new SoundMapper(0.1, "/sounds/stairs.mp3");
     }
     
 }
