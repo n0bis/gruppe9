@@ -6,6 +6,7 @@
 package controllers.outsideTek;
 
 
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import utils.FadeAnimation;
 import worldofzuul.StartGame;
 
@@ -23,8 +26,8 @@ import worldofzuul.StartGame;
  *
  * @author morte
  */
-public class OutsideTekFarController extends MenuControllerInjection implements Initializable {
-
+public class OutsideTekFarController extends MenuControllerInjection implements Initializable, IPlaySound {
+    
     StartGame startGame = new StartGame();
     
     @FXML
@@ -51,4 +54,5 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
     }
+    
 }

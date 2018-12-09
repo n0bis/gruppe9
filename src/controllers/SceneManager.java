@@ -57,6 +57,9 @@ public final class SceneManager {
         Pane node = sceneMap.get(name).getPane();
         // Epic hack for resetting transition animation
         node.setOpacity(1);
+        if (IPlaySound.class.isAssignableFrom(getController().getClass())) {
+            ((IPlaySound)getController()).playSound();
+        }
         main.setCenter(node);
     }
     
