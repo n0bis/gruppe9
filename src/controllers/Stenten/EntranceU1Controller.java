@@ -56,7 +56,7 @@ public class EntranceU1Controller extends MenuControllerInjection implements Ini
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        menuController.SpeechText("Hahaa cannot entere here, you fool");
+        menuController.SpeechText("You can't enter classroom U1 because it's already being used by another class");
     }
     
 }
