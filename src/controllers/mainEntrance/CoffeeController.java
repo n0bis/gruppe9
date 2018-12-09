@@ -65,6 +65,10 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     private void coffeeDrinkClicked(MouseEvent event) {  
         coffeeDrinkId.setImage(null);
         player.addItem(coffeeDrink);
+        if (player.hasItem(coffeeDrink)) {
+            menuController.SpeechText("You've had to much coffee therefore you need to find the toilet which is downstairs");
+            
+        }
     }
     }
       
