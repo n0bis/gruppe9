@@ -15,6 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.scissor;
+import static world.Game.studentID;
 
 /**
  * FXML Controller class
@@ -22,7 +25,9 @@ import utils.FadeAnimation;
  * @author morte
  */
 public class OutsideTekCloseController extends MenuControllerInjection implements Initializable {
-
+    
+    private Boolean isDoorLocked = true;
+    
     @FXML
     private AnchorPane anchorId;
     @FXML
@@ -31,6 +36,8 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     private ImageView arrowUp;
     @FXML
     private ImageView arrowUp1;
+    @FXML
+    private ImageView studentIdScanner;
 
     /**
      * Initializes the controller class.
@@ -44,12 +51,26 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     private void ArrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+         if(isDoorLocked) {
+            menuController.SpeechText("The door is locked. Have you scanned your student ID?");
+        } else {
+            FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        }
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar");
+    }
+
+    @FXML
+    private void studentIdScannerClicked(MouseEvent event) {
+         if(!player.hasItem(studentID)) {
+            menuController.SpeechText("You need a student ID to get in the the University");
+        } else {
+            isDoorLocked = false; 
+            menuController.SpeechText("The door is unlocked, you may enter now.");
+        }
     }
     
 }

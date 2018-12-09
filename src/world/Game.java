@@ -47,6 +47,8 @@ public class Game
     public static FinalBoss boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
     public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Item coin = new Item("Coin",6);
+    public static Item scissor = new Item("Scissors",9);
+    public static Item studentID = new Item("Student ID", 10);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");

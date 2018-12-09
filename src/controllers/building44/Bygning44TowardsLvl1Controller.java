@@ -11,10 +11,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.Bookie;
+import static world.Game.player;
+import static world.Game.scissor;
 
 /**
  * FXML Controller class
@@ -33,6 +37,8 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
     private ImageView arrowUpId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView lockedTowardsMain;
 
     /**
      * Initializes the controller class.
@@ -41,7 +47,7 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());        
-        // TODO
+        lockedTowardsMain.setImage(new Image(getClass().getResourceAsStream("/images/rooms/LockedTape.png")));
     }    
 
     @FXML
@@ -51,12 +57,27 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
+        if(!player.hasItem(scissor)) {
+            menuController.SpeechText("You need something to pass here. Something sharp might help..");
+        } else {
+            lockedTowardsMain.setImage(null);
+            FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
+        }  
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44");
+    }
+
+    @FXML
+    private void lockedMouseClicked(MouseEvent event) {
+        if(!player.hasItem(scissor)) {
+            menuController.SpeechText("You need something to pass here. Something sharp might help..");
+        } else {
+            lockedTowardsMain.setImage(null);
+            anchorId.getChildren().remove(lockedTowardsMain);
+        }
     }
     
 }

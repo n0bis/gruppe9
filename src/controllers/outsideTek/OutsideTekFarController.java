@@ -25,6 +25,7 @@ import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.stage1RequiredItem;
 import static world.Game.stage2RequiredItem;
+import static world.Game.studentID;
 import worldofzuul.StartGame;
 
 /**
@@ -55,6 +56,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private ImageView themeIconView;
     @FXML
     public Line bossHitbox;
+    @FXML
+    private ImageView studentId;
 
     /**
      * Initializes the controller class.
@@ -135,5 +138,11 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private void bossClicked(MouseEvent event) {
         bossEncounter();
+    }
+
+    @FXML
+    private void studentIdClicked(MouseEvent event) {
+        player.addItem(studentID);
+        anchorId.getChildren().remove(studentId);
     }
 }

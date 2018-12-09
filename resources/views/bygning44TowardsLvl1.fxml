@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,5 +29,6 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
+      <ImageView id="lockedTape" fx:id="lockedTowardsMain" fitHeight="219.0" fitWidth="217.0" layoutX="569.0" layoutY="133.0" onMouseClicked="#lockedMouseClicked" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
