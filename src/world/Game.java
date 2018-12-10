@@ -49,6 +49,7 @@ public class Game
     public static Item coin = new Item("Coin",6);
     public static Item scissor = new Item("Scissors",9);
     public static Item studentID = new Item("Student ID", 10);
+    public static Item pokefluteItem = new Item("Pokéflute", 10);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");

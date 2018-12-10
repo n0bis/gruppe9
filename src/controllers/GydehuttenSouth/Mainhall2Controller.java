@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.pokefluteItem;
 
 /**
  * FXML Controller class
@@ -33,6 +35,8 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
     private ImageView arrowForwardId;
     @FXML
     private ImageView arrowRightId;
+    @FXML
+    private ImageView snorlax;
 
     /**
      * Initializes the controller class.
@@ -58,5 +62,13 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
     private void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "U55");
     }
-    
+
+    @FXML
+    private void snorlaxClicked(MouseEvent event) {
+        if(!player.hasItem(pokefluteItem)) {
+        menuController.SpeechText("You need an item to pass here");
+    } else {
+        anchorId.getChildren().remove(snorlax);
+        }
+    }
 }

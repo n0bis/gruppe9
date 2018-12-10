@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.building44.U183Controller">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.building44.U183Controller">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -15,6 +17,11 @@
       <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="71.0" layoutY="356.0" onMouseClicked="#arrowBackId" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/arrow-left.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="policeOfficerId" fitHeight="140.0" fitWidth="134.0" layoutX="486.0" layoutY="272.0" onMouseClicked="#policeOfficerClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/NPC/policeofficer.png" />
          </image>
       </ImageView>
    </children>

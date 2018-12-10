@@ -29,7 +29,10 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView policeOfficerId;
 
+    public static boolean isTekClosed = true;
     /**
      * Initializes the controller class.
      */
@@ -43,6 +46,16 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     @FXML
     private void arrowBackId(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU183");
+    }
+
+    @FXML
+    private void policeOfficerClicked(MouseEvent event) {
+        if(isTekClosed) {
+            menuController.SpeechText("So you think you got what it takes, punk? Well, good luck moving to the rest of the University. It's a bloody nightmare out there");
+            isTekClosed = false;
+        } else {
+            menuController.SpeechText("We've already talked boy.");
+        }
     }
     
 }

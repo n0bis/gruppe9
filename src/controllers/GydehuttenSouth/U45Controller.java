@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.pokefluteItem;
 
 /**
  * FXML Controller class
@@ -29,6 +31,8 @@ public class U45Controller extends MenuControllerInjection implements Initializa
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView pokeflute;
 
     /**
      * Initializes the controller class.
@@ -44,6 +48,12 @@ public class U45Controller extends MenuControllerInjection implements Initializa
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU45");
+    }
+
+    @FXML
+    private void pokefluteClicked(MouseEvent event) {
+        player.addItem(pokefluteItem);
+        anchorId.getChildren().remove(pokeflute);
     }
     
 }

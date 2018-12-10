@@ -7,6 +7,7 @@ package controllers.building44;
 
 
 import controllers.MenuControllerInjection;
+import static controllers.building44.U183Controller.isTekClosed;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -72,8 +73,8 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
 
     @FXML
     private void lockedMouseClicked(MouseEvent event) {
-        if(!player.hasItem(scissor)) {
-            menuController.SpeechText("You need something to pass here. Something sharp might help..");
+        if(!player.hasItem(scissor) || isTekClosed) {
+            menuController.SpeechText("You can't just pass here without permission.. And something sharp might help too..");
         } else {
             lockedTowardsMain.setImage(null);
             anchorId.getChildren().remove(lockedTowardsMain);

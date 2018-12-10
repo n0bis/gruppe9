@@ -46,6 +46,7 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        arrowUp.setOpacity(0.5);
         // TODO
     }    
 
@@ -69,6 +70,7 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
             menuController.SpeechText("You need a student ID to get in to the University Of Southern");
         } else {
             isDoorLocked = false; 
+            arrowUp.setOpacity(1);
             menuController.SpeechText("The door is unlocked, you may can now enter the University Of Southern.");
         }
     }

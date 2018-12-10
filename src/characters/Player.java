@@ -3,6 +3,7 @@ package characters;
 import items.Item;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.image.ImageView;
 import missions.Quest;
 
 
@@ -55,5 +56,9 @@ public class Player {
     
     public List<Quest> getQuestLog() {
         return this.questLog;
+    }
+
+    public void addItem(ImageView pokeflute) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

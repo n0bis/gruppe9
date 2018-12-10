@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,6 +27,11 @@
       <ImageView fx:id="arrowRightId" fitHeight="100.0" fitWidth="160.0" layoutX="679.0" layoutY="444.0" onMouseClicked="#arrowRightClicked" pickOnBounds="true" preserveRatio="true" rotate="62.4">
          <image>
             <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="snorlax" fitHeight="164.0" fitWidth="290.0" layoutX="335.0" layoutY="289.0" onMouseClicked="#snorlaxClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/NPC/snorlax.png" />
          </image>
       </ImageView>
    </children>
