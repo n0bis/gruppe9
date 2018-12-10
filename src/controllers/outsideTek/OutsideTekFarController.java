@@ -6,6 +6,7 @@
 package controllers.outsideTek;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -33,7 +34,7 @@ import worldofzuul.StartGame;
  *
  * @author morte
  */
-public class OutsideTekFarController extends MenuControllerInjection implements Initializable, IPlaySound {
+public class OutsideTekFarController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
     
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
@@ -130,7 +131,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     }
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
     }
 
@@ -142,5 +143,17 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/wind.mp3");
+    }
+
+    @Override
+    public void arrowBackClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
     }
 }

@@ -6,6 +6,7 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -23,7 +24,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class MainhallRightOrLeftController extends MenuControllerInjection implements Initializable, IPlaySound {
+public class MainhallRightOrLeftController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -47,23 +48,27 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU45");
     }
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
     }
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
     }
 
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/hallnoise.mp3");
+    }
+
+    @Override
+    public void arrowUpClicked(MouseEvent event) {
     }
     
 }

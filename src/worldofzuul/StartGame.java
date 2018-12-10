@@ -5,8 +5,8 @@
  */
 package worldofzuul;
 
+import controllers.INavigate;
 import controllers.MenuController;
-import controllers.QuizController;
 import controllers.SceneManager;
 import java.io.IOException;
 import java.util.Timer;
@@ -15,15 +15,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import utils.TimeExpired;
 import utils.TimeRemaining;
 import utils.TimerScore;
 import world.Game;
-import static world.Game.player;
 
 /**
  *
@@ -140,6 +138,31 @@ public class StartGame extends Application {
         
         SceneManager.activate("outsideTekFar");
         //SceneManager.activate("WorldOfZuulGUI");
+        
+        borderPane.addEventFilter(KeyEvent.ANY, keyEvent -> {
+            if (INavigate.class.isAssignableFrom(SceneManager.getController().getClass())) {
+                INavigate navigation = (INavigate)SceneManager.getController();
+                try {
+                    switch (keyEvent.getCode()) {
+                        case UP:
+                            navigation.arrowUpClicked(null);
+                            break;
+                        case DOWN:
+                            navigation.arrowBackClicked(null);
+                            break;
+                        case RIGHT:
+                            navigation.arrowRightClicked(null);
+                            break;
+                        case LEFT:
+                            navigation.arrowLeftClicked(null);
+                            break;
+                    }
+                } catch (UnsupportedOperationException ex) {
+                    // We don't care
+                }
+            }
+        });
+        
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

@@ -6,6 +6,7 @@
 package controllers.outsideTek;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -23,7 +24,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class OutsideTekCloseController extends MenuControllerInjection implements Initializable, IPlaySound {
+public class OutsideTekCloseController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -45,18 +46,26 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     }    
 
     @FXML
-    private void ArrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "tekHall");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar");
     }
 
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/wind.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
     }
     
 }

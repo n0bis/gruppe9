@@ -7,7 +7,12 @@ package controllers;
 
 import java.io.IOException;
 import java.util.HashMap;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.PickResult;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import utils.SoundMapper;
