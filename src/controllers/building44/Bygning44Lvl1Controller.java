@@ -7,6 +7,7 @@ package controllers.building44;
 
 
 import controllers.IPlaySound;
+import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -22,7 +23,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class Bygning44Lvl1Controller implements Initializable, IPlaySound {
+public class Bygning44Lvl1Controller extends MenuControllerInjection implements Initializable, IPlaySound {
 
     @FXML
     private AnchorPane anchorId;

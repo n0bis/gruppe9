@@ -22,6 +22,7 @@ public class MenuControllerInjection {
     }      
     
     public void playSound(SoundMapper mapper) {
+        if (mediaPlayer != null) mediaPlayer.stop();
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource(mapper.getSource()).toExternalForm()));
         mediaPlayer.setVolume(mapper.getVolume());
         mediaPlayer.play();
