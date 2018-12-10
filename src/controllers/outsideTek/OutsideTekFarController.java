@@ -134,6 +134,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        
     }
 
     @FXML
@@ -144,5 +145,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void studyCardClicked(MouseEvent event) {
         studyCardId.setImage(null);
         player.addItem(studyCard);
+    
     }
 }
