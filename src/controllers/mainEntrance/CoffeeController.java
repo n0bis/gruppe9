@@ -67,10 +67,13 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         if (player.hasItem(coin)) {
             coffeeDrinkId.setImage(null);
             player.addItem(coffeeDrink);
-            // remove coin again ?
+            // remove coin
             menuController.SpeechText("You've had to much coffee therefore you need to find the toilet which is downstairs");
         } else {
             menuController.SpeechText("You need a coin to buy coffee");
+        }
+        if (player.getInventory().contains(coffeeDrink)) {
+            player.getInventory().remove(coin); 
         }
     }
 }
