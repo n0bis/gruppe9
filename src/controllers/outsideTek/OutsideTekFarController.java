@@ -67,7 +67,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
-        studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/stuentid.png")));
+        studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
         
 // TODO
         
@@ -141,6 +141,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void bossClicked(MouseEvent event) {
         bossEncounter();
     }
+    
     @FXML
     private void studyCardClicked(MouseEvent event) {
         studyCardId.setImage(null);
