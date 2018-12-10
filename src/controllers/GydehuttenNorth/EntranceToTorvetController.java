@@ -59,7 +59,7 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
     @FXML
     private void coinClicked(MouseEvent event) {
         coinId.setImage(null);
-        player.addItem(coin);
+        player.addItem(coin); 
         if (player.hasItem(coin)) {
             menuController.SpeechText("You can now buy yourself a coffee from the vending machine down the corridor");    
         }
