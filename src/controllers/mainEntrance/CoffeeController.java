@@ -19,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 
 import utils.FadeAnimation;
 import static world.Game.coffeeDrink;
+import static world.Game.coin;
 import static world.Game.player;
 
 /**
@@ -67,9 +68,12 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         player.addItem(coffeeDrink);
         if (player.hasItem(coffeeDrink)) {
             menuController.SpeechText("You've had to much coffee therefore you need to find the toilet which is downstairs");
-            
         }
     }
-    }
+}
+
+
+
+        
       
 
