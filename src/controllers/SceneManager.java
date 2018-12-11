@@ -5,6 +5,9 @@
  */
 package controllers;
 
+import static controllers.QuizController.hasAnswered;
+import static controllers.QuizController.isQuizTime;
+import controllers.mainEntrance.TorvetController;
 import java.io.IOException;
 import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +16,7 @@ import javafx.scene.layout.Pane;
 import utils.SoundMapper;
 import static world.Game.coffeeDrink;
 import static world.Game.player;
+
 
 /**
  *
@@ -70,6 +74,11 @@ public final class SceneManager {
         if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
             MenuControllerInjection controller = getController();
             controller.injectCoffee();
+        }
+        if (SceneManager.getController() instanceof TorvetController) {
+            if (!hasAnswered == true) {
+                isQuizTime();
+            } 
         }
     }
     public static BorderPane getMain() {

@@ -41,6 +41,7 @@ public class QuizController extends TimerTask implements Initializable {
     
     StartGame startGame = new StartGame();
     private Room firstRoom = new Room("First room"); 
+    public static boolean hasAnswered = false;
     
     @FXML
     private FlowPane flowPane;
@@ -91,6 +92,7 @@ public class QuizController extends TimerTask implements Initializable {
             closeButton.setOpacity(1);
             firstRoom.setIsChecked(true);  
         }
+        hasAnswered = true;
     }
     @Override
     public void run() {
@@ -122,7 +124,4 @@ public class QuizController extends TimerTask implements Initializable {
             }
         });
     }
-
-
-    
 }
