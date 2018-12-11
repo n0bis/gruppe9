@@ -17,7 +17,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -46,14 +48,14 @@ public class QuizController extends TimerTask implements Initializable {
     private Label labelTitle;
     @FXML
     private TextArea smsTextbox;
-    @FXML
     private Button leftAnswer;
-    @FXML
     private Button rightAnswer;
     @FXML
     private Button closeButton;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private TextField writtenText;
 
     /**
      * Initializes the controller class.
@@ -65,7 +67,6 @@ public class QuizController extends TimerTask implements Initializable {
         smsTextbox.setText(text);
     }    
 
-    @FXML
     private void leftAnswerClicked(MouseEvent event) {
         smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
                 "Nå, det var forkert venni. Thanks for nothing.");
@@ -75,7 +76,6 @@ public class QuizController extends TimerTask implements Initializable {
         firstRoom.setIsChecked(true);  
     }
 
-    @FXML
     private void rightAnswerClicked(MouseEvent event) {
         smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U45." + "\n\n" +
                 "Det var rigtigt!");
@@ -84,6 +84,7 @@ public class QuizController extends TimerTask implements Initializable {
         closeButton.setOpacity(1);
         firstRoom.setIsChecked(true);
     }
+    
 
     @FXML
     private void closeButtonClicked(MouseEvent event) {
@@ -122,6 +123,10 @@ public class QuizController extends TimerTask implements Initializable {
                 ex.printStackTrace();
             }
         });
+    }
+
+    @FXML
+    private void answerWritten(InputMethodEvent event) {
     }
     
 }
