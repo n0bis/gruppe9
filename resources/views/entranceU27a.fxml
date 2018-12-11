@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.Stenten.EntranceU27aController">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stenten.EntranceU27aController">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -15,6 +17,11 @@
       <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="568.0" layoutY="479.0" onMouseClicked="#arrowBackClicked" pickOnBounds="true" preserveRatio="true" rotate="130.0">
          <image>
             <Image url="@../images/arrowUp.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="bone2" fitHeight="106.0" fitWidth="26.0" layoutX="396.0" layoutY="194.0" onMouseClicked="#boneClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/bones.png" />
          </image>
       </ImageView>
    </children>
