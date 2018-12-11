@@ -65,7 +65,7 @@ public class MainhallController extends MenuControllerInjection implements Initi
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall2");
+        FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
     }
     
     @FXML
