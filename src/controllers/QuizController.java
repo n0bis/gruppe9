@@ -81,12 +81,12 @@ public class QuizController extends TimerTask implements Initializable {
     private void sendMessage(MouseEvent event) {
         String answer = writtenText.getText();
         if (answer.equals("u45") || answer.equals("U45")) {
-            smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U45." + "\n\n" + "Det var rigtigt!");
+            smsTextbox.appendText("\n\n" + "You: I think it's U45." + "\n\n" + "That's right!");
             sendButton.setOpacity(0);
             closeButton.setOpacity(1);
             firstRoom.setIsChecked(true);
         } else {
-            smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U55." + "\n\n" + "Nå, det var forkert venni. Thanks for nothing.");
+            smsTextbox.appendText("\n\n" + "You: I think it's U55." + "\n\n" + "Sadly that's wrong my friend.");
             sendButton.setOpacity(0);
             closeButton.setOpacity(1);
             firstRoom.setIsChecked(true);  
