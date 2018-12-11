@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
 import static world.Game.creepyDoll;
 import static world.Game.player;
@@ -54,8 +55,9 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     private void creepyDollClicked(MouseEvent event) {
         creepyDollId.setImage(null);
         player.addItem(creepyDoll);
-        if (player.hasItem(creepyDoll)) {
+        if (player.hasQuest(Twin2Quest)) {
             menuController.SpeechText("You found the last born twin's creepy doll! Now you can safely deliver it to her.");
+        } else {menuController.SpeechText("Congrats you found a creepy doll");
         }
-    }
+}
 }

@@ -17,8 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.Twin1Quest;
 import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
-import static world.Game.CreepyDoll;
-import static world.Game.TeddyBear;
+import static world.Game.creepyDoll;
 import static world.Game.player;
 
 /**
@@ -74,9 +73,9 @@ public class MainhallController extends MenuControllerInjection implements Initi
         if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
         } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
-            menuController.SpeechText("Find my doll!!");
+            menuController.SpeechText("If you find my doll I'll let you pass. I'll give you a hint, you have to go through vangene");
         } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
-            menuController.SpeechText("Help my twin sister find her teddy bear!");
+            menuController.SpeechText("Go find my twin sister and help her! She lost her bear!");
         } else {
             menuController.SpeechText("You shall not pass!");
         }
@@ -86,9 +85,9 @@ public class MainhallController extends MenuControllerInjection implements Initi
     private void Twin2Clicked(MouseEvent event) {
         if(Twin2Quest.isQuestDone()) {
             menuController.SpeechText(Twin2Quest.getQuestDone());
-        } else if (player.hasQuest(Twin2Quest) && !player.hasItem(CreepyDoll)) {
+        } else if (player.hasQuest(Twin2Quest) && !player.hasItem(creepyDoll)) {
             menuController.SpeechText(Twin2Quest.getQuestInProgress());
-        } else if (player.hasQuest(Twin2Quest) && player.hasItem(CreepyDoll)) {
+        } else if (player.hasQuest(Twin2Quest) && player.hasItem(creepyDoll)) {
             menuController.SpeechText(Twin2Quest.getQuestDone());
             Twin2Quest.setIsQuestDone(true);
         } else if (!player.hasQuest(Twin2Quest) && !Twin2Quest.isQuestDone()) {

@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin1Quest;
 import utils.FadeAnimation;
 import static world.Game.creepyBear;
 import static world.Game.player;
@@ -61,9 +62,11 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     private void creepyBearClicked(MouseEvent event) {
         creepyBearId.setImage(null);
         player.addItem(creepyBear);
-        if (player.hasItem(creepyBear)) {
+        if (player.hasQuest(Twin1Quest)) {
             menuController.SpeechText("You found the first born twin's creepy bear! Now you can safely deliver it to her.");
+        } else {menuController.SpeechText("Congrats you found a creepy bear");
         }
 }
 }
+
 
