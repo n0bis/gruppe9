@@ -36,6 +36,8 @@ public class StartGameFXMLController implements Initializable {
     StartGame startGame = new StartGame();
     List<String> imageSelectorList = new ArrayList<>();
     public int listCounter = 1;
+    MenuController menuControler = new MenuController();
+
     
     @FXML
     private AnchorPane startAnchorPane;
@@ -64,15 +66,18 @@ public class StartGameFXMLController implements Initializable {
         hatImage.setImage(new Image((getClass().getResourceAsStream("/images/startscreen/" + imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase() + ".png"))));
         labelTheme.setText(imageSelectorList.get(listCounter));
         startGame.setImageSelector(imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase());
+        loadMusic();
     }    
     
     
     @FXML
     private void startGameClicked(MouseEvent event) throws IOException {
         if(startGame.getImageSelector() != null && !enterNameTextField.getText().equals("")) {
+            menuControler.stopSound();
             startGame.setPlayerName(enterNameTextField.getText());
             startGame.primaryStage.close();
             startGame.second();
+            
         } else {
             labelMessage.setOpacity(1);
         }  
@@ -97,6 +102,8 @@ public class StartGameFXMLController implements Initializable {
             startGame.setImageSelector(imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase());
             hatImage.setImage(new Image((getClass().getResourceAsStream("/images/startscreen/" + imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase() + ".png"))));
             labelTheme.setText(imageSelectorList.get(listCounter));
+            menuControler.stopSound();
+            loadMusic();
         }
     }
 
@@ -106,9 +113,20 @@ public class StartGameFXMLController implements Initializable {
             listCounter++;
             startGame.setImageSelector(imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase());
             hatImage.setImage(new Image((getClass().getResourceAsStream("/images/startscreen/" + imageSelectorList.get(listCounter).replaceAll("\\s+", "").toLowerCase() + ".png"))));
-            labelTheme.setText(imageSelectorList.get(listCounter));
+            labelTheme.setText(imageSelectorList.get(listCounter));            
+            menuControler.stopSound();
+            loadMusic();
             
-            
+        }
+    }
+    
+    public void loadMusic() {
+        if (this.listCounter == 0) {
+            menuControler.playSound("/sounds/HP.mp3");
+        } else if (this.listCounter == 1) {
+            menuControler.playSound("/sounds/LOTR.mp3");
+        } else if (this.listCounter == 2) {
+            menuControler.playSound("/sounds/GOT.mp3");
         }
     }
     

@@ -124,4 +124,8 @@ public class MenuController implements Initializable {
         mediaPlayer.setVolume(1);
         mediaPlayer.play();
     }
+
+    public void stopSound() {
+        mediaPlayer.stop();
+    }
 }
