@@ -10,6 +10,8 @@ import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import static world.Game.coffeeDrink;
+import static world.Game.player;
 
 /**
  *
@@ -58,8 +60,11 @@ public final class SceneManager {
         // Epic hack for resetting transition animation
         node.setOpacity(1);
         main.setCenter(node);
+        if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
+            MenuControllerInjection controller = getController();
+            controller.injectCoffee();
+        }
     }
-    
     public static BorderPane getMain() {
         return main;
     }
@@ -67,5 +72,4 @@ public final class SceneManager {
     public static <T> T getController() {
         return (T) sceneMap.get(currentScene).getController();
     }
-
 }

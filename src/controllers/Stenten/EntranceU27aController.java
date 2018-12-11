@@ -15,6 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.boneone;
+import static world.Game.bonetwo;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -29,6 +32,8 @@ public class EntranceU27aController extends MenuControllerInjection implements I
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView bone2;
 
     /**
      * Initializes the controller class.
@@ -43,6 +48,12 @@ public class EntranceU27aController extends MenuControllerInjection implements I
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
+    }
+
+    @FXML
+    private void boneClicked(MouseEvent event) {
+        player.addItem(bonetwo);
+        anchorId.getChildren().remove(bone2);
     }
     
 }

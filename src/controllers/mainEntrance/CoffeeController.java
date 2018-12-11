@@ -19,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 
 import utils.FadeAnimation;
 import static world.Game.coffeeDrink;
+import static world.Game.coin;
 import static world.Game.player;
 
 /**
@@ -63,7 +64,19 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     }
     @FXML
     private void coffeeDrinkClicked(MouseEvent event) {  
-        coffeeDrinkId.setImage(null);
-        player.addItem(coffeeDrink);
-    }  
+      if (player.hasItem(coin)) {
+            coffeeDrinkId.setImage(null);
+            player.addItem(coffeeDrink);
+            menuController.SpeechText("You've had to much coffee therefore you need to find the toilet which is downstairs");
+        } else {
+            menuController.SpeechText("You need a coin to buy coffee");
+        }
+        if (player.getInventory().contains(coffeeDrink)) {
+            player.getInventory().remove(coin); 
+        }
+    }
 }
+
+        
+      
+
