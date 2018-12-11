@@ -11,10 +11,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
+import static world.Game.creepyDoll;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -29,6 +33,8 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView creepyDollId;
 
     /**
      * Initializes the controller class.
@@ -37,6 +43,7 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitHeightProperty().bind(anchorId.widthProperty());
+        creepyDollId.setImage(new Image(getClass().getResourceAsStream("/images/items/creepyDoll.png")));
         // TODO
     }    
 
@@ -44,5 +51,13 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideU133");
     }
-    
+    @FXML
+    private void creepyDollClicked(MouseEvent event) {
+        creepyDollId.setImage(null);
+        player.addItem(creepyDoll);
+        if (player.hasQuest(Twin2Quest)) {
+            menuController.SpeechText("You found the last born twin's creepy doll! Now you can safely deliver it to her.");
+        } else {menuController.SpeechText("Congrats you found a creepy doll");
+        }
+}
 }

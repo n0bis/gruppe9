@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.scissorItem;
 
 /**
  * FXML Controller class
@@ -33,6 +35,10 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
     private ImageView arrowUpId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView lockedTape;
+    
+    public boolean isLocked = true;
 
     /**
      * Initializes the controller class.
@@ -51,12 +57,22 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
+        if(!isLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
+        }
     }
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44");
+    }
+
+    @FXML
+    private void lockedTapeClicked(MouseEvent event) {
+        if(player.hasItem(scissorItem)) {
+            anchorId.getChildren().remove(lockedTape);
+            isLocked = false;
+        }
     }
     
 }

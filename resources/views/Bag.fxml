@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
@@ -19,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
+<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
    <children>
       <ImageView fx:id="bagId" fitHeight="484.0" fitWidth="737.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
@@ -28,7 +27,7 @@
          <image>
             <Image url="@../images/burlap.jpg" />
          </image></ImageView>
-      <Text fill="WHITE" layoutX="109.0" layoutY="90.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
+      <Text fill="WHITE" layoutX="122.0" layoutY="90.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
          <font>
             <Font name="Savoye LET Plain:1.0" size="82.0" />
          </font>
@@ -85,6 +84,22 @@
          <image>
             <Image url="@../images/items/studentid.png" />
          </image>
+      </ImageView>
+      <ImageView fx:id="creepydollId" fitHeight="132.0" fitWidth="216.0" layoutX="324.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/creepyDoll.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="creepybearId" fitHeight="113.0" fitWidth="102.0" layoutX="512.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/Bamse.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>
