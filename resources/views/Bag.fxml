@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.effect.ColorAdjust?>
@@ -19,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
+<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BagController">
    <children>
       <ImageView fx:id="bagId" fitHeight="484.0" fitWidth="737.0" pickOnBounds="true" preserveRatio="true">
          <viewport>
@@ -28,12 +20,12 @@
          <image>
             <Image url="@../images/burlap.jpg" />
          </image></ImageView>
-      <Text fill="WHITE" layoutX="109.0" layoutY="90.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
+      <Text fill="WHITE" layoutX="122.0" layoutY="90.0" stroke="WHITE" strokeWidth="0.0" text="Items" textAlignment="CENTER" wrappingWidth="427.21875">
          <font>
             <Font name="Savoye LET Plain:1.0" size="82.0" />
          </font>
       </Text>
-      <ImageView fx:id="bookId" fitHeight="117.0" fitWidth="165.0" layoutX="450.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bookId" fitHeight="69.0" fitWidth="131.0" layoutX="220.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/book.png" />
          </image>
@@ -41,14 +33,14 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="fangsId" fitHeight="117.0" fitWidth="165.0" layoutX="230.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="fangsId" fitHeight="73.0" fitWidth="131.0" layoutX="205.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/teeth.png" />
          </image>
          <effect>
             <ColorAdjust contrast="-1.0" />
          </effect></ImageView>
-      <ImageView fx:id="toiletpaperId" fitHeight="117.0" fitWidth="165.0" layoutX="440.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="toiletpaperId" fitHeight="77.0" fitWidth="102.0" layoutX="381.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/toiletpaper.png" />
          </image>
@@ -62,7 +54,7 @@
             <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
-      <ImageView fx:id="coinId" fitHeight="97.0" fitWidth="80.0" layoutX="80.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coinId" fitHeight="97.0" fitWidth="80.0" layoutX="516.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/Coin.png" />
          </image>
@@ -70,7 +62,7 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="coffeedrinkId" fitHeight="150.0" fitWidth="200.0" layoutX="234.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coffeedrinkId" fitHeight="113.0" fitWidth="131.0" layoutX="28.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/CoffeeDrink.png" />
          </image>
@@ -78,13 +70,29 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="studyCardId" fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="studyCardId" fitHeight="56.0" fitWidth="177.0" layoutX="20.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <ColorAdjust contrast="-1.0" />
          </effect>
          <image>
             <Image url="@../images/items/studentid.png" />
          </image>
+      </ImageView>
+      <ImageView fx:id="creepydollId" fitHeight="132.0" fitWidth="216.0" layoutX="324.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/creepyDoll.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
+      <ImageView fx:id="creepybearId" fitHeight="113.0" fitWidth="102.0" layoutX="512.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/Bamse.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>
