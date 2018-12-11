@@ -56,7 +56,7 @@ public class TorvetController extends MenuControllerInjection implements Initial
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall5");
+        FadeAnimation.fadeOutTransition(anchorId, "entranceToTorvet");
     }
     
 }
