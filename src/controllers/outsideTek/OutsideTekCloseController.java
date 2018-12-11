@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.studyCard;
 
 /**
  * FXML Controller class
@@ -44,7 +46,12 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     private void ArrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        if (!player.hasItem(studyCard)) {
+            menuController.SpeechText("You can't enter the University Of Southern because you don't have a student card. Come back when you get your student card");
+        } else { 
+            menuController.SpeechText("You may now enter the University Of Southern. Enjoy your time!");
+            FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+    }
     }
 
     @FXML
@@ -52,3 +59,4 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar"); 
     }
 }
+
