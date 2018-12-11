@@ -6,6 +6,7 @@
 package missions;
 
 import static world.Game.Bookie;
+import static world.Game.CreepyDoll;
 import static world.Game.teeth;
 import static world.Game.TeddyBear;
 
@@ -19,4 +20,6 @@ public class QuestList {
     
     public static Quest Twin1Quest = new Quest("Find my teddy bear!", "Find teddy bear", "You still need to find my teddy bear!", "The quest is "
             + "done", null, TeddyBear);
+    public static Quest Twin2Quest = new Quest("Find my teddy bear!", "Find teddy bear", "You still need to find my teddy bear!", "The quest is "
+            + "done", null, CreepyDoll);
 }

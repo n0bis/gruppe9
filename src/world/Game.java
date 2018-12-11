@@ -48,6 +48,7 @@ public class Game
     public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Item coin = new Item("Coin",6);
     public static Item TeddyBear = new Item("Teddy bear",10);
+    public static Item CreepyDoll = new Item("Creepy doll",11);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");

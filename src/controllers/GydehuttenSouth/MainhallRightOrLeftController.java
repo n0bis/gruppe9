@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.Twin1Quest;
+import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
 import static world.Game.TeddyBear;
 import static world.Game.player;
@@ -68,10 +69,14 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
-        if (Twin1Quest.isQuestDone() == true) {
+        if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
+        } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("Help my twin sister find her doll!");
+        } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("Find my teddy bear!");
         } else {
-            menuController.SpeechText(Twin1Quest.getQuestInProgress());
+            menuController.SpeechText("You shall not pass!");
         }
     }    
     
