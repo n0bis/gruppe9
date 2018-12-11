@@ -48,13 +48,13 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
     }    
 
     @FXML
-    private void arrowUpClicked2(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
+    public void arrowUpClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
     }
 
     @FXML
-    public void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
+    public void arrowUpClicked2(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
     }
 
     @FXML

@@ -11,7 +11,7 @@
             <Image url="@../images/towardsMainhalll.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="447.0" layoutY="283.0" onMouseClicked="#arrowForwardClicked" pickOnBounds="true" preserveRatio="true" rotate="17.4">
+      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="447.0" layoutY="283.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="17.4">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>

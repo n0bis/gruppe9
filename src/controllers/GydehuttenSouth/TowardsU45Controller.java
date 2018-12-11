@@ -6,6 +6,7 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -23,7 +24,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class TowardsU45Controller extends MenuControllerInjection implements Initializable, IPlaySound {
+public class TowardsU45Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -47,23 +48,28 @@ public class TowardsU45Controller extends MenuControllerInjection implements Ini
     }    
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
     }
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "U45");
     }
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsToilets");
     }
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper("/sounds/hallnoise.mp3");
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowUpClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -50,7 +50,7 @@ public class NotMainhall2Controller extends MenuControllerInjection implements I
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
         
     }

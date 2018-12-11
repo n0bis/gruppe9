@@ -6,6 +6,8 @@
 package controllers.mainEntrance;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,9 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
-
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.coffeeDrink;
 import static world.Game.coin;
 import static world.Game.player;
@@ -27,7 +28,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class CoffeeController extends MenuControllerInjection implements Initializable {
+public class CoffeeController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -54,14 +55,15 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "torvet2");
     }
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "torvet");
     }
+    
     @FXML
     private void coffeeDrinkClicked(MouseEvent event) {  
         if (player.hasItem(coin)) {
@@ -75,6 +77,21 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         if (player.getInventory().contains(coffeeDrink)) {
             player.getInventory().remove(coin); 
         }
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowUpClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowBackClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
         

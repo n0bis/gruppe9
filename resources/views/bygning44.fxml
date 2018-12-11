@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,12 +14,12 @@
             <Image url="@../images/bygning-44.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="426.0" layoutY="250.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="26.1">
+      <ImageView fx:id="arrowUpId" fitHeight="100.0" fitWidth="160.0" layoutX="426.0" layoutY="250.0" onMouseClicked="#arrowUpClicked2" pickOnBounds="true" preserveRatio="true" rotate="26.1">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowUpId1" fitHeight="100.0" fitWidth="160.0" layoutX="714.0" layoutY="239.0" onMouseClicked="#arrowUpClicked2" pickOnBounds="true" preserveRatio="true" rotate="19.2">
+      <ImageView fx:id="arrowUpId1" fitHeight="100.0" fitWidth="160.0" layoutX="714.0" layoutY="239.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="19.2">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>

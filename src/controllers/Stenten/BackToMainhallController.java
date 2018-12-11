@@ -45,7 +45,7 @@ public class BackToMainhallController extends MenuControllerInjection implements
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         if(!game.isStentenLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
         } else {

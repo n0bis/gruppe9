@@ -72,7 +72,7 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper("/sounds/hallnoise.mp3");
+        return new SoundMapper("/sounds/spooky.mp3");
     }
 
     @FXML

@@ -67,7 +67,7 @@ public class EntranceU1Controller extends MenuControllerInjection implements Ini
     }
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         menuController.SpeechText("Hahaa cannot entere here, you fool");
     }
 

@@ -43,7 +43,7 @@ public class TowardsU1Controller extends MenuControllerInjection implements Init
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall");
         
     }

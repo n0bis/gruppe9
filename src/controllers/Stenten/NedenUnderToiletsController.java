@@ -41,7 +41,7 @@ public class NedenUnderToiletsController extends MenuControllerInjection impleme
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "stairsTowardsNedenUnder");
     }
     

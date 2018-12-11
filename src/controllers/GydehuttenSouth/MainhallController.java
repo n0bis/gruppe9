@@ -6,6 +6,7 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -27,7 +28,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class MainhallController extends MenuControllerInjection implements Initializable, IPlaySound {
+public class MainhallController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -56,22 +57,22 @@ public class MainhallController extends MenuControllerInjection implements Initi
     }    
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "modU140");
     }
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall3");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
     }
     
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
         } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
@@ -100,7 +101,7 @@ public class MainhallController extends MenuControllerInjection implements Initi
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper("/sounds/hallnoise.mp3");
+        return new SoundMapper("/sounds/spooky.mp3");
     }
     
 }

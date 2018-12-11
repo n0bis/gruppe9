@@ -17,7 +17,7 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="785.0" layoutY="315.0" onMouseClicked="#arrowForwardClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="785.0" layoutY="315.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>
