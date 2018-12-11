@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 
 <AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.GydehuttenSouth.BossFightController">
    <children>
@@ -14,7 +16,7 @@
             <Image url="@../images/bossfight.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="350.0" layoutY="67.0" onMouseClicked="#arrowForwardClicked" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="518.0" layoutY="95.0" onMouseClicked="#arrowForwardClicked" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>
@@ -24,5 +26,12 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
+       <ImageView fx:id="bossId" fitHeight="200.0" fitWidth="200.0" layoutX="139.0" layoutY="30.0" onMouseClicked="#bossClicked">
+         <image>
+            <Image url="@../images/NPC/sackmonster.png" />
+         </image>
+      </ImageView>
+      <ImageView id="themeIconView" fx:id="themeIconView" fitHeight="100.0" fitWidth="100.0" layoutX="323.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+      <Line fx:id="bossHitbox" endX="250.0" endY="154.0" mouseTransparent="true" startX="445.0" startY="600.0" stroke="TRANSPARENT" />
    </children>
 </AnchorPane>
