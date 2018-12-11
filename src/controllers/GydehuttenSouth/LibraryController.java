@@ -5,8 +5,6 @@
  */
 package controllers.GydehuttenSouth;
 
-
-import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,20 +17,14 @@ import utils.FadeAnimation;
 /**
  * FXML Controller class
  *
- * @author morte
+ * @author madsfalken
  */
-public class MainhallController extends MenuControllerInjection implements Initializable {
+public class LibraryController implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
     @FXML
     private ImageView backgroundId;
-    @FXML
-    private ImageView arrowLeftId;
-    @FXML
-    private ImageView arrowRightId;
-    @FXML
-    private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
 
@@ -43,27 +35,11 @@ public class MainhallController extends MenuControllerInjection implements Initi
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
-        // TODO
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
-    }
-
-    @FXML
-    private void arrowRightClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "modU140");
-    }
-
-    @FXML
-    private void arrowForwardClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall3");
-    }
-
-    @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
+        FadeAnimation.fadeOutTransition(anchorId, "LibraryEntrance");
     }
     
 }
