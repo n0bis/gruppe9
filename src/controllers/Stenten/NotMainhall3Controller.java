@@ -63,7 +63,7 @@ public class NotMainhall3Controller extends MenuControllerInjection implements I
 
     @Override
     public SoundMapper mapSound() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new SoundMapper("/sounds/spooky.mp3");
     }
 
     @Override
