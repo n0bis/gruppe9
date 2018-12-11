@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controllers.GydehuttenNorth;
-
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,4 +64,3 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
         }
         }
     }
-

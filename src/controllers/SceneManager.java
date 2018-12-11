@@ -61,8 +61,8 @@ public final class SceneManager {
         node.setOpacity(1);
         main.setCenter(node);
         if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
-        MenuControllerInjection controller = getController();
-        controller.injectCoffee();
+            MenuControllerInjection controller = getController();
+            controller.injectCoffee();
         }
     }
     public static BorderPane getMain() {

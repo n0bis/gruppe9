@@ -106,6 +106,13 @@ public class StartGame extends Application {
         sceneManager.addScene("mainhall3", menuController);
         sceneManager.addScene("mainhall4", menuController);
         sceneManager.addScene("mainhall5", menuController);
+        sceneManager.addScene("mainhall6", menuController);
+        sceneManager.addScene("mainhall7", menuController);
+        sceneManager.addScene("Library", menuController);
+        sceneManager.addScene("LibraryEntrance", menuController);
+        sceneManager.addScene("fitnessstairs", menuController);
+        sceneManager.addScene("bossEntrance", menuController);
+        sceneManager.addScene("bossFight", menuController);
         sceneManager.addScene("U45", menuController);
         sceneManager.addScene("towardsToilets", menuController);
         sceneManager.addScene("toilets", menuController);
@@ -138,7 +145,7 @@ public class StartGame extends Application {
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
-        SceneManager.activate("outsideTekFar");
+        SceneManager.activate("torvet");
         //SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
