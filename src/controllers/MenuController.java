@@ -98,7 +98,7 @@ public class MenuController implements Initializable {
         Parent root = loader.load();
         
         player.getInventory().forEach((item) -> {
-            ImageView itemImg = (ImageView)loader.getNamespace().get(item.getName().toLowerCase() + "Id");
+            ImageView itemImg = (ImageView)loader.getNamespace().get(item.getName().replaceAll("\\s","").toLowerCase() + "Id");
             if (itemImg == null) return;
             itemImg.setEffect(null);
         });

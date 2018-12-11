@@ -36,6 +36,8 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     private ImageView arrowRightId;
     @FXML
     private ImageView arrowDownId;
+    @FXML
+    private ImageView arrowUp;
 
     /**
      * Initializes the controller class.
@@ -62,13 +64,13 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
     }
 
+    @FXML
+    public void arrowUpClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
+    }
+    
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/hallnoise.mp3");
     }
-
-    @Override
-    public void arrowUpClicked(MouseEvent event) {
-    }
-    
 }
