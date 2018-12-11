@@ -54,5 +54,8 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     private void creepyDollClicked(MouseEvent event) {
         creepyDollId.setImage(null);
         player.addItem(creepyDoll);
+        if (player.hasItem(creepyDoll)) {
+            menuController.SpeechText("You found the last born twin's creepy doll! Now you can safely deliver it to her.");
+        }
     }
 }

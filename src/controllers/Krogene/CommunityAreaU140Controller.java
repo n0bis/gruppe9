@@ -61,6 +61,9 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     private void creepyBearClicked(MouseEvent event) {
         creepyBearId.setImage(null);
         player.addItem(creepyBear);
+        if (player.hasItem(creepyBear)) {
+            menuController.SpeechText("You found the first born twin's creepy bear! Now you can safely deliver it to her.");
+        }
 }
 }
 
