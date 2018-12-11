@@ -9,6 +9,7 @@ package controllers.building44;
 import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
+import static controllers.building44.U183Controller.talkedToPolice;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -82,7 +83,7 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
     
     @FXML
     private void lockedTapeClicked(MouseEvent event) {
-        if(player.hasItem(scissorItem)) {
+        if(player.hasItem(scissorItem) && talkedToPolice) {
             anchorId.getChildren().remove(lockedTape);
             isLocked = false;
         }

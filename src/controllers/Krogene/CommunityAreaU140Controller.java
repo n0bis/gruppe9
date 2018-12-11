@@ -48,7 +48,7 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
-        creepyBearId.setImage(new Image(getClass().getResourceAsStream("/images/items/bamse.png")));
+        creepyBearId.setImage(new Image(getClass().getResourceAsStream("/images/items/Bamse.png")));
         // TODO
     }    
 

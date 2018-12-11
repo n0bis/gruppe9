@@ -32,6 +32,10 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView police;
+    
+    public static boolean talkedToPolice = false;
 
     /**
      * Initializes the controller class.
@@ -67,6 +71,12 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     @Override
     public void arrowLeftClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @FXML
+    private void policeClicked(MouseEvent event) {
+        menuController.SpeechText("Alright punk, cut the tape and check out the rest of the university. But I can't guarantee for your safety");
+        talkedToPolice = true;
     }
     
 }
