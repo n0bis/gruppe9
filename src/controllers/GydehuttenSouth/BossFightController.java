@@ -115,8 +115,6 @@ public class BossFightController extends MenuControllerInjection implements Init
     @FXML
     private void bossClicked(MouseEvent event) {
     bossEncounter();
-    menuController.unlockSpellBook();
-    player.addItem(fireball);
     
     }    
 }
