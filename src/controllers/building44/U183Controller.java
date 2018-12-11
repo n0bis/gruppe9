@@ -29,6 +29,10 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView police;
+    
+    public static boolean talkedToPolice = false;
 
     /**
      * Initializes the controller class.
@@ -43,6 +47,13 @@ public class U183Controller extends MenuControllerInjection implements Initializ
     @FXML
     private void arrowBackId(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU183");
+    }
+
+    @FXML
+    private void policeClicked(MouseEvent event) {
+        menuController.SpeechText("Alright punk, cut the tape and check out the rest of the university. But I can't guarantee for your safety");
+        talkedToPolice = true;
+        
     }
     
 }
