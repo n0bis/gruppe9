@@ -14,7 +14,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.doctorQuest;
 import utils.FadeAnimation;
+import world.Game;
+import static world.Game.boneone;
+import static world.Game.bonethree;
+import static world.Game.bonetwo;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -33,6 +39,12 @@ public class EntranceU1Controller extends MenuControllerInjection implements Ini
     private ImageView arrowBackId2;
     @FXML
     private ImageView arrowForwardId;
+    @FXML
+    private ImageView bone1;
+    @FXML
+    private ImageView doctor;
+    
+    Game game = new Game();
 
     /**
      * Initializes the controller class.
@@ -57,6 +69,28 @@ public class EntranceU1Controller extends MenuControllerInjection implements Ini
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
         menuController.SpeechText("Hahaa cannot entere here, you fool");
+    }
+
+    @FXML
+    private void boneClicked(MouseEvent event) {
+       player.addItem(boneone);
+       anchorId.getChildren().remove(bone1);
+    }
+
+    @FXML
+    private void doctorClicked(MouseEvent event) {
+        if(!player.hasQuest(doctorQuest) && !doctorQuest.isQuestDone()) {
+            menuController.SpeechText(doctorQuest.getQuestDescription());
+            player.addQuest(doctorQuest);
+        } else if(doctorQuest.isQuestDone()) {
+            menuController.SpeechText(doctorQuest.getQuestDone());
+        } else if(player.hasQuest(doctorQuest) && player.hasItem(boneone) && player.hasItem(bonetwo) && player.hasItem(bonethree)) {
+            menuController.SpeechText(doctorQuest.getQuestDone());
+            doctorQuest.setIsQuestDone(true);
+            game.isStentenLocked = false;
+        } else {
+            menuController.SpeechText(doctorQuest.getQuestInProgress());
+        } 
     }
     
 }
