@@ -146,6 +146,8 @@ public class StartGame extends Application {
         TimerScore.startTimer();
         
         SceneManager.activate("towardsU1");
+
+        SceneManager.activate("torvet");
         //SceneManager.activate("WorldOfZuulGUI");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
