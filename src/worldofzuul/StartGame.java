@@ -106,6 +106,9 @@ public class StartGame extends Application {
         sceneManager.addScene("mainhall3", menuController);
         sceneManager.addScene("mainhall4", menuController);
         sceneManager.addScene("mainhall5", menuController);
+        sceneManager.addScene("mainhall6", menuController);
+        sceneManager.addScene("Library", menuController);
+        sceneManager.addScene("LibraryEntrance", menuController);
         sceneManager.addScene("U45", menuController);
         sceneManager.addScene("towardsToilets", menuController);
         sceneManager.addScene("toilets", menuController);
