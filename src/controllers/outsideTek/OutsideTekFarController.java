@@ -164,6 +164,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     
     @FXML
     private void studyCardClicked(MouseEvent event) {
+        player.addItem(studyCard);
         studyCardId.setImage(null);
     }
 }
