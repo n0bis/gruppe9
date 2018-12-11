@@ -13,11 +13,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
 import utils.SoundMapper;
+import static world.Game.player;
+import static world.Game.toiletpaper;
 
 /**
  * FXML Controller class
@@ -32,6 +35,8 @@ public class ToiletsController extends MenuControllerInjection implements Initia
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView toiletpaperId;
 
     /**
      * Initializes the controller class.
@@ -40,6 +45,7 @@ public class ToiletsController extends MenuControllerInjection implements Initia
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/items/toiletpaper.png")));
         // TODO
     }    
 
@@ -47,7 +53,7 @@ public class ToiletsController extends MenuControllerInjection implements Initia
     public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsToilets");
     }
-
+    
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/flush.mp3");
@@ -66,6 +72,12 @@ public class ToiletsController extends MenuControllerInjection implements Initia
     @Override
     public void arrowLeftClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    }
+    @FXML
+    private void toiletpaperClicked(MouseEvent event) {
+        toiletpaperId.setImage(null);
+        player.addItem(toiletpaper);
     }
     
 }

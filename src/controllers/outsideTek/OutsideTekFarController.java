@@ -27,6 +27,7 @@ import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.stage1RequiredItem;
 import static world.Game.stage2RequiredItem;
+import static world.Game.studyCard;
 import worldofzuul.StartGame;
 
 /**
@@ -57,6 +58,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private ImageView themeIconView;
     @FXML
     public Line bossHitbox;
+    @FXML 
+    private ImageView studyCardId;
 
     /**
      * Initializes the controller class.
@@ -66,7 +69,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
-        // TODO
+        studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
         
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
@@ -133,6 +136,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        
     }
 
     @FXML
@@ -155,5 +159,11 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
 
     @Override
     public void arrowLeftClicked(MouseEvent event) {
+    
+    }
+    
+    @FXML
+    private void studyCardClicked(MouseEvent event) {
+        studyCardId.setImage(null);
     }
 }

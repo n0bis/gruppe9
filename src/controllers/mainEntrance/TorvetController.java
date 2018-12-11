@@ -9,6 +9,7 @@ package controllers.mainEntrance;
 import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
+import static controllers.QuizController.isQuizTime;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -45,6 +46,7 @@ public class TorvetController extends MenuControllerInjection implements Initial
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
+        isQuizTime();
     }    
 
     @FXML
@@ -57,6 +59,8 @@ public class TorvetController extends MenuControllerInjection implements Initial
         FadeAnimation.fadeOutTransition(anchorId, "Coffee");
     }
 
+    
+    
     @FXML
     public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "entranceToTorvet");

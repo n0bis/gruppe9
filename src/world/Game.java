@@ -47,15 +47,15 @@ public class Game
     public static FinalBoss boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
     public static Item toiletpaper = new Item("Toiletpaper", 7);
     public static Item coin = new Item("Coin",6);
+    public static Item coffeeDrink = new Item("Coffee drink",24);
     public static Item creepyBear = new Item("Creepy bear", 24);
     public static Item creepyDoll = new Item("Creepy Doll", 25);
-    public static Item coffeeDrink = new Item("Coffee drink",24);
     public static Item boneone = new Item("Bone1", 12);
     public static Item bonetwo = new Item("Bone2", 13);
     public static Item bonethree = new Item("Bone3", 14);
     public static boolean isStentenLocked = true;
     public static Item scissorItem = new Item("Scissor", 34);
-  
+ 
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
     

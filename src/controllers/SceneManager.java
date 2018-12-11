@@ -56,7 +56,6 @@ public final class SceneManager {
     }
     
     public static void activate(String name) {
-        System.out.println(name);
         currentScene = name;
         Pane node = sceneMap.get(name).getPane();
         // Epic hack for resetting transition animation

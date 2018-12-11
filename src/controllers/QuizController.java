@@ -17,7 +17,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -46,14 +48,16 @@ public class QuizController extends TimerTask implements Initializable {
     private Label labelTitle;
     @FXML
     private TextArea smsTextbox;
-    @FXML
     private Button leftAnswer;
-    @FXML
     private Button rightAnswer;
     @FXML
     private Button closeButton;
     @FXML
     private AnchorPane rootId;
+    @FXML
+    private TextField writtenText;
+    @FXML
+    private Button sendButton;
 
     /**
      * Initializes the controller class.
@@ -66,33 +70,28 @@ public class QuizController extends TimerTask implements Initializable {
     }    
 
     @FXML
-    private void leftAnswerClicked(MouseEvent event) {
-        smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U55." + "\n\n" +
-                "Nå, det var forkert venni. Thanks for nothing.");
-        rightAnswer.setOpacity(0);
-        leftAnswer.setOpacity(0);
-        closeButton.setOpacity(1);
-        firstRoom.setIsChecked(true);  
-    }
-
-    @FXML
-    private void rightAnswerClicked(MouseEvent event) {
-        smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U45." + "\n\n" +
-                "Det var rigtigt!");
-        rightAnswer.setOpacity(0);
-        leftAnswer.setOpacity(0);
-        closeButton.setOpacity(1);
-        firstRoom.setIsChecked(true);
-    }
-
-    @FXML
     private void closeButtonClicked(MouseEvent event) {
         if(closeButton.getOpacity() == 0.0) {
             return;
         }     
         SceneManager.getMain().getChildren().removeAll(rootId, flowPane, labelTitle, smsTextbox, leftAnswer, rightAnswer, closeButton);
     }
-
+    
+    @FXML
+    private void sendMessage(MouseEvent event) {
+        String answer = writtenText.getText();
+        if (answer.equals("u45") || answer.equals("U45")) {
+            smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U45." + "\n\n" + "Det var rigtigt!");
+            sendButton.setOpacity(0);
+            closeButton.setOpacity(1);
+            firstRoom.setIsChecked(true);
+        } else {
+            smsTextbox.appendText("\n\n" + "Dig: Jeg tror det er U55." + "\n\n" + "Nå, det var forkert venni. Thanks for nothing.");
+            sendButton.setOpacity(0);
+            closeButton.setOpacity(1);
+            firstRoom.setIsChecked(true);  
+        }
+    }
     @Override
     public void run() {
         Platform.runLater(() -> {
@@ -123,5 +122,7 @@ public class QuizController extends TimerTask implements Initializable {
             }
         });
     }
+
+
     
 }
