@@ -3,7 +3,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +31,7 @@
          </image>
       </ImageView>
       <ImageView id="themeIconView" fx:id="themeIconView" fitHeight="100.0" fitWidth="100.0" layoutX="323.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView id="itemStudentId" fx:id="studyCardId" fitHeight="30.0" fitWidth="75.0" layoutX="643.0" layoutY="502.0" onMouseClicked="#studyCardClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="studyCardId" fitHeight="30.0" fitWidth="75.0" layoutX="643.0" layoutY="502.0" onMouseClicked="#studyCardClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
          <image>
             <Image url="@../images/items/studentid.png" />
          </image>

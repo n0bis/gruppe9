@@ -69,8 +69,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
         
-// TODO
-        
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
         player.addItem(spellBook);
@@ -135,13 +133,13 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     @FXML
     private void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        
     }
 
     @FXML
     private void bossClicked(MouseEvent event) {
         bossEncounter();
     }
-    
     @FXML
     private void studyCardClicked(MouseEvent event) {
         studyCardId.setImage(null);

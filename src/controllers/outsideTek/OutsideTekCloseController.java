@@ -46,17 +46,21 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     private void ArrowUpClicked(MouseEvent event) {
-            if (player.hasItem(studyCard))
-                FadeAnimation.fadeOutTransition(anchorId, "tekHall");
-            else {
-                    menuController.SpeechText("You need to pick up the studycard from earlier to enter the University Of Southern");
-                        }
-            }
+        if (player.hasItem(studyCard))
+            FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        else {
+            menuController.SpeechText("You need to pick up the studycard from earlier to enter the University Of Southern");
+        }
+        if (!player.hasItem(studyCard)) {
+            menuController.SpeechText("You can't enter the University Of Southern because you don't have a student card. Come back when you get your student card");
+        } else { 
+            menuController.SpeechText("You may now enter the University Of Southern. Enjoy your time!");
+            FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        }
+    }
+
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar"); 
     }
 }
-
-
-    
