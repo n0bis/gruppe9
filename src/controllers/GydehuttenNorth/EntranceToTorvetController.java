@@ -10,10 +10,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.coin;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -30,6 +33,8 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
     private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView coinId;
 
     /**
      * Initializes the controller class.
@@ -38,6 +43,7 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        coinId.setImage(new Image(getClass().getResourceAsStream("/images/items/Coin.png")));
         // TODO
     }    
 
@@ -50,5 +56,13 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall5");
     }
-    
-}
+    @FXML
+    private void coinClicked(MouseEvent event) {
+        coinId.setImage(null);
+        player.addItem(coin); 
+        if (player.hasItem(coin)) {
+            menuController.SpeechText("You can now buy yourself a coffee from the vending machine down the corridor");    
+        }
+        }
+    }
+
