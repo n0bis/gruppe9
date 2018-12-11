@@ -20,6 +20,7 @@ import utils.FadeAnimation;
 import utils.SoundMapper;
 import static world.Game.player;
 import static world.Game.studyCard;
+import static worldofzuul.StartGame.playerName;
 
 /**
  * FXML Controller class
@@ -49,9 +50,10 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
-        if (player.hasItem(studyCard))
+        if (player.hasItem(studyCard)) {
             FadeAnimation.fadeOutTransition(anchorId, "tekHall");
-        else {
+            menuController.SpeechText("Welcome " + playerName + " to the University of Southern Denmark!");
+        } else {
             menuController.SpeechText("You need to pick up the studycard from earlier to enter the University Of Southern");
         }
     }
