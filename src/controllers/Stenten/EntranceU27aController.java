@@ -6,6 +6,8 @@
 package controllers.Stenten;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.boneone;
 import static world.Game.bonetwo;
 import static world.Game.player;
@@ -24,7 +27,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class EntranceU27aController extends MenuControllerInjection implements Initializable {
+public class EntranceU27aController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -46,7 +49,7 @@ public class EntranceU27aController extends MenuControllerInjection implements I
     }    
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
     }
 
@@ -54,6 +57,26 @@ public class EntranceU27aController extends MenuControllerInjection implements I
     private void boneClicked(MouseEvent event) {
         player.addItem(bonetwo);
         anchorId.getChildren().remove(bone2);
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowUpClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -6,6 +6,8 @@
 package controllers.outsideTek;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.player;
 import static world.Game.studyCard;
 
@@ -23,7 +26,7 @@ import static world.Game.studyCard;
  *
  * @author morte
  */
-public class OutsideTekCloseController extends MenuControllerInjection implements Initializable {
+public class OutsideTekCloseController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -45,18 +48,36 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     }    
 
     @FXML
-    private void ArrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        if (player.hasItem(studyCard))
+            FadeAnimation.fadeOutTransition(anchorId, "tekHall");
+        else {
+            menuController.SpeechText("You need to pick up the studycard from earlier to enter the University Of Southern");
+        }
         if (!player.hasItem(studyCard)) {
             menuController.SpeechText("You can't enter the University Of Southern because you don't have a student card. Come back when you get your student card");
         } else { 
             menuController.SpeechText("You may now enter the University Of Southern. Enjoy your time!");
             FadeAnimation.fadeOutTransition(anchorId, "tekHall");
-    }
+        }
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar"); 
+    public void arrowBackClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/wind.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
     }
 }
-

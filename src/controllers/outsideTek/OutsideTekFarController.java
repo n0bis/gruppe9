@@ -6,6 +6,8 @@
 package controllers.outsideTek;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +17,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import utils.SoundMapper;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import utils.FadeAnimation;
 import static world.Game.Bookie;
 import static world.Game.boss;
@@ -33,8 +35,8 @@ import worldofzuul.StartGame;
  *
  * @author morte
  */
-public class OutsideTekFarController extends MenuControllerInjection implements Initializable {
-
+public class OutsideTekFarController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+    
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
     private final Image dead = new Image(getClass().getResourceAsStream("/images/dead.png"));
@@ -56,8 +58,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private ImageView themeIconView;
     @FXML
     public Line bossHitbox;
-    @FXML
-    public ImageView studyCardId;
+    @FXML 
+    private ImageView studyCardId;
 
     /**
      * Initializes the controller class.
@@ -68,7 +70,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
-        // TODO
         
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
@@ -123,6 +124,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     
     @FXML
     private void pickupBook(MouseEvent event) {
+        menuController.playSound("/sounds/cloth-inventory.wav");
         book.setImage(null);
         //Add item to inventory
         player.addItem(Bookie);
@@ -132,7 +134,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     }
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
         
     }
@@ -141,10 +143,27 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void bossClicked(MouseEvent event) {
         bossEncounter();
     }
+    
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/wind.mp3");
+    }
+
+    @Override
+    public void arrowBackClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+    
+    }
+    
     @FXML
     private void studyCardClicked(MouseEvent event) {
         studyCardId.setImage(null);
-        player.addItem(studyCard);
-    
     }
 }

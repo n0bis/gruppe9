@@ -6,7 +6,10 @@
 package controllers.building44;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
+import static controllers.building44.U183Controller.talkedToPolice;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.player;
 import static world.Game.scissorItem;
 
@@ -23,7 +27,7 @@ import static world.Game.scissorItem;
  *
  * @author morte
  */
-public class Bygning44TowardsLvl1Controller extends MenuControllerInjection implements Initializable {
+public class Bygning44TowardsLvl1Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -51,25 +55,35 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl1");
     }
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         if(!isLocked) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
+            FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall2");
         }
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44");
     }
 
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper(0.6, "/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @FXML
     private void lockedTapeClicked(MouseEvent event) {
-        if(player.hasItem(scissorItem)) {
+        if(player.hasItem(scissorItem) && talkedToPolice) {
             anchorId.getChildren().remove(lockedTape);
             isLocked = false;
         }
