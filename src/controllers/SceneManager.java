@@ -10,6 +10,7 @@ import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import utils.SoundMapper;
 import static world.Game.coffeeDrink;
 import static world.Game.player;
 
@@ -59,6 +60,12 @@ public final class SceneManager {
         Pane node = sceneMap.get(name).getPane();
         // Epic hack for resetting transition animation
         node.setOpacity(1);
+        if (IPlaySound.class.isAssignableFrom(getController().getClass())) {
+            SoundMapper source = ((IPlaySound)getController()).mapSound();
+            ((MenuControllerInjection)getController()).playSound(source);
+        } else {
+            ((MenuControllerInjection)getController()).destroyPlayer();
+        }
         main.setCenter(node);
         if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
             MenuControllerInjection controller = getController();

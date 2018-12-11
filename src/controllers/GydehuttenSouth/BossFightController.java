@@ -5,6 +5,8 @@
  */
 package controllers.GydehuttenSouth;
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import utils.FadeAnimation;
-import static world.Game.Bookie;
+import utils.SoundMapper;
 import static world.Game.boss;
 import static world.Game.fireball;
 import static world.Game.player;
@@ -27,7 +29,7 @@ import static world.Game.spellBook;
  *
  * @author madsfalken
  */
-public class BossFightController extends MenuControllerInjection implements Initializable {
+public class BossFightController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
@@ -103,18 +105,32 @@ public class BossFightController extends MenuControllerInjection implements Init
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "nedenUnder");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }
 
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @FXML
     private void bossClicked(MouseEvent event) {
-    bossEncounter();
-    
+        bossEncounter();
     }    
 }

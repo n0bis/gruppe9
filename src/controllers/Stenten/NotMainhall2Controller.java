@@ -6,6 +6,8 @@
 package controllers.Stenten;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.boneone;
 import static world.Game.bonethree;
 import static world.Game.player;
@@ -24,7 +27,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class NotMainhall2Controller extends MenuControllerInjection implements Initializable {
+public class NotMainhall2Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -50,18 +53,18 @@ public class NotMainhall2Controller extends MenuControllerInjection implements I
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
         
     }
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "stairsTowardsNedenUnder");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall");
     }
 
@@ -69,6 +72,16 @@ public class NotMainhall2Controller extends MenuControllerInjection implements I
     private void boneClicked(MouseEvent event) {
         player.addItem(bonethree);
         anchorId.getChildren().remove(bone3);
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

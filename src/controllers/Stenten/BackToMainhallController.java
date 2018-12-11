@@ -6,6 +6,8 @@
 package controllers.Stenten;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static worldofzuul.StartGame.game;
 
 /**
@@ -22,7 +25,7 @@ import static worldofzuul.StartGame.game;
  *
  * @author morte
  */
-public class BackToMainhallController extends MenuControllerInjection implements Initializable {
+public class BackToMainhallController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -45,7 +48,7 @@ public class BackToMainhallController extends MenuControllerInjection implements
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         if(!game.isStentenLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
         } else {
@@ -54,8 +57,23 @@ public class BackToMainhallController extends MenuControllerInjection implements
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall3");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

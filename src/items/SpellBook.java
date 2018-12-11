@@ -5,13 +5,13 @@
  */
 package items;
 
+import controllers.MenuController;
 import controllers.SceneManager;
 import controllers.GydehuttenSouth.BossFightController;
 import java.io.IOException;
 import java.util.*;
 import javafx.animation.Animation;
 import javafx.animation.PathTransition;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.shape.ClosePath;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import missions.Quest;
@@ -78,7 +74,7 @@ public class SpellBook extends Item {
         }
     }
     
-    public static void openSpellBook() throws IOException {
+    public static void openSpellBook(MenuController menuController) throws IOException {
         if (!player.hasItem(spellBook)) {
             return;
         }
@@ -125,6 +121,7 @@ public class SpellBook extends Item {
         });
         Rectangle rightSide = (Rectangle)loader.getNamespace().get("rightSide");
         rightSide.setOnMouseClicked((mouseEvent) -> {
+            menuController.playSound("/sounds/turn_page.wav");
             questPage.setVisible(true);
             questPage.setMouseTransparent(false);
             spellPage.setVisible(false);
@@ -132,6 +129,7 @@ public class SpellBook extends Item {
         });
         Rectangle leftSide = (Rectangle)loader.getNamespace().get("leftSide");
         leftSide.setOnMouseClicked((mouseEvent) -> {
+            menuController.playSound("/sounds/turn_page.wav");
             questPage.setVisible(false);
             questPage.setMouseTransparent(true);
             spellPage.setVisible(true);
@@ -141,12 +139,11 @@ public class SpellBook extends Item {
         SceneManager.getMain().getChildren().add(root);
     }
     
-    public static void castFireball() {
+    public static void castFireball(MenuController menuController) {
         if (loader == null || root == null) return;
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
             fireBallIcon.setImage(fireballIcon);
-            
             fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
                 if (boss.getStage() == 3 && SceneManager.getController() instanceof BossFightController) {
@@ -169,6 +166,7 @@ public class SpellBook extends Item {
                 fireballAnimation.setCycleCount(Animation.INDEFINITE);
                 fireballAnimation.play();
                 
+                menuController.playSound("/sounds/fireball.wav");
                 PathTransition transition = new PathTransition();
                 transition.setDuration(Duration.seconds(1.2));
                 if (SceneManager.getController() instanceof BossFightController) {
@@ -202,6 +200,11 @@ public class SpellBook extends Item {
                     );
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
+                    menuController.playSound("/sounds/explosion.wav");
+                    menuController.mediaPlayer.setOnEndOfMedia(() -> {
+                        menuController.playSound("/sounds/wow.mp3");
+                    });
+                    
                     explosionAnimation.setOnFinished((actionEvt) -> {
                         if (fireballActivate && SceneManager.getController() instanceof BossFightController) {
                             BossFightController c = SceneManager.getController();

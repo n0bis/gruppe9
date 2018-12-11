@@ -6,6 +6,8 @@
 package controllers.TEK;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +17,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class EntranceToStudyRoomsController extends MenuControllerInjection implements Initializable {
+public class EntranceToStudyRoomsController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -43,13 +46,28 @@ public class EntranceToStudyRoomsController extends MenuControllerInjection impl
     }    
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "studRooms");
     }
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "tekHallStairs");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper(0.1, "/sounds/stairs.mp3");
+    }
+
+    @Override
+    public void arrowBackClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -6,6 +6,8 @@
 package controllers.Krogene;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import static controllers.QuizController.isQuizTime;
 import java.net.URL;
@@ -18,6 +20,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.Twin1Quest;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.creepyBear;
 import static world.Game.player;
 
@@ -26,7 +29,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class CommunityAreaU140Controller extends MenuControllerInjection implements Initializable {
+public class CommunityAreaU140Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -50,14 +53,15 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "entranceU140");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "modU140");
     }
+    
     @FXML
     private void creepyBearClicked(MouseEvent event) {
         creepyBearId.setImage(null);
@@ -67,6 +71,21 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
         } else {menuController.SpeechText("Congrats you found a creepy bear");
         }
 }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
 
 

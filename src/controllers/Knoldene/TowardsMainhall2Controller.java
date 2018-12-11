@@ -6,6 +6,8 @@
 package controllers.Knoldene;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,13 +17,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 
 /**
  * FXML Controller class
  *
  * @author morte
  */
-public class TowardsMainhall2Controller extends MenuControllerInjection implements Initializable {
+public class TowardsMainhall2Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -43,13 +46,28 @@ public class TowardsMainhall2Controller extends MenuControllerInjection implemen
     }    
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper(0.8, "/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
