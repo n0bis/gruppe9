@@ -49,7 +49,6 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "tekHall");
         if (player.hasItem(studyCard))
             FadeAnimation.fadeOutTransition(anchorId, "tekHall");
         else {
