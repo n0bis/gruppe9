@@ -33,6 +33,8 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     private ImageView arrowRightId;
     @FXML
     private ImageView arrowDownId;
+    @FXML
+    private ImageView arrowUp;
 
     /**
      * Initializes the controller class.
@@ -57,6 +59,11 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     @FXML
     private void arrowDownClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
+    }
+
+    @FXML
+    private void arrowUpClicked(MouseEvent event) {
+        FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
     }
     
 }
