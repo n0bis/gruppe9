@@ -28,7 +28,7 @@
       </ImageView>
       <ImageView fx:id="skeletonId" fitHeight="280.0" fitWidth="196.0" layoutX="494.0" layoutY="204.0" onMouseClicked="#skeletonClicked" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/items/Skelet.png" />
+            <Image url="@../images/NPC/Skelet.png" />
          </image>
       </ImageView>
    </children>
