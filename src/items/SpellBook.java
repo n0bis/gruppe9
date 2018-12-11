@@ -139,7 +139,7 @@ public class SpellBook extends Item {
         SceneManager.getMain().getChildren().add(root);
     }
     
-    public static void castFireball(MenuController menuControler) {
+    public static void castFireball(MenuController menuController) {
         if (loader == null || root == null) return;
         if (player.hasItem(fireball)) {
             ImageView fireBallIcon = (ImageView)loader.getNamespace().get("fireBallId");
@@ -166,7 +166,7 @@ public class SpellBook extends Item {
                 fireballAnimation.setCycleCount(Animation.INDEFINITE);
                 fireballAnimation.play();
                 
-                menuControler.playSound("/sounds/fireball.wav");
+                menuController.playSound("/sounds/fireball.wav");
                 PathTransition transition = new PathTransition();
                 transition.setDuration(Duration.seconds(1.2));
                 if (SceneManager.getController() instanceof OutsideTekFarController) {
@@ -200,7 +200,11 @@ public class SpellBook extends Item {
                     );
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
-                    menuControler.playSound("/sounds/explosion.wav");
+                    menuController.playSound("/sounds/explosion.wav");
+                    menuController.mediaPlayer.setOnEndOfMedia(() -> {
+                        menuController.playSound("/sounds/wow.mp3");
+                    });
+                    
                     explosionAnimation.setOnFinished((actionEvt) -> {
                         if (fireballActivate && SceneManager.getController() instanceof OutsideTekFarController) {
                             OutsideTekFarController c = SceneManager.getController();
