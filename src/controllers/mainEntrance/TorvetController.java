@@ -9,7 +9,10 @@ package controllers.mainEntrance;
 import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
+import static controllers.QuizController.hasAnswered;
 import static controllers.QuizController.isQuizTime;
+import controllers.SceneManager;
+import controllers.outsideTek.OutsideTekFarController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -46,10 +49,21 @@ public class TorvetController extends MenuControllerInjection implements Initial
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
-        isQuizTime();
     }    
 
     @FXML
+    private void arrowForwardClicked(MouseEvent event) {
+        if (hasAnswered == true ) {
+          FadeAnimation.fadeOutTransition(anchorId, "torvet2");
+        }
+    }
+
+    @FXML
+    private void arrowGetCoffeeClicked(MouseEvent event) {
+        if (hasAnswered == true) {
+            FadeAnimation.fadeOutTransition(anchorId, "Coffee");
+        }
+    }
     public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "torvet2");
     }
@@ -59,11 +73,11 @@ public class TorvetController extends MenuControllerInjection implements Initial
         FadeAnimation.fadeOutTransition(anchorId, "Coffee");
     }
 
-    
-    
-    @FXML
+    @Override
     public void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "entranceToTorvet");
+        if (hasAnswered == true) {
+            FadeAnimation.fadeOutTransition(anchorId, "entranceToTorvet");
+        }
     }
 
     @Override
