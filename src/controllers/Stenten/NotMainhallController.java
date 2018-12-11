@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import world.Game;
 
 /**
  * FXML Controller class
@@ -33,6 +34,8 @@ public class NotMainhallController extends MenuControllerInjection implements In
     private ImageView arrowBackId;
     @FXML
     private ImageView backgroundId;
+    
+    Game game = new Game();
 
     /**
      * Initializes the controller class.
@@ -56,7 +59,11 @@ public class NotMainhallController extends MenuControllerInjection implements In
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
+        if(!game.isStentenLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
+        } else {
+            menuController.SpeechText("You need to complete the doctors quest before he'll let you back");
+        }
     }
     
 }

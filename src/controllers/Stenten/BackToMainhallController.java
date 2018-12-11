@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static worldofzuul.StartGame.game;
 
 /**
  * FXML Controller class
@@ -45,7 +46,11 @@ public class BackToMainhallController extends MenuControllerInjection implements
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
+        if(!game.isStentenLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhallRightOrLeft");
+        } else {
+            menuController.SpeechText("You need to complete the doctors quest before he'll let you back");
+        }
     }
 
     @FXML
