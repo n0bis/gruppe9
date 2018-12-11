@@ -67,5 +67,4 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     @Override
     public void arrowLeftClicked(MouseEvent event) {
     }
-    
 }

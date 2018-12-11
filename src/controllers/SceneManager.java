@@ -7,15 +7,12 @@ package controllers;
 
 import java.io.IOException;
 import java.util.HashMap;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.PickResult;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import utils.SoundMapper;
+import static world.Game.coffeeDrink;
+import static world.Game.player;
 
 /**
  *
@@ -70,8 +67,11 @@ public final class SceneManager {
             ((MenuControllerInjection)getController()).destroyPlayer();
         }
         main.setCenter(node);
+        if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
+            MenuControllerInjection controller = getController();
+            controller.injectCoffee();
+        }
     }
-    
     public static BorderPane getMain() {
         return main;
     }
@@ -79,5 +79,4 @@ public final class SceneManager {
     public static <T> T getController() {
         return (T) sceneMap.get(currentScene).getController();
     }
-
 }

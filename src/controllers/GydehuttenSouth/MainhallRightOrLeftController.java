@@ -16,8 +16,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin1Quest;
+import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
 import utils.SoundMapper;
+import static world.Game.creepyBear;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -36,6 +40,10 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     private ImageView arrowRightId;
     @FXML
     private ImageView arrowDownId;
+    @FXML
+    private ImageView arrowUp;
+    @FXML
+    private ImageView Twin1;
 
     /**
      * Initializes the controller class.
@@ -67,8 +75,32 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
         return new SoundMapper("/sounds/hallnoise.mp3");
     }
 
-    @Override
+    @FXML
     public void arrowUpClicked(MouseEvent event) {
+        if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
+            FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
+        } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("Help my twin sister find her doll!");
+        } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("If you find my bear I'll let you pass. I'll give you a hint, walk past krogene");
+        } else {
+            menuController.SpeechText("You shall not pass!");
+        }
+    }    
+    
+    @FXML
+    private void Twin1Clicked(MouseEvent event) {
+        if(Twin1Quest.isQuestDone()) {
+            menuController.SpeechText(Twin1Quest.getQuestDone());
+        } else if (player.hasQuest(Twin1Quest) && !player.hasItem(creepyBear)) {
+            menuController.SpeechText(Twin1Quest.getQuestInProgress());
+        } else if (player.hasQuest(Twin1Quest) && player.hasItem(creepyBear)) {
+            menuController.SpeechText(Twin1Quest.getQuestDone());
+            Twin1Quest.setIsQuestDone(true);
+        } else if (!player.hasQuest(Twin1Quest) && !Twin1Quest.isQuestDone()) {
+            menuController.SpeechText(Twin1Quest.getQuestDescription());
+            player.addQuest(Twin1Quest);
+        }
     }
     
 }

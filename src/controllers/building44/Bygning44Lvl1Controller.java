@@ -18,6 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
 import utils.SoundMapper;
+import static world.Game.player;
+import static world.Game.scissorItem;
 
 /**
  * FXML Controller class
@@ -32,6 +34,8 @@ public class Bygning44Lvl1Controller extends MenuControllerInjection implements 
     private ImageView arrowBackId;
     @FXML
     private ImageView backgroundId;
+    @FXML
+    private ImageView scissor;
 
     /**
      * Initializes the controller class.
@@ -67,5 +71,9 @@ public class Bygning44Lvl1Controller extends MenuControllerInjection implements 
     public void arrowLeftClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+    @FXML
+    private void scissorClicked(MouseEvent event) {
+        player.addItem(scissorItem);
+        anchorId.getChildren().remove(scissor);
+    }
 }
