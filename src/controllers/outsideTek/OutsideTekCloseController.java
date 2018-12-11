@@ -49,7 +49,6 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     private void arrowBackClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar");
+        FadeAnimation.fadeOutTransition(anchorId, "outsideTekFar"); 
     }
-    
 }

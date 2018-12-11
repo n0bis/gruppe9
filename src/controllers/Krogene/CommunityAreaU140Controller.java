@@ -7,14 +7,19 @@ package controllers.Krogene;
 
 
 import controllers.MenuControllerInjection;
+import static controllers.QuizController.isQuizTime;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin1Quest;
 import utils.FadeAnimation;
+import static world.Game.creepyBear;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -31,7 +36,8 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
-
+    @FXML
+    private ImageView creepyBearId;
     /**
      * Initializes the controller class.
      */
@@ -39,6 +45,7 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
+        creepyBearId.setImage(new Image(getClass().getResourceAsStream("/images/items/bamse.png")));
         // TODO
     }    
 
@@ -51,5 +58,15 @@ public class CommunityAreaU140Controller extends MenuControllerInjection impleme
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "modU140");
     }
-    
+    @FXML
+    private void creepyBearClicked(MouseEvent event) {
+        creepyBearId.setImage(null);
+        player.addItem(creepyBear);
+        if (player.hasQuest(Twin1Quest)) {
+            menuController.SpeechText("You found the first born twin's creepy bear! Now you can safely deliver it to her.");
+        } else {menuController.SpeechText("Congrats you found a creepy bear");
+        }
 }
+}
+
+
