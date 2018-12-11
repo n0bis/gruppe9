@@ -33,6 +33,15 @@ public class Quest {
         this.requiredItem2 = requiredItem2;
         this.requiredItem3 = requiredItem3;
     }
+    
+    public Quest(String name, String questDesctiption, String questInPrograss, String questDone, Item requiredItem) {
+        this.name = name;
+        this.questDescription = questDesctiption;
+        this.questInProgress = questInProgress;
+        this.questDone = questDone;
+        this.isQuestDone = false;
+        this.requiredItem = requiredItem;
+    }
 
     public boolean isQuestDone() {
         return isQuestDone;
@@ -41,7 +50,7 @@ public class Quest {
     // Getters
 
     public String getQuestDescription() {
-        return questDescription;
+        return this.questDescription;
     }
 
     public String getQuestInProgress() {
