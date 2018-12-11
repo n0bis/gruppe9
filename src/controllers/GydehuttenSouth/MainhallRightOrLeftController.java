@@ -65,7 +65,6 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     @FXML
     private void arrowDownClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
-        player.addItem(TeddyBear);
     }
 
     @FXML
