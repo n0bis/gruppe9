@@ -29,7 +29,7 @@ public class Game
     Item bones = new Item("Bones", 22);
     public static Item fangs = new Item("Fangs", 21);
     Item key = new Item("Key", 23);
-    Item studyCard = new Item("studycard", 1);
+    public static Item studyCard = new Item("studycard", 1);
     public static Item Bookie = new Item("Book", 2);
     public static Item stage1RequiredItem = new Item("Flamethrower", 6);
     public static Item stage2RequiredItem = new Item("Ironmelter", 7);
@@ -51,6 +51,7 @@ public class Game
     public static Item bonetwo = new Item("Bone2", 13);
     public static Item bonethree = new Item("Bone3", 14);
     public static boolean isStentenLocked = true;
+    public static Item coffeeDrink = new Item("Coffee drink",24);
     
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
