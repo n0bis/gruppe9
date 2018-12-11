@@ -6,7 +6,7 @@
 package items;
 
 import controllers.SceneManager;
-import controllers.outsideTek.OutsideTekFarController;
+import controllers.GydehuttenSouth.BossFightController;
 import java.io.IOException;
 import java.util.*;
 import javafx.animation.Animation;
@@ -149,7 +149,7 @@ public class SpellBook extends Item {
             
             fireBallIcon.setOnMouseClicked((mouseEvent) -> {
                 SceneManager.getMain().getChildren().remove(root);
-                if (boss.getStage() == 3 && SceneManager.getController() instanceof OutsideTekFarController) {
+                if (boss.getStage() == 3 && SceneManager.getController() instanceof BossFightController) {
                     fireballActivate = true;
                 }
                 
@@ -171,8 +171,8 @@ public class SpellBook extends Item {
                 
                 PathTransition transition = new PathTransition();
                 transition.setDuration(Duration.seconds(1.2));
-                if (SceneManager.getController() instanceof OutsideTekFarController) {
-                    OutsideTekFarController c = SceneManager.getController();
+                if (SceneManager.getController() instanceof BossFightController) {
+                    BossFightController c = SceneManager.getController();
                     transition.setPath(c.bossHitbox);
                 } else {
                     Line line = new Line(445, 600, 445, 350);
@@ -185,7 +185,7 @@ public class SpellBook extends Item {
                     imageViewExplosion.setScaleX(2.0);
                     imageViewExplosion.setScaleY(2.0);
                     imageViewExplosion.setViewport(new Rectangle2D(2, 1, 97, 150));
-                    if (SceneManager.getController() instanceof OutsideTekFarController) {
+                    if (SceneManager.getController() instanceof BossFightController) {
                         imageViewExplosion.setLayoutX(150);
                         imageViewExplosion.setLayoutY(50);
                     } else {
@@ -203,8 +203,8 @@ public class SpellBook extends Item {
                     explosionAnimation.setCycleCount(1);
                     explosionAnimation.play();
                     explosionAnimation.setOnFinished((actionEvt) -> {
-                        if (fireballActivate && SceneManager.getController() instanceof OutsideTekFarController) {
-                            OutsideTekFarController c = SceneManager.getController();
+                        if (fireballActivate && SceneManager.getController() instanceof BossFightController) {
+                            BossFightController c = SceneManager.getController();
                             c.bossEncounter();
                         }
                         main.getChildren().remove(imageViewExplosion);
