@@ -27,7 +27,6 @@ import static world.Game.player;
 import static world.Game.spellBook;
 import static world.Game.stage1RequiredItem;
 import static world.Game.stage2RequiredItem;
-import static world.Game.studyCard;
 import worldofzuul.StartGame;
 
 /**
@@ -128,7 +127,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         book.setImage(null);
         //Add item to inventory
         player.addItem(Bookie);
-        player.addItem(fireball);
         player.addItem(spellBook);
         menuController.unlockSpellBook();
     }
@@ -159,7 +157,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
 
     @Override
     public void arrowLeftClicked(MouseEvent event) {
-    
     }
     
     @FXML
