@@ -64,10 +64,9 @@ public class CoffeeController extends MenuControllerInjection implements Initial
     }
     @FXML
     private void coffeeDrinkClicked(MouseEvent event) {  
-        if (player.hasItem(coin)) {
+      if (player.hasItem(coin)) {
             coffeeDrinkId.setImage(null);
             player.addItem(coffeeDrink);
-            // remove coin
             menuController.SpeechText("You've had to much coffee therefore you need to find the toilet which is downstairs");
         } else {
             menuController.SpeechText("You need a coin to buy coffee");
@@ -77,6 +76,7 @@ public class CoffeeController extends MenuControllerInjection implements Initial
         }
     }
 }
+
         
       
 

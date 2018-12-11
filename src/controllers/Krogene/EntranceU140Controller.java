@@ -49,7 +49,6 @@ public class EntranceU140Controller extends MenuControllerInjection implements I
 
     @FXML
     private void arrowForwardClicked(MouseEvent event) {
-        menuController.SpeechText("Der er time i dette lokale, det er nok bedst ikke at forstyrre dem");
+        menuController.SpeechText("You can't enter U140 because it's already being used by another class");
     }
-    
 }
