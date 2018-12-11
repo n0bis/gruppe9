@@ -6,6 +6,7 @@
 package controllers.building44;
 
 
+import controllers.INavigate;
 import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
@@ -23,7 +24,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class Bygning44Controller extends MenuControllerInjection implements Initializable, IPlaySound {
+public class Bygning44Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -47,23 +48,33 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
     }    
 
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    private void arrowUpClicked2(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
     }
 
     @FXML
-    private void arrowUpClicked2(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsByg442");
     }
 
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper(0.2, "/sounds/hallnoise.mp3");
+    }
+
+    @Override
+    public void arrowRightClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
