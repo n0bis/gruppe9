@@ -14,7 +14,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import static missions.QuestList.Twin1Quest;
+import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
+import static world.Game.CreepyDoll;
+import static world.Game.TeddyBear;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -35,21 +40,19 @@ public class MainhallController extends MenuControllerInjection implements Initi
     private ImageView arrowForwardId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView Twin2;
 
     /**
      * Initializes the controller class.
      */
+            
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
     }    
-
-    @FXML
-    private void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
-    }
 
     @FXML
     private void arrowRightClicked(MouseEvent event) {
@@ -64,6 +67,34 @@ public class MainhallController extends MenuControllerInjection implements Initi
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall2");
+    }
+    
+    @FXML
+    private void arrowLeftClicked(MouseEvent event) {
+        if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
+            FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
+        } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("Find my doll!!");
+        } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
+            menuController.SpeechText("Help my twin sister find her teddy bear!");
+        } else {
+            menuController.SpeechText("You shall not pass!");
+        }
+    }    
+    
+    @FXML
+    private void Twin2Clicked(MouseEvent event) {
+        if(Twin2Quest.isQuestDone()) {
+            menuController.SpeechText(Twin2Quest.getQuestDone());
+        } else if (player.hasQuest(Twin2Quest) && !player.hasItem(CreepyDoll)) {
+            menuController.SpeechText(Twin2Quest.getQuestInProgress());
+        } else if (player.hasQuest(Twin2Quest) && player.hasItem(CreepyDoll)) {
+            menuController.SpeechText(Twin2Quest.getQuestDone());
+            Twin2Quest.setIsQuestDone(true);
+        } else if (!player.hasQuest(Twin2Quest) && !Twin2Quest.isQuestDone()) {
+            menuController.SpeechText(Twin2Quest.getQuestDescription());
+            player.addQuest(Twin2Quest);
+        }
     }
     
 }

@@ -50,7 +50,7 @@ public class Game
     public static Item creepyBear = new Item("Creepy bear", 24);
     public static Item creepyDoll = new Item("Creepy Doll", 25);
     public static Item coffeeDrink = new Item("Coffee drink",24);
-    
+
     // Static NPC
     public static NPC sackmonster = new NPC("Sackmonster", "This is the Sackmonster's dialogue", "This is questDone text");
     
