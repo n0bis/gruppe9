@@ -20,6 +20,6 @@ public class QuestList {
     
     public static Quest Twin1Quest = new Quest("Find my teddy bear!", "Find teddy bear", "You still need to find my teddy bear!", "The quest is "
             + "done", null, TeddyBear);
-    public static Quest Twin2Quest = new Quest("Find my teddy bear!", "Find teddy bear", "You still need to find my teddy bear!", "The quest is "
+    public static Quest Twin2Quest = new Quest("Find my doll!", "Find doll", "You still need to find my doll!", "The quest is "
             + "done", null, CreepyDoll);
 }

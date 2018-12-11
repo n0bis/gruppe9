@@ -17,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.Twin1Quest;
 import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
+import static world.Game.CreepyDoll;
 import static world.Game.TeddyBear;
 import static world.Game.player;
 
@@ -66,6 +67,7 @@ public class MainhallController extends MenuControllerInjection implements Initi
     @FXML
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall2");
+        player.addItem(CreepyDoll);
     }
     
     @FXML
@@ -73,9 +75,9 @@ public class MainhallController extends MenuControllerInjection implements Initi
         if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
         } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {
-            menuController.SpeechText("Help my twin sister find her doll!");
+            menuController.SpeechText("Find my doll!!");
         } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
-            menuController.SpeechText("Find my teddy bear!");
+            menuController.SpeechText("Help my twin sister find her teddy bear!");
         } else {
             menuController.SpeechText("You shall not pass!");
         }
@@ -83,16 +85,16 @@ public class MainhallController extends MenuControllerInjection implements Initi
     
     @FXML
     private void Twin2Clicked(MouseEvent event) {
-        if(Twin1Quest.isQuestDone()) {
-            menuController.SpeechText(Twin1Quest.getQuestDone());
-        } else if (player.hasQuest(Twin1Quest) && !player.hasItem(TeddyBear)) {
-            menuController.SpeechText(Twin1Quest.getQuestInProgress());
-        } else if (player.hasQuest(Twin1Quest) && player.hasItem(TeddyBear)) {
-            menuController.SpeechText(Twin1Quest.getQuestDone());
-            Twin1Quest.setIsQuestDone(true);
-        } else if (!player.hasQuest(Twin1Quest) && !Twin1Quest.isQuestDone()) {
-            menuController.SpeechText(Twin1Quest.getQuestDescription());
-            player.addQuest(Twin1Quest);
+        if(Twin2Quest.isQuestDone()) {
+            menuController.SpeechText(Twin2Quest.getQuestDone());
+        } else if (player.hasQuest(Twin2Quest) && !player.hasItem(CreepyDoll)) {
+            menuController.SpeechText(Twin2Quest.getQuestInProgress());
+        } else if (player.hasQuest(Twin2Quest) && player.hasItem(CreepyDoll)) {
+            menuController.SpeechText(Twin2Quest.getQuestDone());
+            Twin2Quest.setIsQuestDone(true);
+        } else if (!player.hasQuest(Twin2Quest) && !Twin2Quest.isQuestDone()) {
+            menuController.SpeechText(Twin2Quest.getQuestDescription());
+            player.addQuest(Twin2Quest);
         }
     }
     
