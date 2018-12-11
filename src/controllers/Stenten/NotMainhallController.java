@@ -6,6 +6,8 @@
 package controllers.Stenten;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import world.Game;
 
 /**
@@ -22,7 +25,7 @@ import world.Game;
  *
  * @author morte
  */
-public class NotMainhallController extends MenuControllerInjection implements Initializable {
+public class NotMainhallController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -48,22 +51,32 @@ public class NotMainhallController extends MenuControllerInjection implements In
     }    
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "entranceU1");
     }
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "notMainhall2");
     }
 
     @FXML
-    private void arrowBackClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         if(!game.isStentenLocked) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU1");
         } else {
             menuController.SpeechText("You need to complete the doctors quest before he'll let you back");
         }
+    }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowUpClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

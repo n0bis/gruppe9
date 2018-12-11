@@ -6,6 +6,8 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.Twin1Quest;
 import static missions.QuestList.Twin2Quest;
 import utils.FadeAnimation;
+import utils.SoundMapper;
 import static world.Game.creepyBear;
 import static world.Game.player;
 
@@ -25,7 +28,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class MainhallRightOrLeftController extends MenuControllerInjection implements Initializable {
+public class MainhallRightOrLeftController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -53,22 +56,27 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
     }    
 
     @FXML
-    private void arrowLeftClicked(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsU45");
     }
 
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall1");
     }
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "towardsMainhall3");
     }
 
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
     @FXML
-    private void arrowUpClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         if (Twin1Quest.isQuestDone() && Twin2Quest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "backToMainhall");
         } else if (!Twin2Quest.isQuestDone() && Twin1Quest.isQuestDone()) {

@@ -14,7 +14,7 @@
             <Image url="@../images/mainhall7.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="662.0" layoutY="281.0" onMouseClicked="#arrowForwardClicked" pickOnBounds="true" preserveRatio="true" rotate="61.9">
+      <ImageView fx:id="arrowForwardId" fitHeight="100.0" fitWidth="160.0" layoutX="662.0" layoutY="281.0" onMouseClicked="#arrowUpClicked" pickOnBounds="true" preserveRatio="true" rotate="61.9">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>
@@ -24,7 +24,7 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowStairsId" fitHeight="100.0" fitWidth="160.0" layoutX="393.0" layoutY="271.0" onMouseClicked="#arrowStairsClicked" pickOnBounds="true" preserveRatio="true" rotate="-59.0">
+      <ImageView fx:id="arrowStairsId" fitHeight="100.0" fitWidth="160.0" layoutX="393.0" layoutY="271.0" onMouseClicked="#arrowLeftClicked" pickOnBounds="true" preserveRatio="true" rotate="-59.0">
          <image>
             <Image url="@../images/arrowUp.png" />
          </image>

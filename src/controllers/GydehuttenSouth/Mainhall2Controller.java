@@ -6,6 +6,8 @@
 package controllers.GydehuttenSouth;
 
 
+import controllers.INavigate;
+import controllers.IPlaySound;
 import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import static missions.QuestList.mummyQuest;
 import utils.FadeAnimation;
-import world.Game;
+import utils.SoundMapper;
 import static world.Game.player; 
 import static world.Game.toiletpaper;
 /**
@@ -25,7 +27,7 @@ import static world.Game.toiletpaper;
  *
  * @author morte
  */
-public class Mainhall2Controller extends MenuControllerInjection implements Initializable {
+public class Mainhall2Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
     
     private final Image youngMummy = new Image (getClass().getResourceAsStream("/images/NPC/Mummy.png"));
     @FXML
@@ -52,20 +54,31 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
     }    
 
     @FXML
-    private void arrowDownClicked(MouseEvent event) {
+    public void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "mainhall7");
     }
 
     @FXML
-    private void arrowForwardClicked(MouseEvent event) {
+    public void arrowUpClicked(MouseEvent event) {
         if (mummyQuest.isQuestDone()) {
-        FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
-    }
+            FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
+        }
     }
     @FXML
-    private void arrowRightClicked(MouseEvent event) {
+    public void arrowRightClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "U55");
     }
+
+    @Override
+    public SoundMapper mapSound() {
+        return new SoundMapper("/sounds/spooky.mp3");
+    }
+
+    @Override
+    public void arrowLeftClicked(MouseEvent event) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @FXML
     private void skeletonClicked(MouseEvent event) {
         if(!player.hasQuest(mummyQuest) && !mummyQuest.isQuestDone()) {
@@ -78,7 +91,6 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
             menuController.SpeechText(mummyQuest.getQuestDone());
             mummyQuest.setIsQuestDone(true);
             skeletonId.setImage(youngMummy);
-            
-    }
+        }
     }
 }
