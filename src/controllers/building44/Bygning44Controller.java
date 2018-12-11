@@ -64,7 +64,7 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper(0.2, "/sounds/hallnoise.mp3");
+        return new SoundMapper(0.6, "/sounds/spooky.mp3");
     }
 
     @Override

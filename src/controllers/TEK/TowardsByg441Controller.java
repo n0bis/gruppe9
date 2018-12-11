@@ -57,7 +57,7 @@ public class TowardsByg441Controller extends MenuControllerInjection implements 
 
     @Override
     public SoundMapper mapSound() {
-        return new SoundMapper(0.1, "/sounds/hallnoise.mp3");
+        return new SoundMapper(0.5, "/sounds/spooky.mp3");
     }
 
     @Override

@@ -12,7 +12,7 @@
             <Image url="@../images/U183.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="71.0" layoutY="356.0" onMouseClicked="#arrowBackId" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="arrowBackId" fitHeight="100.0" fitWidth="160.0" layoutX="71.0" layoutY="356.0" onMouseClicked="#arrowBackClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/arrow-left.png" />
          </image>
