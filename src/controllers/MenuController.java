@@ -123,5 +123,9 @@ public class MenuController implements Initializable {
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource(source).toExternalForm()));
         mediaPlayer.setVolume(1);
         mediaPlayer.play();
+    }    
+    
+    public void stopSound() {
+        mediaPlayer.stop();
     }
 }
