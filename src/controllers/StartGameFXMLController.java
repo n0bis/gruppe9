@@ -121,12 +121,18 @@ public class StartGameFXMLController implements Initializable {
     }
     
     public void loadMusic() {
-        if (this.listCounter == 0) {
-            menuControler.playSound("/sounds/HP.mp3");
-        } else if (this.listCounter == 1) {
-            menuControler.playSound("/sounds/LOTR.mp3");
-        } else if (this.listCounter == 2) {
-            menuControler.playSound("/sounds/GOT.mp3");
+        switch (this.listCounter) {
+            case 0:
+                menuControler.playSound("/sounds/HP.mp3");
+                break;
+            case 1:
+                menuControler.playSound("/sounds/LOTR.mp3");
+                break;
+            case 2:
+                menuControler.playSound("/sounds/GOT.mp3");
+                break;
+            default:
+                break;
         }
     }
     
