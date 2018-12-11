@@ -14,6 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
+import static world.Game.player;
+import static world.Game.scissorItem;
 
 /**
  * FXML Controller class
@@ -28,6 +30,8 @@ public class Bygning44Lvl1Controller implements Initializable {
     private ImageView arrowBackId;
     @FXML
     private ImageView backgroundId;
+    @FXML
+    private ImageView scissor;
 
     /**
      * Initializes the controller class.
@@ -43,5 +47,11 @@ public class Bygning44Lvl1Controller implements Initializable {
     private void arrowBackClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44TowardsLvl1");
     }
+
+    @FXML
+    private void scissorClicked(MouseEvent event) {
+        player.addItem(scissorItem);
+        anchorId.getChildren().remove(scissor);
     
+    }
 }
