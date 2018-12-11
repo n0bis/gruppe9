@@ -54,7 +54,6 @@ public class Game
     public static Item bonetwo = new Item("Bone2", 13);
     public static Item bonethree = new Item("Bone3", 14);
     public static boolean isStentenLocked = true;
-    public static Item coffeeDrink = new Item("Coffee drink",24);
     public static Item scissorItem = new Item("Scissor", 34);
   
     // Static NPC
