@@ -56,8 +56,8 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private ImageView themeIconView;
     @FXML
     public Line bossHitbox;
-    @FXML
-    public ImageView studyCardId;
+    @FXML 
+    private ImageView studyCardId;
 
     /**
      * Initializes the controller class.
@@ -68,7 +68,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
-        // TODO
         
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
@@ -145,6 +144,5 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
     private void studyCardClicked(MouseEvent event) {
         studyCardId.setImage(null);
         player.addItem(studyCard);
-    
     }
 }
