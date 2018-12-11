@@ -63,6 +63,6 @@ public class EntranceToTorvetController extends MenuControllerInjection implemen
         if (player.hasItem(coin)) {
             menuController.SpeechText("You can now buy yourself a coffee from the vending machine down the corridor");    
         }
-        }
     }
+}
 

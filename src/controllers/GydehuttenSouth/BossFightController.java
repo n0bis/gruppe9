@@ -5,6 +5,7 @@
  */
 package controllers.GydehuttenSouth;
 
+import controllers.MenuControllerInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,7 +20,7 @@ import utils.FadeAnimation;
  *
  * @author madsfalken
  */
-public class BossFightController implements Initializable {
+public class BossFightController extends MenuControllerInjection implements Initializable {
 
     @FXML
     private AnchorPane anchorId;
