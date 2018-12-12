@@ -85,7 +85,7 @@ public final class SceneManager {
         }
         if (SceneManager.getController() instanceof TorvetController) {
             if (!hasAnswered) {
-                isQuizTime(new Quiz("Hey " + StartGame.playerName + " which room is COS", Arrays.asList("u45", "u55", "u57"), "u45"));
+                isQuizTime(new Quiz("Hey " + StartGame.playerName + ", COS is in classroom?", Arrays.asList("u45", "u55", "u57"), "u45"));
             }
         }
     }
