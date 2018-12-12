@@ -24,7 +24,7 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="scanner" fitHeight="40.0" fitWidth="17.0" layoutX="597.0" layoutY="369.0" onMouseClicked="#scannerClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scanner" fitHeight="40.0" fitWidth="17.0" layoutX="597.0" layoutY="369.0" onMouseClicked="#scannerClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
          <image>
             <Image url="@../images/rooms/lock.jpg" />
          </image>

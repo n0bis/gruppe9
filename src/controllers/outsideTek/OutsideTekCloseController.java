@@ -84,6 +84,7 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     private void scannerClicked(MouseEvent event) {
         if(player.hasItem(studyCard)) {
             isTekLocked = false;
+            menuController.SpeechText("The University is now unlocked!");
         } else {
             menuController.SpeechText("You need a Student ID to pass here");
         }
