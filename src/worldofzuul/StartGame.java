@@ -148,21 +148,25 @@ public class StartGame extends Application {
         SceneManager.activate("outsideTekFar");
         //SceneManager.activate("WorldOfZuulGUI");
         
-        borderPane.addEventFilter(KeyEvent.ANY, keyEvent -> {
+        borderPane.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent -> {
             if (INavigate.class.isAssignableFrom(SceneManager.getController().getClass())) {
                 INavigate navigation = (INavigate)SceneManager.getController();
                 try {
                     switch (keyEvent.getCode()) {
                         case UP:
+                        case W:
                             navigation.arrowUpClicked(null);
                             break;
                         case DOWN:
+                        case S:
                             navigation.arrowBackClicked(null);
                             break;
                         case RIGHT:
+                        case D:
                             navigation.arrowRightClicked(null);
                             break;
                         case LEFT:
+                        case A:
                             navigation.arrowLeftClicked(null);
                             break;
                     }

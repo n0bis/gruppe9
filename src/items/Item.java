@@ -27,7 +27,7 @@ public class Item {
     
     public Image getImage() {
         try {
-            return new Image(getClass().getResourceAsStream("/images/items/" + this.name.toLowerCase() + ".png"));
+            return new Image(getClass().getResourceAsStream("/images/items/" + this.name + ".png"));
         } catch (NullPointerException ex) {
             return null;
         }
