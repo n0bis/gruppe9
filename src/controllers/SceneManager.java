@@ -76,9 +76,9 @@ public final class SceneManager {
             controller.injectCoffee();
         }
         if (SceneManager.getController() instanceof TorvetController) {
-            if (!hasAnswered == true) {
+            if (!hasAnswered) {
                 isQuizTime();
-            } 
+            }
         }
     }
     public static BorderPane getMain() {

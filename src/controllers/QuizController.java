@@ -42,6 +42,7 @@ public class QuizController extends TimerTask implements Initializable {
     StartGame startGame = new StartGame();
     private Room firstRoom = new Room("First room"); 
     public static boolean hasAnswered = false;
+    public static boolean isActive = false;
     
     @FXML
     private FlowPane flowPane;
@@ -93,10 +94,13 @@ public class QuizController extends TimerTask implements Initializable {
             firstRoom.setIsChecked(true);  
         }
         hasAnswered = true;
+        isActive = false;
     }
+    
     @Override
     public void run() {
         Platform.runLater(() -> {
+            isActive = true;
             FXMLLoader loader = new FXMLLoader(getClass().getResource( "/views/Quiz.fxml" ));
             try {
                 Node main = SceneManager.getMain();
@@ -112,6 +116,7 @@ public class QuizController extends TimerTask implements Initializable {
     
     public static void isQuizTime() {
         Platform.runLater(() -> {
+            isActive = true;
             FXMLLoader loader = new FXMLLoader(QuizController.class.getResource( "/views/Quiz.fxml" ));
             try {
                 Node main = SceneManager.getMain();
