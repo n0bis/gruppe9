@@ -13,11 +13,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import utils.FadeAnimation;
 import utils.SoundMapper;
+import utils.TimerScore;
 
 /**
  * FXML Controller class
@@ -31,7 +32,7 @@ public class NedenUnderController extends MenuControllerInjection implements Ini
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowLeftId;
+    private Label scoreId;
 
     /**
      * Initializes the controller class.
@@ -42,10 +43,13 @@ public class NedenUnderController extends MenuControllerInjection implements Ini
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         // TODO
     }    
+    
+    public void setHighScore() {
+        double score = (System.currentTimeMillis() - TimerScore.getTime()) / 1000L;
+        scoreId.setText(score + "");
+    }
 
-    @FXML
     public void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "nedenUnderToilets");
     }
 
     @Override

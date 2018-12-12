@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,11 +17,11 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootId" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuizController">
+<AnchorPane fx:id="rootId" prefHeight="449.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.QuizController">
    <children>
       <FlowPane fx:id="flowPane" columnHalignment="CENTER" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>
-            <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">
+            <Label fx:id="labelTitle" text="1 new message received:" wrapText="true">
                <effect>
                   <Glow />
                </effect>
@@ -25,7 +32,7 @@
                   <Insets bottom="10.0" left="10.0" top="40.0" />
                </FlowPane.margin>
             </Label>
-            <TextArea fx:id="smsTextbox" editable="false" prefHeight="231.0" prefWidth="228.0" text="Hej Player! Kan du huske hvilket lokale vi har COS undervisning i?" wrapText="true">
+            <TextArea fx:id="smsTextbox" editable="false" prefHeight="231.0" prefWidth="228.0" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -38,9 +45,14 @@
                   <Insets left="15.0" top="5.0" />
                </FlowPane.margin>
             </Button>
-            <TextField fx:id="writtenText" alignment="TOP_CENTER" prefWidth="149.0" />
+            <Group fx:id="optionsGroup">
+               <children>
+                  <Button fx:id="option1" mnemonicParsing="false" onMouseClicked="#option1Clicked" text="Button" />
+                  <Button fx:id="option2" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#option2Clicked" text="Button" />
+                  <Button fx:id="option3" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#option3Clicked" text="Button" />
+               </children>
+            </Group>
          </children>
       </FlowPane>
-      <Button fx:id="sendButton" alignment="TOP_CENTER" layoutX="186.0" layoutY="334.0" mnemonicParsing="false" onMouseClicked="#sendMessage" text="Send" />
    </children>
 </AnchorPane>

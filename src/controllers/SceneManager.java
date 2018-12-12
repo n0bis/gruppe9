@@ -7,15 +7,19 @@ package controllers;
 
 import static controllers.QuizController.hasAnswered;
 import static controllers.QuizController.isQuizTime;
+import controllers.Stenten.NedenUnderController;
 import controllers.mainEntrance.TorvetController;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import missions.Quiz;
 import utils.SoundMapper;
 import static world.Game.coffeeDrink;
 import static world.Game.player;
+import worldofzuul.StartGame;
 
 
 /**
@@ -70,6 +74,10 @@ public final class SceneManager {
         } else {
             ((MenuControllerInjection)getController()).destroyPlayer();
         }
+        if (getController() instanceof NedenUnderController) {
+            NedenUnderController controller = getController();
+            controller.setHighScore();
+        }
         main.setCenter(node);
         if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
             MenuControllerInjection controller = getController();
@@ -77,7 +85,7 @@ public final class SceneManager {
         }
         if (SceneManager.getController() instanceof TorvetController) {
             if (!hasAnswered) {
-                isQuizTime();
+                isQuizTime(new Quiz("Hey " + StartGame.playerName + ", COS is in classroom?", Arrays.asList("u45", "u55", "u57"), "u45"));
             }
         }
     }
