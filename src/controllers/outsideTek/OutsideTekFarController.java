@@ -75,52 +75,7 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         player.addItem(stage2RequiredItem);
         player.addItem(spellBook);
         spellBook.addSpell(fireball);
-    }    
-    
-    public void bossEncounter() {
-        switch(boss.getStage()) {
-        case 1:
-            menuController.SpeechText(boss.getDialogue());
-            if (boss.wonStage1(player)) {
-                boss.incrementStage();
-                bossEncounter();
-            } else {
-                menuController.SpeechText("Hahaha you don't have what it takes to fight me");
-                throwOut();
-            }
-            break;
-        case 2:
-            menuController.SpeechText("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
-            bossId.setImage(stage2Boss);
-            if (boss.wonStage2(player)) {
-                boss.incrementStage();
-                bossEncounter();
-            } else {
-                throwOut();
-            }
-
-            break;
-        case 3:
-            if (!spellBook.hasSpell(fireball)) {
-                menuController.SpeechText("You dont have the spell to defeat me!");
-                throwOut();
-            } 
-
-            menuController.SpeechText("Only a spell can kill my last head!");
-            bossId.setImage(stage3Boss);
-            if(boss.wonStage3(fireball ,player)) {
-                boss.incrementStage();
-                bossEncounter();
-                menuController.SpeechText("You've killed my last head! *super dead*");
-                bossId.setImage(dead);
-            }
-        }
-    }
-    
-    private void throwOut() {
-        menuController.SpeechText("\nCerberus threw you out");
-        FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
-    }    
+    }   
     
     @FXML
     private void pickupBook(MouseEvent event) {
@@ -134,15 +89,9 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
-        
+        FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");        
     }
 
-    @FXML
-    private void bossClicked(MouseEvent event) {
-        bossEncounter();
-    }
-    
     @Override
     public SoundMapper mapSound() {
         return new SoundMapper("/sounds/wind.mp3");

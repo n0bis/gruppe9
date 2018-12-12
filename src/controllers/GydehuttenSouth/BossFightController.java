@@ -31,8 +31,8 @@ import static world.Game.spellBook;
  */
 public class BossFightController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
 
-    private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
-    private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
+    private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/NPC/Cerberus1.png"));
+    private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/NPC/Cerberus2.png"));
     private final Image dead = new Image(getClass().getResourceAsStream("/images/dead.png"));
     
     @FXML
@@ -46,8 +46,6 @@ public class BossFightController extends MenuControllerInjection implements Init
     @FXML
     private ImageView bossId;
     @FXML
-    private ImageView themeIconView;
-    @FXML
     public Line bossHitbox;
 
     /**
@@ -59,7 +57,7 @@ public class BossFightController extends MenuControllerInjection implements Init
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
     }    
     
-        public void bossEncounter() {
+    public void bossEncounter() {
         switch(boss.getStage()) {
         case 1:
             menuController.SpeechText(boss.getDialogue());
@@ -90,27 +88,35 @@ public class BossFightController extends MenuControllerInjection implements Init
 
             menuController.SpeechText("Only a spell can kill my last head!");
             bossId.setImage(stage3Boss);
-            if(boss.wonStage3(fireball ,player)) {
+            if(boss.wonStage3(fireball, player)) {
                 boss.incrementStage();
                 bossEncounter();
                 menuController.SpeechText("You've killed my last head! *super dead*");
                 bossId.setImage(dead);
+                arrowBackId.setOpacity(1);
+                arrowForwardId.setOpacity(1);
             }
         }
     }
         
     private void throwOut() {
-    menuController.SpeechText("\nCerberus threw you out");
-    FadeAnimation.fadeOutTransition(anchorId, "outsideTekClose");
+        menuController.SpeechText("\nCerberus threw you out");
+        FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }    
 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
+        if(arrowForwardId.getOpacity() == 0.0) {
+            return;
+        }    
         FadeAnimation.fadeOutTransition(anchorId, "nedenUnder");
     }
 
     @FXML
     public void arrowBackClicked(MouseEvent event) {
+        if(arrowBackId.getOpacity() == 0.0) {
+            return;
+        }    
         FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }
 

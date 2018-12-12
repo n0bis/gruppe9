@@ -5,21 +5,29 @@
  */
 package characters;
 
-import controllers.MenuController;
+import controllers.QuizController;
+import static controllers.QuizController.isQuizTime;
+import static controllers.QuizController.isQuizTimeDialog;
 import controllers.SceneManager;
-import controllers.outsideTek.OutsideTekFarController;
 import items.Item;
 import items.Spell;
-import items.SpellBook;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import missions.Quiz;
 import static world.Game.fireball;
 import static world.Game.spellBook;
+import worldofzuul.StartGame;
 
 
 /**
@@ -39,8 +47,10 @@ public class FinalBoss extends Boss {
     private Item stage3RequiredItem;
     private Spell questSpell;
     private int stage;
+    private Quiz stage1Quiz;
+    private Quiz stage2Quiz;
     
-    public boolean hasItem;
+    private Stage quizStage;
     
     public FinalBoss(Item stage1RequiredItem, Item stage2RequiredItem, Item stage3RequiredItem, Spell questSpell) {
         super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone");
@@ -49,6 +59,14 @@ public class FinalBoss extends Boss {
         this.stage3RequiredItem = stage3RequiredItem;
         this.questSpell = questSpell;
         this.stage = 1; 
+        Quiz quiz1 = new Quiz("What is the hallway called that lead to u140", Arrays.asList("krogene", "knoldene", "vangene"), "krogene");
+        Quiz quiz2 = new Quiz("What is the hallway called that lead to u133", Arrays.asList("krogene", "knoldene", "vangene"), "vangene");
+        Quiz quiz3 = new Quiz("What is the hallway called that lead to u1", Arrays.asList("krogene", "knoldene", "stenten"), "stenten");
+        
+        List<Quiz> quizes = new LinkedList<>(Arrays.asList(quiz1, quiz2, quiz3));
+        Collections.shuffle(quizes);
+        stage1Quiz = quizes.get(0);
+        stage2Quiz = quizes.get(1);
     }
     
     public boolean wonStage1(Player player) {
@@ -63,21 +81,36 @@ public class FinalBoss extends Boss {
         dialog.setScene(dialogSence);
         dialog.setAlwaysOnTop(true);
         dialog.setResizable(false);
+        
         okButton.setOnAction((value) -> {
             dialog.close();
-            hasItem = player.hasItem(this.getStage1RequiredItem());
+            try {
+                quizStage = isQuizTimeDialog(stage1Quiz);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
         noButton.setOnAction((value) -> {
             dialog.close();
-            SceneManager.activate("outsideTekClose");
+            SceneManager.activate("bossEntrance");
         });
         dialog.showAndWait();
         
-        return hasItem;
+        if (quizStage != null) quizStage.showAndWait();
+        
+        return QuizController.isCorrect;
     }
     
-    public boolean wonStage2(Player player) {        
-        return player.inventory.contains(this.getStage2RequiredItem());
+    public boolean wonStage2(Player player) {
+        if (player.inventory.contains(this.getStage2RequiredItem())) {
+            try {
+                Stage dialog = isQuizTimeDialog(stage2Quiz);
+                dialog.showAndWait();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return QuizController.isCorrect;
     }
     
     public boolean wonStage3(Item Spell, Player player) {
@@ -86,9 +119,7 @@ public class FinalBoss extends Boss {
         }
 
         if (spellBook.hasSpell(questSpell)) {
-            if (spellBook.getFireballState() == true) {
-                return true;
-            }
+            return spellBook.getFireballState();
         }
         return false;
     }

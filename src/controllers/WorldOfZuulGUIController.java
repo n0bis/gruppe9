@@ -66,7 +66,6 @@ public class WorldOfZuulGUIController extends MenuControllerInjection {
         fangsId.setImage(new Image(getClass().getResourceAsStream("/images/items/teeth.png")));
         coinId.setImage(new Image(getClass().getResourceAsStream("/images/items/Coin.png")));
         toiletpaperId.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.imageSelector + "/toiletpaper.png")));
-        isQuizTime();
         coffeeDrinkId.setImage(new Image(getClass().getResourceAsStream("/images/items/CoffeeDrink.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
     }
