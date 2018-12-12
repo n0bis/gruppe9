@@ -37,6 +37,10 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
     private ImageView arrowUp;
     @FXML
     private ImageView arrowUp1;
+    @FXML
+    private ImageView scanner;
+    
+    public boolean isTekLocked = true;
 
     /**
      * Initializes the controller class.
@@ -50,7 +54,7 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @FXML
     public void arrowUpClicked(MouseEvent event) {
-        if (player.hasItem(studyCard)) {
+        if (!isTekLocked) {
             FadeAnimation.fadeOutTransition(anchorId, "tekHall");
             menuController.SpeechText("Welcome " + playerName + " to the University of Southern Denmark!");
         } else {
@@ -74,5 +78,16 @@ public class OutsideTekCloseController extends MenuControllerInjection implement
 
     @Override
     public void arrowLeftClicked(MouseEvent event) {
+    }
+
+    @FXML
+    private void scannerClicked(MouseEvent event) {
+        if(player.hasItem(studyCard)) {
+            isTekLocked = false;
+            menuController.SpeechText("The University is now unlocked!");
+        } else {
+            menuController.SpeechText("You need a Student ID to pass here");
+        }
+        
     }
 }
