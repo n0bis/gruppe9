@@ -111,10 +111,15 @@ public class SpellBook extends Item {
         Label requiredItemLabel = (Label)loader.getNamespace().get("requiredItemLabel");
         Label rewardItemLabel = (Label)loader.getNamespace().get("rewardItemLabel");
         quests.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-            if (!((Quest)newValue).isQuestDone()) {
-                description.setText(((Quest)newValue).getQuestDescription());
-                requiredItem.setImage(((Quest)newValue).getRequiredItem().getImage());
-                rewardItem.setImage(((Quest)newValue).getRewardItem().getImage());
+            Quest quest = (Quest)newValue;
+            if (!quest.isQuestDone()) {
+                description.setText(quest.getQuestDescription());
+                if (quest.getRequiredItem() != null) {
+                    requiredItem.setImage(quest.getRequiredItem().getImage());
+                }
+                if (quest.getRewardItem() != null) {
+                    rewardItem.setImage(quest.getRewardItem().getImage());
+                }
                 rewardItemLabel.setVisible(true);
                 requiredItemLabel.setVisible(true);
             }

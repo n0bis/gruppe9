@@ -5,7 +5,9 @@
  */
 package utils;
 
+import controllers.QuizController;
 import controllers.SceneManager;
+import controllers.SpookyController;
 import javafx.animation.FadeTransition;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
@@ -19,6 +21,7 @@ public class FadeAnimation {
     
     
     public static void fadeOutTransition(Node node, String goingTo) {
+        if (SpookyController.isActive || QuizController.isActive)  return;
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.seconds(1));
         fadeTransition.setNode(node);

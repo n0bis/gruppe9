@@ -128,7 +128,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         book.setImage(null);
         //Add item to inventory
         player.addItem(Bookie);
-        player.addItem(fireball);
         player.addItem(spellBook);
         menuController.unlockSpellBook();
     }
@@ -159,11 +158,11 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
 
     @Override
     public void arrowLeftClicked(MouseEvent event) {
-    
     }
     
     @FXML
     private void studyCardClicked(MouseEvent event) {
+        player.addItem(studyCard);
         studyCardId.setImage(null);
     }
 }
