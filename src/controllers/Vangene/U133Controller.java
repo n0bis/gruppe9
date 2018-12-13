@@ -45,7 +45,7 @@ public class U133Controller extends MenuControllerInjection implements Initializ
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         backgroundId.fitHeightProperty().bind(anchorId.heightProperty());
-        backgroundId.fitHeightProperty().bind(anchorId.widthProperty());
+        backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         creepyDollId.setImage(new Image(getClass().getResourceAsStream("/images/items/creepyDoll.png")));
         // TODO
     }    

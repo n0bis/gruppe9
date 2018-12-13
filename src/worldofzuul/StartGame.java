@@ -145,7 +145,7 @@ public class StartGame extends Application {
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
-        SceneManager.activate("outsideTekFar");
+        SceneManager.activate("U133");
         //SceneManager.activate("WorldOfZuulGUI");
         
         borderPane.addEventFilter(KeyEvent.KEY_PRESSED, keyEvent -> {
