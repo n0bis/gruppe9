@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SpookyController">
+<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SpookyController">
    <children>
       <FlowPane fx:id="flowPane" columnHalignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>
-            <Label fx:id="labelTitle" text="Ny SMS modtaget:" wrapText="true">
+            <Label fx:id="labelTitle" text="New message!" wrapText="true">
                <effect>
                   <Glow />
                </effect>

@@ -81,12 +81,12 @@ public class BossFightController extends MenuControllerInjection implements Init
 
             break;
         case 3:
-            if (!spellBook.hasSpell(fireball)) {
-                menuController.SpeechText("You dont have the spell to defeat me!");
+            if (!player.hasItem(fireball)) {
+                menuController.SpeechText("Ohh, only a spell can kill my last head and you don't have it! Be gone!");
                 throwOut();
             } 
 
-            menuController.SpeechText("Only a spell can kill my last head!");
+            menuController.SpeechText("Ohh, only a spell can kill my last head!");
             bossId.setImage(stage3Boss);
             if(boss.wonStage3(fireball, player)) {
                 boss.incrementStage();
