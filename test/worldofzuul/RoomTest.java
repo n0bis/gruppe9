@@ -2,7 +2,6 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
 package worldofzuul;
 
 import world.Room;
@@ -13,18 +12,18 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
+
  *
  * @author madsfalken
- */
+ 
 public class RoomTest {
     
     public RoomTest() {
     }
 
-    /**
+    
      * Test of getLongDescription method, of class Room.
-     */
+     
     @Test
     public void testGetLongDescription() {
         Room instance = new Room("outside of your domain boi");
@@ -33,9 +32,9 @@ public class RoomTest {
         assertEquals(expResult, result);
     }
 
-    /**
+    
      * Test of getExit method, of class Room.
-     */
+     
     @Test
     public void testGetExit() {
         String direction = "south";
@@ -47,3 +46,5 @@ public class RoomTest {
     }
     
 }
+ */
+
