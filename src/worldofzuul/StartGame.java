@@ -130,7 +130,6 @@ public class StartGame extends Application {
         sceneManager.addScene("entranceU1", menuController);
         sceneManager.addScene("stairsTowardsNedenUnder", menuController);
         sceneManager.addScene("nedenUnder", menuController);
-        sceneManager.addScene("nedenUnderToilets", menuController);                    
         sceneManager.addScene("nedenUnderToilets", menuController);
         sceneManager.addScene("outsideU133", menuController);
         sceneManager.addScene("U133", menuController);

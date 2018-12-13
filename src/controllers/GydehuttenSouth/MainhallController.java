@@ -80,7 +80,7 @@ public class MainhallController extends MenuControllerInjection implements Initi
         } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
             menuController.SpeechText("Go find my twin sister and help her! She lost her bear!");
         } else {
-            menuController.SpeechText("You shall not pass!");
+            menuController.SpeechText("Help us find our toys!");
         }
     }    
     
