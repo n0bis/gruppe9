@@ -29,7 +29,7 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="lockedTape" fitHeight="50.0" fitWidth="211.0" layoutX="577.0" layoutY="198.0" onMouseClicked="#lockedTapeClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="lockedTape" fitHeight="50.0" fitWidth="211.0" layoutX="577.0" layoutY="198.0" onMouseClicked="#lockedTapeClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
          <image>
             <Image url="@../images/rooms/policetape.png" />
          </image>

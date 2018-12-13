@@ -86,6 +86,8 @@ public class Bygning44TowardsLvl1Controller extends MenuControllerInjection impl
         if(player.hasItem(scissorItem) && talkedToPolice) {
             anchorId.getChildren().remove(lockedTape);
             isLocked = false;
+        } else {
+            menuController.SpeechText("You need something. You should ask for permission and maybe have a scissor..");
         }
     }
     

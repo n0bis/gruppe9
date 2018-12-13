@@ -29,7 +29,7 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bone1" fitHeight="47.0" fitWidth="9.0" layoutX="150.0" layoutY="335.0" onMouseClicked="#boneClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bone1" fitHeight="47.0" fitWidth="9.0" layoutX="150.0" layoutY="335.0" onMouseClicked="#boneClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
          <image>
             <Image url="@../images/items/bones.png" />
          </image>
