@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -24,23 +22,7 @@
             <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
-      <Group fx:id="spellPage" layoutX="61.0" layoutY="35.0">
-         <children>
-            <ImageView fx:id="fireBallId" fitHeight="68.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </Group>
-      <Group fx:id="questPage" layoutX="19.0" layoutY="12.0" mouseTransparent="true" visible="false">
-         <children>
-            <ListView fx:id="logId" layoutX="50.0" layoutY="20.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
-            <TextArea fx:id="descriptionId" layoutX="316.0" layoutY="20.0" prefHeight="183.0" prefWidth="200.0" wrapText="true" />
-            <ImageView fx:id="rewardItem" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" x="426.0" y="219.0" />
-            <ImageView fx:id="requiredItem" fitHeight="60.0" fitWidth="60.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" x="330.0" y="205.0" />
-            <Label fx:id="requiredItemLabel" layoutX="318.0" layoutY="200.0" text="Required Item" visible="false" />
-            <Label fx:id="rewardItemLabel" layoutX="420.0" layoutY="200.0" text="Reward Item" visible="false" />
-         </children>
-      </Group>
-      <Rectangle fx:id="rightSide" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="274.0" layoutX="508.0" layoutY="41.0" stroke="TRANSPARENT" strokeType="INSIDE" width="94.0" />
-      <Rectangle fx:id="leftSide" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="252.0" layoutX="8.0" layoutY="57.0" stroke="TRANSPARENT" strokeType="INSIDE" width="94.0" />
-      <TextArea layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;You date is currently waiting for you in&#10;the bar called &quot;Nedenunder&quot;.&#10;&#10;The road to Nedenunder is filled with&#10;challenges however.&#10;&#10;Can you solve the mysteries of SDU?" />
+      <TextArea editable="false" layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;You date is currently waiting for you in&#10;the bar called &quot;Nedenunder&quot;.&#10;&#10;The road to Nedenunder is filled with&#10;challenges however.&#10;&#10;Can you solve the mysteries of SDU?" />
+      <TextArea editable="false" layoutX="316.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="tekst her&#10;" />
    </children>
 </AnchorPane>
