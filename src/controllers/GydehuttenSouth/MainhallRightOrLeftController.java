@@ -84,7 +84,7 @@ public class MainhallRightOrLeftController extends MenuControllerInjection imple
         } else if (Twin2Quest.isQuestDone() && !Twin1Quest.isQuestDone()) {
             menuController.SpeechText("If you find my bear I'll let you pass. I'll give you a hint, walk past krogene");
         } else {
-            menuController.SpeechText("You shall not pass!");
+            menuController.SpeechText("Help us find our toys!");
         }
     }    
     
