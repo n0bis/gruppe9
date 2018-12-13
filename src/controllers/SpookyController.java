@@ -36,6 +36,7 @@ import javafx.scene.media.MediaPlayer;
  */
 public class SpookyController extends TimerTask implements Initializable {
     
+    public static boolean isActive = false;
     private MediaPlayer mediaPlayer;
 
     @FXML
@@ -60,6 +61,24 @@ public class SpookyController extends TimerTask implements Initializable {
         mediaPlayer.play();
         mediaPlayer.setOnEndOfMedia(() -> closeButton.setOpacity(1));
     }    
+    
+     @Override
+    public void run() {
+        Platform.runLater(() -> {
+            isActive = true;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Spooky.fxml"));
+            try {
+                Node main = SceneManager.getMain();
+                Node node = loader.load();
+                node.setLayoutX(300);
+                node.setLayoutY(150);
+                node.toFront();
+                SceneManager.getMain().getChildren().add(node);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+    }
 
     @FXML
     private void closeButtonClicked(MouseEvent event) {
@@ -67,21 +86,6 @@ public class SpookyController extends TimerTask implements Initializable {
             return;
         }     
         SceneManager.getMain().getChildren().removeAll(rootId, flowPane, labelTitle, smsTextbox, closeButton);
-    }
-    
-     @Override
-    public void run() {
-        Platform.runLater(() -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Spooky.fxml"));
-            try {
-                Node main = SceneManager.getMain();
-                Node node = loader.load();
-                node.setLayoutX(300);
-                node.setLayoutY(150);
-                SceneManager.getMain().getChildren().add(node);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
+        isActive = false;
     }
 }

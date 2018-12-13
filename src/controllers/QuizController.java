@@ -7,19 +7,23 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
+import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -28,8 +32,9 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
-import static world.Game.player;
-import world.Room;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import missions.Quiz;
 import worldofzuul.StartGame;
 
 /**
@@ -37,11 +42,14 @@ import worldofzuul.StartGame;
  *
  * @author madsfalken
  */
-public class QuizController extends TimerTask implements Initializable {
+public class QuizController implements Initializable {
     
     StartGame startGame = new StartGame();
-    private Room firstRoom = new Room("First room"); 
+    private Quiz quiz;
     public static boolean hasAnswered = false;
+    public static boolean isActive = false;
+    public static boolean isCorrect;
+    private static Stage dialog;
     
     @FXML
     private FlowPane flowPane;
@@ -49,16 +57,18 @@ public class QuizController extends TimerTask implements Initializable {
     private Label labelTitle;
     @FXML
     private TextArea smsTextbox;
-    private Button leftAnswer;
-    private Button rightAnswer;
     @FXML
     private Button closeButton;
     @FXML
     private AnchorPane rootId;
     @FXML
-    private TextField writtenText;
+    private Button option1;
     @FXML
-    private Button sendButton;
+    private Button option2;
+    @FXML
+    private Button option3;
+    @FXML
+    private Group optionsGroup;
 
     /**
      * Initializes the controller class.
@@ -66,41 +76,66 @@ public class QuizController extends TimerTask implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/menu/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
-        String text = smsTextbox.getText().replaceFirst("Player", startGame.getPlayerName());
-        smsTextbox.setText(text);
-    }    
+    }
 
     @FXML
     private void closeButtonClicked(MouseEvent event) {
         if(closeButton.getOpacity() == 0.0) {
             return;
         }     
-        SceneManager.getMain().getChildren().removeAll(rootId, flowPane, labelTitle, smsTextbox, leftAnswer, rightAnswer, closeButton);
+        if (dialog == null) {
+            SceneManager.getMain().getChildren().removeAll(rootId, flowPane, labelTitle, smsTextbox, option1, option2, option3, closeButton);
+        } else {
+            dialog.close();
+        }
+    }
+    
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+        Collections.shuffle(quiz.getOptions(), new Random());
+        smsTextbox.setText(quiz.getDescription());
+        option1.setText(quiz.getOptions().get(0));
+        option2.setText(quiz.getOptions().get(1));
+        option3.setText(quiz.getOptions().get(2));
     }
     
     @FXML
-    private void sendMessage(MouseEvent event) {
-        String answer = writtenText.getText();
-        if (answer.equals("u45") || answer.equals("U45")) {
-            smsTextbox.appendText("\n\n" + "You: I think it's U45." + "\n\n" + "That's right!");
-            sendButton.setOpacity(0);
-            closeButton.setOpacity(1);
-            firstRoom.setIsChecked(true);
-        } else {
-            smsTextbox.appendText("\n\n" + "You: I think it's U55." + "\n\n" + "Sadly that's wrong my friend.");
-            sendButton.setOpacity(0);
-            closeButton.setOpacity(1);
-            firstRoom.setIsChecked(true);  
-        }
-        hasAnswered = true;
+    private void option1Clicked(MouseEvent event) {
+        answerQuiz(quiz.getOptions().get(0));
     }
-    @Override
-    public void run() {
+
+    @FXML
+    private void option2Clicked(MouseEvent event) {
+        answerQuiz(quiz.getOptions().get(1));
+    }
+
+    @FXML
+    private void option3Clicked(MouseEvent event) {
+        answerQuiz(quiz.getOptions().get(2));
+    }
+    
+    private void answerQuiz(String quess) {
+        if (quess.equals(quiz.getAnswer())) {
+            smsTextbox.appendText("\n\n" + "You: I think it's " + quess +  "\n\n" + "That's right!");
+            isCorrect = true;
+        } else {
+            smsTextbox.appendText("\n\n" + "You: I think it's " + quess + "\n\n" + "Sadly that's wrong my friend.");
+            isCorrect = false;
+        }
+        optionsGroup.setOpacity(0);
+        closeButton.setOpacity(1);
+        hasAnswered = true;
+        isActive = false;
+    }
+    
+    public static void isQuizTime(Quiz quiz) {
+        isActive = true;
         Platform.runLater(() -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource( "/views/Quiz.fxml" ));
+            FXMLLoader loader = new FXMLLoader(QuizController.class.getResource( "/views/Quiz.fxml" ));
             try {
-                Node main = SceneManager.getMain();
                 Node node = loader.load();
+                QuizController controller = loader.getController();
+                controller.setQuiz(quiz);
                 node.setLayoutX(300);
                 node.setLayoutY(150);
                 SceneManager.getMain().getChildren().add(node);
@@ -110,18 +145,17 @@ public class QuizController extends TimerTask implements Initializable {
         });
     }
     
-    public static void isQuizTime() {
-        Platform.runLater(() -> {
-            FXMLLoader loader = new FXMLLoader(QuizController.class.getResource( "/views/Quiz.fxml" ));
-            try {
-                Node main = SceneManager.getMain();
-                Node node = loader.load();
-                node.setLayoutX(300);
-                node.setLayoutY(150);
-                SceneManager.getMain().getChildren().add(node);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
+    public static Stage isQuizTimeDialog(Quiz quiz) throws IOException {
+        dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        FXMLLoader loader = new FXMLLoader(QuizController.class.getResource( "/views/Quiz.fxml" ));
+        Parent root = loader.load();
+        QuizController controller = loader.getController();
+        controller.setQuiz(quiz);
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.setAlwaysOnTop(true);
+        dialog.setResizable(false);
+        return dialog;
     }
 }

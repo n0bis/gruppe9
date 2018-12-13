@@ -18,7 +18,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
 import utils.SoundMapper;
-import static world.Game.boneone;
 import static world.Game.bonethree;
 import static world.Game.player;
 
@@ -35,8 +34,6 @@ public class NotMainhall2Controller extends MenuControllerInjection implements I
     private ImageView backgroundId;
     @FXML
     private ImageView arrowForwardId;
-    @FXML
-    private ImageView arrowLeftId;
     @FXML
     private ImageView arrowBackId;
     @FXML
@@ -58,9 +55,7 @@ public class NotMainhall2Controller extends MenuControllerInjection implements I
         
     }
 
-    @FXML
     public void arrowLeftClicked(MouseEvent event) {
-        FadeAnimation.fadeOutTransition(anchorId, "stairsTowardsNedenUnder");
     }
 
     @FXML

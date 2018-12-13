@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
 import utils.SoundMapper;
+import static world.Game.fireball;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -31,6 +33,8 @@ public class LibraryController extends MenuControllerInjection implements Initia
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView scrollId;
 
     /**
      * Initializes the controller class.
@@ -64,6 +68,12 @@ public class LibraryController extends MenuControllerInjection implements Initia
     @Override
     public void arrowLeftClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @FXML
+    private void scrollClicked(MouseEvent event) {
+        scrollId.setImage(null);
+        player.addItem(fireball);
     }
     
 }

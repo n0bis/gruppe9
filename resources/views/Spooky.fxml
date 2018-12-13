@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.SpookyController">
+<AnchorPane id="AnchorPane" fx:id="rootId" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SpookyController">
    <children>
       <FlowPane fx:id="flowPane" columnHalignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="250.0" minHeight="480.0" minWidth="150.0">
          <children>

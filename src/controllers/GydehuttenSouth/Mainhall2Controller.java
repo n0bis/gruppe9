@@ -82,7 +82,6 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
     @FXML
     private void skeletonClicked(MouseEvent event) {
         if(!player.hasQuest(mummyQuest) && !mummyQuest.isQuestDone()) {
-            System.out.println(mummyQuest.getQuestDescription());
             menuController.SpeechText(mummyQuest.getQuestDescription());
             player.addQuest(mummyQuest);
         } else if (mummyQuest.isQuestDone()) {
