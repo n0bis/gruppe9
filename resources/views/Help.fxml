@@ -41,15 +41,6 @@
       </Group>
       <Rectangle fx:id="rightSide" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="274.0" layoutX="508.0" layoutY="41.0" stroke="TRANSPARENT" strokeType="INSIDE" width="94.0" />
       <Rectangle fx:id="leftSide" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="252.0" layoutX="8.0" layoutY="57.0" stroke="TRANSPARENT" strokeType="INSIDE" width="94.0" />
-      <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="509.0" layoutY="148.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/arrow-right.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="58.0" fitWidth="53.0" layoutX="43.0" layoutY="148.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/arrow-left.png" />
-         </image>
-      </ImageView>
+      <TextArea layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;You date is currently waiting for you in&#10;the bar called &quot;Nedenunder&quot;.&#10;&#10;The road to Nedenunder is filled with&#10;challenges however.&#10;&#10;Can you solve the mysteries of SDU?" />
    </children>
 </AnchorPane>
