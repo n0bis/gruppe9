@@ -81,7 +81,7 @@ public class BossFightController extends MenuControllerInjection implements Init
 
             break;
         case 3:
-            if (!spellBook.hasSpell(fireball)) {
+            if (!player.hasItem(fireball)) {
                 menuController.SpeechText("You dont have the spell to defeat me!");
                 throwOut();
             } 
