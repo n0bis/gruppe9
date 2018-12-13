@@ -19,7 +19,7 @@
             <Image url="@../images/arrowDown.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="scissor" fitHeight="39.0" fitWidth="77.0" layoutX="442.0" layoutY="146.0" onMouseClicked="#scissorClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="scissor" fitHeight="39.0" fitWidth="77.0" layoutX="442.0" layoutY="146.0" onMouseClicked="#scissorClicked" pickOnBounds="true" preserveRatio="true" styleClass="items">
          <image>
             <Image url="@../images/items/scissor.png" />
          </image>

@@ -73,7 +73,7 @@ public class FinalBoss extends Boss {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         VBox dialogVbox = new VBox(20);
-        Text fightText = new Text("Do you want to fight me pleb? (Yes or no)");
+        Text fightText = new Text("Do you want to fight me, kid?");
         Button okButton = new Button("YES");
         Button noButton = new Button("NO");
         dialogVbox.getChildren().addAll(fightText, okButton, noButton);
