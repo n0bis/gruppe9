@@ -63,7 +63,7 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="studyCardId" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="studycardId" fitHeight="150.0" fitWidth="200.0" layoutX="22.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <ColorAdjust contrast="-1.0" />
          </effect>

@@ -31,11 +31,11 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
     @FXML
     private ImageView backgroundId;
     @FXML
-    private ImageView arrowUpId;
-    @FXML
     private ImageView arrowUpId1;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView arrowleftId;
 
     /**
      * Initializes the controller class.
@@ -53,7 +53,7 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
     }
 
     @FXML
-    public void arrowUpClicked2(MouseEvent event) {
+    public void arrowLeftClicked(MouseEvent event) {
         FadeAnimation.fadeOutTransition(anchorId, "bygning44Lvl3");
     }
 
@@ -70,11 +70,5 @@ public class Bygning44Controller extends MenuControllerInjection implements Init
     @Override
     public void arrowRightClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void arrowLeftClicked(MouseEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }
