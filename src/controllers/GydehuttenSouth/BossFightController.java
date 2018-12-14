@@ -100,7 +100,7 @@ public class BossFightController extends MenuControllerInjection implements Init
     }
         
     private void throwOut() {
-        menuController.SpeechText("\nCerberus threw you out!");
+        menuController.SpeechText("\nCerberus threw you out! You either answered wrong or need an item to fight Cerberus. Items needed: Piece of Leg and Musicbook");
         FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }    
 
