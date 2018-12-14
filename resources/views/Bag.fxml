@@ -103,5 +103,13 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
+      <ImageView fx:id="musicbookId" fitHeight="53.0" fitWidth="128.0" layoutX="279.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/musicbook.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>
