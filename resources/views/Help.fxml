@@ -22,7 +22,7 @@
             <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
-      <TextArea editable="false" layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;You date is currently waiting for you in&#10;the bar called &quot;Nedenunder&quot;.&#10;&#10;The road to Nedenunder is filled with&#10;challenges however.&#10;&#10;Can you solve the mysteries of SDU?" />
-      <TextArea editable="false" layoutX="316.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="tekst her&#10;" />
+      <TextArea editable="false" layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;Your date is currently waiting for you at&#10;the bar called &quot;Nedenunder&quot; where the &#10;Halloween Party is being held.&#10;&#10;The road to Nedenunder is filled with&#10;challenges that you have to solve. " />
+      <TextArea editable="false" layoutX="316.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="You don't necessarily have to solve&#10;all of the challenges to get to the bar. &#10;Allthough you won't know which ones &#10;you need to solve to complete the game. &#10;&#10;Can you solve the mysteries of SDU in &#10;less than 20 minutes?&#10;" />
    </children>
 </AnchorPane>
