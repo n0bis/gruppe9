@@ -111,5 +111,13 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
+      <ImageView fx:id="scissorId" fitHeight="63.0" fitWidth="113.0" layoutX="266.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/items/scissor.png" />
+         </image>
+         <effect>
+            <ColorAdjust contrast="-1.0" />
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>
