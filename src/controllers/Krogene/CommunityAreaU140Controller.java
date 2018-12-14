@@ -8,7 +8,7 @@ package controllers.Krogene;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import static controllers.QuizController.isQuizTime;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +29,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class CommunityAreaU140Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class CommunityAreaU140Controller extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;

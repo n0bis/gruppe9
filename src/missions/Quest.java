@@ -23,7 +23,7 @@ public class Quest {
         this.requiredItem = requiredItem;
     }
     
-    public Quest(String name, String questDescription, String questInProgress, String questDone, Item requiredItem1, Item requiredItem2, Item requiredItem3) {
+    public Quest(String name, String questDescription, String questInProgress, String questDone, Item requiredItem1, Item requiredItem2, Item requiredItem3, Item rewardItem) {
         this.name = name;
         this.questDescription = questDescription;
         this.questInProgress = questInProgress;
@@ -32,6 +32,7 @@ public class Quest {
         this.requiredItem = requiredItem1;
         this.requiredItem2 = requiredItem2;
         this.requiredItem3 = requiredItem3;
+        this.rewardItem = this.rewardItem;
     }
     
     public Quest(String name, String questDesctiption, String questInPrograss, String questDone, Item requiredItem) {

@@ -7,7 +7,7 @@ package controllers.GydehuttenSouth;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,13 +19,14 @@ import utils.FadeAnimation;
 import utils.SoundMapper;
 import static world.Game.fireball;
 import static world.Game.player;
+import static world.Game.spellBook;
 
 /**
  * FXML Controller class
  *
  * @author madsfalken
  */
-public class LibraryController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class LibraryController extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -73,7 +74,9 @@ public class LibraryController extends MenuControllerInjection implements Initia
     @FXML
     private void scrollClicked(MouseEvent event) {
         scrollId.setImage(null);
+        spellBook.addSpell(fireball);
         player.addItem(fireball);
+
     }
     
 }

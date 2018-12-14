@@ -8,7 +8,7 @@ package controllers.GydehuttenSouth;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class MainhallController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class MainhallController extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
