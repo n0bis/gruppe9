@@ -7,7 +7,7 @@ package controllers.GydehuttenSouth;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -29,7 +29,7 @@ import static world.Game.spellBook;
  *
  * @author madsfalken
  */
-public class BossFightController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class BossFightController extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/NPC/Cerberus1.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/NPC/Cerberus2.png"));
@@ -100,7 +100,7 @@ public class BossFightController extends MenuControllerInjection implements Init
     }
         
     private void throwOut() {
-        menuController.SpeechText("\nCerberus threw you out!");
+        menuController.SpeechText("\nCerberus threw you out! You either answered wrong or need an item to fight Cerberus. Items needed: Piece of Leg and Musicbook");
         FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }    
 

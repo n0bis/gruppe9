@@ -8,7 +8,7 @@ package controllers.mainEntrance;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -24,7 +24,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class Torvet2Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class Torvet2Controller extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;

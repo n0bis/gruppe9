@@ -8,7 +8,7 @@ package controllers.Stenten;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,6 +23,7 @@ import world.Game;
 import static world.Game.boneone;
 import static world.Game.bonethree;
 import static world.Game.bonetwo;
+import static world.Game.pieceOfLeg;
 import static world.Game.player;
 
 /**
@@ -30,7 +31,7 @@ import static world.Game.player;
  *
  * @author morte
  */
-public class EntranceU1Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class EntranceU1Controller extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
@@ -91,6 +92,7 @@ public class EntranceU1Controller extends MenuControllerInjection implements Ini
             menuController.SpeechText(doctorQuest.getQuestDone());
             doctorQuest.setIsQuestDone(true);
             game.isStentenLocked = false;
+            player.addItem(pieceOfLeg);
         } else {
             menuController.SpeechText(doctorQuest.getQuestInProgress());
         } 

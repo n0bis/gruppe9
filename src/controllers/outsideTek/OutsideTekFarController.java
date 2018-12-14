@@ -8,7 +8,7 @@ package controllers.outsideTek;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -35,7 +35,7 @@ import worldofzuul.StartGame;
  *
  * @author morte
  */
-public class OutsideTekFarController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class OutsideTekFarController extends MagicInjection implements Initializable, IPlaySound, INavigate {
     
     private final Image stage2Boss = new Image(getClass().getResourceAsStream("/images/sackmonster2.png"));
     private final Image stage3Boss = new Image(getClass().getResourceAsStream("/images/sackmonster3.jpg"));
@@ -70,11 +70,6 @@ public class OutsideTekFarController extends MenuControllerInjection implements 
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
-        
-        player.addItem(stage1RequiredItem);
-        player.addItem(stage2RequiredItem);
-        player.addItem(spellBook);
-        spellBook.addSpell(fireball);
     }   
     
     @FXML

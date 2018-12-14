@@ -12,8 +12,6 @@ import controllers.SpookyController;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -155,7 +153,7 @@ public class StartGame extends Application {
         //sceneManager.addScene("WorldOfZuulGUI", menuController);
                 
         Timer timer = new Timer();
-        timer.schedule(new TimeRemaining(), TimeUnit.SECONDS.toMillis(2));
+        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(5));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
