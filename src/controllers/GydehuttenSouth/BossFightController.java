@@ -65,12 +65,12 @@ public class BossFightController extends MenuControllerInjection implements Init
                 boss.incrementStage();
                 bossEncounter();
             } else {
-                menuController.SpeechText("Hahaha you don't have what it takes to fight me");
+                menuController.SpeechText("Hahaha, you don't have what it takes to fight me!");
                 throwOut();
             }
             break;
         case 2:
-            menuController.SpeechText("Ohh, you might have killed my first head, but I still have my Metalhead. FeelsGoodMan");
+            menuController.SpeechText("Oh, you might have killed my first head. But I still have 2 left!");
             bossId.setImage(stage2Boss);
             if (boss.wonStage2(player)) {
                 boss.incrementStage();
@@ -82,16 +82,16 @@ public class BossFightController extends MenuControllerInjection implements Init
             break;
         case 3:
             if (!player.hasItem(fireball)) {
-                menuController.SpeechText("Ohh, only a spell can kill my last head and you don't have it! Be gone!");
+                menuController.SpeechText("You need a spell to kill me, and you don't have it!");
                 throwOut();
             } 
 
-            menuController.SpeechText("Ohh, only a spell can kill my last head!");
+            menuController.SpeechText("My last head can only be killed by a spell!");
             bossId.setImage(stage3Boss);
             if(boss.wonStage3(fireball, player)) {
                 boss.incrementStage();
                 bossEncounter();
-                menuController.SpeechText("You've killed my last head! *super dead*");
+                menuController.SpeechText("Aarggghh, you've killed my last head!");
                 bossId.setImage(dead);
                 arrowBackId.setOpacity(1);
                 arrowForwardId.setOpacity(1);
@@ -100,7 +100,7 @@ public class BossFightController extends MenuControllerInjection implements Init
     }
         
     private void throwOut() {
-        menuController.SpeechText("\nCerberus threw you out");
+        menuController.SpeechText("\nCerberus threw you out!");
         FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
     }    
 
