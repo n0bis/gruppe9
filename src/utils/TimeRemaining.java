@@ -39,13 +39,14 @@ public class TimeRemaining extends TimerTask  {
                 Button closeButton = (Button)loader.getNamespace().get("closeButton");
                 closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
                 FlowPane flowPane = (FlowPane)loader.getNamespace().get("flowPane");
-                flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+                flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/menu/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
                 TextArea smsTextbox = (TextArea)loader.getNamespace().get("smsTextbox");
                 String text = smsTextbox.getText().replaceFirst("Player", player.getName());
                 smsTextbox.setText(text);
                 root.setLayoutX(300);
                 root.setLayoutY(60);
                 SceneManager.getMain().getChildren().add(root);
+
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
