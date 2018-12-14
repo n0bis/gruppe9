@@ -107,6 +107,19 @@ public class MenuController implements Initializable {
         root.setLayoutX(200);
         root.setLayoutY(60);
         SceneManager.getMain().getChildren().add(root);
+    }    
+    @FXML
+    private void helpClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(
+           getClass().getResource("/views/Help.FXML")
+        );
+        Parent root = loader.load();
+      
+        Group closeButton = (Group)loader.getNamespace().get("crossId");
+        closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        root.setLayoutX(200);
+        root.setLayoutY(60);
+        SceneManager.getMain().getChildren().add(root);
     } 
     
     @FXML
