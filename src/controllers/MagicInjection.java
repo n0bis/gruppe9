@@ -16,7 +16,7 @@ import utils.TimeExpired;
  *
  * @author madsfalken
  */
-public class MenuControllerInjection {
+public class MagicInjection {
     public MenuController menuController;
     private static MediaPlayer mediaPlayer;
     

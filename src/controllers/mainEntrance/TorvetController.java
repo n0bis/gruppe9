@@ -8,7 +8,7 @@ package controllers.mainEntrance;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import static controllers.QuizController.hasAnswered;
 import static controllers.QuizController.isQuizTime;
 import controllers.SceneManager;
@@ -28,7 +28,7 @@ import utils.SoundMapper;
  *
  * @author morte
  */
-public class TorvetController extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class TorvetController extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
