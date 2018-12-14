@@ -76,7 +76,7 @@ public class StartGameFXMLController implements Initializable {
             menuControler.stopSound();
             startGame.setPlayerName(enterNameTextField.getText());
             startGame.primaryStage.close();
-            startGame.second();
+            startGame.third();
             
         } else {
             labelMessage.setOpacity(1);

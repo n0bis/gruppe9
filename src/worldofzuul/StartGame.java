@@ -155,9 +155,8 @@ public class StartGame extends Application {
         //sceneManager.addScene("WorldOfZuulGUI", menuController);
                 
         Timer timer = new Timer();
-        timer.schedule(new TimeRemaining(), TimeUnit.MINUTES.toMillis(1));
+        timer.schedule(new TimeRemaining(), TimeUnit.SECONDS.toMillis(2));
         timer.schedule(new TimeExpired(), TimeUnit.MINUTES.toMillis(20));
-        timer.schedule(new SpookyController(), TimeUnit.MINUTES.toMillis(2));
         //timer.schedule(new QuizController(), TimeUnit.SECONDS.toMillis(2));
         TimerScore.startTimer();
         
