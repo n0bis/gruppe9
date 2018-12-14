@@ -26,16 +26,17 @@ public class Game
     public static Item bonethree = new Item("Bone3", 14);
     public static Item scissorItem = new Item("Scissor", 13);
     public static Item pulledPork = new Item("pulledpork",14);
-    public static Item pieceOfLamb = new Item("piece of lamb",15);
+    public static Item pieceOfLeg = new Item("piece of leg",15);
     public static Item ribeye = new Item("ribeye",16);
     public static Item fangs = new Item("Fangs", 17);   
     public static Item bones = new Item("Bones", 18);
     public static Item key = new Item("Key", 19);
     public static Item creepyBear = new Item("Creepy bear", 20);
     public static Item creepyDoll = new Item("Creepy Doll", 21);
+    public static Item scrollofwisdom = new Item("Wisdom scroll", 22);
    
     public static boolean isStentenLocked = true;
     
     //Boss
-    public static FinalBoss boss = new FinalBoss(stage1RequiredItem, stage2RequiredItem, spellBook, fireball);
+    public static FinalBoss boss = new FinalBoss(stage1RequiredItem, pieceOfLeg, spellBook, fireball);
 }

@@ -70,9 +70,6 @@ public class OutsideTekFarController extends MagicInjection implements Initializ
         backgroundId.fitWidthProperty().bind(anchorId.widthProperty());
         themeIconView.setImage(new Image(getClass().getResourceAsStream("/images/" + startGame.getImageSelector() + "/themeIcon.png")));
         studyCardId.setImage(new Image(getClass().getResourceAsStream("/images/items/studentid.png")));
-        
-        player.addItem(stage1RequiredItem);
-        player.addItem(stage2RequiredItem);
     }   
     
     @FXML
