@@ -21,6 +21,7 @@ import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.FlowPane;
 import static world.Game.player;
+import worldofzuul.StartGame;
 
 /**
  *
@@ -41,7 +42,7 @@ public class TimeRemaining extends TimerTask  {
                 FlowPane flowPane = (FlowPane)loader.getNamespace().get("flowPane");
                 flowPane.setBackground(new Background(new BackgroundImage(new Image(getClass().getResourceAsStream("/images/smartphone.png")), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
                 TextArea smsTextbox = (TextArea)loader.getNamespace().get("smsTextbox");
-                String text = smsTextbox.getText().replaceFirst("Player", player.getName());
+                String text = smsTextbox.getText().replaceFirst("Player", StartGame.playerName);
                 smsTextbox.setText(text);
                 root.setLayoutX(300);
                 root.setLayoutY(60);

@@ -8,7 +8,7 @@ package controllers.GydehuttenSouth;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -27,7 +27,7 @@ import static world.Game.toiletpaper;
  *
  * @author morte
  */
-public class Mainhall2Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class Mainhall2Controller extends MagicInjection implements Initializable, IPlaySound, INavigate {
     
     private final Image youngMummy = new Image (getClass().getResourceAsStream("/images/NPC/Mummy.png"));
     @FXML
@@ -62,6 +62,8 @@ public class Mainhall2Controller extends MenuControllerInjection implements Init
     public void arrowUpClicked(MouseEvent event) {
         if (mummyQuest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
+        } else {
+            menuController.SpeechText("You need to help me before you can pass!");
         }
     }
     @FXML

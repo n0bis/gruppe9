@@ -39,8 +39,8 @@ public final class SceneManager {
         try {
             FXMLLoader loader = new FXMLLoader((getClass().getResource( "/views/" + name + ".fxml" )));
             Pane pane = loader.load();
-            if (loader.getController() instanceof MenuControllerInjection) {
-                MenuControllerInjection controller = loader.<MenuControllerInjection>getController();
+            if (loader.getController() instanceof MagicInjection) {
+                MagicInjection controller = loader.<MagicInjection>getController();
                 controller.init(menuController);
             }
             sceneMap.put(name, new SceneMapper(loader.getController(), pane));
@@ -70,17 +70,17 @@ public final class SceneManager {
         node.setOpacity(1);
         if (IPlaySound.class.isAssignableFrom(getController().getClass())) {
             SoundMapper source = ((IPlaySound)getController()).mapSound();
-            ((MenuControllerInjection)getController()).playSound(source);
+            ((MagicInjection)getController()).playSound(source);
         } else {
-            ((MenuControllerInjection)getController()).destroyPlayer();
+            ((MagicInjection)getController()).destroyPlayer();
         }
         if (getController() instanceof NedenUnderController) {
             NedenUnderController controller = getController();
             controller.setHighScore();
         }
         main.setCenter(node);
-        if (player.hasItem(coffeeDrink) && !MenuControllerInjection.challengeWon) {
-            MenuControllerInjection controller = getController();
+        if (player.hasItem(coffeeDrink) && !MagicInjection.challengeWon) {
+            MagicInjection controller = getController();
             controller.injectCoffee();
         }
         if (SceneManager.getController() instanceof TorvetController) {
