@@ -108,7 +108,7 @@ public class MenuController implements Initializable {
         root.setLayoutY(60);
         SceneManager.getMain().getChildren().add(root);
     }    
-    
+
     @FXML
     private void helpClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(
