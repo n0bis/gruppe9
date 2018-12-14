@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="spellbookId" fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/menu/spellBookOpen.jpg" />
+            <Image url="@../images/menu/spellbookopen.png" />
          </image>
       </ImageView>
       <Group fx:id="crossId" layoutX="67.0" layoutY="7.0">
