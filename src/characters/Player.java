@@ -8,7 +8,6 @@ import missions.Quest;
 
 
 public class Player {
-    private NPC npc;
     public List<Item> inventory = new ArrayList<>();
     public List<Quest> questLog = new ArrayList<>();
     private String name;

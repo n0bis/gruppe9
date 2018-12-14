@@ -8,7 +8,7 @@ package controllers.building44;
 
 import controllers.INavigate;
 import controllers.IPlaySound;
-import controllers.MenuControllerInjection;
+import controllers.MagicInjection;
 import static controllers.building44.U183Controller.talkedToPolice;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +27,7 @@ import static world.Game.scissorItem;
  *
  * @author morte
  */
-public class Bygning44TowardsLvl1Controller extends MenuControllerInjection implements Initializable, IPlaySound, INavigate {
+public class Bygning44TowardsLvl1Controller extends MagicInjection implements Initializable, IPlaySound, INavigate {
 
     @FXML
     private AnchorPane anchorId;
