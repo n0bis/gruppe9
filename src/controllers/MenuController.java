@@ -108,6 +108,7 @@ public class MenuController implements Initializable {
         root.setLayoutY(60);
         SceneManager.getMain().getChildren().add(root);
     }    
+    
     @FXML
     private void helpClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(
@@ -117,6 +118,9 @@ public class MenuController implements Initializable {
       
         Group closeButton = (Group)loader.getNamespace().get("crossId");
         closeButton.setOnMouseClicked((mouseEvent) -> SceneManager.getMain().getChildren().remove(root));
+        TextArea leftPage = (TextArea)loader.getNamespace().get("leftPage");
+        String text = leftPage.getText().replaceFirst("student", startGame.getPlayerName());
+        leftPage.setText(text);
         root.setLayoutX(200);
         root.setLayoutY(60);
         SceneManager.getMain().getChildren().add(root);
