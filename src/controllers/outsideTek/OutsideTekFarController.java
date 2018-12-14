@@ -73,8 +73,6 @@ public class OutsideTekFarController extends MagicInjection implements Initializ
         
         player.addItem(stage1RequiredItem);
         player.addItem(stage2RequiredItem);
-        player.addItem(spellBook);
-        spellBook.addSpell(fireball);
     }   
     
     @FXML

@@ -19,6 +19,7 @@ import utils.FadeAnimation;
 import utils.SoundMapper;
 import static world.Game.fireball;
 import static world.Game.player;
+import static world.Game.spellBook;
 
 /**
  * FXML Controller class
@@ -73,7 +74,9 @@ public class LibraryController extends MagicInjection implements Initializable, 
     @FXML
     private void scrollClicked(MouseEvent event) {
         scrollId.setImage(null);
+        spellBook.addSpell(fireball);
         player.addItem(fireball);
+
     }
     
 }
