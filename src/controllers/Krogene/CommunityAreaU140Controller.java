@@ -64,6 +64,7 @@ public class CommunityAreaU140Controller extends MagicInjection implements Initi
     
     @FXML
     private void creepyBearClicked(MouseEvent event) {
+        menuController.playSound("/sounds/OhTeddy.mp3");
         creepyBearId.setImage(null);
         player.addItem(creepyBear);
         if (player.hasQuest(Twin1Quest)) {
