@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="controllers.Stenten.NotMainhallController">
+<AnchorPane id="AnchorPane" fx:id="anchorId" maxHeight="600" maxWidth="700" minHeight="500" minWidth="1200" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Stenten.NotMainhallController">
    <children>
       <ImageView fx:id="backgroundId" fitHeight="600.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,5 +33,25 @@
             <Image url="@../images/arrowUp.png" />
          </image>
       </ImageView>
+      <Group layoutX="10.0" layoutY="10.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="46.0" layoutX="146.0" layoutY="52.0" stroke="BLACK" strokeType="INSIDE" width="105.0" />
+            <Label layoutX="154.0" layoutY="64.0" text="Stenten" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="22.0" fitWidth="9.0" layoutX="222.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../images/arrowUp.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="22.0" fitWidth="9.0" layoutX="237.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../images/arrowDown.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
    </children>
 </AnchorPane>
