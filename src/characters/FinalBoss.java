@@ -26,6 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import missions.Quiz;
 import static world.Game.fireball;
+import static world.Game.musicbook;
 import static world.Game.spellBook;
 import worldofzuul.StartGame;
 
@@ -84,10 +85,12 @@ public class FinalBoss extends Boss {
         
         okButton.setOnAction((value) -> {
             dialog.close();
-            try {
-                quizStage = isQuizTimeDialog(stage1Quiz);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            if (player.hasItem(musicbook)) {
+                try {
+                    quizStage = isQuizTimeDialog(stage1Quiz);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
         noButton.setOnAction((value) -> {
@@ -98,7 +101,7 @@ public class FinalBoss extends Boss {
         
         if (quizStage != null) quizStage.showAndWait();
         
-        return QuizController.isCorrect;
+        return (player.hasItem(musicbook)) ? QuizController.isCorrect : false;
     }
     
     public boolean wonStage2(Player player) {
@@ -109,8 +112,9 @@ public class FinalBoss extends Boss {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+            return QuizController.isCorrect;
         }
-        return QuizController.isCorrect;
+        return false;
     }
     
     public boolean wonStage3(Item Spell, Player player) {

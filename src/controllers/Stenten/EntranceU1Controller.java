@@ -23,6 +23,7 @@ import world.Game;
 import static world.Game.boneone;
 import static world.Game.bonethree;
 import static world.Game.bonetwo;
+import static world.Game.pieceOfLeg;
 import static world.Game.player;
 
 /**
@@ -91,6 +92,7 @@ public class EntranceU1Controller extends MagicInjection implements Initializabl
             menuController.SpeechText(doctorQuest.getQuestDone());
             doctorQuest.setIsQuestDone(true);
             game.isStentenLocked = false;
+            player.addItem(pieceOfLeg);
         } else {
             menuController.SpeechText(doctorQuest.getQuestInProgress());
         } 

@@ -18,6 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import utils.FadeAnimation;
 import utils.SoundMapper;
+import static world.Game.musicbook;
+import static world.Game.player;
 
 /**
  * FXML Controller class
@@ -32,6 +34,8 @@ public class U45Controller extends MagicInjection implements Initializable, IPla
     private ImageView backgroundId;
     @FXML
     private ImageView arrowBackId;
+    @FXML
+    private ImageView musicBookId;
 
     /**
      * Initializes the controller class.
@@ -67,6 +71,13 @@ public class U45Controller extends MagicInjection implements Initializable, IPla
     @Override
     public void arrowLeftClicked(MouseEvent event) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @FXML
+    private void musicBookClicked(MouseEvent event) {
+        musicBookId.setImage(null);
+        player.addItem(musicbook);
+        menuController.SpeechText("You picked up " + musicbook.getName());
     }
     
 }

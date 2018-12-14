@@ -41,13 +41,6 @@
             <ColorAdjust contrast="-1.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="fangsId" fitHeight="117.0" fitWidth="165.0" layoutX="240.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/items/teeth.png" />
-         </image>
-         <effect>
-            <ColorAdjust contrast="-1.0" />
-         </effect></ImageView>
       <ImageView fx:id="toiletpaperId" fitHeight="117.0" fitWidth="165.0" layoutX="445.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/items/toiletpaper.png" />

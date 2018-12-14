@@ -33,7 +33,7 @@ public class Game
     public static Item key = new Item("Key", 19);
     public static Item creepyBear = new Item("Creepy bear", 20);
     public static Item creepyDoll = new Item("Creepy Doll", 21);
-    public static Item scrollofwisdom = new Item("Wisdom scroll", 22);
+    public static Item musicbook = new Item("music book", 22);
    
     public static boolean isStentenLocked = true;
     
