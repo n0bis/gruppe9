@@ -13,11 +13,8 @@ import static world.Game.creepyBear;
 import static world.Game.pieceOfLeg;
 import static world.Game.toiletpaper;
 
-/**
- *
- * @author birke
- */
 public class QuestList {
+    
     public static Quest Twin1Quest = new Quest("Find my bear!", "I've lost my bear... If you find my bear I'll let you pass. I'll give you a hint, walk past krogene", "You still need to find my bear!", "The quest is "
             + "done", null, creepyBear);
     

@@ -54,15 +54,15 @@ public class FinalBoss extends Boss {
     private Stage quizStage;
     
     public FinalBoss(Item stage1RequiredItem, Item stage2RequiredItem, Item stage3RequiredItem, Spell questSpell) {
-        super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed dawg. 1 head of Fire, 1 of Metal and 1 of Stone");
+        super("Cerberus", "Wufhahaha, I am Cerberus. The 3 headed monster dog! You will need some items to stand my tests!");
         this.stage1RequiredItem = stage1RequiredItem;
         this.stage2RequiredItem = stage2RequiredItem;
         this.stage3RequiredItem = stage3RequiredItem;
         this.questSpell = questSpell;
         this.stage = 1; 
-        Quiz quiz1 = new Quiz("What is the hallway called that lead to u140", Arrays.asList("krogene", "knoldene", "vangene"), "krogene");
-        Quiz quiz2 = new Quiz("What is the hallway called that lead to u133", Arrays.asList("krogene", "knoldene", "vangene"), "vangene");
-        Quiz quiz3 = new Quiz("What is the hallway called that lead to u1", Arrays.asList("krogene", "knoldene", "stenten"), "stenten");
+        Quiz quiz1 = new Quiz("What is the hallway called that lead to U140", Arrays.asList("Krogene", "Knoldene", "Vangene"), "Krogene");
+        Quiz quiz2 = new Quiz("What is the hallway called that lead to U133", Arrays.asList("Krogene", "Knoldene", "Vangene"), "Vangene");
+        Quiz quiz3 = new Quiz("What is the hallway called that lead to U1", Arrays.asList("Krogene", "Knoldene", "Stenten"), "Stenten");
         
         List<Quiz> quizes = new LinkedList<>(Arrays.asList(quiz1, quiz2, quiz3));
         Collections.shuffle(quizes);

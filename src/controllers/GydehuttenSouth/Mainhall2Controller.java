@@ -62,6 +62,8 @@ public class Mainhall2Controller extends MagicInjection implements Initializable
     public void arrowUpClicked(MouseEvent event) {
         if (mummyQuest.isQuestDone()) {
             FadeAnimation.fadeOutTransition(anchorId, "mainhall6");
+        } else {
+            menuController.SpeechText("You need to help me before you can pass!");
         }
     }
     @FXML
