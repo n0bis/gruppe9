@@ -17,7 +17,7 @@ import static world.Game.toiletpaper;
 public class QuestList {
     public static Quest sackQuest = new Quest("Find my book", "This is the quest description: Find my book", "Quest is in progress: You still need to find my book", "The quest is "
             + "done", teeth, Bookie);    
-    public static Quest Twin1Quest = new Quest("Find my bear!", "I've lost my bear... If you find my bear I'll let you pass. I'll give you a hint, walk past Krogene", "You still need to find my bear!", "Yaaay, thanks you Mister"
+    public static Quest Twin1Quest = new Quest("Find my bear!", "I've lost my bear... If you find my bear I'll let you pass. I'll give you a hint, walk past Krogene", "You still need to find my bear!", "Yaaay, thank you Mister"
            , null, creepyBear);
     public static Quest Twin2Quest = new Quest("Find my doll", "I've lost my doll... If you find my doll I'll let you pass. I'll give you a hint, you have to go through Vangene", "You still need to find my doll!", "Thanks for helping me, Mister."
            , null, creepyDoll);
