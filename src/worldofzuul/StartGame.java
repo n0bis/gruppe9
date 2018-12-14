@@ -12,8 +12,6 @@ import controllers.SpookyController;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -66,21 +64,6 @@ public class StartGame extends Application {
     
     
     public void second() {
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("/views/Intro.fxml"));
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/base.css");
-        primaryStage.setTitle("SDU Maze");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-    
-    public void third() {
-        primaryStage.close();
         BorderPane borderPane = new BorderPane();
         FXMLLoader loader = new FXMLLoader(
             getClass().getResource("/views/Menu.fxml")

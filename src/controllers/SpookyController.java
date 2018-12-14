@@ -59,12 +59,7 @@ public class SpookyController extends TimerTask implements Initializable {
         mediaPlayer = new MediaPlayer(new Media(getClass().getResource("/sounds/creepywoman.mp3").toExternalForm()));
         mediaPlayer.setVolume(1);
         mediaPlayer.play();
-        mediaPlayer.setOnEndOfMedia(() ->  {
-            closeButton.setOpacity(1);
-            rootId.toFront();
-            flowPane.toFront();
-            closeButton.toFront();
-        });
+        mediaPlayer.setOnEndOfMedia(() -> closeButton.setOpacity(1));
     }    
     
      @Override
