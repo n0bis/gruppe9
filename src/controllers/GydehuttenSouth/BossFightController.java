@@ -21,6 +21,8 @@ import utils.FadeAnimation;
 import utils.SoundMapper;
 import static world.Game.boss;
 import static world.Game.fireball;
+import static world.Game.musicbook;
+import static world.Game.pieceOfLeg;
 import static world.Game.player;
 import static world.Game.spellBook;
 
@@ -100,8 +102,19 @@ public class BossFightController extends MagicInjection implements Initializable
     }
         
     private void throwOut() {
-        menuController.SpeechText("\nCerberus threw you out! You either answered wrong or need an item to fight Cerberus. Items needed: Piece of Leg and Musicbook");
-        FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
+       if(player.hasItem(musicbook) && !player.hasItem(pieceOfLeg)) {
+            menuController.SpeechText("You need the item: Piece of Leg to continue to fight Cerberus");
+            FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
+        } else if(player.hasItem(pieceOfLeg) && !player.hasItem(musicbook)) {
+            menuController.SpeechText("You need the item: Musicbook to continue to fight Cerberus");
+            FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
+        } else if (!player.hasItem(pieceOfLeg) && !player.hasItem(musicbook)) {
+            menuController.SpeechText("You need the items: Piece of Leg and Musicbook to fight Cerberus");
+            FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
+        } else if (player.hasItem(pieceOfLeg) && player.hasItem(musicbook) && !player.hasItem(fireball)) {
+            menuController.SpeechText("You answered wrong! Cerberus threw you out!");
+            FadeAnimation.fadeOutTransition(anchorId, "bossEntrance");
+        }
     }    
 
     @FXML

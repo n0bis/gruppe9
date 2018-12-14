@@ -106,7 +106,7 @@ public class FinalBoss extends Boss {
     
     public boolean wonStage2(Player player) {
         if (player.inventory.contains(this.getStage2RequiredItem())) {
-            try {
+                try {
                 Stage dialog = isQuizTimeDialog(stage2Quiz);
                 dialog.showAndWait();
             } catch (IOException ex) {
