@@ -18,7 +18,7 @@
    <children>
       <ImageView fx:id="spellbookId" fitHeight="400.0" fitWidth="600.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/menu/spellbookopen.png" />
+            <Image url="@../images/menu/spellBookOpen.png" />
          </image>
       </ImageView>
       <Group fx:id="crossId" layoutX="67.0" layoutY="7.0">
@@ -28,7 +28,7 @@
             <Line endX="-80.0" layoutX="574.0" layoutY="14.0" rotate="-45.0" startX="-100.0" strokeWidth="2.0" />
          </children>
       </Group>
-      <TextArea fx:id="leftPage" editable="false" layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual &#10;SDU Halloween Party!&#10;&#10;Your date is currently waiting for you at&#10;the bar called &quot;Nedenunder&quot; where the &#10;Halloween Party is being held.&#10;&#10;The road to Nedenunder is filled with&#10;challenges that you have to solve. " />
-      <TextArea fx:id="rightPage" editable="false" layoutX="316.0" layoutY="22.0" prefHeight="274.0" prefWidth="245.0" text="You don't necessarily have to solve&#10;all of the challenges to get to the bar. &#10;Allthough you won't know which ones &#10;you need to solve to complete the game. &#10;&#10;Can you solve the mysteries of SDU in &#10;less than 20 minutes?&#10;" />
+      <TextArea fx:id="leftPage" editable="false" layoutX="55.0" layoutY="22.0" prefHeight="274.0" prefWidth="235.0" text="Hello student! Welcome to the annual SDU Halloween Party!&#10;&#10;Your date is currently waiting for you at the bar called &quot;Nedenunder&quot; where the Halloween Party is being held.&#10;&#10;The road to Nedenunder is filled with challenges that you have to solve. " wrapText="true" />
+      <TextArea fx:id="rightPage" editable="false" layoutX="316.0" layoutY="22.0" prefHeight="274.0" prefWidth="245.0" text="You don't necessarily have to solve&#10;all of the challenges to get to the bar. &#10;&#10;Allthough you won't know which ones  you need to solve to complete the game. &#10;&#10;Can you solve the mysteries of SDU in  less than 20 minutes?&#10;" wrapText="true" />
    </children>
 </AnchorPane>

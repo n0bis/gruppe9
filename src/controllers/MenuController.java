@@ -93,7 +93,7 @@ public class MenuController implements Initializable {
     @FXML
     private void bagClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-           getClass().getResource("/views/Bag.FXML")
+           getClass().getResource("/views/Bag.fxml")
         );
         Parent root = loader.load();
         
@@ -112,7 +112,7 @@ public class MenuController implements Initializable {
     @FXML
     private void helpClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-           getClass().getResource("/views/Help.FXML")
+           getClass().getResource("/views/Help.fxml")
         );
         Parent root = loader.load();
       
