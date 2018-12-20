@@ -12,7 +12,8 @@ Spilleren skal nå igennem gangene på SDU på 20 minutter, ellers vil man gå g
 Du kan downloade spillet [her](https://github.com/n0bis/gruppe9/releases/tag/2.0)
 <br/>
 ## Windows bruger
-Start en cmd og naviger frem til folderen hvor “SDUMaze.jar” filen er placeret, derefter køres der kommandoen: ```java .jar SDUMaze.jar```
+Start en cmd og naviger frem til folderen hvor “SDUMaze.jar” filen er placeret, derefter køres der kommandoen: <br/>
+```java .jar SDUMaze.jar```
 ## Mac bruger
 kan nøjes med at navigere hen til folderen og så dobbeltklik på .jar 
 ## OBS
@@ -46,12 +47,14 @@ I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE``
     - ```views```: alle vores views til brugeren
 
 ## Overview
-<br />
 For at skabe et hurtigt overblik over gruppens spil, er der blevet lavet en oversigt over spillets klassediagram. Dog har gruppen måtte erkende at dette klassediagram har meget coupling, som gør oversigten over spillet meget obskurt. Vi må derfor erkende at klassediagrammer ikke altid giver mening at have med i et dokument, da de kan være svære at få ind, men derimod giver et bedre overblik i et UML-program, der kan give et bedre overblik.
 <img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
-Figur 8.7.1: Dette er SDU Maze’s forsimplede klassediagram.
+<br/>
+**Figur 1: Dette er SDU Maze’s forsimplede klassediagram.**
+<br/>
 <img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
-Figur 8.2: Arkitektur oversigt for SDU Maze.  
+<br/>
+**Figur 2: Arkitektur oversigt for SDU Maze.**
 
 Der blev valgt at implementere View-Controller arkitektur og ikke en MVC arkitektur, da spillet ikke behøvede at sende en model til viewet, da vores controller ikke havde behov for at skulle opdatere en database med hvad spilleren har ændret/fortaget sig. Dvs. at man kun har en controller som sørger for at sende et view ud til spilleren, og på viewet er der implementeret ting som brugeren kan integrere med, ved at klikke på det. Derudover kan vi konkludere de samme benefits fra 1. iteration.
 
