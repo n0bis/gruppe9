@@ -46,17 +46,12 @@ I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE``
     - ```views```: alle vores views til brugeren
 
 ## Overview
-<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design"><br />
-**Figur 1: Et diagram over arkitekturdesignet for World-of-Zuul.**
 <br />
-Ud fra figur 1 kan man se at diagrammet over arkitekturdesignet for World-of-Zuul er et pakkediagram, som består af en tolags lagdeling. Det første lag i diagrammet, som er navngivet ”textUI” er det man kalder GUI, hvilket er en forkortelse for ”Graphical User Interface”. GUI er alt det man kan se i et program. Forestil dig at du er inde på din Facebook forside, alt det du ser på forsiden, er GUI, mens alle de aktiviteter du kan udføre på Facebook, går ind under business/domain logikken. Business/domain logikken er i figur 1’s tilfælde lag to i diagrammet, som er navngivet ”domain”, hvor man ligesom kan se klasserne i World-of-Zuul og de forskellige commands i spillet.
-<br />
-![Detaljeret design](https://github.com/n0bis/gruppe9/blob/master/wiki-img/detaljeret-design.png)
-**Figur 2: Et diagram over et detaljeret design for World-of-Zuul.**
-<br />
-Ud fra figur 2 kan man derimod se, at det detaljerede design for World-of-Zuul er et klassediagram, som går under kategorien logical view. Et logical view er en objektorienteret nedbrydning af et system, hvilket vil sige, at et system bliver nedbrudt til mindre dele, hvilket eksempelvis kunne være i klasser og forholdene mellem disse klasser bliver beskrevet. I figur 2 kan man se, hvad sammenhængen mellem de forskellige klasser er, hvilket gør, at man kan få en overordnet idé om hvorfor klasserne er forbundet til hinanden. Dette fører os tilbage til ”logical view”, som ligesom viste forholdet bag de forskellige klasser.
+For at skabe et hurtigt overblik over gruppens spil, er der blevet lavet en oversigt over spillets klassediagram. Dog har gruppen måtte erkende at dette klassediagram har meget coupling, som gør oversigten over spillet meget obskurt. Vi må derfor erkende at klassediagrammer ikke altid giver mening at have med i et dokument, da de kan være svære at få ind, men derimod giver et bedre overblik i et UML-program, der kan give et bedre overblik.
+<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
+Figur 8.7.1: Dette er SDU Maze’s forsimplede klassediagram.
+<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
+Figur 8.2: Arkitektur oversigt for SDU Maze.  
 
-Ud fra figur 2, kan man vurdere, at der er cohesion og coupling. Grunden til, at der er cohesion skyldes sammenhæng mellem klassen ”Game” og ”Room”. Disse to klassers sammenhæng er af typen high/høj-cohesion, hvilket skyldes at begge klasser udfører opgaver, som er relaterede til hinanden. Grunden til, at der er coupling i det detaljerede design er, at klassen ”Game” og ”Room” er afhængige af hinanden. Klasserne er så afhængige af hinanden, at man kan beskrive deres forhold som et child-parent forhold, hvilket også gør at det detaljerede design har en tæt coupling, hvilket ikke er godt, da de afhænger for meget af hinanden. 
+Der blev valgt at implementere View-Controller arkitektur og ikke en MVC arkitektur, da spillet ikke behøvede at sende en model til viewet, da vores controller ikke havde behov for at skulle opdatere en database med hvad spilleren har ændret/fortaget sig. Dvs. at man kun har en controller som sørger for at sende et view ud til spilleren, og på viewet er der implementeret ting som brugeren kan integrere med, ved at klikke på det. Derudover kan vi konkludere de samme benefits fra 1. iteration.
 
-![Udvidet uml design](https://github.com/n0bis/gruppe9/blob/master/wiki-img/zuul-diagram.png)
-**Figur 3: Udvidet uml design med udbygget funktioner**
