@@ -12,10 +12,11 @@ Spilleren skal nå igennem gangene på SDU på 20 minutter, ellers vil man gå g
 Du kan downloade spillet [her](https://github.com/n0bis/gruppe9/releases/tag/2.0)
 <br/>
 ## Windows bruger
-Start en cmd og naviger frem til folderen hvor “SDUMaze.jar” filen er placeret, derefter køres der kommandoen: ```java .jar “SDUMaze.jar”```
+Start en cmd og naviger frem til folderen hvor “SDUMaze.jar” filen er placeret, derefter køres der kommandoen: ```java .jar SDUMaze.jar```
 ## Mac bruger
 kan nøjes med at navigere hen til folderen og så dobbeltklik på .jar 
-OBS: Det kan være at Spillet ikke kan komme videre fra intro videoen, i dette tilfælde bør “SDUMazeNoIntro.jar” benyttes.
+## OBS
+Det kan være at Spillet ikke kan komme videre fra intro videoen, i dette tilfælde bør ```SDUMazeNoIntro.jar``` benyttes.
 
 ## Directory structure
 I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE```, etc.
