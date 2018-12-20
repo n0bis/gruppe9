@@ -48,11 +48,11 @@ I root folderen ligger filer som ```.gitignore```, ```README.md```, ```LICENSE``
 
 ## Overview
 For at skabe et hurtigt overblik over gruppens spil, er der blevet lavet en oversigt over spillets klassediagram. Dog har gruppen måtte erkende at dette klassediagram har meget coupling, som gør oversigten over spillet meget obskurt. Vi må derfor erkende at klassediagrammer ikke altid giver mening at have med i et dokument, da de kan være svære at få ind, men derimod giver et bedre overblik i et UML-program, der kan give et bedre overblik.
-<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
+<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/zuul-diagram-v2.png" height="500" alt="Arkitektur design">
 <br/>
 **Figur 1: Dette er SDU Maze’s forsimplede klassediagram.**
 <br/>
-<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/arkitektur-design.png" height="500" alt="Arkitektur design">
+<img src="https://github.com/n0bis/gruppe9/blob/master/wiki-img/architecturediagram.png" height="500" alt="Arkitektur design">
 <br/>
 **Figur 2: Arkitektur oversigt for SDU Maze.**
 
